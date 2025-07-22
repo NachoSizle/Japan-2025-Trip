@@ -1,0 +1,878 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+// Frases organizadas por categorías
+const categoriasFrases = {
+  basico: {
+    titulo: "🗣️ Básico & Cortesía",
+    emoji: "🙏",
+    color: "#FF1493",
+    frases: [
+      {
+        japones: "こんにちは",
+        fonetico: "Konnichiwa",
+        traduccion: "Hola (durante el día)"
+      },
+      {
+        japones: "おはようございます",
+        fonetico: "Ohayou gozaimasu",
+        traduccion: "Buenos días"
+      },
+      {
+        japones: "こんばんは",
+        fonetico: "Konbanwa",
+        traduccion: "Buenas tardes/noches"
+      },
+      {
+        japones: "ありがとうございます",
+        fonetico: "Arigatou gozaimasu",
+        traduccion: "Muchas gracias"
+      },
+      {
+        japones: "すみません",
+        fonetico: "Sumimasen",
+        traduccion: "Disculpe / Perdón"
+      },
+      {
+        japones: "はじめまして",
+        fonetico: "Hajimemashite",
+        traduccion: "Mucho gusto (primera vez)"
+      },
+      {
+        japones: "よろしくお願いします",
+        fonetico: "Yoroshiku onegaishimasu",
+        traduccion: "Por favor, cuente conmigo"
+      },
+      {
+        japones: "おやすみなさい",
+        fonetico: "Oyasumi nasai",
+        traduccion: "Buenas noches (al despedirse)"
+      },
+      {
+        japones: "いただきます",
+        fonetico: "Itadakimasu",
+        traduccion: "Antes de comer (buen provecho)"
+      },
+      {
+        japones: "ごちそうさまでした",
+        fonetico: "Gochisousama deshita",
+        traduccion: "Después de comer (gracias por la comida)"
+      }
+    ]
+  },
+  
+  navegacion: {
+    titulo: "🗺️ Navegación & Ubicación",
+    emoji: "🧭",
+    color: "#FF6B6B",
+    frases: [
+      {
+        japones: "...はどこですか？",
+        fonetico: "...wa doko desu ka?",
+        traduccion: "¿Dónde está...?"
+      },
+      {
+        japones: "駅はどこですか？",
+        fonetico: "Eki wa doko desu ka?",
+        traduccion: "¿Dónde está la estación?"
+      },
+      {
+        japones: "トイレはどこですか？",
+        fonetico: "Toire wa doko desu ka?",
+        traduccion: "¿Dónde está el baño?"
+      },
+      {
+        japones: "道に迷いました",
+        fonetico: "Michi ni mayoimashita",
+        traduccion: "Me he perdido"
+      },
+      {
+        japones: "ここはどこですか？",
+        fonetico: "Koko wa doko desu ka?",
+        traduccion: "¿Dónde estamos?"
+      },
+      {
+        japones: "地図をください",
+        fonetico: "Chizu wo kudasai",
+        traduccion: "Un mapa, por favor"
+      },
+      {
+        japones: "まっすぐです",
+        fonetico: "Massugu desu",
+        traduccion: "Todo recto"
+      },
+      {
+        japones: "右に曲がってください",
+        fonetico: "Migi ni magatte kudasai",
+        traduccion: "Gire a la derecha, por favor"
+      },
+      {
+        japones: "左に曲がってください",
+        fonetico: "Hidari ni magatte kudasai",
+        traduccion: "Gire a la izquierda, por favor"
+      },
+      {
+        japones: "近いですか？",
+        fonetico: "Chikai desu ka?",
+        traduccion: "¿Está cerca?"
+      },
+      {
+        japones: "歩いて何分ぐらいですか？",
+        fonetico: "Aruite nanpun gurai desu ka?",
+        traduccion: "¿Cuántos minutos a pie?"
+      }
+    ]
+  },
+
+  transporte: {
+    titulo: "🚇 Transporte",
+    emoji: "🚄",
+    color: "#32CD32",
+    frases: [
+      {
+        japones: "切符をください",
+        fonetico: "Kippu wo kudasai",
+        traduccion: "Un billete, por favor"
+      },
+      {
+        japones: "新宿まで、いくらですか？",
+        fonetico: "Shinjuku made, ikura desu ka?",
+        traduccion: "¿Cuánto cuesta hasta Shinjuku?"
+      },
+      {
+        japones: "次の駅は何ですか？",
+        fonetico: "Tsugi no eki wa nan desu ka?",
+        traduccion: "¿Cuál es la siguiente estación?"
+      },
+      {
+        japones: "この電車は...に止まりますか？",
+        fonetico: "Kono densha wa ... ni tomarimasu ka?",
+        traduccion: "¿Este tren para en...?"
+      },
+      {
+        japones: "タクシーを呼んでください",
+        fonetico: "Takushii wo yonde kudasai",
+        traduccion: "Llame un taxi, por favor"
+      },
+      {
+        japones: "空港まで行ってください",
+        fonetico: "Kuukou made itte kudasai",
+        traduccion: "Al aeropuerto, por favor"
+      },
+      {
+        japones: "ここで降ります",
+        fonetico: "Koko de orimasu",
+        traduccion: "Me bajo aquí"
+      },
+      {
+        japones: "急いでいます",
+        fonetico: "Isogide imasu",
+        traduccion: "Tengo prisa"
+      }
+    ]
+  },
+
+  restaurante: {
+    titulo: "🍜 Restaurante & Comida",
+    emoji: "🥢",
+    color: "#FF8C00",
+    frases: [
+      {
+        japones: "メニューをください",
+        fonetico: "Menyuu wo kudasai",
+        traduccion: "El menú, por favor"
+      },
+      {
+        japones: "これをください",
+        fonetico: "Kore wo kudasai",
+        traduccion: "Esto, por favor"
+      },
+      {
+        japones: "おすすめは何ですか？",
+        fonetico: "Osusume wa nan desu ka?",
+        traduccion: "¿Qué me recomienda?"
+      },
+      {
+        japones: "ビールをください",
+        fonetico: "Biiru wo kudasai",
+        traduccion: "Una cerveza, por favor"
+      },
+      {
+        japones: "水をください",
+        fonetico: "Mizu wo kudasai",
+        traduccion: "Agua, por favor"
+      },
+      {
+        japones: "お箸をください",
+        fonetico: "Ohashi wo kudasai",
+        traduccion: "Palillos, por favor"
+      },
+      {
+        japones: "とても美味しいです",
+        fonetico: "Totemo oishii desu",
+        traduccion: "Está muy delicioso"
+      },
+      {
+        japones: "お会計をお願いします",
+        fonetico: "Okaikei wo onegaishimasu",
+        traduccion: "La cuenta, por favor"
+      },
+      {
+        japones: "辛いですか？",
+        fonetico: "Karai desu ka?",
+        traduccion: "¿Está picante?"
+      },
+      {
+        japones: "ベジタリアンです",
+        fonetico: "Bejitarian desu",
+        traduccion: "Soy vegetariano"
+      }
+    ]
+  },
+
+  glutenFree: {
+    titulo: "🌾🚫 Sin Gluten",
+    emoji: "🌾",
+    color: "#8B4513",
+    frases: [
+      {
+        japones: "グルテンフリーですか？",
+        fonetico: "Guruten furī desu ka?",
+        traduccion: "¿Es libre de gluten?"
+      },
+      {
+        japones: "小麦粉が入っていますか？",
+        fonetico: "Komugiko ga haitte imasu ka?",
+        traduccion: "¿Contiene harina de trigo?"
+      },
+      {
+        japones: "小麦アレルギーがあります",
+        fonetico: "Komugi arerugī ga arimasu",
+        traduccion: "Tengo alergia al trigo"
+      },
+      {
+        japones: "醤油は大丈夫ですか？",
+        fonetico: "Shōyu wa daijōbu desu ka?",
+        traduccion: "¿La salsa de soja está bien?"
+      },
+      {
+        japones: "グルテンフリーのメニューはありますか？",
+        fonetico: "Guruten furī no menyuu wa arimasu ka?",
+        traduccion: "¿Tienen menú sin gluten?"
+      },
+      {
+        japones: "米だけで作られていますか？",
+        fonetico: "Kome dake de tsukurarete imasu ka?",
+        traduccion: "¿Está hecho solo con arroz?"
+      }
+    ]
+  },
+
+  compras: {
+    titulo: "🛍️ Compras",
+    emoji: "💰",
+    color: "#9370DB",
+    frases: [
+      {
+        japones: "いくらですか？",
+        fonetico: "Ikura desu ka?",
+        traduccion: "¿Cuánto cuesta?"
+      },
+      {
+        japones: "安くしてください",
+        fonetico: "Yasuku shite kudasai",
+        traduccion: "Hágame un descuento, por favor"
+      },
+      {
+        japones: "クレジットカードは使えますか？",
+        fonetico: "Kurejitto kaado wa tsukaemasu ka?",
+        traduccion: "¿Puedo pagar con tarjeta?"
+      },
+      {
+        japones: "袋をください",
+        fonetico: "Fukuro wo kudasai",
+        traduccion: "Una bolsa, por favor"
+      },
+      {
+        japones: "これを見せてください",
+        fonetico: "Kore wo misete kudasai",
+        traduccion: "Muéstreme esto, por favor"
+      },
+      {
+        japones: "大きいサイズはありますか？",
+        fonetico: "Ookii saizu wa arimasu ka?",
+        traduccion: "¿Tienen talla grande?"
+      },
+      {
+        japones: "小さいサイズはありますか？",
+        fonetico: "Chiisai saizu wa arimasu ka?",
+        traduccion: "¿Tienen talla pequeña?"
+      },
+      {
+        japones: "他の色はありますか？",
+        fonetico: "Hoka no iro wa arimasu ka?",
+        traduccion: "¿Tienen otros colores?"
+      }
+    ]
+  },
+
+  emergencia: {
+    titulo: "🚨 Emergencias",
+    emoji: "🆘",
+    color: "#DC143C",
+    frases: [
+      {
+        japones: "助けてください",
+        fonetico: "Tasukete kudasai",
+        traduccion: "¡Ayúdenme!"
+      },
+      {
+        japones: "警察を呼んでください",
+        fonetico: "Keisatsu wo yonde kudasai",
+        traduccion: "Llamen a la policía"
+      },
+      {
+        japones: "救急車を呼んでください",
+        fonetico: "Kyuukyuusha wo yonde kudasai",
+        traduccion: "Llamen una ambulancia"
+      },
+      {
+        japones: "病院はどこですか？",
+        fonetico: "Byouin wa doko desu ka?",
+        traduccion: "¿Dónde está el hospital?"
+      },
+      {
+        japones: "具合が悪いです",
+        fonetico: "Guai ga warui desu",
+        traduccion: "Me siento mal"
+      },
+      {
+        japones: "薬局はどこですか？",
+        fonetico: "Yakkyoku wa doko desu ka?",
+        traduccion: "¿Dónde está la farmacia?"
+      },
+      {
+        japones: "英語がわかる人はいますか？",
+        fonetico: "Eigo ga wakaru hito wa imasu ka?",
+        traduccion: "¿Hay alguien que hable inglés?"
+      }
+    ]
+  },
+
+  alojamiento: {
+    titulo: "🏨 Alojamiento",
+    emoji: "🛏️",
+    color: "#4682B4",
+    frases: [
+      {
+        japones: "予約があります",
+        fonetico: "Yoyaku ga arimasu",
+        traduccion: "Tengo una reserva"
+      },
+      {
+        japones: "チェックインお願いします",
+        fonetico: "Chekku-in onegaishimasu",
+        traduccion: "Check-in, por favor"
+      },
+      {
+        japones: "チェックアウトお願いします",
+        fonetico: "Chekku-auto onegaishimasu",
+        traduccion: "Check-out, por favor"
+      },
+      {
+        japones: "鍵をください",
+        fonetico: "Kagi wo kudasai",
+        traduccion: "La llave, por favor"
+      },
+      {
+        japones: "WiFiのパスワードは何ですか？",
+        fonetico: "WiFi no pasuwaado wa nan desu ka?",
+        traduccion: "¿Cuál es la contraseña del WiFi?"
+      },
+      {
+        japones: "朝食は何時からですか？",
+        fonetico: "Choushoku wa nanji kara desu ka?",
+        traduccion: "¿A qué hora es el desayuno?"
+      },
+      {
+        japones: "荷物を預けることはできますか？",
+        fonetico: "Nimotsu wo azukeru koto wa dekimasu ka?",
+        traduccion: "¿Puedo dejar el equipaje?"
+      }
+    ]
+  }
+};
+---
+
+<Layout title="Frases Útiles - Japón 2025">
+  <!-- Header -->
+  <div class="w-full overflow-x-hidden">
+    <div class="max-w-full">
+      <Header />
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="pt-20 min-h-screen phrases-main">
+    <!-- Hero Section -->
+    <section class="py-16 sm:py-20 phrases-hero">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 phrases-title">
+          🗣️ Frases Útiles para Japón
+        </h1>
+        <p class="text-lg sm:text-xl lg:text-2xl mb-8 phrases-subtitle">
+          Todo lo que necesitas para comunicarte y desenvolverte en tu viaje
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm">
+          <div class="phrases-stat">
+            <span class="phrases-stat-number">8</span>
+            <span class="phrases-stat-label">Categorías</span>
+          </div>
+          <div class="phrases-stat">
+            <span class="phrases-stat-number">60+</span>
+            <span class="phrases-stat-label">Frases esenciales</span>
+          </div>
+          <div class="phrases-stat">
+            <span class="phrases-stat-number">100%</span>
+            <span class="phrases-stat-label">Con fonética</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="py-16 phrases-categories">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {Object.entries(categoriasFrases).map(([key, categoria]) => (
+            <div class="phrases-category-card" data-category={key}>
+              <!-- Header de la categoría -->
+              <div class="phrases-category-header" style={`border-left-color: ${categoria.color}`}>
+                <h2 class="phrases-category-title" style={`color: ${categoria.color}`}>
+                  {categoria.emoji} {categoria.titulo}
+                </h2>
+                <div class="phrases-count">
+                  {categoria.frases.length} frases
+                </div>
+              </div>
+
+              <!-- Lista de frases -->
+              <div class="phrases-list">
+                {categoria.frases.map((frase, index) => (
+                  <div class="phrase-item">
+                    <div class="phrase-japanese" style={`color: ${categoria.color}`}>
+                      {frase.japones}
+                    </div>
+                    <div class="phrase-phonetic">
+                      {frase.fonetico}
+                    </div>
+                    <div class="phrase-translation">
+                      {frase.traduccion}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pro Tips Section -->
+    <section class="py-16 phrases-tips">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 phrases-tips-title">
+          💡 Pro Tips para Comunicarte en Japón
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="phrases-tip-card">
+            <div class="phrases-tip-icon">🙇‍♂️</div>
+            <h3 class="phrases-tip-title">Lenguaje Corporal</h3>
+            <p class="phrases-tip-text">
+              Las reverencias son importantes. Una leve inclinación de cabeza muestra respeto. 
+              Evita señalar con el dedo - usa la palma abierta.
+            </p>
+          </div>
+
+          <div class="phrases-tip-card">
+            <div class="phrases-tip-icon">📱</div>
+            <h3 class="phrases-tip-title">Google Translate</h3>
+            <p class="phrases-tip-text">
+              Descarga japonés para usar sin conexión. La función de cámara traduce texto en tiempo real - 
+              perfecto para menús y señales.
+            </p>
+          </div>
+
+          <div class="phrases-tip-card">
+            <div class="phrases-tip-icon">✍️</div>
+            <h3 class="phrases-tip-title">Escribe en Papel</h3>
+            <p class="phrases-tip-text">
+              Lleva papel y lápiz. Los japoneses te ayudarán escribiendo direcciones o dibujando mapas. 
+              Es muy efectivo.
+            </p>
+          </div>
+
+          <div class="phrases-tip-card">
+            <div class="phrases-tip-icon">👥</div>
+            <h3 class="phrases-tip-title">Paciencia y Sonrisas</h3>
+            <p class="phrases-tip-text">
+              Los japoneses son increíblemente amables. Aunque no hablen inglés, harán su mejor esfuerzo 
+              para ayudarte. Una sonrisa vale mil palabras.
+            </p>
+          </div>
+
+          <div class="phrases-tip-card">
+            <div class="phrases-tip-icon">🎌</div>
+            <h3 class="phrases-tip-title">Frases de Cortesía</h3>
+            <p class="phrases-tip-text">
+              "Sumimasen" (disculpe) y "Arigatou gozaimasu" (gracias) te abrirán muchas puertas. 
+              La cortesía es fundamental en la cultura japonesa.
+            </p>
+          </div>
+
+          <div class="phrases-tip-card">
+            <div class="phrases-tip-icon">🔊</div>
+            <h3 class="phrases-tip-title">Pronunciación</h3>
+            <p class="phrases-tip-text">
+              El japonés se pronuncia tal como se escribe en romaji. Cada sílaba tiene el mismo peso. 
+              No tengas miedo de intentarlo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación rápida -->
+    <section class="py-8 phrases-navigation">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href={`${import.meta.env.BASE_URL}/`} class="phrases-nav-btn">
+            🏠 Volver al Inicio
+          </a>
+          <a href={`${import.meta.env.BASE_URL}/#itinerario`} class="phrases-nav-btn">
+            📅 Ver Itinerario
+          </a>
+          <a href={`${import.meta.env.BASE_URL}/#gluten-free`} class="phrases-nav-btn">
+            🌾 Guía Sin Gluten
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* === PÁGINA DE FRASES ÚTILES === */
+  
+  /* Fondo principal */
+  .phrases-main {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+    min-height: 100vh;
+  }
+  
+  :global([data-theme="light"]) .phrases-main {
+    background: linear-gradient(135deg, #FFE8E8 0%, #FFDDDD 50%, #FFE8E8 100%) !important;
+  }
+
+  /* Hero Section */
+  .phrases-hero {
+    position: relative;
+    background: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(10px);
+  }
+  
+  :global([data-theme="light"]) .phrases-hero {
+    background: rgba(255, 245, 245, 0.7) !important;
+  }
+
+  .phrases-title {
+    background: linear-gradient(45deg, #FF1493, #FF6B6B, #FF8C00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+  }
+
+  .phrases-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  :global([data-theme="light"]) .phrases-subtitle {
+    color: #2D1B1B !important;
+    font-weight: 600;
+  }
+
+  /* Stats */
+  .phrases-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 20, 147, 0.1);
+    border: 1px solid rgba(255, 20, 147, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+  
+  :global([data-theme="light"]) .phrases-stat {
+    background: rgba(255, 20, 147, 0.08) !important;
+    border-color: rgba(255, 20, 147, 0.2) !important;
+  }
+
+  .phrases-stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FF1493;
+    margin-bottom: 0.25rem;
+  }
+
+  .phrases-stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  :global([data-theme="light"]) .phrases-stat-label {
+    color: #4b5563 !important;
+    font-weight: 500;
+  }
+
+  /* Categories */
+  .phrases-categories {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  :global([data-theme="light"]) .phrases-categories {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .phrases-category-card {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .phrases-category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2);
+  }
+  
+  :global([data-theme="light"]) .phrases-category-card {
+    background: rgba(255, 250, 250, 0.9) !important;
+    border: 2px solid rgba(255, 107, 107, 0.2) !important;
+    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.1);
+  }
+  
+  :global([data-theme="light"]) .phrases-category-card:hover {
+    background: rgba(255, 245, 245, 0.95) !important;
+    border-color: rgba(255, 20, 147, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.15) !important;
+  }
+
+  .phrases-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid;
+    padding-left: 1rem;
+  }
+  
+  :global([data-theme="light"]) .phrases-category-header {
+    border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .phrases-category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .phrases-count {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+  }
+  
+  :global([data-theme="light"]) .phrases-count {
+    color: #6b7280 !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .phrases-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .phrase-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid rgba(255, 20, 147, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .phrase-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+  }
+  
+  :global([data-theme="light"]) .phrase-item {
+    background: rgba(255, 255, 255, 0.7) !important;
+    border-left-color: rgba(255, 20, 147, 0.4) !important;
+  }
+  
+  :global([data-theme="light"]) .phrase-item:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .phrase-japanese {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .phrase-phonetic {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+  }
+  
+  :global([data-theme="light"]) .phrase-phonetic {
+    color: #6b7280 !important;
+    font-weight: 500;
+  }
+
+  .phrase-translation {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  :global([data-theme="light"]) .phrase-translation {
+    color: #1f2937 !important;
+    font-weight: 500;
+  }
+
+  /* Pro Tips */
+  .phrases-tips {
+    background: rgba(26, 26, 26, 0.3);
+  }
+  
+  :global([data-theme="light"]) .phrases-tips {
+    background: rgba(255, 240, 240, 0.6) !important;
+  }
+
+  .phrases-tips-title {
+    background: linear-gradient(45deg, #32CD32, #FFD700, #FF1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .phrases-tip-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .phrases-tip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.3);
+  }
+  
+  :global([data-theme="light"]) .phrases-tip-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 2px solid rgba(255, 215, 0, 0.2) !important;
+  }
+  
+  :global([data-theme="light"]) .phrases-tip-card:hover {
+    background: rgba(255, 250, 240, 0.95) !important;
+    border-color: rgba(255, 215, 0, 0.4) !important;
+  }
+
+  .phrases-tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .phrases-tip-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 1rem;
+  }
+
+  .phrases-tip-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+  }
+  
+  :global([data-theme="light"]) .phrases-tip-text {
+    color: #374151 !important;
+    font-weight: 500;
+  }
+
+  /* Navigation */
+  .phrases-navigation {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  :global([data-theme="light"]) .phrases-navigation {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-top-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .phrases-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(45deg, #FF1493, #FF6B6B);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .phrases-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+    text-decoration: none;
+  }
+  
+  :global([data-theme="light"]) .phrases-nav-btn {
+    background: linear-gradient(45deg, #DC143C, #B22222) !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .phrases-title {
+      font-size: 3rem;
+    }
+    
+    .phrases-category-header {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    
+    .phrase-japanese {
+      font-size: 1.125rem;
+    }
+  }
+</style>
