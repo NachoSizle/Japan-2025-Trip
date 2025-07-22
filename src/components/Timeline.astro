@@ -5,14 +5,14 @@ import itinerarioData from '../data/itinerario.json';
 const { dias } = itinerarioData;
 ---
 
-<section id="itinerario" class="py-20 timeline-section">
-  <div class="container mx-auto px-4">
+<section id="itinerario" class="py-12 sm:py-16 md:py-20 timeline-section">
+  <div class="container mx-auto px-2 sm:px-4">
     <!-- Header de la sección -->
-    <div class="text-center mb-12 sm:mb-16">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-poppins mb-4 sm:mb-6 timeline-title">
+    <div class="text-center mb-8 sm:mb-12 md:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins mb-3 sm:mb-4 md:mb-6 timeline-title">
         Itinerario Completo
       </h2>
-      <p class="text-lg sm:text-xl timeline-subtitle max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
+      <p class="text-base sm:text-lg md:text-xl timeline-subtitle max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-4">
         Explora día a día nuestra aventura por Japón, con opciones especiales para celíacos en cada parada.
       </p>
       
@@ -83,7 +83,7 @@ const { dias } = itinerarioData;
               <!-- Enlace a página individual del día -->
               <a href={`${import.meta.env.BASE_URL}/itinerario/${dia.dia}`} class="block group">
                 <!-- Tarjeta - layout móvil first con zig-zag desktop -->
-                <div class={`ml-10 sm:ml-16 md:ml-0 md:w-5/12 md:max-w-lg ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
+                <div class={`ml-8 sm:ml-12 md:ml-0 md:w-5/12 md:max-w-lg ${isLeft ? 'md:mr-auto md:pr-6 lg:pr-8' : 'md:ml-auto md:pl-6 lg:pl-8'}`}>
                   <DayCard 
                     day={dia.dia}
                     fecha={dia.fecha}
@@ -106,23 +106,23 @@ const { dias } = itinerarioData;
     </div>
 
     <!-- Stats del viaje optimizadas para móvil -->
-    <div class="mt-12 sm:mt-16 md:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
-      <div class="timeline-stat-card p-4 sm:p-6 rounded-xl transition-all duration-300">
-        <div class="stat-number text-2xl sm:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF1493; text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);">{itinerarioData.viaje.duracion_dias}</div>
+    <div class="mt-8 sm:mt-12 md:mt-16 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8 text-center px-1">
+      <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300">
+        <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF1493; text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);">{itinerarioData.viaje.duracion_dias}</div>
         <div class="stat-label text-xs sm:text-sm">Días totales</div>
       </div>
-      <div class="timeline-stat-card p-4 sm:p-6 rounded-xl transition-all duration-300">
-        <div class="stat-number text-2xl sm:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF6B6B; text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);">{itinerarioData.viaje.ciudades_principales.length}</div>
+      <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300">
+        <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF6B6B; text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);">{itinerarioData.viaje.ciudades_principales.length}</div>
         <div class="stat-label text-xs sm:text-sm">Ciudades</div>
       </div>
-      <div class="timeline-stat-card p-4 sm:p-6 rounded-xl transition-all duration-300">
-        <div class="stat-number text-2xl sm:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF0040; text-shadow: 0 0 10px rgba(255, 0, 64, 0.5);">
+      <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300">
+        <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF0040; text-shadow: 0 0 10px rgba(255, 0, 64, 0.5);">
           {dias.reduce((total, dia) => total + dia.actividades.filter(a => a.tipo === 'comida').length, 0)}
         </div>
         <div class="stat-label text-xs sm:text-sm">Experiencias gastronómicas</div>
       </div>
-      <div class="timeline-stat-card p-4 sm:p-6 rounded-xl transition-all duration-300 col-span-2 lg:col-span-1">
-        <div class="stat-number text-2xl sm:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF8A80; text-shadow: 0 0 10px rgba(255, 138, 128, 0.5);">
+      <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300 col-span-2 lg:col-span-1">
+        <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF8A80; text-shadow: 0 0 10px rgba(255, 138, 128, 0.5);">
           {dias.reduce((total, dia) => total + dia.actividades.filter(a => a.gluten_free).length, 0)}
         </div>
         <div class="stat-label text-xs sm:text-sm">Opciones GF</div>
@@ -130,7 +130,7 @@ const { dias } = itinerarioData;
     </div>
 
     <!-- CTA para más información - optimizado para móvil -->
-    <div class="text-center mt-12 sm:mt-16 px-4">
+    <div class="text-center mt-8 sm:mt-12 md:mt-16 px-2 sm:px-4">
       <a href="#gluten-free" class="timeline-cta inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base min-w-0">
         <span class="text-lg">🌾</span>
         <span class="whitespace-nowrap">Ver Guía Sin Gluten</span>

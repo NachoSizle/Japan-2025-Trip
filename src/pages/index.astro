@@ -7,7 +7,12 @@ import Gallery from '../components/Gallery.astro';
 ---
 
 <Layout title="Japón 2025 - Viaje de Ensueño">
-	<Header />
+	<!-- Wrapper para limitar Header en móvil -->
+	<div class="w-full overflow-x-hidden">
+		<div class="max-w-full">
+			<Header />
+		</div>
+	</div>
 	
 	<!-- Hero Section optimizado para móvil con colores rosa -->
 	<main class="pt-16 sm:pt-20">

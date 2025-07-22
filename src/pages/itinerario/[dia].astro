@@ -27,7 +27,12 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
 ---
 
 <Layout title={`Día ${diaActual.dia} - ${diaActual.titulo} | Japón 2025`}>
-  <Header />
+  <!-- Wrapper para limitar Header en móvil -->
+  <div class="w-full overflow-x-hidden">
+    <div class="max-w-full">
+      <Header />
+    </div>
+  </div>
   
   <!-- Hero del día específico -->
   <main class="pt-20">
