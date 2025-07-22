@@ -38,7 +38,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
         <div class="flex justify-between items-center mb-8 sm:mb-12">
           <div class="flex-1">
             {diaAnterior && (
-              <a href={`${import.meta.env.BASE_URL}itinerario/${diaAnterior.dia}`} 
+              <a href={`${import.meta.env.BASE_URL}/itinerario/${diaAnterior.dia}`} 
                  class="inline-flex items-center space-x-2 transition-colors duration-300 group"
                  style="color: #FF1493;"
                  onmouseover="this.style.color='#FF6B6B'"
@@ -54,7 +54,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           
           <!-- Breadcrumb con color rosa -->
           <div class="text-center px-4">
-            <a href={`${import.meta.env.BASE_URL}#itinerario`} class="transition-colors duration-300 text-sm"
+            <a href={`${import.meta.env.BASE_URL}/#itinerario`} class="transition-colors duration-300 text-sm"
                style="color: #AAAAAA;"
                onmouseover="this.style.color='#FF1493'"
                onmouseout="this.style.color='#AAAAAA'">
@@ -64,7 +64,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           
           <div class="flex-1 text-right">
             {diaSiguiente && (
-              <a href={`${import.meta.env.BASE_URL}itinerario/${diaSiguiente.dia}`} 
+              <a href={`${import.meta.env.BASE_URL}/itinerario/${diaSiguiente.dia}`} 
                  class="inline-flex items-center space-x-2 transition-colors duration-300 group"
                  style="color: #FF6B6B;"
                  onmouseover="this.style.color='#FF1493'"
@@ -241,7 +241,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
         <div class="flex justify-between items-center mt-12 sm:mt-16 pt-8" 
              style="border-top: 2px solid rgba(255, 20, 147, 0.5);">
           {diaAnterior ? (
-            <a href={`${import.meta.env.BASE_URL}itinerario/${diaAnterior.dia}`} 
+            <a href={`${import.meta.env.BASE_URL}/itinerario/${diaAnterior.dia}`} 
                class="inline-flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 group" 
                style="background: linear-gradient(45deg, rgba(255, 20, 147, 0.2), rgba(255, 107, 107, 0.2)); border: 2px solid #FF1493; backdrop-filter: blur(10px);"
                onmouseover="this.style.boxShadow='0 0 30px rgba(255, 20, 147, 0.6)'"
@@ -256,7 +256,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
             <div></div>
           )}
           
-          <a href={`${import.meta.env.BASE_URL}#itinerario`} 
+          <a href={`${import.meta.env.BASE_URL}/`} 
              class="px-6 py-4 rounded-xl transition-all duration-300 text-sm sm:text-base font-medium" 
              style="background: rgba(26, 26, 26, 0.8); border: 2px solid rgba(64, 64, 64, 0.5); color: #CCCCCC; backdrop-filter: blur(10px);"
              onmouseover="this.style.borderColor='#FF6B6B'; this.style.color='#FF6B6B'"
@@ -265,7 +265,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           </a>
           
           {diaSiguiente ? (
-            <a href={`${import.meta.env.BASE_URL}itinerario/${diaSiguiente.dia}`} 
+            <a href={`${import.meta.env.BASE_URL}/itinerario/${diaSiguiente.dia}`} 
                class="inline-flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 group" 
                style="background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 0, 64, 0.2)); border: 2px solid #FF6B6B; backdrop-filter: blur(10px);"
                onmouseover="this.style.boxShadow='0 0 30px rgba(255, 107, 107, 0.6)'"
