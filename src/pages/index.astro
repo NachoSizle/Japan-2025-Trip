@@ -29,10 +29,10 @@ import Gallery from '../components/Gallery.astro';
 				<div class="particle particle-5"></div>
 			</div>
 
-			<div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+			<div class="relative z-10 text-center max-w-6xl mx-auto px-4 hero-content-wrapper">
 				<!-- Título principal con efecto rosa - optimizado para móvil -->
 				<div class="mb-6 sm:mb-8">
-					<h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-poppins mb-4 sm:mb-6">
+					<h1 class="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] xl:text-[24rem] font-bold font-poppins m-0 sm:mb-2 leading-none">
 						<span class="inline-block animate-pulse hero-kanji">
 							日本
 						</span>
@@ -42,14 +42,18 @@ import Gallery from '../components/Gallery.astro';
 						<span class="hero-text-2 font-bold">Japón</span> 
 						<span class="hero-text-3">2025</span>
 					</h2>
-					<div class="text-base sm:text-xl md:text-2xl font-light tracking-wide hero-subtitle">
+					<div class="text-base sm:text-xl md:text-2xl font-light tracking-wide hero-subtitle hero-subtitle-dark" 
+					     style="color: #000000 !important; font-weight: 700 !important;" 
+					     data-light-color="#000000">
 						14 - 28 de Agosto • 
 						<span class="hero-gluten-free font-medium">Gluten-Free Friendly</span>
 					</div>
 				</div>
 
 				<div class="mb-8 sm:mb-12 max-w-3xl mx-auto">
-					<p class="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6 hero-description">
+					<p class="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6 hero-description hero-description-dark" 
+					   style="color: #000000 !important; font-weight: 900 !important;" 
+					   data-light-color="#000000">
 						Una aventura de dos semanas explorando la tierra del sol naciente, desde los templos milenarios 
 						hasta los neones de <span class="hero-highlight font-semibold">Akihabara</span>, 
 						con opciones especiales para celíacos.
@@ -97,13 +101,6 @@ import Gallery from '../components/Gallery.astro';
 						<div class="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 stat-gluten">100%</div>
 						<div class="text-xs sm:text-sm stat-label">Gluten-Free</div>
 					</div>
-				</div>
-			</div>
-
-			<!-- Scroll indicator optimizado para móvil -->
-			<div class="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-				<div class="w-5 sm:w-6 h-8 sm:h-10 border-2 rounded-full flex justify-center scroll-indicator">
-					<div class="w-1 h-2 sm:h-3 rounded-full mt-1.5 sm:mt-2 animate-pulse scroll-dot"></div>
 				</div>
 			</div>
 		</section>
@@ -284,12 +281,28 @@ import Gallery from '../components/Gallery.astro';
 		background: linear-gradient(135deg, #FFE8E8 0%, #FFDDDD 50%, #FFE8E8 100%);
 	}
 	
-	[data-theme="light"] .hero-subtitle,
-	[data-theme="light"] .hero-description {
-		color: #2D1B1B !important;
-		font-weight: 600;
-		opacity: 0.95;
-		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+	[data-theme="light"] .hero-content-wrapper {
+		background: rgba(255, 232, 232, 0.3);
+		backdrop-filter: blur(10px);
+		border-radius: 16px;
+		padding: 1.5rem;
+		box-shadow: 0 4px 20px rgba(220, 20, 60, 0.1);
+		border: 1px solid rgba(255, 107, 107, 0.2);
+	}
+	
+	[data-theme="light"] .hero-subtitle {
+		color: #1A0F0F !important;
+		font-weight: 700 !important;
+		opacity: 1 !important;
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3) !important;
+	}
+	
+	[data-theme="light"] .hero-description,
+	[data-theme="light"] .hero-description-dark {
+		color: #000000 !important;
+		font-weight: 900 !important;
+		opacity: 1 !important;
+		text-shadow: none !important;
 	}
 	
 	[data-theme="light"] .hero-badge-1 {
@@ -505,3 +518,49 @@ import Gallery from '../components/Gallery.astro';
 		scroll-behavior: smooth;
 	}
 </style>
+
+<script>
+	// Script para manejar los colores del tema
+	function updateThemeColors() {
+		const theme = document.documentElement.getAttribute('data-theme');
+		const heroDescription = document.querySelector('.hero-description-dark') as HTMLElement;
+		const heroSubtitle = document.querySelector('.hero-subtitle-dark') as HTMLElement;
+		
+		if (heroDescription) {
+			if (theme === 'light') {
+				heroDescription.style.color = '#000000';
+				heroDescription.style.fontWeight = '900';
+			} else {
+				heroDescription.style.color = '#CCCCCC';
+				heroDescription.style.fontWeight = 'normal';
+			}
+		}
+		
+		if (heroSubtitle) {
+			if (theme === 'light') {
+				heroSubtitle.style.color = '#000000';
+				heroSubtitle.style.fontWeight = '700';
+			} else {
+				heroSubtitle.style.color = '#CCCCCC';
+				heroSubtitle.style.fontWeight = '300';
+			}
+		}
+	}
+
+	// Ejecutar al cargar la página
+	document.addEventListener('DOMContentLoaded', updateThemeColors);
+	
+	// Observar cambios en el atributo data-theme
+	const observer = new MutationObserver(function(mutations) {
+		mutations.forEach(function(mutation) {
+			if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+				updateThemeColors();
+			}
+		});
+	});
+	
+	observer.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ['data-theme']
+	});
+</script>
