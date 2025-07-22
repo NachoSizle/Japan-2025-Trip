@@ -45,35 +45,35 @@ function getActivityColor(tipo: string) {
 }
 ---
 
-<div class="daycard-container backdrop-blur-sm rounded-xl p-4 sm:p-6 transition-all duration-300 group">
+<div class="daycard-container backdrop-blur-sm rounded-xl p-3 sm:p-4 md:p-6 transition-all duration-300 group">
   <!-- Header del día -->
-  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6">
-    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-      <span class="daycard-day-number text-lg sm:text-xl font-bold">Día {day}</span>
-      <span class="daycard-date text-sm sm:text-base font-mono">{fecha}</span>
-      <span class="daycard-city text-sm sm:text-base font-semibold">{ciudad}</span>
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 md:mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 md:gap-4">
+      <span class="daycard-day-number text-base sm:text-lg md:text-xl font-bold">Día {day}</span>
+      <span class="daycard-date text-xs sm:text-sm md:text-base font-mono">{fecha}</span>
+      <span class="daycard-city text-xs sm:text-sm md:text-base font-semibold">{ciudad}</span>
     </div>
   </div>
 
-  <div class="mb-4">
-    <h3 class="daycard-title text-xl sm:text-2xl font-bold mb-2">{titulo}</h3>
+  <div class="mb-3 sm:mb-4">
+    <h3 class="daycard-title text-lg sm:text-xl md:text-2xl font-bold mb-2">{titulo}</h3>
   </div>
 
   <!-- Lista de actividades optimizada para móvil -->
-  <div class="space-y-3 sm:space-y-4">
+  <div class="space-y-2 sm:space-y-3 md:space-y-4">
     {actividades.map((act) => (
-      <div class={`flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg border-l-4 ${getActivityColor(act.tipo)} daycard-activity shadow-md`}>
-        <div class="text-xl sm:text-2xl flex-shrink-0 mt-1">{getActivityIcon(act.tipo)}</div>
-        <div class="flex-1 min-w-0">
-          <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-2">
-            <span class="daycard-activity-name font-bold text-base sm:text-lg break-words">{act.actividad}</span>
-            <div class="flex items-center gap-2 flex-wrap">
-              {act.gluten_free && <span class="daycard-badge-gf px-2 py-1 rounded font-semibold text-xs whitespace-nowrap">🌾🚫 GF</span>}
-              {act.destacado && <span class="daycard-badge-featured px-2 py-1 rounded font-semibold text-xs whitespace-nowrap">⭐</span>}
+      <div class={`flex items-start gap-2 sm:gap-3 md:gap-4 p-2 sm:p-3 md:p-4 rounded-lg border-l-4 ${getActivityColor(act.tipo)} daycard-activity shadow-md`}>
+        <div class="text-lg sm:text-xl md:text-2xl flex-shrink-0 mt-0.5">{getActivityIcon(act.tipo)}</div>
+        <div class="flex-1 min-w-0 overflow-hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+            <span class="daycard-activity-name font-bold text-sm sm:text-base md:text-lg break-words">{act.actividad}</span>
+            <div class="flex items-center gap-1 sm:gap-2 flex-wrap">
+              {act.gluten_free && <span class="daycard-badge-gf px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-semibold text-xs whitespace-nowrap">🌾🚫 GF</span>}
+              {act.destacado && <span class="daycard-badge-featured px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-semibold text-xs whitespace-nowrap">⭐</span>}
             </div>
           </div>
-          <div class="daycard-activity-details text-xs sm:text-sm font-mono break-words">{act.hora} • {act.ubicacion}</div>
-          {act.alternativa_gf && <div class="daycard-gf-alternative text-xs mt-1 break-words">Alternativa GF: {act.alternativa_gf}</div>}
+          <div class="daycard-activity-details text-xs sm:text-sm font-mono break-words overflow-hidden text-ellipsis">{act.hora} • {act.ubicacion}</div>
+          {act.alternativa_gf && <div class="daycard-gf-alternative text-xs mt-1 break-words">{act.alternativa_gf}</div>}
           {act.notas && <div class="daycard-notes text-xs mt-1 italic break-words">{act.notas}</div>}
         </div>
       </div>

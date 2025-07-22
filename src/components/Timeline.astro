@@ -17,29 +17,29 @@ const { dias } = itinerarioData;
       </p>
       
       <!-- Filtros optimizados para móvil -->
-      <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 px-2" x-data="{ activeFilter: 'todos' }">
+      <div class="flex flex-wrap justify-center gap-1 sm:gap-2 md:gap-4 mb-6 sm:mb-8 px-2" x-data="{ activeFilter: 'todos' }">
         <button 
           @click="activeFilter = 'todos'" 
           :class="activeFilter === 'todos' ? 'filter-active-primary' : 'filter-inactive-primary'"
-          class="px-3 sm:px-6 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
           Todos los días
         </button>
         <button 
           @click="activeFilter = 'gluten-free'" 
           :class="activeFilter === 'gluten-free' ? 'filter-active-gluten' : 'filter-inactive-gluten'"
-          class="px-3 sm:px-6 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
           🌾🚫 Sin Gluten
         </button>
         <button 
           @click="activeFilter = 'destacados'" 
           :class="activeFilter === 'destacados' ? 'filter-active-featured' : 'filter-inactive-featured'"
-          class="px-3 sm:px-6 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
           ⭐ Destacados
         </button>
         <button 
           @click="activeFilter = 'turismo'" 
           :class="activeFilter === 'turismo' ? 'filter-active-tourism' : 'filter-inactive-tourism'"
-          class="px-3 sm:px-6 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
           🗼 Turismo
         </button>
       </div>
@@ -48,15 +48,18 @@ const { dias } = itinerarioData;
     <!-- Timeline principal optimizada para móvil -->
     <div class="relative">
       <!-- Línea de tiempo vertical - más visible en móvil -->
-      <div class="timeline-line absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 transform -translate-x-1/2 rounded-full"></div>
+      <div class="timeline-line absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 transform md:-translate-x-1/2 rounded-full"></div>
       
       <!-- Tarjetas de días optimizadas para móvil -->
-      <div class="space-y-6 sm:space-y-8">
+      <div class="space-y-6 sm:space-y-8 md:space-y-12">
         {dias.map((dia, index) => {
           // Crear atributos data para que Alpine.js pueda usarlos
           const hasGlutenFree = dia.actividades.some((act: any) => act.gluten_free === true);
           const hasDestacado = dia.actividades.some((act: any) => act.destacado === true);
           const hasTurismo = dia.actividades.some((act: any) => act.tipo === 'turismo');
+          
+          // Determinar si es par o impar para el zig-zag (empezando izquierda = índice par)
+          const isLeft = index % 2 === 0;
           
           return (
             <div 
@@ -75,12 +78,12 @@ const { dias } = itinerarioData;
               x-transition:leave-end="opacity-0 transform scale-95">
               
               <!-- Punto de conexión en la timeline - optimizado para móvil -->
-              <div class="timeline-dot absolute left-4 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full transform -translate-x-1/2 border-2 sm:border-4 z-10 animate-pulse"></div>
+              <div class="timeline-dot absolute left-4 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full transform md:-translate-x-1/2 border-2 sm:border-4 z-10 animate-pulse"></div>
               
               <!-- Enlace a página individual del día -->
               <a href={`${import.meta.env.BASE_URL}/itinerario/${dia.dia}`} class="block group">
-                <!-- Tarjeta - layout móvil first -->
-                <div class="ml-10 sm:ml-16 md:ml-0 md:w-1/2 md:odd:ml-auto md:odd:pl-8 md:even:pr-8">
+                <!-- Tarjeta - layout móvil first con zig-zag desktop -->
+                <div class={`ml-10 sm:ml-16 md:ml-0 md:w-5/12 md:max-w-lg ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
                   <DayCard 
                     day={dia.dia}
                     fecha={dia.fecha}
@@ -89,7 +92,7 @@ const { dias } = itinerarioData;
                     actividades={dia.actividades}
                   />
                   <!-- Indicador de que es clickeable -->
-                  <div class="mt-2 text-center md:text-right group-hover-indicator transition-colors duration-300">
+                  <div class={`mt-2 transition-colors duration-300 ${isLeft ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
                     <span class="text-xs clickable-hint">
                       👆 Toca para ver detalles completos
                     </span>

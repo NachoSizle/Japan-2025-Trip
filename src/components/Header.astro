@@ -7,7 +7,7 @@
     <div class="flex items-center justify-between">
       
       <!-- Logo Torii -->
-      <a href={`${import.meta.env.BASE_URL}/`} class="flex items-center space-x-3 sm:space-x-4 transition-all duration-300 hover:scale-105">
+      <a href={`${import.meta.env.BASE_URL}/`} class="flex items-center space-x-3 sm:space-x-4 transition-all duration-300 hover:scale-105 no-underline">
         <div class="torii-logo">
           <svg width="40" height="40" viewBox="0 0 40 40" class="sm:w-12 sm:h-12 transition-colors duration-300 logo-svg">
             <rect x="8" y="12" width="2" height="20" fill="currentColor"/>
@@ -18,12 +18,12 @@
             <circle cx="31" cy="33" r="2" fill="currentColor" opacity="0.7"/>
           </svg>
         </div>
-        <div class="flex flex-col -space-y-1">
-          <h1 class="text-xl sm:text-2xl font-poppins font-bold logo-text leading-tight">
+        <div class="flex flex-col" style="gap: 8px;">
+          <h1 class="text-xl sm:text-2xl font-poppins font-bold logo-text leading-none">
             <span class="logo-japan">Japón</span> 
             <span class="logo-year">2025</span>
           </h1>
-          <p class="text-xs sm:text-sm logo-date">14-28 Agosto</p>
+          <p class="text-xs sm:text-sm logo-date leading-none">14-28 Agosto</p>
         </div>
       </a>
 
@@ -252,6 +252,15 @@
   
   .logo-date {
     color: #AAAAAA;
+  }
+
+  /* Logo link sin subrayado */
+  .no-underline {
+    text-decoration: none !important;
+  }
+  
+  .no-underline:hover {
+    text-decoration: none !important;
   }
 
   /* Theme Toggle */
