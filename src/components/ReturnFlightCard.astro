@@ -1,0 +1,97 @@
+---
+// Componente placeholder para la tarjeta de vuelo de vuelta
+// Posteriormente será rellenado con datos reales
+---
+
+<div class="return-flight-card bg-gradient-to-br from-orange-500/20 to-red-600/20 backdrop-blur-sm border border-orange-400/30 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20">
+  <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center space-x-3">
+      <div class="return-flight-icon text-3xl">🛬</div>
+      <div>
+        <h3 class="return-flight-title text-lg font-bold text-orange-400">
+          Vuelo Japón → España
+        </h3>
+        <p class="return-flight-date text-sm text-gray-300">
+          28 de Agosto, 2025
+        </p>
+      </div>
+    </div>
+    <div class="return-flight-status px-3 py-1 bg-orange-500/20 border border-orange-400/30 rounded-full text-xs text-orange-300">
+      Próximamente
+    </div>
+  </div>
+  
+  <div class="return-flight-placeholder border-2 border-dashed border-gray-400/30 rounded-lg p-8 text-center">
+    <div class="text-6xl mb-4 opacity-50">🏠</div>
+    <p class="text-gray-400 font-medium mb-2">
+      Información del vuelo de vuelta
+    </p>
+    <p class="text-gray-500 text-sm">
+      Los datos del vuelo de regreso se completarán más adelante
+    </p>
+  </div>
+</div>
+
+<style>
+  .return-flight-card {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+  }
+  
+  .return-flight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(251, 146, 60, 0.2);
+  }
+  
+  .return-flight-title {
+    color: #FB923C;
+  }
+  
+  .return-flight-date {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Modo claro */
+  :global([data-theme="light"]) .return-flight-card {
+    background: rgba(255, 250, 245, 0.9) !important;
+    border: 2px solid rgba(251, 146, 60, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(251, 146, 60, 0.1);
+  }
+  
+  :global([data-theme="light"]) .return-flight-card:hover {
+    background: rgba(255, 237, 213, 0.95) !important;
+    border-color: rgba(251, 146, 60, 0.5) !important;
+    box-shadow: 0 8px 32px rgba(251, 146, 60, 0.2) !important;
+  }
+  
+  :global([data-theme="light"]) .return-flight-title {
+    color: #C2410C !important;
+    font-weight: 700;
+  }
+  
+  :global([data-theme="light"]) .return-flight-date {
+    color: #4B5563 !important;
+    font-weight: 500;
+  }
+  
+  :global([data-theme="light"]) .return-flight-status {
+    background: rgba(251, 146, 60, 0.1) !important;
+    border-color: rgba(251, 146, 60, 0.3) !important;
+    color: #C2410C !important;
+    font-weight: 600;
+  }
+  
+  :global([data-theme="light"]) .return-flight-placeholder {
+    border-color: rgba(107, 114, 128, 0.4) !important;
+  }
+  
+  :global([data-theme="light"]) .return-flight-placeholder p:first-of-type {
+    color: #374151 !important;
+    font-weight: 600;
+  }
+  
+  :global([data-theme="light"]) .return-flight-placeholder p:last-of-type {
+    color: #6B7280 !important;
+    font-weight: 500;
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import DayCard from './DayCard.astro';
 import FlightCard from './FlightCard.astro';
+import ReturnFlightCard from './ReturnFlightCard.astro';
 import itinerarioData from '../data/itinerario.json';
 
 const { dias } = itinerarioData;
@@ -11,90 +12,104 @@ function getDaysToShow() {
   // const now = new Date('2025-08-10'); // Para probar antes del viaje
   // const now = new Date('2025-08-13'); // Para probar día de vuelo
   // const now = new Date('2025-08-16'); // Para probar durante el viaje
-  const now = new Date();
+  const now = new Date(); // Fecha actual del sistema
   
   const currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD format
   
   console.log('Fecha actual simulada:', currentDate); // Para debug
   
   // Fechas del viaje
-  const tripStart = '2025-08-14'; // Llegada a Japón
   const flightDate = '2025-08-13'; // Día del vuelo desde España
-  const tripEnd = '2025-08-28';
+  const tripStart = '2025-08-14'; // Llegada a Japón (día 1 del itinerario)
+  const tripEnd = '2025-08-28'; // Último día (día 15 del itinerario)
   
-  // Si estamos antes del 14 de agosto (antes de llegar a Japón)
-  if (currentDate < tripStart) {
-    console.log('Estamos antes del viaje - mostrando preview con tarjeta de vuelo');
+  // 1. Antes del 13 agosto: Solo tarjeta de vuelo
+  if (currentDate < flightDate) {
+    console.log('Antes del vuelo - solo tarjeta de vuelo');
+    return [{
+      dia: 0, // Día especial para vuelo
+      fecha: flightDate,
+      titulo: 'Vuelo España → Japón',
+      ciudad: 'En tránsito',
+      actividades: [],
+      showFlightCard: true,
+      showDayCard: false,
+      showReturnFlightCard: false,
+      isCurrentDay: false
+    }];
+  }
+  
+  // 2. 13 agosto: Tarjeta de vuelo + DayCard del día 1
+  if (currentDate === flightDate) {
+    console.log('Día de vuelo - tarjeta de vuelo + día 1');
+    const day1 = dias[0]; // Primer día del itinerario
+    return [{
+      dia: 0, // Día especial para vuelo
+      fecha: flightDate,
+      titulo: 'Vuelo España → Japón',
+      ciudad: 'En tránsito',
+      actividades: [],
+      showFlightCard: true,
+      showDayCard: false,
+      showReturnFlightCard: false,
+      isCurrentDay: true
+    }, {
+      ...day1,
+      showFlightCard: false,
+      showDayCard: true,
+      showReturnFlightCard: false,
+      isCurrentDay: false
+    }];
+  }
+  
+  // 3. 14-27 agosto: Solo la DayCard del día actual correspondiente
+  if (currentDate >= tripStart && currentDate < tripEnd) {
+    console.log('Durante el viaje - día actual');
+    // Encontrar qué día del itinerario corresponde a la fecha actual
+    const currentDay = dias.find(dia => dia.fecha === currentDate);
     
-    // Si estamos el 13 de agosto o antes, mostrar tarjeta de vuelo
-    if (currentDate <= flightDate) {
-      // Mostrar tarjeta de vuelo para el primer día + todas las demás como preview
-      return dias.map((dia, index) => ({
-        ...dia,
-        showFlightCard: index === 0, // Solo para el primer día
-        showFirstOnly: true, // Todos muestran solo preview
-        showAllCards: false,
-        isCurrentDay: false
-      }));
-    } else {
-      // Entre el 13 y 14, no mostrar tarjeta de vuelo pero sí preview
-      return dias.map(dia => ({
-        ...dia,
+    if (currentDay) {
+      console.log('Día actual encontrado:', currentDay.dia);
+      return [{
+        ...currentDay,
         showFlightCard: false,
-        showFirstOnly: true,
-        showAllCards: false,
-        isCurrentDay: false
-      }));
+        showDayCard: true,
+        showReturnFlightCard: false,
+        isCurrentDay: true
+      }];
+    } else {
+      // Si no hay día específico para esta fecha, no mostrar nada
+      console.log('No hay día específico para esta fecha');
+      return [];
     }
   }
   
-  // Si estamos durante el viaje (14-28 agosto)
-  if (currentDate >= tripStart && currentDate <= tripEnd) {
-    console.log('Estamos durante el viaje - lógica de día actual');
-    return dias.map(dia => {
-      // Si es el día actual, mostrar todas las tarjetas
-      if (dia.fecha === currentDate) {
-        console.log('Día actual encontrado:', dia.fecha);
-        return {
-          ...dia,
-          showAllCards: true,
-          isCurrentDay: true,
-          showFlightCard: false,
-          showFirstOnly: false
-        };
-      }
-      // Si es un día futuro, mostrar solo la primera tarjeta
-      else if (dia.fecha > currentDate) {
-        return {
-          ...dia,
-          showFirstOnly: true,
-          showAllCards: false,
-          showFlightCard: false,
-          isCurrentDay: false
-        };
-      }
-      // Si es un día pasado, mostrar todas las tarjetas
-      else {
-        return {
-          ...dia,
-          showAllCards: true,
-          showFirstOnly: false,
-          showFlightCard: false,
-          isCurrentDay: false
-        };
-      }
-    });
+  // 4. 28 agosto: DayCard del día 15 + tarjeta de vuelo de vuelta
+  if (currentDate === tripEnd) {
+    console.log('Último día - día 15 + vuelo de vuelta');
+    const lastDay = dias[dias.length - 1]; // Último día del itinerario
+    return [{
+      ...lastDay,
+      showFlightCard: false,
+      showDayCard: true,
+      showReturnFlightCard: false,
+      isCurrentDay: true
+    }, {
+      dia: 999, // Día especial para vuelo de vuelta
+      fecha: tripEnd,
+      titulo: 'Vuelo Japón → España',
+      ciudad: 'En tránsito',
+      actividades: [],
+      showFlightCard: false,
+      showDayCard: false,
+      showReturnFlightCard: true,
+      isCurrentDay: false
+    }];
   }
   
-  // Si estamos después del viaje, mostrar todas las tarjetas
-  console.log('Estamos después del viaje - mostrar todo');
-  return dias.map(dia => ({
-    ...dia,
-    showAllCards: true,
-    showFirstOnly: false,
-    showFlightCard: false,
-    isCurrentDay: false
-  }));
+  // 5. Después del 28 agosto: No mostrar nada o mostrar resumen completo
+  console.log('Después del viaje');
+  return [];
 }
 
 const daysToShow = getDaysToShow();
@@ -105,84 +120,28 @@ const daysToShow = getDaysToShow();
     <!-- Header de la sección -->
     <div class="text-center mb-8 sm:mb-12 md:mb-16">
       <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins mb-3 sm:mb-4 md:mb-6 timeline-title">
-        Itinerario Completo
+        Itinerario
       </h2>
       <p class="text-base sm:text-lg md:text-xl timeline-subtitle max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-4">
-        Explora día a día nuestra aventura por Japón, con opciones especiales para celíacos en cada parada.
+        Explora día a día nuestra aventura por Japón, con opciones especiales para celíacos en cada parada. Aquí irán apareciendo las tarjetas de vuelo y actividades según la fecha actual.
       </p>
-      
-      <!-- Filtros optimizados para móvil -->
-      <div class="flex flex-wrap justify-center gap-1 sm:gap-2 md:gap-4 mb-6 sm:mb-8 px-2" x-data="{ activeFilter: 'todos' }">
-        <button 
-          @click="activeFilter = 'todos'" 
-          :class="activeFilter === 'todos' ? 'filter-active-primary' : 'filter-inactive-primary'"
-          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
-          Todos los días
-        </button>
-        <button 
-          @click="activeFilter = 'gluten-free'" 
-          :class="activeFilter === 'gluten-free' ? 'filter-active-gluten' : 'filter-inactive-gluten'"
-          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
-          🌾🚫 Sin Gluten
-        </button>
-        <button 
-          @click="activeFilter = 'destacados'" 
-          :class="activeFilter === 'destacados' ? 'filter-active-featured' : 'filter-inactive-featured'"
-          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
-          ⭐ Destacados
-        </button>
-        <button 
-          @click="activeFilter = 'turismo'" 
-          :class="activeFilter === 'turismo' ? 'filter-active-tourism' : 'filter-inactive-tourism'"
-          class="px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs whitespace-nowrap flex-shrink-0">
-          🗼 Turismo
-        </button>
-      </div>
     </div>
 
     <!-- Timeline principal optimizada para móvil -->
-    <div class="relative">
-      <!-- Línea de tiempo vertical - más visible en móvil -->
-      <div class="timeline-line absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 transform md:-translate-x-1/2 rounded-full"></div>
-      
+    <div class="relative">      
       <!-- Tarjetas de días optimizadas para móvil -->
       <div class="space-y-6 sm:space-y-8 md:space-y-12">
         {daysToShow.map((dia, index) => {
-          // Crear atributos data para que Alpine.js pueda usarlos
-          const hasGlutenFree = dia.actividades.some((act: any) => act.gluten_free === true);
-          const hasDestacado = dia.actividades.some((act: any) => act.destacado === true);
-          const hasTurismo = dia.actividades.some((act: any) => act.tipo === 'turismo');
-          
-          // Determinar si es par o impar para el zig-zag (empezando izquierda = índice par)
-          const isLeft = index % 2 === 0;
-          
           // Usar type casting para acceder a las propiedades añadidas
           const diaExtended = dia as any;
           
           return (
-            <div 
-              class="relative"
-              x-show={`
-                activeFilter === 'todos' || 
-                (activeFilter === 'gluten-free' && ${hasGlutenFree}) ||
-                (activeFilter === 'destacados' && ${hasDestacado}) ||
-                (activeFilter === 'turismo' && ${hasTurismo})
-              `}
-              x-transition:enter="transition ease-out duration-300"
-              x-transition:enter-start="opacity-0 transform scale-95"
-              x-transition:enter-end="opacity-100 transform scale-100"
-              x-transition:leave="transition ease-in duration-200"
-              x-transition:leave-start="opacity-100 transform scale-100"
-              x-transition:leave-end="opacity-0 transform scale-95">
-              
-              <!-- Punto de conexión en la timeline - optimizado para móvil -->
-              <div class={`timeline-dot absolute left-4 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full transform md:-translate-x-1/2 border-2 sm:border-4 z-10 ${diaExtended.isCurrentDay ? 'animate-ping' : 'animate-pulse'}`}></div>
-              
-              {/* Mostrar tarjeta de vuelo si corresponde */}
+            <div class="relative">              
+              {/* Mostrar tarjeta de vuelo (ida) si corresponde */}
               {diaExtended.showFlightCard && (
-                <div class={`ml-8 sm:ml-12 md:ml-0 md:w-5/12 md:max-w-lg ${isLeft ? 'md:mr-auto md:pr-6 lg:pr-8' : 'md:ml-auto md:pl-6 lg:pl-8'} mb-6`}>
+                <div class="w-full max-w-lg mx-auto mb-6">
                   <FlightCard />
-                  <div class={`mt-2 transition-colors duration-300 ${isLeft ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
+                  <div class="mt-2 transition-colors duration-300 text-center">
                     <span class="text-xs clickable-hint">
                       ✈️ Información del vuelo (próximamente)
                     </span>
@@ -190,31 +149,40 @@ const daysToShow = getDaysToShow();
                 </div>
               )}
               
-              <!-- Enlace a página individual del día -->
-              <a href={`${import.meta.env.BASE_URL}/itinerario/${dia.dia}`} class="block group">
-                <!-- Tarjeta - layout móvil first con zig-zag desktop -->
-                <div class={`ml-8 sm:ml-12 md:ml-0 md:w-5/12 md:max-w-lg ${isLeft ? 'md:mr-auto md:pr-6 lg:pr-8' : 'md:ml-auto md:pl-6 lg:pl-8'}`}>
-                  <DayCard 
-                    day={dia.dia}
-                    fecha={dia.fecha}
-                    titulo={dia.titulo}
-                    ciudad={dia.ciudad}
-                    actividades={dia.actividades as any}
-                  />
-                  <!-- Indicador de que es clickeable -->
-                  <div class={`mt-2 transition-colors duration-300 ${isLeft ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
+              {/* Mostrar DayCard si corresponde */}
+              {diaExtended.showDayCard && (
+                <a href={`${import.meta.env.BASE_URL}/itinerario/${dia.dia}`} class="block group">
+                  <!-- Tarjeta centrada -->
+                  <div class="w-full max-w-lg mx-auto">
+                    <DayCard 
+                      day={dia.dia}
+                      fecha={dia.fecha}
+                      titulo={dia.titulo}
+                      ciudad={dia.ciudad}
+                      actividades={dia.actividades as any}
+                    />
+                    <!-- Indicador de que es clickeable -->
+                    <div class="mt-2 transition-colors duration-300 text-center">
+                      <span class="text-xs clickable-hint">
+                        👆 Toca para ver detalles completos
+                        {diaExtended.isCurrentDay && <span class="ml-2 text-yellow-400 font-bold">¡HOY!</span>}
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              )}
+              
+              {/* Mostrar tarjeta de vuelo de vuelta si corresponde */}
+              {diaExtended.showReturnFlightCard && (
+                <div class="w-full max-w-lg mx-auto mt-6">
+                  <ReturnFlightCard />
+                  <div class="mt-2 transition-colors duration-300 text-center">
                     <span class="text-xs clickable-hint">
-                      👆 Toca para ver detalles completos
-                      {diaExtended.isCurrentDay && <span class="ml-2 text-yellow-400 font-bold">¡HOY!</span>}
+                      🛬 Información del vuelo de vuelta (próximamente)
                     </span>
                   </div>
                 </div>
-              </a>
-            </div>
-          );
-        })}
-      </div>
-              </a>
+              )}
             </div>
           );
         })}
@@ -245,45 +213,29 @@ const daysToShow = getDaysToShow();
       </div>
     </div>
 
-    <!-- CTA para más información - optimizado para móvil -->
+    <!-- CTAs alineados en la misma fila - optimizado para móvil -->
     <div class="text-center mt-8 sm:mt-12 md:mt-16 px-2 sm:px-4">
-      <a href="#gluten-free" class="timeline-cta inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base min-w-0">
-        <span class="text-lg">🌾</span>
-        <span class="whitespace-nowrap">Ver Guía Sin Gluten</span>
-        <span class="text-lg">🚫</span>
-      </a>
-    </div>
-
-    <!-- Debug Panel (solo visible en desarrollo) -->
-    <div class="mt-8 p-4 bg-gray-800 rounded-lg text-white text-sm debug-panel" x-data="{ showDebug: false }">
-      <button @click="showDebug = !showDebug" class="mb-4 px-4 py-2 bg-blue-600 rounded text-xs">
-        🔧 Debug Mode (Probar fechas)
-      </button>
-      <div x-show="showDebug" x-transition>
-        <p class="mb-4 text-xs text-gray-300">
-          Para probar diferentes escenarios, modifica la fecha en el código del componente Timeline.astro:
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div class="p-3 bg-gray-700 rounded">
-            <strong>Antes del viaje:</strong><br>
-            <code>new Date('2025-08-10')</code><br>
-            <span class="text-green-400">✓ Solo previews</span>
-          </div>
-          <div class="p-3 bg-gray-700 rounded">
-            <strong>Día de vuelo:</strong><br>
-            <code>new Date('2025-08-13')</code><br>
-            <span class="text-blue-400">✈️ Con tarjeta de vuelo</span>
-          </div>
-          <div class="p-3 bg-gray-700 rounded">
-            <strong>Durante el viaje:</strong><br>
-            <code>new Date('2025-08-16')</code><br>
-            <span class="text-yellow-400">🌟 Día actual destacado</span>
-          </div>
-        </div>
-        <p class="mt-4 text-xs text-gray-400">
-          Fecha actual del sistema: <strong>{new Date().toISOString().split('T')[0]}</strong>
-        </p>
+      <!-- Botones principales -->
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 lg:gap-8 mb-6">
+        <!-- Botón para ver itinerario completo (primero) -->
+        <a href={`${import.meta.env.BASE_URL}/itinerario`} class="itinerario-complete-cta inline-flex items-center justify-center space-x-3 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base lg:text-lg shadow-2xl w-full sm:w-auto no-underline">
+          <span class="text-lg sm:text-xl">📅</span>
+          <span class="whitespace-nowrap">Ver Itinerario Completo</span>
+          <span class="text-lg sm:text-xl">🗾</span>
+        </a>
+        
+        <!-- Botón para ver guía sin gluten (segundo) -->
+        <a href="#gluten-free" class="timeline-cta inline-flex items-center justify-center space-x-3 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base lg:text-lg shadow-2xl w-full sm:w-auto no-underline">
+          <span class="text-lg sm:text-xl">🌾</span>
+          <span class="whitespace-nowrap">Ver Guía Sin Gluten</span>
+          <span class="text-lg sm:text-xl">🚫</span>
+        </a>
       </div>
+      
+      <!-- Descripción del itinerario completo -->
+      <p class="text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto">
+        Explora todos los días del viaje con detalles completos de cada actividad y opciones especiales para celíacos
+      </p>
     </div>
   </div>
 </section>
@@ -329,118 +281,6 @@ const daysToShow = getDaysToShow();
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
   }
 
-  /* Timeline Line */
-  .timeline-line {
-    background: linear-gradient(to bottom, #FF1493, #FF6B6B, #FF0040);
-    opacity: 0.6;
-  }
-  
-  :global([data-theme="light"]) .timeline-line {
-    background: linear-gradient(to bottom, #FF1493, #FF6B6B, #FF0040);
-    opacity: 0.4;
-  }
-
-  /* Timeline Dot */
-  .timeline-dot {
-    background: #FF1493;
-    border-color: #1a1a1a !important;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
-  }
-  
-  :global([data-theme="light"]) .timeline-dot {
-    background: #DC143C;
-    border-color: #FFE8E8 !important;
-    box-shadow: 0 0 15px rgba(220, 20, 60, 0.6);
-  }
-
-  /* Filter Buttons */
-  .filter-active-primary {
-    background: #FF1493 !important;
-    color: white !important;
-    border-color: #FF1493 !important;
-    box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
-  }
-
-  .filter-inactive-primary {
-    background: transparent !important;
-    color: #FF1493 !important;
-    border-color: #FF1493 !important;
-  }
-  
-  .filter-inactive-primary:hover {
-    box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
-  }
-  
-  /* ===== FILTROS MODO CLARO ===== */
-  :global([data-theme="light"]) .filter-active-primary {
-    background: #DC143C !important;
-    color: white !important;
-    border-color: #DC143C !important;
-    box-shadow: 0 0 15px rgba(220, 20, 60, 0.4);
-  }
-
-  :global([data-theme="light"]) .filter-inactive-primary {
-    background: rgba(255, 245, 245, 0.7) !important;
-    color: #C41E3A !important;
-    border-color: #C41E3A !important;
-  }
-  
-  :global([data-theme="light"]) .filter-inactive-primary:hover {
-    box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
-    background: rgba(196, 30, 58, 0.1) !important;
-  }
-
-  .filter-active-gluten {
-    background: #FF6B6B !important;
-    color: white !important;
-    border-color: #FF6B6B !important;
-    box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
-  }
-
-  .filter-inactive-gluten {
-    background: transparent !important;
-    color: #FF6B6B !important;
-    border-color: #FF6B6B !important;
-  }
-  
-  .filter-inactive-gluten:hover {
-    box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
-  }
-
-  .filter-active-featured {
-    background: #FF0040 !important;
-    color: white !important;
-    border-color: #FF0040 !important;
-    box-shadow: 0 0 20px rgba(255, 0, 64, 0.6);
-  }
-
-  .filter-inactive-featured {
-    background: transparent !important;
-    color: #FF0040 !important;
-    border-color: #FF0040 !important;
-  }
-  
-  .filter-inactive-featured:hover {
-    box-shadow: 0 0 20px rgba(255, 0, 64, 0.4);
-  }
-
-  .filter-active-tourism {
-    background: #FF8A80 !important;
-    color: #1a1a1a !important;
-    border-color: #FF8A80 !important;
-    box-shadow: 0 0 20px rgba(255, 138, 128, 0.6);
-  }
-
-  .filter-inactive-tourism {
-    background: transparent !important;
-    color: #FF8A80 !important;
-    border-color: #FF8A80 !important;
-  }
-  
-  .filter-inactive-tourism:hover {
-    box-shadow: 0 0 20px rgba(255, 138, 128, 0.4);
-  }
-
   /* Stats Cards */
   .timeline-stat-card {
     background: rgba(255, 20, 147, 0.1);
@@ -476,11 +316,61 @@ const daysToShow = getDaysToShow();
   .timeline-cta {
     background: linear-gradient(135deg, #FF6B6B, #FF1493);
     color: white;
-    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.4);
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
   }
   
   .timeline-cta:hover {
-    box-shadow: 0 8px 30px rgba(255, 20, 147, 0.6);
+    box-shadow: 0 12px 40px rgba(255, 20, 147, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05) translateY(-2px);
+  }
+
+  /* Itinerario Complete CTA Button */
+  .itinerario-complete-cta {
+    background: linear-gradient(135deg, #FF1493, #FF0040, #8B0000);
+    color: white;
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .itinerario-complete-cta:hover {
+    box-shadow: 0 12px 40px rgba(255, 20, 147, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05) translateY(-2px);
+  }
+  
+  :global([data-theme="light"]) .timeline-cta {
+    background: linear-gradient(135deg, #FF6B6B, #DC143C);
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  :global([data-theme="light"]) .timeline-cta:hover {
+    box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  :global([data-theme="light"]) .itinerario-complete-cta {
+    background: linear-gradient(135deg, #DC143C, #8B0000, #4A0000);
+    box-shadow: 0 8px 32px rgba(220, 20, 60, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  :global([data-theme="light"]) .itinerario-complete-cta:hover {
+    box-shadow: 0 12px 40px rgba(220, 20, 60, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* No underline for CTA buttons */
+  .no-underline {
+    text-decoration: none !important;
+  }
+  
+  .no-underline:hover {
+    text-decoration: none !important;
   }
 
   /* Clickable Hint */
@@ -499,34 +389,5 @@ const daysToShow = getDaysToShow();
   
   :global([data-theme="light"]) .group-hover-indicator:hover .clickable-hint {
     color: #FF1493;
-  }
-
-  /* Animaciones personalizadas para los filtros */
-  [x-cloak] {
-    display: none !important;
-  }
-
-  /* Debug Panel */
-  .debug-panel {
-    font-family: monospace;
-    border: 1px solid #374151;
-  }
-  
-  :global([data-theme="light"]) .debug-panel {
-    background: #F9FAFB !important;
-    color: #1F2937 !important;
-    border-color: #D1D5DB !important;
-  }
-  
-  .debug-panel code {
-    background: #1F2937;
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #F59E0B;
-  }
-  
-  :global([data-theme="light"]) .debug-panel code {
-    background: #E5E7EB !important;
-    color: #B45309 !important;
   }
 </style>
