@@ -1,0 +1,623 @@
+---
+// Componente de galería optimizado para móvil
+interface Image {
+  id: number;
+  src: string;
+  alt: string;
+  category: string;
+  location: string;
+  day?: number;
+}
+
+// Imágenes placeholder - en producción estas vendrían de una API o archivos reales
+const images: Image[] = [
+  {
+    id: 1,
+    src: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&h=600&fit=crop",
+    alt: "Templo Senso-ji en Asakusa",
+    category: "templos",
+    location: "Asakusa, Tokio",
+    day: 1
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&h=600&fit=crop",
+    alt: "Neones de Shibuya por la noche",
+    category: "neones",
+    location: "Shibuya, Tokio",
+    day: 1
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&h=600&fit=crop",
+    alt: "Ramen gluten-free",
+    category: "gluten-free",
+    location: "Restaurante especializado",
+    day: 2
+  },
+  {
+    id: 4,
+    src: "https://images.unsplash.com/photo-1480796927426-f609979314bd?w=800&h=600&fit=crop",
+    alt: "Tokyo Skytree",
+    category: "landmarks",
+    location: "Tokyo Skytree",
+    day: 2
+  },
+  {
+    id: 5,
+    src: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&h=600&fit=crop",
+    alt: "Flores de cerezo",
+    category: "naturaleza",
+    location: "Parque Ueno",
+    day: 3
+  },
+  {
+    id: 6,
+    src: "https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=800&h=600&fit=crop",
+    alt: "Sushi sin gluten",
+    category: "gluten-free",
+    location: "Tsukiji",
+    day: 3
+  },
+  {
+    id: 7,
+    src: "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=800&h=600&fit=crop",
+    alt: "Distrito de Akihabara",
+    category: "neones",
+    location: "Akihabara, Tokio",
+    day: 2
+  },
+  {
+    id: 8,
+    src: "https://images.unsplash.com/photo-1554797589-7241bb691973?w=800&h=600&fit=crop",
+    alt: "Templo Kiyomizu-dera",
+    category: "templos",
+    location: "Kyoto",
+    day: 5
+  }
+];
+
+const categories = [
+  { id: 'todos', name: 'Todas', color: 'primary' },
+  { id: 'templos', name: '🏯 Templos', color: 'temples' },
+  { id: 'neones', name: '🌃 Neones', color: 'neon' },
+  { id: 'gluten-free', name: '🌾🚫 Sin Gluten', color: 'glutenfree' },
+  { id: 'landmarks', name: '🗼 Landmarks', color: 'landmarks' },
+  { id: 'naturaleza', name: '🌸 Naturaleza', color: 'nature' }
+];
+---
+
+<section id="galeria" class="py-12 sm:py-16 md:py-20 gallery-section">
+  <div class="container mx-auto px-4">
+    <!-- Header optimizado para móvil -->
+    <div class="text-center mb-8 sm:mb-12 md:mb-16">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-poppins mb-4 sm:mb-6 gallery-title">
+        📸 Galería
+      </h2>
+      <p class="text-lg sm:text-xl gallery-subtitle max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
+        Momentos únicos de nuestra aventura japonesa, desde templos milenarios hasta neones futuristas.
+      </p>
+    </div>
+
+    <!-- Filtros de categoría optimizados para móvil -->
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2" x-data="{ activeCategory: 'todos' }">
+      <button 
+        @click="activeCategory = 'todos'" 
+        :class="activeCategory === 'todos' ? 'filter-active-primary' : 'filter-inactive-primary'"
+        class="px-3 sm:px-4 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+        Todas
+      </button>
+      <button 
+        @click="activeCategory = 'templos'" 
+        :class="activeCategory === 'templos' ? 'filter-active-temples' : 'filter-inactive-temples'"
+        class="px-3 sm:px-4 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+        🏯 Templos
+      </button>
+      <button 
+        @click="activeCategory = 'neones'" 
+        :class="activeCategory === 'neones' ? 'filter-active-neon' : 'filter-inactive-neon'"
+        class="px-3 sm:px-4 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+        🌃 Neones
+      </button>
+      <button 
+        @click="activeCategory = 'gluten-free'" 
+        :class="activeCategory === 'gluten-free' ? 'filter-active-glutenfree' : 'filter-inactive-glutenfree'"
+        class="px-3 sm:px-4 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+        🌾🚫 Sin Gluten
+      </button>
+      <button 
+        @click="activeCategory = 'landmarks'" 
+        :class="activeCategory === 'landmarks' ? 'filter-active-landmarks' : 'filter-inactive-landmarks'"
+        class="px-3 sm:px-4 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+        🗼 Landmarks
+      </button>
+      <button 
+        @click="activeCategory = 'naturaleza'" 
+        :class="activeCategory === 'naturaleza' ? 'filter-active-nature' : 'filter-inactive-nature'"
+        class="px-3 sm:px-4 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap">
+        🌸 Naturaleza
+      </button>
+    </div>
+
+    <!-- Grid de galería responsivo -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6" x-data="{ activeCategory: 'todos', selectedImage: null }">
+      {images.map(image => (
+        <div 
+          class="group relative aspect-square overflow-hidden rounded-xl gallery-card transition-all duration-300 cursor-pointer"
+          x-show={`activeCategory === 'todos' || activeCategory === '${image.category}'`}
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          @click="selectedImage = {id: image.id, src: '{image.src}', alt: '{image.alt}', location: '{image.location}', day: {image.day || 'null'}}">
+          
+          <!-- Imagen -->
+          <img 
+            src={image.src} 
+            alt={image.alt}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+          />
+          
+          <!-- Overlay con información -->
+          <div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 gallery-overlay-text">
+              <h3 class="font-semibold text-sm sm:text-base mb-1 break-words">{image.alt}</h3>
+              <p class="text-xs sm:text-sm gallery-overlay-location break-words">📍 {image.location}</p>
+              {image.day && (
+                <p class="text-xs gallery-overlay-day mt-1">Día {image.day}</p>
+              )}
+            </div>
+            
+            <!-- Icono de expandir -->
+            <div class="gallery-expand-icon absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center">
+              <span class="text-lg">🔍</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Modal de imagen ampliada optimizado para móvil -->
+    <div 
+      x-data="{ selectedImage: null }"
+      x-show="selectedImage" 
+      x-transition:enter="transition ease-out duration-300" 
+      x-transition:enter-start="opacity-0" 
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-200" 
+      x-transition:leave-start="opacity-100" 
+      x-transition:leave-end="opacity-0"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 gallery-modal"
+      @click="selectedImage = null"
+      @keydown.escape.window="selectedImage = null"
+      style="display: none;">
+      
+      <div class="relative max-w-4xl max-h-full w-full" @click.stop>
+        <!-- Botón cerrar -->
+        <button 
+          @click="selectedImage = null"
+          class="gallery-modal-close absolute top-2 right-2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
+          <span class="text-xl">✕</span>
+        </button>
+        
+        <!-- Imagen ampliada -->
+        <div class="gallery-modal-content rounded-xl overflow-hidden border">
+          <img 
+            :src="selectedImage?.src" 
+            :alt="selectedImage?.alt"
+            class="w-full max-h-[70vh] object-contain"
+          />
+          
+          <!-- Información de la imagen -->
+          <div class="p-4 sm:p-6">
+            <h3 class="text-lg sm:text-xl font-bold gallery-modal-title mb-2" x-text="selectedImage?.alt"></h3>
+            <div class="flex flex-wrap items-center gap-4 text-sm gallery-modal-details">
+              <span>📍 <span x-text="selectedImage?.location"></span></span>
+              <span x-show="selectedImage?.day" class="gallery-modal-day">
+                Día <span x-text="selectedImage?.day"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA para subir más fotos -->
+    <div class="text-center mt-12 sm:mt-16">
+      <div class="gallery-cta inline-block p-6 sm:p-8 rounded-xl border">
+        <div class="text-4xl sm:text-5xl mb-4">📷</div>
+        <h3 class="text-lg sm:text-xl font-bold gallery-cta-title mb-2">¡Más fotos próximamente!</h3>
+        <p class="gallery-cta-description text-sm sm:text-base">
+          Continuaremos añadiendo fotos conforme vivamos esta increíble aventura.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* === GALLERY STYLES === */
+  
+  /* Section Background */
+  .gallery-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 50%, #1a1a1a 100%);
+    position: relative;
+  }
+  
+  :global([data-theme="light"]) .gallery-section {
+    background: linear-gradient(135deg, #ffeef7 0%, #f8f0ff 50%, #ffeef7 100%);
+  }
+
+  /* Title */
+  .gallery-title {
+    background: linear-gradient(135deg, #FF1493, #FF0040, #FF6B6B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+  }
+  
+  :global([data-theme="light"]) .gallery-title {
+    background: linear-gradient(135deg, #FF1493, #FF0040, #FF6B6B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+  }
+
+  /* Subtitle */
+  .gallery-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  :global([data-theme="light"]) .gallery-subtitle {
+    color: rgba(80, 50, 80, 0.9);
+  }
+
+  /* === FILTER BUTTONS === */
+  .filter-active-primary {
+    background: #FF1493 !important;
+    color: white !important;
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+  }
+
+  .filter-inactive-primary {
+    background: transparent !important;
+    color: #FF1493 !important;
+    border-color: #FF1493 !important;
+  }
+  
+  .filter-inactive-primary:hover {
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+  }
+
+  .filter-active-temples {
+    background: #FF8A80 !important;
+    color: white !important;
+    border-color: #FF8A80 !important;
+    box-shadow: 0 0 20px rgba(255, 138, 128, 0.6);
+  }
+
+  .filter-inactive-temples {
+    background: transparent !important;
+    color: #FF8A80 !important;
+    border-color: #FF8A80 !important;
+  }
+  
+  .filter-inactive-temples:hover {
+    box-shadow: 0 0 20px rgba(255, 138, 128, 0.4);
+  }
+
+  .filter-active-neon {
+    background: #FF6B6B !important;
+    color: white !important;
+    border-color: #FF6B6B !important;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+  }
+
+  .filter-inactive-neon {
+    background: transparent !important;
+    color: #FF6B6B !important;
+    border-color: #FF6B6B !important;
+  }
+  
+  .filter-inactive-neon:hover {
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+  }
+
+  .filter-active-glutenfree {
+    background: #FF0040 !important;
+    color: white !important;
+    border-color: #FF0040 !important;
+    box-shadow: 0 0 20px rgba(255, 0, 64, 0.6);
+  }
+
+  .filter-inactive-glutenfree {
+    background: transparent !important;
+    color: #FF0040 !important;
+    border-color: #FF0040 !important;
+  }
+  
+  .filter-inactive-glutenfree:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 64, 0.4);
+  }
+
+  .filter-active-landmarks {
+    background: #FF1493 !important;
+    color: white !important;
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+  }
+
+  .filter-inactive-landmarks {
+    background: transparent !important;
+    color: #FF1493 !important;
+    border-color: #FF1493 !important;
+  }
+  
+  .filter-inactive-landmarks:hover {
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+  }
+
+  .filter-active-nature {
+    background: #FF8A80 !important;
+    color: #1a1a1a !important;
+    border-color: #FF8A80 !important;
+    box-shadow: 0 0 20px rgba(255, 138, 128, 0.6);
+  }
+
+  .filter-inactive-nature {
+    background: transparent !important;
+    color: #FF8A80 !important;
+    border-color: #FF8A80 !important;
+  }
+  
+  .filter-inactive-nature:hover {
+    box-shadow: 0 0 20px rgba(255, 138, 128, 0.4);
+  }
+
+  /* Light mode filter styles */
+  :global([data-theme="light"]) .filter-active-primary {
+    background: #FF1493 !important;
+    color: white !important;
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+  }
+
+  :global([data-theme="light"]) .filter-inactive-primary {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #FF1493 !important;
+    border-color: #FF1493 !important;
+  }
+
+  :global([data-theme="light"]) .filter-active-temples {
+    background: #00FFFF !important;
+    color: #1a1a1a !important;
+    border-color: #00FFFF !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  }
+
+  :global([data-theme="light"]) .filter-inactive-temples {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #00FFFF !important;
+    border-color: #00FFFF !important;
+  }
+
+  :global([data-theme="light"]) .filter-active-neon {
+    background: #FF6B6B !important;
+    color: white !important;
+    border-color: #FF6B6B !important;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+  }
+
+  :global([data-theme="light"]) .filter-inactive-neon {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #FF6B6B !important;
+    border-color: #FF6B6B !important;
+  }
+
+  :global([data-theme="light"]) .filter-active-glutenfree {
+    background: #FF0040 !important;
+    color: white !important;
+    border-color: #FF0040 !important;
+    box-shadow: 0 0 15px rgba(255, 0, 64, 0.4);
+  }
+
+  :global([data-theme="light"]) .filter-inactive-glutenfree {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #FF0040 !important;
+    border-color: #FF0040 !important;
+  }
+
+  :global([data-theme="light"]) .filter-active-landmarks {
+    background: #FF1493 !important;
+    color: white !important;
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+  }
+
+  :global([data-theme="light"]) .filter-inactive-landmarks {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #FF1493 !important;
+    border-color: #FF1493 !important;
+  }
+
+  :global([data-theme="light"]) .filter-active-nature {
+    background: #FF8A80 !important;
+    color: #1a1a1a !important;
+    border-color: #FF8A80 !important;
+    box-shadow: 0 0 15px rgba(255, 138, 128, 0.4);
+  }
+
+  :global([data-theme="light"]) .filter-inactive-nature {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #FF8A80 !important;
+    border-color: #FF8A80 !important;
+  }
+
+  /* === GALLERY CARDS === */
+  .gallery-card {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+    border: 1px solid rgba(255, 20, 147, 0.2);
+  }
+  
+  .gallery-card:hover {
+    border-color: rgba(255, 20, 147, 0.4);
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2);
+  }
+  
+  :global([data-theme="light"]) .gallery-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 20, 147, 0.2);
+  }
+  
+  :global([data-theme="light"]) .gallery-card:hover {
+    border-color: rgba(255, 20, 147, 0.4);
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.1);
+  }
+
+  /* Gallery Overlay */
+  .gallery-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
+  }
+  
+  :global([data-theme="light"]) .gallery-overlay {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9) 0%, transparent 50%);
+  }
+
+  .gallery-overlay-text {
+    color: #FFFFFF;
+  }
+  
+  :global([data-theme="light"]) .gallery-overlay-text {
+    color: #333333;
+  }
+
+  .gallery-overlay-location {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  :global([data-theme="light"]) .gallery-overlay-location {
+    color: rgba(50, 50, 50, 0.8);
+  }
+
+  .gallery-overlay-day {
+    color: #FF1493;
+  }
+
+  .gallery-expand-icon {
+    background: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+  }
+  
+  :global([data-theme="light"]) .gallery-expand-icon {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333333;
+  }
+
+  /* === MODAL === */
+  .gallery-modal {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+  }
+  
+  :global([data-theme="light"]) .gallery-modal {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .gallery-modal-close {
+    background: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+  }
+  
+  .gallery-modal-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #FF1493;
+  }
+  
+  :global([data-theme="light"]) .gallery-modal-close {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333333;
+  }
+  
+  :global([data-theme="light"]) .gallery-modal-close:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #FF1493;
+  }
+
+  .gallery-modal-content {
+    background: rgba(26, 26, 26, 0.95);
+    border-color: rgba(255, 20, 147, 0.3);
+  }
+  
+  :global([data-theme="light"]) .gallery-modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 20, 147, 0.3);
+  }
+
+  .gallery-modal-title {
+    color: #FFFFFF;
+  }
+  
+  :global([data-theme="light"]) .gallery-modal-title {
+    color: #333333;
+  }
+
+  .gallery-modal-details {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  :global([data-theme="light"]) .gallery-modal-details {
+    color: rgba(50, 50, 50, 0.8);
+  }
+
+  .gallery-modal-day {
+    color: #FF1493;
+  }
+
+  /* === CTA SECTION === */
+  .gallery-cta {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+    border-color: rgba(255, 20, 147, 0.3);
+  }
+  
+  :global([data-theme="light"]) .gallery-cta {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 20, 147, 0.3);
+  }
+
+  .gallery-cta-title {
+    color: #FF1493;
+  }
+
+  .gallery-cta-description {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  :global([data-theme="light"]) .gallery-cta-description {
+    color: rgba(80, 50, 80, 0.9);
+  }
+</style>
+
+<script>
+  // JavaScript para mejorar la experiencia móvil
+  document.addEventListener('DOMContentLoaded', function() {
+    // Precargar imágenes para mejor UX en móvil
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            img.src = img.src; // Trigger load
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      images.forEach(img => imageObserver.observe(img));
+    }
+  });
+</script>

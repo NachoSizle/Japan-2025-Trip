@@ -1,0 +1,330 @@
+---
+// Datos de frases útiles para celíacos en Japón
+const frasesUtiles = [
+  {
+    japones: "グルテンフリーですか？",
+    fonetico: "Guruten furī desu ka?",
+    traduccion: "¿Es libre de gluten?"
+  },
+  {
+    japones: "小麦粉が入っていますか？",
+    fonetico: "Komugiko ga haitte imasu ka?",
+    traduccion: "¿Contiene harina de trigo?"
+  },
+  {
+    japones: "小麦アレルギーがあります",
+    fonetico: "Komugi arerugī ga arimasu",
+    traduccion: "Tengo alergia al trigo"
+  },
+  {
+    japones: "醤油は大丈夫ですか？",
+    fonetico: "Shōyu wa daijōbu desu ka?",
+    traduccion: "¿La salsa de soja está bien?"
+  }
+];
+
+// Aplicaciones útiles
+const aplicacionesUtiles = [
+  {
+    nombre: "Find Me Gluten Free",
+    descripcion: "Encuentra restaurantes sin gluten cerca de ti con reseñas de la comunidad celíaca"
+  },
+  {
+    nombre: "Google Translate",
+    descripcion: "Imprescindible para comunicar restricciones alimentarias"
+  },
+  {
+    nombre: "Celiac Travel",
+    descripcion: "Guía específica para viajeros celíacos con frases en japonés"
+  }
+];
+
+// Restaurantes recomendados
+const restaurantesRecomendados = [
+  {
+    nombre: "Ain Soph",
+    ubicacion: "Tokyo (multiple locations)",
+    descripcion: "Cadena de restaurantes veganos con opciones sin gluten claramente marcadas"
+  },
+  {
+    nombre: "T's Restaurant",
+    ubicacion: "Tokyo, Osaka",
+    descripcion: "Cocina japonesa moderna con menú sin gluten disponible"
+  },
+  {
+    nombre: "Gonpachi",
+    ubicacion: "Tokyo",
+    descripcion: "Puede acomodar dietas sin gluten con aviso previo"
+  }
+];
+---
+
+<section id="gluten-free" class="py-16 sm:py-20 gluten-free-section">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 gluten-free-title">
+        🌾 Guía Sin Gluten
+      </h2>
+      <p class="text-lg sm:text-xl lg:text-2xl gluten-free-subtitle">
+        Todo lo que necesitas saber para viajar siendo celíaco por Japón
+      </p>
+    </div>
+
+    <!-- Grid de contenido -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+      
+      <!-- Frases Útiles -->
+      <div class="lg:col-span-2 xl:col-span-1">
+        <div class="gluten-free-card h-full p-6 sm:p-8 rounded-xl backdrop-blur-sm">
+          <h3 class="text-2xl sm:text-3xl font-bold mb-6 gluten-free-phrases-title text-center">
+            🗣️ Frases Esenciales
+          </h3>
+          <div class="space-y-4">
+            {frasesUtiles.map((frase, index) => (
+              <div class="gluten-free-phrase-item p-4 rounded-lg border-l-4">
+                <div class="gluten-free-japanese text-xl sm:text-2xl font-bold mb-2">
+                  {frase.japones}
+                </div>
+                <div class="gluten-free-phonetic text-sm sm:text-base italic mb-2">
+                  {frase.fonetico}
+                </div>
+                <div class="gluten-free-translation text-sm sm:text-base">
+                  {frase.traduccion}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Apps Útiles -->
+      <div>
+        <div class="gluten-free-apps-card h-full p-6 sm:p-8 rounded-xl backdrop-blur-sm">
+          <h3 class="text-2xl sm:text-3xl font-bold mb-6 gluten-free-apps-title text-center">
+            📱 Apps Imprescindibles
+          </h3>
+          <div class="space-y-6">
+            {aplicacionesUtiles.map((app, index) => (
+              <div class="gluten-free-app-item p-4 rounded-lg border">
+                <h4 class="gluten-free-app-name text-lg font-bold mb-2">
+                  {app.nombre}
+                </h4>
+                <p class="gluten-free-app-description text-sm">
+                  {app.descripcion}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurantes -->
+      <div>
+        <div class="gluten-free-restaurants-card h-full p-6 sm:p-8 rounded-xl backdrop-blur-sm">
+          <h3 class="text-2xl sm:text-3xl font-bold mb-6 gluten-free-restaurants-title text-center">
+            🍽️ Restaurantes Seguros
+          </h3>
+          <div class="space-y-6">
+            {restaurantesRecomendados.map((restaurante, index) => (
+              <div class="gluten-free-restaurant-item p-4 rounded-lg border">
+                <h4 class="gluten-free-restaurant-name text-lg font-bold mb-1">
+                  {restaurante.nombre}
+                </h4>
+                <p class="gluten-free-restaurant-location text-xs mb-2 opacity-75">
+                  📍 {restaurante.ubicacion}
+                </p>
+                <p class="gluten-free-restaurant-description text-sm">
+                  {restaurante.descripcion}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pro Tips -->
+    <div class="mt-12 sm:mt-16">
+      <div class="gluten-free-card p-6 sm:p-8 rounded-xl backdrop-blur-sm">
+        <h3 class="text-2xl sm:text-3xl font-bold mb-6 gluten-free-apps-title text-center">
+          💡 Pro Tips para Celíacos en Japón
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="gluten-free-pro-tip">
+            <h4 class="font-bold mb-2 gluten-free-restaurants-title">🏪 Konbini (tiendas de conveniencia)</h4>
+            <p class="gluten-free-pro-tip-text text-sm">
+              Busca productos marcados con "グルテンフリー" (gluten free). 7-Eleven y FamilyMart tienen cada vez más opciones.
+            </p>
+          </div>
+          <div class="gluten-free-pro-tip">
+            <h4 class="font-bold mb-2 gluten-free-restaurants-title">🍜 Cuidado con el ramen</h4>
+            <p class="gluten-free-pro-tip-text text-sm">
+              La mayoría de caldos contienen trigo. Busca restaurantes especializados en ramen sin gluten en Tokyo.
+            </p>
+          </div>
+          <div class="gluten-free-pro-tip">
+            <h4 class="font-bold mb-2 gluten-free-restaurants-title">🧑‍🍳 Comunicación</h4>
+            <p class="gluten-free-pro-tip-text text-sm">
+              Lleva una tarjeta traducida explicando tu condición. Muchos restaurantes harán su mejor esfuerzo para ayudar.
+            </p>
+          </div>
+          <div class="gluten-free-pro-tip">
+            <h4 class="font-bold mb-2 gluten-free-restaurants-title">🍱 Preparación</h4>
+            <p class="gluten-free-pro-tip-text text-sm">
+              Lleva siempre snacks sin gluten contigo. No todos los sitios turísticos tendrán opciones disponibles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* === GLUTEN FREE GUIDE STYLES === */
+  
+  /* Sección principal */
+  .gluten-free-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3d2b 100%);
+    position: relative;
+  }
+  
+  :global(:global([data-theme="light"])) .gluten-free-section {
+    background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%) !important;
+  }
+
+  /* Título principal */
+  .gluten-free-title {
+    background: linear-gradient(135deg, #32CD32, #7CFC00, #98FB98);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(50, 205, 50, 0.5);
+  }
+  
+  :global(:global([data-theme="light"])) .gluten-free-title {
+    background: linear-gradient(135deg, #32CD32, #7CFC00, #98FB98) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 0 20px rgba(50, 205, 50, 0.3) !important;
+  }
+
+  /* Subtítulo */
+  .gluten-free-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  :global(:global([data-theme="light"])) .gluten-free-subtitle {
+    color: rgba(40, 80, 40, 0.9) !important;
+  }
+
+  /* Títulos de secciones */
+  .gluten-free-phrases-title,
+  .gluten-free-apps-title,
+  .gluten-free-restaurants-title {
+    color: #32CD32;
+  }
+
+  /* Tarjetas principales */
+  .gluten-free-card,
+  .gluten-free-apps-card,
+  .gluten-free-restaurants-card {
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid rgba(50, 205, 50, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .gluten-free-card:hover,
+  .gluten-free-apps-card:hover,
+  .gluten-free-restaurants-card:hover {
+    border-color: rgba(50, 205, 50, 0.5);
+    box-shadow: 0 8px 32px rgba(50, 205, 50, 0.2);
+  }
+  
+  :global([data-theme="light"]) .gluten-free-card,
+  :global([data-theme="light"]) .gluten-free-apps-card,
+  :global([data-theme="light"]) .gluten-free-restaurants-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(50, 205, 50, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  :global([data-theme="light"]) .gluten-free-card:hover,
+  :global([data-theme="light"]) .gluten-free-apps-card:hover,
+  :global([data-theme="light"]) .gluten-free-restaurants-card:hover {
+    background: rgba(50, 205, 50, 0.1);
+    border-color: rgba(50, 205, 50, 0.4);
+  }
+
+  /* Elementos de frases */
+  .gluten-free-phrase-item {
+    background: rgba(50, 205, 50, 0.05);
+    border-left-color: #32CD32;
+  }
+  
+  :global([data-theme="light"]) .gluten-free-phrase-item {
+    background: rgba(50, 205, 50, 0.03);
+    border-left-color: #32CD32;
+  }
+
+  .gluten-free-japanese {
+    color: #7CFC00;
+  }
+
+  .gluten-free-phonetic {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  :global([data-theme="light"]) .gluten-free-phonetic {
+    color: rgba(80, 80, 80, 0.8);
+  }
+
+  .gluten-free-translation {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  :global([data-theme="light"]) .gluten-free-translation {
+    color: rgba(60, 60, 60, 0.9);
+  }
+
+  /* Elementos de apps */
+  .gluten-free-app-item,
+  .gluten-free-restaurant-item {
+    background: rgba(50, 205, 50, 0.08);
+    border-color: rgba(50, 205, 50, 0.2);
+  }
+  
+  :global([data-theme="light"]) .gluten-free-app-item,
+  :global([data-theme="light"]) .gluten-free-restaurant-item {
+    background: rgba(50, 205, 50, 0.05);
+    border-color: rgba(50, 205, 50, 0.2);
+  }
+
+  .gluten-free-app-name,
+  .gluten-free-restaurant-name {
+    color: #7CFC00;
+  }
+
+  .gluten-free-app-description,
+  .gluten-free-restaurant-description,
+  .gluten-free-restaurant-location {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  :global([data-theme="light"]) .gluten-free-app-description,
+  :global([data-theme="light"]) .gluten-free-restaurant-description,
+  :global([data-theme="light"]) .gluten-free-restaurant-location {
+    color: rgba(60, 60, 60, 0.9);
+  }
+
+  /* Pro tips */
+  .gluten-free-pro-tip-text {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  :global([data-theme="light"]) .gluten-free-pro-tip-text {
+    color: rgba(40, 80, 40, 0.95);
+  }
+</style>

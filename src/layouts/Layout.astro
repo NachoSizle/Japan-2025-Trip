@@ -1,0 +1,116 @@
+---
+export interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Viaje a Japón 2025 - Itinerario completo con opciones gluten-free" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<!-- Meta tags para redes sociales -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<!-- Script para detectar tema antes del render -->
+		<script is:inline>
+			// Detectar y aplicar tema antes del render
+			(function() {
+				const savedTheme = localStorage.getItem('theme');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+				
+				console.log('Layout: Inicializando tema:', theme, 'savedTheme:', savedTheme, 'prefersDark:', prefersDark);
+				
+				// Aplicar el tema inmediatamente
+				document.documentElement.setAttribute('data-theme', theme);
+				document.documentElement.className = theme;
+				
+				// Si no había tema guardado, guardarlo ahora
+				if (!savedTheme) {
+					localStorage.setItem('theme', theme);
+				}
+				
+				console.log('Layout: Tema aplicado. HTML data-theme:', document.documentElement.getAttribute('data-theme'), 'class:', document.documentElement.className);
+			})();
+		</script>
+	</head>
+	<body class="font-inter antialiased transition-all duration-300">
+		<div class="min-h-screen theme-container">
+			<slot />
+		</div>
+		
+		<style is:global>
+			/* ===== ESTILOS PARA MODO OSCURO (por defecto) ===== */
+			html.dark,
+			html[data-theme="dark"] {
+				color-scheme: dark;
+			}
+			
+			.dark body,
+			[data-theme="dark"] body {
+				background: 
+					radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+					radial-gradient(circle at 80% 20%, rgba(255, 182, 182, 0.05) 0%, transparent 50%),
+					radial-gradient(circle at 40% 80%, rgba(255, 0, 64, 0.05) 0%, transparent 50%),
+					linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+				color: #FFFFFF;
+			}
+			
+			/* ===== ESTILOS PARA MODO CLARO ===== */
+			html.light,
+			html[data-theme="light"] {
+				color-scheme: light;
+			}
+			
+			.light body,
+			[data-theme="light"] body {
+				background: 
+					radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.02) 0%, transparent 50%),
+					radial-gradient(circle at 80% 20%, rgba(255, 182, 182, 0.02) 0%, transparent 50%),
+					radial-gradient(circle at 40% 80%, rgba(255, 0, 64, 0.02) 0%, transparent 50%),
+					linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+				color: #333333;
+			}
+			
+			/* Transiciones suaves */
+			.theme-container {
+				transition: all 0.3s ease;
+			}
+
+			/* Asegurar que todos los elementos hereden correctamente */
+			.light *,
+			[data-theme="light"] * {
+				color: inherit;
+			}
+
+			.dark *,
+			[data-theme="dark"] * {
+				color: inherit;
+			}
+		</style>
+		
+		<!-- Alpine.js -->
+		<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	</body>
+		</div>
+	</body>
+</html>
+
+<style>
+	/* Import our global styles */
+	@import '../styles/global.css';
+</style>

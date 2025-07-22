@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variables CSS para nuestra paleta de colores */
+:root {
+  /* Colores primarios suavizados */
+  --primary-color: #FF6B6B;
+  --secondary-color: #FFB3B3;
+  --accent-color: #FF9999;
+  
+  /* Fondos */
+  --bg-deep-black: #0A0A0A;
+  --bg-charcoal: #1A1A1A;
+  --bg-light-gray: #f8f9fa;
+  --bg-medium-gray: #e9ecef;
+  
+  /* Colores de texto */
+  --text-dark: #FFFFFF;
+  --text-light: #333333;
+  --text-muted-dark: #AAAAAA;
+  --text-muted-light: #666666;
+  
+  /* Otros acentos */
+  --gold-soft: #FFD700;
+  --gluten-free-green: #32CD32;
+  
+  /* Efectos suavizados */
+  --glow-primary: 0 0 20px var(--primary-color);
+  --glow-secondary: 0 0 20px var(--secondary-color);
+  --glow-green: 0 0 20px var(--gluten-free-green);
+}
+
+/* Estilos base mejorados */
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* Clases utilitarias para efectos suavizados */
+.soft-glow-primary {
+  box-shadow: 
+    0 0 5px var(--primary-color),
+    0 0 10px var(--primary-color),
+    0 0 20px var(--primary-color);
+}
+
+.soft-glow-secondary {
+  box-shadow: 
+    0 0 5px var(--secondary-color),
+    0 0 10px var(--secondary-color),
+    0 0 20px var(--secondary-color);
+}
+
+.soft-glow-green {
+  box-shadow: var(--glow-green);
+}
+
+/* Partículas flotantes */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+
+.particle-2 {
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+  animation-duration: 10s;
+}
+
+.particle-3 {
+  top: 80%;
+  left: 20%;
+  animation-delay: 4s;
+  animation-duration: 12s;
+}
+
+.particle-4 {
+  top: 30%;
+  left: 70%;
+  animation-delay: 1s;
+  animation-duration: 9s;
+}
+
+.particle-5 {
+  top: 70%;
+  left: 50%;
+  animation-delay: 3s;
+  animation-duration: 11s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Animación de pulso suavizado */
+@keyframes soft-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.1);
+  }
+}
+
+.soft-pulse {
+  animation: soft-pulse 2s ease-in-out infinite;
+}
+
+/* Estilos para el logo torii */
+.torii-logo {
+  filter: drop-shadow(0 0 10px var(--primary-color));
+  transition: all 0.3s ease;
+}
+
+.torii-logo:hover {
+  filter: drop-shadow(0 0 20px var(--secondary-color));
+  transform: scale(1.05);
+}

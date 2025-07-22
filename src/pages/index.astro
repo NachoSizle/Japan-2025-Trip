@@ -1,16 +1,447 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Timeline from '../components/Timeline.astro';
+import GlutenFreeGuide from '../components/GlutenFreeGuide.astro';
+import Gallery from '../components/Gallery.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Japón 2025 - Viaje de Ensueño">
+	<Header />
+	
+	<!-- Hero Section optimizado para móvil con colores rosa -->
+	<main class="pt-16 sm:pt-20">
+		<section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden hero-section">
+			<!-- Background gradient con tema -->
+			<div class="absolute inset-0 hero-bg"></div>
+			
+			<!-- Floating particles effect (CSS animation) -->
+			<div class="absolute inset-0 overflow-hidden">
+				<div class="particle particle-1"></div>
+				<div class="particle particle-2"></div>
+				<div class="particle particle-3"></div>
+				<div class="particle particle-4"></div>
+				<div class="particle particle-5"></div>
+			</div>
+
+			<div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+				<!-- Título principal con efecto rosa - optimizado para móvil -->
+				<div class="mb-6 sm:mb-8">
+					<h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-poppins mb-4 sm:mb-6">
+						<span class="inline-block animate-pulse hero-kanji">
+							日本
+						</span>
+					</h1>
+					<h2 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-inter font-light mb-3 sm:mb-4">
+						<span class="hero-text-1">Viaje a</span> 
+						<span class="hero-text-2 font-bold">Japón</span> 
+						<span class="hero-text-3">2025</span>
+					</h2>
+					<div class="text-base sm:text-xl md:text-2xl font-light tracking-wide hero-subtitle">
+						14 - 28 de Agosto • 
+						<span class="hero-gluten-free font-medium">Gluten-Free Friendly</span>
+					</div>
+				</div>
+
+				<div class="mb-8 sm:mb-12 max-w-3xl mx-auto">
+					<p class="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6 hero-description">
+						Una aventura de dos semanas explorando la tierra del sol naciente, desde los templos milenarios 
+						hasta los neones de <span class="hero-highlight font-semibold">Akihabara</span>, 
+						con opciones especiales para celíacos.
+					</p>
+					<div class="flex flex-wrap justify-center gap-4 text-sm md:text-base">
+						<div class="hero-badge hero-badge-1">
+							🏯 Tokio • Kyoto • Osaka
+						</div>
+						<div class="hero-badge hero-badge-2">
+							🍜 Experiencias gastronómicas
+						</div>
+						<div class="hero-badge hero-badge-3">
+							🌾🚫 Sin gluten
+						</div>
+					</div>
+				</div>
+
+				<!-- CTA Buttons optimizados para móvil -->
+				<div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+					<a href="#itinerario" 
+					   class="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 cta-primary">
+						<span class="group-hover:animate-pulse">📅 Ver Itinerario</span>
+					</a>
+					<a href="#gluten-free" 
+					   class="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 cta-secondary">
+						<span class="group-hover:animate-pulse">🌾 Guía Sin Gluten</span>
+					</a>
+				</div>
+
+				<!-- Stats rápidas optimizadas para móvil -->
+				<div class="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
+					<div class="text-center">
+						<div class="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 stat-number">14</div>
+						<div class="text-xs sm:text-sm stat-label">Días de aventura</div>
+					</div>
+					<div class="text-center">
+						<div class="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 stat-number">3</div>
+						<div class="text-xs sm:text-sm stat-label">Ciudades principales</div>
+					</div>
+					<div class="text-center">
+						<div class="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 stat-number">50+</div>
+						<div class="text-xs sm:text-sm stat-label">Lugares únicos</div>
+					</div>
+					<div class="text-center">
+						<div class="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2 stat-gluten">100%</div>
+						<div class="text-xs sm:text-sm stat-label">Gluten-Free</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Scroll indicator optimizado para móvil -->
+			<div class="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+				<div class="w-5 sm:w-6 h-8 sm:h-10 border-2 rounded-full flex justify-center scroll-indicator">
+					<div class="w-1 h-2 sm:h-3 rounded-full mt-1.5 sm:mt-2 animate-pulse scroll-dot"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Preview sections optimizada para móvil -->
+		<section id="preview" class="py-12 sm:py-16 md:py-20 preview-section">
+			<div class="container mx-auto px-4 text-center">
+				<h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 preview-title">
+					Una Experiencia Única en Japón
+				</h3>
+				<p class="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed preview-text">
+					Descubre cada día de nuestro viaje con opciones especiales para celíacos y lugares únicos por explorar.
+				</p>
+			</div>
+		</section>
+
+		<!-- Timeline Interactivo -->
+		<Timeline />
+
+		<!-- Guía Gluten-Free -->
+		<GlutenFreeGuide />
+
+		<!-- Galería -->
+		<Gallery />
+	</main>
+</Layout>
+
+<style>
+	/* === TEMA ROSA JAPONÉS === */
+	
+	/* Background del hero */
+	.hero-bg {
+		background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+	}
+	
+	/* Título japonés */
+	.hero-kanji {
+		background: linear-gradient(45deg, #FF1493, #FF0040, #FF6B6B);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+	}
+	
+	/* Textos del hero */
+	.hero-text-1 { color: #FF1493; }
+	.hero-text-2 { color: #FF6B6B; }
+	.hero-text-3 { color: #FF0040; }
+	
+	.hero-subtitle { 
+		color: #CCCCCC; 
+	}
+	
+	.hero-gluten-free { 
+		color: #32CD32; 
+	}
+	
+	.hero-description { 
+		color: #CCCCCC; 
+	}
+	
+	.hero-highlight { 
+		color: #FF1493;
+		text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+	}
+	
+	/* Badges */
+	.hero-badge {
+		padding: 0.5rem 1rem;
+		border-radius: 9999px;
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
+	}
+	
+	.hero-badge-1 {
+		background: rgba(255, 20, 147, 0.1);
+		border: 1px solid rgba(255, 20, 147, 0.3);
+		color: #FF1493;
+	}
+	
+	.hero-badge-2 {
+		background: rgba(255, 107, 107, 0.1);
+		border: 1px solid rgba(255, 107, 107, 0.3);
+		color: #FF6B6B;
+	}
+	
+	.hero-badge-3 {
+		background: rgba(50, 205, 50, 0.1);
+		border: 1px solid rgba(50, 205, 50, 0.3);
+		color: #32CD32;
+	}
+	
+	.hero-badge:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+	}
+	
+	/* CTA Buttons */
+	.cta-primary {
+		background: linear-gradient(45deg, #FF1493, #FF6B6B);
+		color: #FFFFFF;
+		box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+	}
+	
+	.cta-primary:hover {
+		box-shadow: 0 6px 25px rgba(255, 20, 147, 0.5);
+	}
+	
+	.cta-secondary {
+		background: transparent;
+		color: #32CD32;
+		border: 2px solid #32CD32;
+		box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
+	}
+	
+	.cta-secondary:hover {
+		background: #32CD32;
+		color: #000000;
+		box-shadow: 0 6px 25px rgba(50, 205, 50, 0.5);
+	}
+	
+	/* Stats */
+	.stats-container {
+		background: rgba(26, 26, 26, 0.8);
+		border: 1px solid rgba(255, 20, 147, 0.3);
+	}
+	
+	.stat-number {
+		color: #FF1493;
+		text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+	}
+	
+	.stat-label {
+		color: #AAAAAA;
+	}
+	
+	.stat-gluten {
+		color: #32CD32;
+		text-shadow: 0 0 10px rgba(50, 205, 50, 0.6);
+	}
+	
+	/* === MODO CLARO === */
+	[data-theme="light"] .hero-bg {
+		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+	}
+	
+	[data-theme="light"] .hero-subtitle,
+	[data-theme="light"] .hero-description {
+		color: #495057;
+	}
+	
+	[data-theme="light"] .hero-badge-1 {
+		background: rgba(255, 20, 147, 0.05);
+		border-color: rgba(255, 20, 147, 0.2);
+	}
+	
+	[data-theme="light"] .hero-badge-2 {
+		background: rgba(255, 107, 107, 0.05);
+		border-color: rgba(255, 107, 107, 0.2);
+	}
+	
+	[data-theme="light"] .hero-badge-3 {
+		background: rgba(50, 205, 50, 0.05);
+		border-color: rgba(50, 205, 50, 0.2);
+	}
+	
+	[data-theme="light"] .stats-container {
+		background: rgba(255, 255, 255, 0.8);
+		border-color: rgba(255, 20, 147, 0.2);
+	}
+	
+	[data-theme="light"] .stat-label {
+		color: #666666;
+	}
+	
+	/* === ESTILOS ADICIONALES MODO CLARO === */
+	[data-theme="light"] .hero-title {
+		background: linear-gradient(45deg, #FF1493, #FF6B6B) !important;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	[data-theme="light"] .hero-text-1 { color: #FF1493 !important; }
+	[data-theme="light"] .hero-text-2 { color: #FF6B6B !important; }
+	[data-theme="light"] .hero-text-3 { color: #FF0040 !important; }
+	[data-theme="light"] .hero-gluten-free { color: #32CD32 !important; }
+	[data-theme="light"] .hero-highlight { 
+		color: #FF1493 !important;
+		text-shadow: 0 0 10px rgba(255, 20, 147, 0.6) !important;
+	}
+	
+	[data-theme="light"] .cta-primary {
+		background: linear-gradient(45deg, #FF1493, #FF6B6B) !important;
+		color: #FFFFFF !important;
+	}
+	
+	[data-theme="light"] .cta-secondary {
+		background: transparent !important;
+		color: #32CD32 !important;
+		border: 2px solid #32CD32 !important;
+	}
+	
+	[data-theme="light"] .stat-number {
+		color: #FF1493 !important;
+	}
+	
+	[data-theme="light"] .stat-gluten {
+		color: #32CD32 !important;
+		text-shadow: 0 0 10px rgba(50, 205, 50, 0.6) !important;
+	}
+	
+	[data-theme="light"] .preview-section {
+		background: rgba(255, 255, 255, 0.8) !important;
+	}
+	
+	[data-theme="light"] .preview-title {
+		background: linear-gradient(45deg, #FF1493, #FF6B6B) !important;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	[data-theme="light"] .preview-text {
+		color: #495057 !important;
+	}
+	
+	/* Scroll indicator */
+	.scroll-indicator {
+		border-color: #FF1493;
+		box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+	}
+	
+	.scroll-dot {
+		background: #FF1493;
+		box-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+	}
+	
+	/* Preview section */
+	.preview-section {
+		background: rgba(26, 26, 26, 0.5);
+		backdrop-filter: blur(10px);
+	}
+	
+	.preview-title {
+		background: linear-gradient(45deg, #FF1493, #FF6B6B);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	.preview-text {
+		color: #CCCCCC;
+	}
+	
+	/* Light mode - scroll indicator */
+	:global(.light) .scroll-indicator {
+		border-color: #FF1493;
+		background: rgba(255, 255, 255, 0.8);
+	}
+	
+	/* Light mode - preview section */
+	:global(.light) .preview-section {
+		background: rgba(255, 255, 255, 0.5);
+	}
+	
+	:global(.light) .preview-text {
+		color: #495057;
+	}
+	
+	/* Partículas flotantes */
+	.particle {
+		position: absolute;
+		border-radius: 50%;
+		pointer-events: none;
+		animation: float 6s ease-in-out infinite;
+	}
+	
+	.particle-1 {
+		width: 4px;
+		height: 4px;
+		top: 20%;
+		left: 10%;
+		animation-delay: 0s;
+		background: radial-gradient(circle, rgba(255, 20, 147, 0.8) 0%, transparent 70%);
+	}
+	
+	.particle-2 {
+		width: 6px;
+		height: 6px;
+		top: 50%;
+		right: 15%;
+		animation-delay: 2s;
+		background: radial-gradient(circle, rgba(255, 107, 107, 0.8) 0%, transparent 70%);
+	}
+	
+	.particle-3 {
+		width: 3px;
+		height: 3px;
+		bottom: 30%;
+		left: 20%;
+		animation-delay: 4s;
+		background: radial-gradient(circle, rgba(255, 0, 64, 0.8) 0%, transparent 70%);
+	}
+	
+	.particle-4 {
+		width: 5px;
+		height: 5px;
+		top: 70%;
+		right: 25%;
+		animation-delay: 1s;
+		background: radial-gradient(circle, rgba(50, 205, 50, 0.6) 0%, transparent 70%);
+	}
+	
+	.particle-5 {
+		width: 4px;
+		height: 4px;
+		bottom: 20%;
+		left: 70%;
+		animation-delay: 3s;
+		background: radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, transparent 70%);
+	}
+	
+	/* Partículas en modo claro */
+	:global(.light) .particle-1,
+	:global(.light) .particle-2,
+	:global(.light) .particle-3 {
+		opacity: 0.3;
+	}
+	
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0px) rotate(0deg);
+			opacity: 0.7;
+		}
+		50% {
+			transform: translateY(-20px) rotate(180deg);
+			opacity: 1;
+		}
+	}
+	
+	/* Smooth scroll */
+	html {
+		scroll-behavior: smooth;
+	}
+</style>

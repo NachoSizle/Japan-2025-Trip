@@ -1,0 +1,286 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import DayCard from '../../components/DayCard.astro';
+import itinerarioData from '../../data/itinerario.json';
+
+export function getStaticPaths() {
+  // Generar rutas para todos los días del itinerario
+  return itinerarioData.dias.map((dia) => ({
+    params: { 
+      dia: dia.dia.toString() 
+    }
+  }));
+}
+
+const { dia } = Astro.params;
+const diaActual = itinerarioData.dias.find(d => d.dia.toString() === dia);
+
+if (!diaActual) {
+  return Astro.redirect('/404');
+}
+
+// Obtener día anterior y siguiente para navegación
+const diaIndex = itinerarioData.dias.findIndex(d => d.dia.toString() === dia);
+const diaAnterior = diaIndex > 0 ? itinerarioData.dias[diaIndex - 1] : null;
+const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.dias[diaIndex + 1] : null;
+---
+
+<Layout title={`Día ${diaActual.dia} - ${diaActual.titulo} | Japón 2025`}>
+  <Header />
+  
+  <!-- Hero del día específico -->
+  <main class="pt-20">
+    <section class="py-12 sm:py-16 bg-gradient-to-br from-bg-deep-black via-bg-charcoal to-bg-deep-black">
+      <div class="container mx-auto px-4">
+        
+        <!-- Navegación entre días con colores rosa vibrantes -->
+        <div class="flex justify-between items-center mb-8 sm:mb-12">
+          <div class="flex-1">
+            {diaAnterior && (
+              <a href={`/itinerario/${diaAnterior.dia}`} 
+                 class="inline-flex items-center space-x-2 transition-colors duration-300 group"
+                 style="color: #FF1493;"
+                 onmouseover="this.style.color='#FF6B6B'"
+                 onmouseout="this.style.color='#FF1493'">
+                <span class="text-lg group-hover:-translate-x-1 transition-transform duration-300">←</span>
+                <div class="text-left">
+                  <div class="text-xs" style="color: #AAAAAA;">Día anterior</div>
+                  <div class="text-sm font-medium truncate max-w-32 sm:max-w-none">Día {diaAnterior.dia}</div>
+                </div>
+              </a>
+            )}
+          </div>
+          
+          <!-- Breadcrumb con color rosa -->
+          <div class="text-center px-4">
+            <a href="/#itinerario" class="transition-colors duration-300 text-sm"
+               style="color: #AAAAAA;"
+               onmouseover="this.style.color='#FF1493'"
+               onmouseout="this.style.color='#AAAAAA'">
+              ← Volver al itinerario
+            </a>
+          </div>
+          
+          <div class="flex-1 text-right">
+            {diaSiguiente && (
+              <a href={`/itinerario/${diaSiguiente.dia}`} 
+                 class="inline-flex items-center space-x-2 transition-colors duration-300 group"
+                 style="color: #FF6B6B;"
+                 onmouseover="this.style.color='#FF1493'"
+                 onmouseout="this.style.color='#FF6B6B'">
+                <div class="text-right">
+                  <div class="text-xs" style="color: #AAAAAA;">Día siguiente</div>
+                  <div class="text-sm font-medium truncate max-w-32 sm:max-w-none">Día {diaSiguiente.dia}</div>
+                </div>
+                <span class="text-lg group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </a>
+            )}
+          </div>
+        </div>
+
+        <!-- Header del día con colores rosa/rojo vibrantes -->
+        <div class="text-center mb-8 sm:mb-12">
+          <div class="inline-flex items-center space-x-2 px-6 py-3 rounded-full mb-6" 
+               style="background: rgba(255, 20, 147, 0.2); border: 2px solid #FF1493; box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);">
+            <span class="font-mono text-sm font-bold" style="color: #FF1493;">{diaActual.fecha}</span>
+            <span class="w-2 h-2 rounded-full animate-pulse" style="background: #FF1493;"></span>
+            <span class="font-semibold text-sm" style="color: #FF6B6B;">{diaActual.ciudad}</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-poppins mb-6">
+            <span class="animate-pulse" style="background: linear-gradient(45deg, #FF1493, #FF0040, #FF6B6B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              Día {diaActual.dia}
+            </span>
+          </h1>
+          
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-light mb-6" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+            {diaActual.titulo}
+          </h2>
+        </div>
+
+        <!-- Estadísticas del día con colores rosa/rojo brillantes -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 sm:mb-12">
+          <div class="p-4 rounded-xl text-center transition-all duration-300" 
+               style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700;">
+            <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);">
+              {diaActual.actividades.filter(a => a.tipo === 'comida').length}
+            </div>
+            <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Comidas</div>
+          </div>
+          
+          <div class="p-4 rounded-xl text-center transition-all duration-300" 
+               style="background: rgba(255, 20, 147, 0.1); border: 2px solid #FF1493;">
+            <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FF1493; text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);">
+              {diaActual.actividades.filter(a => a.tipo === 'turismo').length}
+            </div>
+            <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Turismo</div>
+          </div>
+          
+          <div class="p-4 rounded-xl text-center transition-all duration-300" 
+               style="background: rgba(50, 205, 50, 0.1); border: 2px solid #32CD32;">
+            <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #32CD32; text-shadow: 0 0 10px rgba(50, 205, 50, 0.8);">
+              {diaActual.actividades.filter(a => (a as any).gluten_free).length}
+            </div>
+            <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Sin Gluten</div>
+          </div>
+          
+          <div class="p-4 rounded-xl text-center col-span-2 lg:col-span-1 transition-all duration-300" 
+               style="background: rgba(255, 107, 107, 0.1); border: 2px solid #FF6B6B;">
+            <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FF6B6B; text-shadow: 0 0 10px rgba(255, 107, 107, 0.8);">
+              {diaActual.actividades.filter((a: any) => a.destacado).length}
+            </div>
+            <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Destacados</div>
+          </div>
+        </div>
+
+        <!-- Tarjeta detallada del día -->
+        <div class="max-w-4xl mx-auto">
+          <DayCard 
+            day={diaActual.dia}
+            fecha={diaActual.fecha}
+            titulo={diaActual.titulo}
+            ciudad={diaActual.ciudad}
+            actividades={diaActual.actividades}
+          />
+        </div>
+
+        <!-- Timeline de actividades con título rosa -->
+        <div class="mt-12 sm:mt-16">
+          <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+            <span style="background: linear-gradient(45deg, #FF1493, #FF6B6B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);">
+              Cronograma Detallado
+            </span>
+          </h3>
+          
+          <div class="relative max-w-3xl mx-auto">
+            <!-- Línea de tiempo vertical con glow rosa -->
+            <div class="absolute left-4 sm:left-8 top-0 bottom-0 w-1 rounded-full" 
+                 style="background: linear-gradient(to bottom, #FF1493, #FF6B6B, #FF0040); box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);"></div>
+            
+            <div class="space-y-6 sm:space-y-8">
+              {diaActual.actividades.map((actividad, index) => (
+                <div class="relative pl-10 sm:pl-16">
+                  <!-- Punto en la timeline con glow rosa -->
+                  <div class="absolute left-4 sm:left-8 w-4 h-4 rounded-full transform -translate-x-1/2 z-10 animate-pulse" 
+                       style="background: #FF1493; border: 2px solid #0A0A0A; box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);"></div>
+                  
+                  <!-- Tarjeta de actividad con borde rosa -->
+                  <div class="rounded-xl p-4 sm:p-6 transition-all duration-300" 
+                       style="background: rgba(26, 26, 26, 0.9); border: 2px solid rgba(64, 64, 64, 0.5); backdrop-filter: blur(10px);"
+                       onmouseover="this.style.borderColor='#FF1493'; this.style.boxShadow='0 0 30px rgba(255, 20, 147, 0.4)'"
+                       onmouseout="this.style.borderColor='rgba(64, 64, 64, 0.5)'; this.style.boxShadow='none'">
+                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                      <!-- Icono y hora -->
+                      <div class="flex items-center gap-3 sm:flex-col sm:items-center sm:gap-2 flex-shrink-0">
+                        <div class="text-2xl sm:text-3xl">
+                          {actividad.tipo === 'transporte' ? '✈️' :
+                           actividad.tipo === 'alojamiento' ? '🏨' :
+                           actividad.tipo === 'comida' ? '🍽️' :
+                           actividad.tipo === 'turismo' ? '🗼' :
+                           actividad.tipo === 'cultura' ? '🏯' : '📍'}
+                        </div>
+                        <div class="font-mono text-neon-cyan font-bold text-lg">
+                          {actividad.hora}
+                        </div>
+                      </div>
+                      
+                      <!-- Contenido -->
+                      <div class="flex-1 min-w-0">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3">
+                          <h4 class="font-bold text-lg sm:text-xl break-words" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                            {actividad.actividad}
+                          </h4>
+                          <div class="flex items-center gap-2 flex-wrap">
+                            {(actividad as any).gluten_free && (
+                              <span class="px-3 py-1 rounded-full font-bold text-xs whitespace-nowrap" 
+                                    style="background: linear-gradient(45deg, #32CD32, #00FFFF); color: #000000; box-shadow: 0 0 10px rgba(50, 205, 50, 0.6);">
+                                🌾🚫 GF
+                              </span>
+                            )}
+                            {(actividad as any).destacado && (
+                              <span class="px-3 py-1 rounded-full font-bold text-xs whitespace-nowrap animate-pulse" 
+                                    style="background: linear-gradient(45deg, #FF1493, #FF6B6B); color: #FFFFFF; box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);">
+                                ⭐ Destacado
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <div class="mb-3 break-words flex items-center gap-2">
+                          <span style="color: #FF1493;">📍</span>
+                          <span style="color: #CCCCCC;">{actividad.ubicacion}</span>
+                        </div>
+                        
+                        {(actividad as any).notas && (
+                          <div class="text-sm italic mb-3 break-words flex items-start gap-2">
+                            <span style="color: #FFD700;">💡</span>
+                            <span style="color: #AAAAAA;">{(actividad as any).notas}</span>
+                          </div>
+                        )}
+                        
+                        {(actividad as any).alternativa_gf && (
+                          <div class="text-sm break-words flex items-start gap-2 p-3 rounded-lg" 
+                               style="background: rgba(50, 205, 50, 0.1); border: 1px solid #32CD32;">
+                            <span style="color: #32CD32;">🔄</span>
+                            <div style="color: #32CD32;">
+                              <strong>Alternativa sin gluten:</strong> <span style="color: #FFFFFF;">{(actividad as any).alternativa_gf}</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Navegación inferior con colores rosa/rojo vibrantes -->
+        <div class="flex justify-between items-center mt-12 sm:mt-16 pt-8" 
+             style="border-top: 2px solid rgba(255, 20, 147, 0.5);">
+          {diaAnterior ? (
+            <a href={`/itinerario/${diaAnterior.dia}`} 
+               class="inline-flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 group" 
+               style="background: linear-gradient(45deg, rgba(255, 20, 147, 0.2), rgba(255, 107, 107, 0.2)); border: 2px solid #FF1493; backdrop-filter: blur(10px);"
+               onmouseover="this.style.boxShadow='0 0 30px rgba(255, 20, 147, 0.6)'"
+               onmouseout="this.style.boxShadow='none'">
+              <span class="text-2xl group-hover:-translate-x-1 transition-transform duration-300" style="color: #FF1493;">←</span>
+              <div class="text-left">
+                <div class="text-xs font-medium" style="color: #AAAAAA;">Anterior</div>
+                <div class="text-sm font-bold" style="color: #FF1493;">Día {diaAnterior.dia}</div>
+              </div>
+            </a>
+          ) : (
+            <div></div>
+          )}
+          
+          <a href="/#itinerario" 
+             class="px-6 py-4 rounded-xl transition-all duration-300 text-sm sm:text-base font-medium" 
+             style="background: rgba(26, 26, 26, 0.8); border: 2px solid rgba(64, 64, 64, 0.5); color: #CCCCCC; backdrop-filter: blur(10px);"
+             onmouseover="this.style.borderColor='#FF6B6B'; this.style.color='#FF6B6B'"
+             onmouseout="this.style.borderColor='rgba(64, 64, 64, 0.5)'; this.style.color='#CCCCCC'">
+            Ver todos los días
+          </a>
+          
+          {diaSiguiente ? (
+            <a href={`/itinerario/${diaSiguiente.dia}`} 
+               class="inline-flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 group" 
+               style="background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 0, 64, 0.2)); border: 2px solid #FF6B6B; backdrop-filter: blur(10px);"
+               onmouseover="this.style.boxShadow='0 0 30px rgba(255, 107, 107, 0.6)'"
+               onmouseout="this.style.boxShadow='none'">
+              <div class="text-right">
+                <div class="text-xs font-medium" style="color: #AAAAAA;">Siguiente</div>
+                <div class="text-sm font-bold" style="color: #FF6B6B;">Día {diaSiguiente.dia}</div>
+              </div>
+              <span class="text-2xl group-hover:translate-x-1 transition-transform duration-300" style="color: #FF6B6B;">→</span>
+            </a>
+          ) : (
+            <div></div>
+          )}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

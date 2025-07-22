@@ -1,0 +1,439 @@
+---
+// Header component optimizado para móvil con modo claro/oscuro
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-all duration-300 header-bg" id="main-header">
+  <nav class="container mx-auto px-4 py-3 sm:py-4">
+    <div class="flex items-center justify-between">
+      
+      <!-- Logo Torii -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <div class="torii-logo">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="sm:w-12 sm:h-12 transition-colors duration-300 logo-svg">
+            <rect x="8" y="12" width="2" height="20" fill="currentColor"/>
+            <rect x="30" y="12" width="2" height="20" fill="currentColor"/>
+            <rect x="6" y="12" width="28" height="3" rx="1" fill="currentColor"/>
+            <rect x="4" y="8" width="32" height="3" rx="1" fill="currentColor"/>
+            <circle cx="9" cy="33" r="2" fill="currentColor" opacity="0.7"/>
+            <circle cx="31" cy="33" r="2" fill="currentColor" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="flex flex-col -space-y-1">
+          <h1 class="text-xl sm:text-2xl font-poppins font-bold logo-text leading-tight">
+            <span class="logo-japan">Japón</span> 
+            <span class="logo-year">2025</span>
+          </h1>
+          <p class="text-xs sm:text-sm logo-date">14-28 Agosto</p>
+        </div>
+      </div>
+
+      <!-- Controles superiores -->
+      <div class="flex items-center space-x-3">
+        <!-- Toggle Modo Claro/Oscuro -->
+        <button id="theme-toggle" class="flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 theme-toggle">
+          <span id="dark-icon" class="text-lg">🌙</span>
+          <span id="light-icon" class="text-lg hidden">☀️</span>
+        </button>
+
+        <!-- Navigation Menu - Desktop -->
+        <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
+          <a href="#inicio" class="nav-link">🏠 Inicio</a>
+          <a href="#itinerario" class="nav-link">📅 Itinerario</a>
+          <a href="#gluten-free" class="nav-link">🌾🚫 Sin Gluten</a>
+          <a href="#galeria" class="nav-link">📸 Galería</a>
+        </div>
+
+        <!-- Menú hamburguesa para móvil -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 hamburger-btn">
+          <div class="w-6 h-6 flex flex-col justify-center items-center">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line mt-1"></span>
+            <span class="hamburger-line mt-1"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 pt-4 border-t mobile-menu">
+      <div class="flex flex-col space-y-3">
+        <a href="#inicio" class="mobile-nav-link">🏠 Inicio</a>
+        <a href="#itinerario" class="mobile-nav-link">📅 Itinerario</a>
+        <a href="#gluten-free" class="mobile-nav-link">🌾🚫 Sin Gluten</a>
+        <a href="#galeria" class="mobile-nav-link">📸 Galería</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Inicializar tema al cargar - Solo iconos, el tema ya se aplicó en Layout
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const currentTheme = document.documentElement.getAttribute('data-theme') || savedTheme;
+    
+    // Aplicar estilos iniciales
+    applyThemeStyles(currentTheme);
+    updateThemeIcons(currentTheme);
+    
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        console.log('Cambiando tema de', currentTheme, 'a', newTheme);
+        applyTheme(newTheme);
+      });
+    }
+    
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+      const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        
+        if (isOpen) {
+          // Cerrar menú
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.classList.remove('active');
+          hamburgerLines[0]?.classList.remove('rotate-45', 'translate-y-1.5');
+          hamburgerLines[1]?.classList.remove('opacity-0');
+          hamburgerLines[2]?.classList.remove('-rotate-45', '-translate-y-1.5');
+        } else {
+          // Abrir menú
+          mobileMenu.classList.remove('hidden');
+          mobileMenuBtn.classList.add('active');
+          hamburgerLines[0]?.classList.add('rotate-45', 'translate-y-1.5');
+          hamburgerLines[1]?.classList.add('opacity-0');
+          hamburgerLines[2]?.classList.add('-rotate-45', '-translate-y-1.5');
+        }
+      });
+      
+      // Cerrar menú móvil al hacer clic en un enlace
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.classList.remove('active');
+          hamburgerLines[0]?.classList.remove('rotate-45', 'translate-y-1.5');
+          hamburgerLines[1]?.classList.remove('opacity-0');
+          hamburgerLines[2]?.classList.remove('-rotate-45', '-translate-y-1.5');
+        });
+      });
+    }
+  });
+  
+  function applyTheme(theme: string) {
+    console.log('Aplicando tema:', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.className = theme;
+    localStorage.setItem('theme', theme);
+    console.log('Tema aplicado. data-theme:', document.documentElement.getAttribute('data-theme'), 'class:', document.documentElement.className);
+    
+    // Aplicar estilos directamente con JavaScript para asegurar que funcionen
+    applyThemeStyles(theme);
+    
+    updateThemeIcons(theme);
+    
+    // Log del estado de algunas secciones para debug
+    setTimeout(() => {
+      const timelineSection = document.querySelector('.timeline-section');
+      const glutenFreeSection = document.querySelector('.gluten-free-section');
+      console.log('Timeline background:', timelineSection ? getComputedStyle(timelineSection).background : 'not found');
+      console.log('GlutenFree background:', glutenFreeSection ? getComputedStyle(glutenFreeSection).background : 'not found');
+    }, 100);
+  }
+  
+  function applyThemeStyles(theme: string) {
+    const timelineSection = document.querySelector('.timeline-section') as HTMLElement;
+    const glutenFreeSection = document.querySelector('.gluten-free-section') as HTMLElement;
+    const gallerySection = document.querySelector('.gallery-section') as HTMLElement;
+    const heroSection = document.querySelector('.hero-section') as HTMLElement;
+    const heroBg = document.querySelector('.hero-bg') as HTMLElement;
+    
+    if (theme === 'light') {
+      // Aplicar estilos de modo claro directamente
+      if (timelineSection) {
+        timelineSection.style.background = 'linear-gradient(135deg, #ffeef7 0%, #f8f0ff 100%)';
+      }
+      if (glutenFreeSection) {
+        glutenFreeSection.style.background = 'linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%)';
+      }
+      if (gallerySection) {
+        gallerySection.style.background = 'linear-gradient(135deg, #ffeef7 0%, #f8f0ff 50%, #ffeef7 100%)';
+      }
+      if (heroBg) {
+        heroBg.style.background = 'radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 182, 182, 0.05) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(255, 0, 64, 0.05) 0%, transparent 50%), linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)';
+      }
+      
+      // Aplicar estilos de texto y elementos específicos
+      document.querySelectorAll('.timeline-subtitle, .gluten-free-subtitle').forEach((el: Element) => {
+        (el as HTMLElement).style.color = 'rgba(80, 50, 80, 0.9)';
+      });
+      
+      // Cards y elementos de modo claro
+      document.querySelectorAll('.gluten-free-card, .gluten-free-apps-card, .gluten-free-restaurants-card').forEach((el: Element) => {
+        (el as HTMLElement).style.background = 'rgba(255, 255, 255, 0.8)';
+        (el as HTMLElement).style.borderColor = 'rgba(50, 205, 50, 0.2)';
+      });
+      
+    } else {
+      // Restaurar estilos de modo oscuro
+      if (timelineSection) {
+        timelineSection.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 100%)';
+      }
+      if (glutenFreeSection) {
+        glutenFreeSection.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d3d2b 100%)';
+      }
+      if (gallerySection) {
+        gallerySection.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 50%, #1a1a1a 100%)';
+      }
+      if (heroBg) {
+        heroBg.style.background = '';
+      }
+      
+      // Restaurar estilos de texto
+      document.querySelectorAll('.timeline-subtitle, .gluten-free-subtitle').forEach((el: Element) => {
+        (el as HTMLElement).style.color = 'rgba(255, 255, 255, 0.8)';
+      });
+      
+      // Cards modo oscuro
+      document.querySelectorAll('.gluten-free-card, .gluten-free-apps-card, .gluten-free-restaurants-card').forEach((el: Element) => {
+        (el as HTMLElement).style.background = 'rgba(26, 26, 26, 0.7)';
+        (el as HTMLElement).style.borderColor = 'rgba(50, 205, 50, 0.3)';
+      });
+    }
+  }
+  
+  function updateThemeIcons(theme: string) {
+    const darkIcon = document.getElementById('dark-icon');
+    const lightIcon = document.getElementById('light-icon');
+    
+    if (theme === 'dark') {
+      darkIcon?.classList.remove('hidden');
+      lightIcon?.classList.add('hidden');
+    } else {
+      darkIcon?.classList.add('hidden');
+      lightIcon?.classList.remove('hidden');
+    }
+  }
+</script>
+
+<style>
+  /* ===== ESTILOS BASE - MODO OSCURO ===== */
+  .header-bg {
+    background: rgba(26, 26, 26, 0.95);
+    border-color: rgba(64, 64, 64, 0.3);
+  }
+
+  /* Logo */
+  .logo-svg {
+    color: #FF6B6B;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
+  }
+  
+  .logo-text {
+    color: #FFFFFF;
+  }
+  
+  .logo-japan {
+    color: #FF6B6B;
+  }
+  
+  .logo-year {
+    color: #FFB3B3;
+  }
+  
+  .logo-date {
+    color: #AAAAAA;
+  }
+
+  /* Theme Toggle */
+  .theme-toggle {
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    color: #FFFFFF;
+  }
+  
+  .theme-toggle:hover {
+    border-color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.1);
+    transform: scale(1.05);
+  }
+
+  /* Hamburger Button */
+  .hamburger-btn {
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid rgba(64, 64, 64, 0.3);
+  }
+  
+  .hamburger-btn:hover,
+  .hamburger-btn.active {
+    border-color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.1);
+  }
+  
+  .hamburger-line {
+    width: 20px;
+    height: 2px;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+  }
+
+  /* Desktop Navigation - Estilo neón mejorado */
+  .nav-link {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.025em;
+    color: #FF1493;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 1px solid transparent;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255, 20, 147, 0.5);
+  }
+  
+  .nav-link:hover {
+    color: #00FFFF;
+    background: rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.3);
+    transform: translateY(-1px);
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  
+  .nav-link:active {
+    transform: translateY(0);
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    border-color: rgba(64, 64, 64, 0.3);
+    background: rgba(26, 26, 26, 0.95);
+  }
+  
+  .mobile-nav-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.025em;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: #FF1493;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255, 20, 147, 0.5);
+  }
+  
+  .mobile-nav-link:hover {
+    color: #00FFFF;
+    background: rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.3);
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+
+  /* ===== ESTILOS PARA MODO CLARO ===== */
+  
+  /* Modo claro detectado por data-theme o class */
+  :global([data-theme="light"]) .header-bg,
+  :global(.light) .header-bg {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(200, 200, 200, 0.3) !important;
+  }
+  
+  :global([data-theme="light"]) .theme-toggle,
+  :global(.light) .theme-toggle {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 107, 107, 0.3);
+    color: #333333;
+  }
+  
+  :global([data-theme="light"]) .theme-toggle:hover,
+  :global(.light) .theme-toggle:hover {
+    border-color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.1);
+  }
+  
+  :global([data-theme="light"]) .hamburger-btn,
+  :global(.light) .hamburger-btn {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(100, 100, 100, 0.3);
+  }
+  
+  :global([data-theme="light"]) .hamburger-btn:hover,
+  :global([data-theme="light"]) .hamburger-btn.active,
+  :global(.light) .hamburger-btn:hover,
+  :global(.light) .hamburger-btn.active {
+    border-color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.1);
+  }
+  
+  :global([data-theme="light"]) .hamburger-line,
+  :global(.light) .hamburger-line {
+    background: #333333;
+  }
+  
+  :global([data-theme="light"]) .nav-link,
+  :global(.light) .nav-link {
+    color: #8A2BE2;
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+  }
+  
+  :global([data-theme="light"]) .nav-link:hover,
+  :global(.light) .nav-link:hover {
+    color: #FF6600;
+    background: rgba(255, 102, 0, 0.1);
+    border-color: rgba(255, 102, 0, 0.3);
+    text-shadow: 0 0 12px rgba(255, 102, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+  }
+  
+  :global([data-theme="light"]) .mobile-menu,
+  :global(.light) .mobile-menu {
+    border-color: rgba(200, 200, 200, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+  }
+  
+  :global([data-theme="light"]) .mobile-nav-link,
+  :global(.light) .mobile-nav-link {
+    color: #8A2BE2;
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+  }
+  
+  :global([data-theme="light"]) .mobile-nav-link:hover,
+  :global(.light) .mobile-nav-link:hover {
+    color: #FF6600;
+    background: rgba(255, 102, 0, 0.1);
+    border-color: rgba(255, 102, 0, 0.3);
+    text-shadow: 0 0 12px rgba(255, 102, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+  }
+  
+  :global([data-theme="light"]) .logo-text,
+  :global(.light) .logo-text {
+    color: #333333 !important;
+  }
+  
+  :global([data-theme="light"]) .logo-date,
+  :global(.light) .logo-date {
+    color: #666666 !important;
+  }
+
+  :global([data-theme="light"]) .logo-svg,
+  :global(.light) .logo-svg {
+    color: #FF6B6B;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.4));
+  }
+</style>

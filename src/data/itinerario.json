@@ -1,0 +1,183 @@
+{
+  "viaje": {
+    "titulo": "Viaje a Japón 2025",
+    "fechas": {
+      "inicio": "2025-08-14",
+      "fin": "2025-08-28"
+    },
+    "duracion_dias": 14,
+    "ciudades_principales": ["Tokio", "Kyoto", "Osaka"],
+    "descripcion": "Una aventura de dos semanas explorando la tierra del sol naciente"
+  },
+  "dias": [
+    {
+      "dia": 1,
+      "fecha": "2025-08-14",
+      "titulo": "Llegada a Tokio",
+      "ciudad": "Tokio",
+      "actividades": [
+        {
+          "hora": "06:00",
+          "actividad": "Vuelo de llegada al Aeropuerto de Narita",
+          "ubicacion": "Aeropuerto Internacional de Narita",
+          "tipo": "transporte"
+        },
+        {
+          "hora": "10:00",
+          "actividad": "Check-in en el hotel",
+          "ubicacion": "Hotel en Shibuya",
+          "tipo": "alojamiento"
+        },
+        {
+          "hora": "12:00",
+          "actividad": "Almuerzo de bienvenida",
+          "ubicacion": "Restaurante local",
+          "tipo": "comida",
+          "gluten_free": true,
+          "notas": "Primer contacto con la cocina japonesa sin gluten"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Paseo por Shibuya Crossing",
+          "ubicacion": "Shibuya",
+          "tipo": "turismo"
+        },
+        {
+          "hora": "18:00",
+          "actividad": "Cena en Harajuku",
+          "ubicacion": "Harajuku",
+          "tipo": "comida",
+          "gluten_free": true
+        }
+      ]
+    },
+    {
+      "dia": 2,
+      "fecha": "2025-08-15",
+      "titulo": "Exploración de Tokio Moderno",
+      "ciudad": "Tokio",
+      "actividades": [
+        {
+          "hora": "09:00",
+          "actividad": "Desayuno en el hotel",
+          "ubicacion": "Hotel",
+          "tipo": "comida",
+          "gluten_free": true
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Visita a Akihabara - Distrito electrónico",
+          "ubicacion": "Akihabara",
+          "tipo": "turismo",
+          "destacado": true
+        },
+        {
+          "hora": "13:00",
+          "actividad": "Almuerzo en un café temático",
+          "ubicacion": "Akihabara",
+          "tipo": "comida",
+          "gluten_free": false,
+          "alternativa_gf": "Café con opciones sin gluten cercano"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Tokyo Skytree",
+          "ubicacion": "Tokyo Skytree",
+          "tipo": "turismo",
+          "destacado": true
+        },
+        {
+          "hora": "19:00",
+          "actividad": "Cena en Asakusa",
+          "ubicacion": "Asakusa",
+          "tipo": "comida",
+          "gluten_free": true
+        }
+      ]
+    },
+    {
+      "dia": 3,
+      "fecha": "2025-08-16",
+      "titulo": "Tokio Tradicional",
+      "ciudad": "Tokio",
+      "actividades": [
+        {
+          "hora": "08:00",
+          "actividad": "Desayuno tradicional japonés",
+          "ubicacion": "Hotel",
+          "tipo": "comida",
+          "gluten_free": true
+        },
+        {
+          "hora": "09:30",
+          "actividad": "Templo Senso-ji",
+          "ubicacion": "Asakusa",
+          "tipo": "cultura",
+          "destacado": true
+        },
+        {
+          "hora": "11:30",
+          "actividad": "Mercado Tsukiji Outer Market",
+          "ubicacion": "Tsukiji",
+          "tipo": "turismo"
+        },
+        {
+          "hora": "13:00",
+          "actividad": "Almuerzo de sushi sin gluten",
+          "ubicacion": "Tsukiji",
+          "tipo": "comida",
+          "gluten_free": true,
+          "destacado": true
+        },
+        {
+          "hora": "15:30",
+          "actividad": "Jardines del Palacio Imperial",
+          "ubicacion": "Chiyoda",
+          "tipo": "naturaleza"
+        },
+        {
+          "hora": "18:30",
+          "actividad": "Cena en Ginza",
+          "ubicacion": "Ginza",
+          "tipo": "comida",
+          "gluten_free": true
+        }
+      ]
+    }
+  ],
+  "restaurantes_gluten_free": [
+    {
+      "nombre": "Little Bird Café",
+      "ciudad": "Tokio",
+      "ubicacion": "Shibuya",
+      "especialidad": "Café y postres sin gluten",
+      "puntuacion": 4.8,
+      "url": "https://maps.google.com"
+    },
+    {
+      "nombre": "Gluten Free T's Kitchen",
+      "ciudad": "Tokio", 
+      "ubicacion": "Roppongi",
+      "especialidad": "Cocina japonesa sin gluten",
+      "puntuacion": 4.9,
+      "url": "https://maps.google.com"
+    }
+  ],
+  "frases_utiles": [
+    {
+      "español": "¿Contiene gluten?",
+      "japones": "グルテンが入っていますか？",
+      "romaji": "Guruten ga haitte imasu ka?"
+    },
+    {
+      "español": "No puedo comer gluten",
+      "japones": "グルテンを食べられません",
+      "romaji": "Guruten wo taberaremasen"
+    },
+    {
+      "español": "¿Tiene opciones sin gluten?",
+      "japones": "グルテンフリーのオプションはありますか？",
+      "romaji": "Guruten furii no opushon wa arimasu ka?"
+    }
+  ]
+}
