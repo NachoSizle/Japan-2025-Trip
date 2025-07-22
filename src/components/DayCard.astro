@@ -13,6 +13,8 @@ export interface Props {
     destacado?: boolean;
     alternativa_gf?: string;
     notas?: string;
+    direccion?: string;
+    maps_url?: string;
   }>;
 }
 
@@ -72,7 +74,17 @@ function getActivityColor(tipo: string) {
               {act.destacado && <span class="daycard-badge-featured px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-semibold text-xs whitespace-nowrap">⭐</span>}
             </div>
           </div>
-          <div class="daycard-activity-details text-xs sm:text-sm font-mono break-words overflow-hidden text-ellipsis">{act.hora} • {act.ubicacion}</div>
+          <div class="daycard-activity-details text-xs sm:text-sm font-mono break-words overflow-hidden text-ellipsis">
+            {act.hora} • 
+            {act.maps_url ? (
+              <a href={act.maps_url} target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors duration-200">
+                📍 {act.ubicacion}
+              </a>
+            ) : (
+              act.ubicacion
+            )}
+          </div>
+          {act.direccion && <div class="daycard-address text-xs mt-1 font-mono break-words opacity-75">🏠 {act.direccion}</div>}
           {act.alternativa_gf && <div class="daycard-gf-alternative text-xs mt-1 break-words">{act.alternativa_gf}</div>}
           {act.notas && <div class="daycard-notes text-xs mt-1 italic break-words">{act.notas}</div>}
         </div>
@@ -340,5 +352,30 @@ function getActivityColor(tipo: string) {
   /* Asegurar que span, div, p no tengan subrayado */
   span, div, p, h1, h2, h3, h4, h5, h6 {
     text-decoration: none !important;
+  }
+
+  /* ===== ESTILOS ESPECÍFICOS PARA GOOGLE MAPS Y DIRECCIONES ===== */
+  .daycard-address {
+    color: #888888;
+    font-family: monospace;
+  }
+
+  :global([data-theme="light"]) .daycard-address {
+    color: #666666;
+  }
+
+  /* Enlaces de Google Maps */
+  .daycard-activity-details a {
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+  }
+
+  .daycard-activity-details a:hover {
+    text-decoration: none !important;
+    color: #60A5FA !important;
+  }
+
+  :global([data-theme="light"]) .daycard-activity-details a:hover {
+    color: #3B82F6 !important;
   }
 </style>

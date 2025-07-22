@@ -214,8 +214,23 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
                         
                         <div class="mb-3 break-words flex items-center gap-2">
                           <span style="color: #FF1493;">📍</span>
-                          <span style="color: #CCCCCC;">{actividad.ubicacion}</span>
+                          {(actividad as any).maps_url ? (
+                            <a href={(actividad as any).maps_url} target="_blank" rel="noopener noreferrer" 
+                               class="hover:text-blue-400 transition-colors duration-200" 
+                               style="color: #CCCCCC;">
+                              {actividad.ubicacion}
+                            </a>
+                          ) : (
+                            <span style="color: #CCCCCC;">{actividad.ubicacion}</span>
+                          )}
                         </div>
+
+                        {(actividad as any).direccion && (
+                          <div class="text-xs mb-3 break-words flex items-start gap-2">
+                            <span style="color: #888888;">🏠</span>
+                            <span style="color: #888888; font-family: monospace;">{(actividad as any).direccion}</span>
+                          </div>
+                        )}
                         
                         {(actividad as any).notas && (
                           <div class="text-sm italic mb-3 break-words flex items-start gap-2">
