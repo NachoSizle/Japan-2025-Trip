@@ -112,9 +112,37 @@ import PhrasesPreview from '../components/PhrasesPreview.astro';
 				<h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 preview-title">
 					Una Experiencia Única en Japón
 				</h3>
-				<p class="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed preview-text">
+				<p class="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed preview-text mb-8 sm:mb-12">
 					Descubre cada día de nuestro viaje con opciones especiales para celíacos y lugares únicos por explorar.
 				</p>
+				
+				<!-- Contador regresivo -->
+				<div class="max-w-4xl mx-auto mb-8 sm:mb-12">
+					<h4 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 countdown-title">
+						🛫 ¡El viaje comienza en...!
+					</h4>
+					<div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+						<div class="countdown-item">
+							<div id="days" class="countdown-number">--</div>
+							<div class="countdown-label">Días</div>
+						</div>
+						<div class="countdown-item">
+							<div id="hours" class="countdown-number">--</div>
+							<div class="countdown-label">Horas</div>
+						</div>
+						<div class="countdown-item">
+							<div id="minutes" class="countdown-number">--</div>
+							<div class="countdown-label">Minutos</div>
+						</div>
+						<div class="countdown-item">
+							<div id="seconds" class="countdown-number">--</div>
+							<div class="countdown-label">Segundos</div>
+						</div>
+					</div>
+					<div id="countdown-message" class="mt-4 text-sm sm:text-base countdown-message" style="display: none;">
+						🎌 ¡El viaje a Japón ha comenzado! 🎌
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -431,6 +459,103 @@ import PhrasesPreview from '../components/PhrasesPreview.astro';
 		color: #CCCCCC;
 	}
 	
+	/* Contador regresivo */
+	.countdown-title {
+		background: linear-gradient(45deg, #FF1493, #FF6B6B, #FF0040);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+	}
+	
+	.countdown-item {
+		background: rgba(255, 20, 147, 0.1);
+		border: 2px solid rgba(255, 20, 147, 0.3);
+		border-radius: 16px;
+		padding: 1.5rem 1rem;
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.countdown-item::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 20, 147, 0.1), transparent);
+		transition: left 0.5s ease;
+	}
+	
+	.countdown-item:hover::before {
+		left: 100%;
+	}
+	
+	.countdown-item:hover {
+		border-color: rgba(255, 20, 147, 0.5);
+		box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2);
+		transform: translateY(-2px);
+	}
+	
+	.countdown-number {
+		font-size: 2rem;
+		font-weight: bold;
+		color: #FF1493;
+		text-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+		margin-bottom: 0.5rem;
+		animation: pulse 2s ease-in-out infinite;
+	}
+	
+	.countdown-label {
+		font-size: 0.875rem;
+		color: #CCCCCC;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 500;
+	}
+	
+	.countdown-message {
+		background: linear-gradient(45deg, #FF1493, #32CD32);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: bold;
+		font-size: 1.25rem;
+		animation: celebration 1s ease-in-out infinite alternate;
+	}
+	
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.05);
+		}
+	}
+	
+	@keyframes celebration {
+		0% {
+			transform: scale(1);
+		}
+		100% {
+			transform: scale(1.1);
+		}
+	}
+	
+	/* Responsive countdown */
+	@media (max-width: 640px) {
+		.countdown-number {
+			font-size: 1.5rem;
+		}
+		
+		.countdown-item {
+			padding: 1rem 0.5rem;
+		}
+	}
+	
 	/* Light mode - scroll indicator */
 	:global(.light) .scroll-indicator {
 		border-color: #FF1493;
@@ -444,6 +569,44 @@ import PhrasesPreview from '../components/PhrasesPreview.astro';
 	
 	:global(.light) .preview-text {
 		color: #495057;
+	}
+	
+	/* Light mode - contador regresivo */
+	[data-theme="light"] .countdown-title {
+		background: linear-gradient(45deg, #C41E3A, #DC143C, #8B0000) !important;
+		-webkit-background-clip: text !important;
+		-webkit-text-fill-color: transparent !important;
+		background-clip: text !important;
+		text-shadow: none !important;
+	}
+	
+	[data-theme="light"] .countdown-item {
+		background: rgba(255, 20, 147, 0.08) !important;
+		border: 2px solid rgba(255, 20, 147, 0.25) !important;
+		backdrop-filter: blur(15px) !important;
+	}
+	
+	[data-theme="light"] .countdown-item:hover {
+		background: rgba(255, 20, 147, 0.12) !important;
+		border-color: rgba(255, 20, 147, 0.4) !important;
+		box-shadow: 0 8px 32px rgba(255, 20, 147, 0.15) !important;
+	}
+	
+	[data-theme="light"] .countdown-number {
+		color: #FF1493 !important;
+		text-shadow: none !important;
+	}
+	
+	[data-theme="light"] .countdown-label {
+		color: #2D1B1B !important;
+		font-weight: 600 !important;
+	}
+	
+	[data-theme="light"] .countdown-message {
+		background: linear-gradient(45deg, #FF1493, #32CD32) !important;
+		-webkit-background-clip: text !important;
+		-webkit-text-fill-color: transparent !important;
+		background-clip: text !important;
 	}
 	
 	/* Partículas flotantes */
@@ -551,8 +714,59 @@ import PhrasesPreview from '../components/PhrasesPreview.astro';
 		}
 	}
 
+	// Contador regresivo
+	function startCountdown() {
+		// Fecha objetivo: 13 de agosto de 2025 a las 00:00:00
+		const targetDate = new Date('2025-08-13T00:00:00').getTime();
+		
+		function updateCountdown() {
+			const now = new Date().getTime();
+			const distance = targetDate - now;
+			
+			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			// Actualizar los elementos del DOM
+			const daysEl = document.getElementById('days');
+			const hoursEl = document.getElementById('hours');
+			const minutesEl = document.getElementById('minutes');
+			const secondsEl = document.getElementById('seconds');
+			const countdownEl = document.getElementById('countdown');
+			const messageEl = document.getElementById('countdown-message');
+			
+			if (distance > 0) {
+				// El viaje aún no ha comenzado
+				if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+				if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+				if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+				if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+				
+				if (countdownEl) countdownEl.style.display = 'grid';
+				if (messageEl) messageEl.style.display = 'none';
+			} else {
+				// El viaje ha comenzado
+				if (countdownEl) countdownEl.style.display = 'none';
+				if (messageEl) {
+					messageEl.style.display = 'block';
+					messageEl.innerHTML = '🎌 ¡El viaje a Japón ha comenzado! 🎌';
+				}
+			}
+		}
+		
+		// Actualizar inmediatamente
+		updateCountdown();
+		
+		// Actualizar cada segundo
+		setInterval(updateCountdown, 1000);
+	}
+
 	// Ejecutar al cargar la página
-	document.addEventListener('DOMContentLoaded', updateThemeColors);
+	document.addEventListener('DOMContentLoaded', () => {
+		updateThemeColors();
+		startCountdown();
+	});
 	
 	// Observar cambios en el atributo data-theme
 	const observer = new MutationObserver(function(mutations) {
