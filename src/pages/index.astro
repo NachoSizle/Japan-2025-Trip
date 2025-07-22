@@ -281,72 +281,76 @@ import Gallery from '../components/Gallery.astro';
 	
 	/* === MODO CLARO === */
 	[data-theme="light"] .hero-bg {
-		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+		background: linear-gradient(135deg, #FFE8E8 0%, #FFDDDD 50%, #FFE8E8 100%);
 	}
 	
 	[data-theme="light"] .hero-subtitle,
 	[data-theme="light"] .hero-description {
-		color: #1a1a1a !important;
+		color: #2D1B1B !important;
 		font-weight: 600;
 		opacity: 0.95;
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 	}
 	
 	[data-theme="light"] .hero-badge-1 {
-		background: rgba(255, 20, 147, 0.05);
-		border-color: rgba(255, 20, 147, 0.2);
+		background: rgba(255, 20, 147, 0.15);
+		border-color: rgba(255, 20, 147, 0.3);
 	}
 	
 	[data-theme="light"] .hero-badge-2 {
-		background: rgba(255, 107, 107, 0.05);
+		background: rgba(255, 107, 107, 0.15);
 		border-color: rgba(255, 107, 107, 0.2);
 	}
 	
 	[data-theme="light"] .hero-badge-3 {
-		background: rgba(50, 205, 50, 0.05);
-		border-color: rgba(50, 205, 50, 0.2);
+		background: rgba(50, 205, 50, 0.15);
+		border-color: rgba(50, 205, 50, 0.3);
 	}
 	
 	[data-theme="light"] .stats-container {
-		background: rgba(255, 255, 255, 0.8);
-		border-color: rgba(255, 20, 147, 0.2);
+		background: rgba(255, 245, 245, 0.9);
+		border-color: rgba(255, 107, 107, 0.4);
 	}
 	
 	[data-theme="light"] .stat-label {
-		color: #2d2d2d !important;
-		font-weight: 500;
+		color: #2D1B1B !important;
+		font-weight: 600;
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 	}
 	
 	/* === ESTILOS ADICIONALES MODO CLARO === */
 	[data-theme="light"] .hero-title {
-		background: linear-gradient(45deg, #FF1493, #FF6B6B) !important;
+		background: linear-gradient(45deg, #C41E3A, #DC143C) !important;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+		text-shadow: none;
 	}
 	
-	[data-theme="light"] .hero-text-1 { color: #D91878 !important; font-weight: 600; }
-	[data-theme="light"] .hero-text-2 { color: #E55A5A !important; font-weight: 600; }
-	[data-theme="light"] .hero-text-3 { color: #D6003A !important; font-weight: 600; }
-	[data-theme="light"] .hero-gluten-free { color: #2BA82B !important; font-weight: 600; }
+	[data-theme="light"] .hero-text-1 { color: #C41E3A !important; font-weight: 700; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); }
+	[data-theme="light"] .hero-text-2 { color: #DC143C !important; font-weight: 700; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); }
+	[data-theme="light"] .hero-text-3 { color: #8B0000 !important; font-weight: 700; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); }
+	[data-theme="light"] .hero-gluten-free { color: #228B22 !important; font-weight: 700; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); }
 	[data-theme="light"] .hero-highlight { 
-		color: #D91878 !important;
-		text-shadow: 0 0 8px rgba(217, 24, 120, 0.4) !important;
-		font-weight: 600;
-		background: linear-gradient(45deg, #D91878, #B8146B);
+		color: #C41E3A !important;
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5) !important;
+		font-weight: 700;
+		background: linear-gradient(45deg, #C41E3A, #8B0000);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 	}
 	
 	[data-theme="light"] .cta-primary {
-		background: linear-gradient(45deg, #FF1493, #FF6B6B) !important;
+		background: linear-gradient(45deg, #DC143C, #B22222) !important;
 		color: #FFFFFF !important;
 		text-decoration: none !important;
+		box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
 	}
 	
 	[data-theme="light"] .cta-secondary {
-		background: transparent !important;
-		color: #32CD32 !important;
+		background: rgba(255, 245, 245, 0.8) !important;
+		color: #228B22 !important;
 		border: 2px solid #32CD32 !important;
 		text-decoration: none !important;
 	}

@@ -89,7 +89,7 @@ const { dias } = itinerarioData;
                     fecha={dia.fecha}
                     titulo={dia.titulo}
                     ciudad={dia.ciudad}
-                    actividades={dia.actividades}
+                    actividades={dia.actividades as any}
                   />
                   <!-- Indicador de que es clickeable -->
                   <div class={`mt-2 transition-colors duration-300 ${isLeft ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
@@ -117,13 +117,13 @@ const { dias } = itinerarioData;
       </div>
       <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300">
         <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF0040; text-shadow: 0 0 10px rgba(255, 0, 64, 0.5);">
-          {dias.reduce((total, dia) => total + dia.actividades.filter(a => a.tipo === 'comida').length, 0)}
+          {dias.reduce((total, dia) => total + dia.actividades.filter(a => (a as any).tipo === 'comida').length, 0)}
         </div>
         <div class="stat-label text-xs sm:text-sm">Experiencias gastronómicas</div>
       </div>
       <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300 col-span-2 lg:col-span-1">
         <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF8A80; text-shadow: 0 0 10px rgba(255, 138, 128, 0.5);">
-          {dias.reduce((total, dia) => total + dia.actividades.filter(a => a.gluten_free).length, 0)}
+          {dias.reduce((total, dia) => total + dia.actividades.filter(a => (a as any).gluten_free).length, 0)}
         </div>
         <div class="stat-label text-xs sm:text-sm">Opciones GF</div>
       </div>
@@ -148,7 +148,7 @@ const { dias } = itinerarioData;
   }
   
   :global(:global([data-theme="light"])) .timeline-section {
-    background: linear-gradient(135deg, #ffeef7 0%, #f8f0ff 100%) !important;
+    background: linear-gradient(135deg, #FFE8E8 0%, #FFDDDD 100%) !important;
   }
 
   /* Timeline Title */
@@ -167,17 +167,18 @@ const { dias } = itinerarioData;
   
   /* ===== ESTILOS PARA MODO CLARO ===== */
   :global(:global([data-theme="light"])) .timeline-title {
-    background: linear-gradient(135deg, #FF1493, #FF6B6B, #FF0040) !important;
+    background: linear-gradient(135deg, #C41E3A, #DC143C, #8B0000) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    text-shadow: 0 0 20px rgba(255, 20, 147, 0.3) !important;
+    text-shadow: none !important;
   }
   
   :global(:global([data-theme="light"])) .timeline-subtitle {
-    color: #1a1a1a !important;
-    font-weight: 500;
-    opacity: 0.9;
+    color: #2D1B1B !important;
+    font-weight: 600;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
   }
 
   /* Timeline Line */
@@ -199,9 +200,9 @@ const { dias } = itinerarioData;
   }
   
   :global([data-theme="light"]) .timeline-dot {
-    background: #FF1493;
-    border-color: #ffeef7 !important;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+    background: #DC143C;
+    border-color: #FFE8E8 !important;
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.6);
   }
 
   /* Filter Buttons */
@@ -224,21 +225,21 @@ const { dias } = itinerarioData;
   
   /* ===== FILTROS MODO CLARO ===== */
   :global([data-theme="light"]) .filter-active-primary {
-    background: #FF1493 !important;
+    background: #DC143C !important;
     color: white !important;
-    border-color: #FF1493 !important;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+    border-color: #DC143C !important;
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.4);
   }
 
   :global([data-theme="light"]) .filter-inactive-primary {
-    background: transparent !important;
-    color: #FF1493 !important;
-    border-color: #FF1493 !important;
+    background: rgba(255, 245, 245, 0.7) !important;
+    color: #C41E3A !important;
+    border-color: #C41E3A !important;
   }
   
   :global([data-theme="light"]) .filter-inactive-primary:hover {
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
-    background: rgba(255, 20, 147, 0.05) !important;
+    box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+    background: rgba(196, 30, 58, 0.1) !important;
   }
 
   .filter-active-gluten {
