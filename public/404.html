@@ -1,48 +1,11 @@
----
-// Página 404 personalizada para manejar rutas dinámicas en GitHub Pages
----
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <title>Redirecting... - Japan 2025 Trip</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   
-  <script is:inline>
-    // Redirect para GitHub Pages + Astro
-    // Detecta rutas como /Japan-2025-Trip/itinerario/1 y redirige a /?route=/itinerario/1
-    
-    var l = window.location;
-    var path = l.pathname;
-    
-    console.log('404 Page - Original path:', path);
-    
-    // Extraer la parte de la ruta después del base path
-    var basePath = '/Japan-2025-Trip';
-    var routePath = '';
-    
-    if (path.startsWith(basePath + '/')) {
-      routePath = path.substring(basePath.length);
-    } else if (path !== basePath && path !== basePath + '/') {
-      routePath = path;
-    }
-    
-    console.log('404 Page - Extracted route:', routePath);
-    
-    if (routePath && routePath !== '/404' && routePath !== '/404.html') {
-      // Redirigir a la página principal con la ruta como parámetro
-      var newUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-                   basePath + '/?route=' + encodeURIComponent(routePath) + l.hash;
-      
-      console.log('404 Page - Redirecting to:', newUrl);
-      l.replace(newUrl);
-    } else {
-      // Si no hay ruta específica o es la página 404, mostrar la página 404
-      console.log('404 Page - Showing 404 page');
-    }
-  </script>
-
   <style>
     body {
       margin: 0;
@@ -119,23 +82,38 @@
     <!-- Fallback si la redirección no funciona -->
     <div id="fallback" style="display: none;">
       <p>If you're not redirected automatically:</p>
-      <a href="/Japan-2025-Trip/" class="home-link">🏠 Go to Home</a>
+      <a href="index.html" class="home-link">🏠 Go to Home</a>
     </div>
   </div>
 
-  <script is:inline>
-    // Mostrar fallback después de 3 segundos si no hay redirección
-    setTimeout(function() {
-      var currentPath = window.location.pathname;
+  <script>
+    // GitHub Pages 404 redirect handler
+    (function(){
+      var l = window.location;
+      var pathSegmentsToKeep = 1;
       
-      // Si seguimos en la página 404, mostrar el fallback
-      if (currentPath.includes('404')) {
-        document.getElementById('title').textContent = 'Page Not Found';
-        document.getElementById('message').textContent = 'The page you\'re looking for doesn\'t exist.';
-        document.getElementById('message').classList.remove('loading');
-        document.getElementById('fallback').style.display = 'block';
+      console.log('404.html - Current location:', l.pathname);
+      
+      // Solo redirigir si no estamos ya en la página principal
+      if (l.pathname !== '/Japan-2025-Trip/' && l.pathname !== '/Japan-2025-Trip/index.html') {
+        var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=/' +
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash;
+        
+        console.log('404.html - Redirecting to:', redirect);
+        l.replace(redirect);
+      } else {
+        // Si ya estamos en home, mostrar mensaje de error
+        setTimeout(function() {
+          document.getElementById('title').textContent = 'Page Not Found';
+          document.getElementById('message').textContent = 'The page you\'re looking for doesn\'t exist.';
+          document.getElementById('message').classList.remove('loading');
+          document.getElementById('fallback').style.display = 'block';
+        }, 1000);
       }
-    }, 3000);
+    })();
   </script>
 </body>
 </html>
