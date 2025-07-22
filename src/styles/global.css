@@ -10,17 +10,20 @@
   --secondary-color: #FFB3B3;
   --accent-color: #FF9999;
   
-  /* Fondos */
+  /* Fondos modo oscuro */
   --bg-deep-black: #0A0A0A;
   --bg-charcoal: #1A1A1A;
-  --bg-light-gray: #f8f9fa;
-  --bg-medium-gray: #e9ecef;
+  
+  /* Fondos modo claro - rojo pastel */
+  --bg-light-pastel: #FFE8E8;
+  --bg-medium-pastel: #FFDDDD;
+  --bg-card-light: #FFF5F5;
   
   /* Colores de texto */
   --text-dark: #FFFFFF;
-  --text-light: #333333;
+  --text-light: #2D1B1B; /* Texto oscuro para modo claro */
   --text-muted-dark: #AAAAAA;
-  --text-muted-light: #666666;
+  --text-muted-light: #5D4A4A; /* Texto muted más oscuro para modo claro */
   
   /* Otros acentos */
   --gold-soft: #FFD700;
@@ -139,4 +142,72 @@ body {
 .torii-logo:hover {
   filter: drop-shadow(0 0 20px var(--secondary-color));
   transform: scale(1.05);
+}
+
+/* ==== ESTILOS PARA MODO CLARO ==== */
+[data-theme="light"] {
+  /* Fondo principal con rojo pastel */
+  background: linear-gradient(135deg, var(--bg-light-pastel), var(--bg-medium-pastel)) !important;
+  min-height: 100vh;
+}
+
+/* Fondo de secciones en modo claro */
+[data-theme="light"] section,
+[data-theme="light"] main {
+  background: linear-gradient(135deg, var(--bg-light-pastel), var(--bg-medium-pastel)) !important;
+}
+
+/* Texto principal en modo claro */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  color: var(--text-light) !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Texto normal en modo claro */
+[data-theme="light"] p,
+[data-theme="light"] span,
+[data-theme="light"] div {
+  color: var(--text-light) !important;
+}
+
+/* Texto muted en modo claro */
+[data-theme="light"] .text-muted,
+[data-theme="light"] [style*="color: #AAAAAA"],
+[data-theme="light"] [style*="color: #CCCCCC"] {
+  color: var(--text-muted-light) !important;
+}
+
+/* Tarjetas y contenedores en modo claro */
+[data-theme="light"] .rounded-xl,
+[data-theme="light"] .rounded-lg {
+  background: var(--bg-card-light) !important;
+  border: 2px solid rgba(255, 107, 107, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.1) !important;
+}
+
+/* Enlaces en modo claro */
+[data-theme="light"] a {
+  color: #C41E3A !important; /* Rojo más oscuro para enlaces */
+}
+
+[data-theme="light"] a:hover {
+  color: #8B0000 !important; /* Rojo muy oscuro en hover */
+}
+
+/* Botones en modo claro */
+[data-theme="light"] button,
+[data-theme="light"] .btn {
+  background: linear-gradient(45deg, #FF6B6B, #FF8A80) !important;
+  color: white !important;
+  border: 2px solid #FF4444 !important;
+}
+
+/* Bordes y líneas divisorias en modo claro */
+[data-theme="light"] [style*="border"] {
+  border-color: rgba(255, 107, 107, 0.4) !important;
 }

@@ -358,91 +358,95 @@
   /* Modo claro detectado por data-theme o class */
   :global([data-theme="light"]) .header-bg,
   :global(.light) .header-bg {
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-color: rgba(200, 200, 200, 0.3) !important;
+    background: rgba(255, 240, 240, 0.95) !important;
+    border-color: rgba(255, 107, 107, 0.4) !important;
+    backdrop-filter: blur(10px);
   }
   
   :global([data-theme="light"]) .theme-toggle,
   :global(.light) .theme-toggle {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 245, 245, 0.8);
     border-color: rgba(255, 107, 107, 0.3);
-    color: #333333;
+    color: #2D1B1B;
   }
   
   :global([data-theme="light"]) .theme-toggle:hover,
   :global(.light) .theme-toggle:hover {
-    border-color: #FF6B6B;
-    background: rgba(255, 107, 107, 0.1);
+    border-color: #DC143C;
+    background: rgba(255, 107, 107, 0.2);
   }
   
   :global([data-theme="light"]) .hamburger-btn,
   :global(.light) .hamburger-btn {
-    background: rgba(255, 255, 255, 0.7);
-    border-color: rgba(100, 100, 100, 0.3);
+    background: rgba(255, 245, 245, 0.8);
+    border-color: rgba(255, 107, 107, 0.3);
   }
   
   :global([data-theme="light"]) .hamburger-btn:hover,
   :global([data-theme="light"]) .hamburger-btn.active,
   :global(.light) .hamburger-btn:hover,
   :global(.light) .hamburger-btn.active {
-    border-color: #FF6B6B;
-    background: rgba(255, 107, 107, 0.1);
+    border-color: #DC143C;
+    background: rgba(255, 107, 107, 0.2);
   }
   
   :global([data-theme="light"]) .hamburger-line,
   :global(.light) .hamburger-line {
-    background: #333333;
+    background: #2D1B1B;
   }
   
   :global([data-theme="light"]) .nav-link,
   :global(.light) .nav-link {
-    color: #8A2BE2;
-    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+    color: #C41E3A;
+    text-shadow: 0 0 8px rgba(196, 30, 58, 0.3);
   }
   
   :global([data-theme="light"]) .nav-link:hover,
   :global(.light) .nav-link:hover {
-    color: #FF6600;
-    background: rgba(255, 102, 0, 0.1);
-    border-color: rgba(255, 102, 0, 0.3);
-    text-shadow: 0 0 12px rgba(255, 102, 0, 0.8);
-    box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+    color: #8B0000;
+    background: rgba(196, 30, 58, 0.1);
+    border-color: rgba(196, 30, 58, 0.3);
+    text-shadow: 0 0 12px rgba(139, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
   }
   
   :global([data-theme="light"]) .mobile-menu,
   :global(.light) .mobile-menu {
-    border-color: rgba(200, 200, 200, 0.3);
-    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 107, 107, 0.4);
+    background: rgba(255, 240, 240, 0.95);
+    backdrop-filter: blur(10px);
   }
   
   :global([data-theme="light"]) .mobile-nav-link,
   :global(.light) .mobile-nav-link {
-    color: #8A2BE2;
-    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+    color: #C41E3A;
+    text-shadow: 0 0 8px rgba(196, 30, 58, 0.3);
   }
   
   :global([data-theme="light"]) .mobile-nav-link:hover,
   :global(.light) .mobile-nav-link:hover {
-    color: #FF6600;
-    background: rgba(255, 102, 0, 0.1);
-    border-color: rgba(255, 102, 0, 0.3);
-    text-shadow: 0 0 12px rgba(255, 102, 0, 0.8);
-    box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+    color: #8B0000;
+    background: rgba(196, 30, 58, 0.1);
+    border-color: rgba(196, 30, 58, 0.3);
+    text-shadow: 0 0 12px rgba(139, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
   }
   
   :global([data-theme="light"]) .logo-text,
   :global(.light) .logo-text {
-    color: #333333 !important;
+    color: #2D1B1B !important;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
   }
   
   :global([data-theme="light"]) .logo-date,
   :global(.light) .logo-date {
-    color: #666666 !important;
+    color: #5D4A4A !important;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
   }
 
   :global([data-theme="light"]) .logo-svg,
   :global(.light) .logo-svg {
-    color: #FF6B6B;
-    filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.4));
+    color: #DC143C;
+    filter: drop-shadow(0 0 8px rgba(220, 20, 60, 0.4));
   }
 </style>
