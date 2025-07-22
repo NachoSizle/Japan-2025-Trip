@@ -70,11 +70,11 @@ import Gallery from '../components/Gallery.astro';
 				<!-- CTA Buttons optimizados para móvil -->
 				<div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
 					<a href="#itinerario" 
-					   class="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 cta-primary">
+					   class="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 cta-primary no-underline">
 						<span class="group-hover:animate-pulse">📅 Ver Itinerario</span>
 					</a>
 					<a href="#gluten-free" 
-					   class="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 cta-secondary">
+					   class="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 cta-secondary no-underline">
 						<span class="group-hover:animate-pulse">🌾 Guía Sin Gluten</span>
 					</a>
 				</div>
@@ -133,6 +133,27 @@ import Gallery from '../components/Gallery.astro';
 
 <style>
 	/* === TEMA ROSA JAPONÉS === */
+	
+	/* Eliminar subrayados de TODOS los enlaces */
+	a {
+		text-decoration: none !important;
+	}
+	
+	a:hover {
+		text-decoration: none !important;
+	}
+	
+	a:focus {
+		text-decoration: none !important;
+	}
+	
+	a:active {
+		text-decoration: none !important;
+	}
+	
+	a:visited {
+		text-decoration: none !important;
+	}
 	
 	/* Background del hero */
 	.hero-bg {
@@ -206,10 +227,12 @@ import Gallery from '../components/Gallery.astro';
 		background: linear-gradient(45deg, #FF1493, #FF6B6B);
 		color: #FFFFFF;
 		box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+		text-decoration: none !important;
 	}
 	
 	.cta-primary:hover {
 		box-shadow: 0 6px 25px rgba(255, 20, 147, 0.5);
+		text-decoration: none !important;
 	}
 	
 	.cta-secondary {
@@ -217,12 +240,23 @@ import Gallery from '../components/Gallery.astro';
 		color: #32CD32;
 		border: 2px solid #32CD32;
 		box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
+		text-decoration: none !important;
 	}
 	
 	.cta-secondary:hover {
 		background: #32CD32;
 		color: #000000;
 		box-shadow: 0 6px 25px rgba(50, 205, 50, 0.5);
+		text-decoration: none !important;
+	}
+	
+	/* Clase no-underline para asegurar que no hay subrayados */
+	.no-underline {
+		text-decoration: none !important;
+	}
+	
+	.no-underline:hover {
+		text-decoration: none !important;
 	}
 	
 	/* Stats */
@@ -252,7 +286,9 @@ import Gallery from '../components/Gallery.astro';
 	
 	[data-theme="light"] .hero-subtitle,
 	[data-theme="light"] .hero-description {
-		color: #495057;
+		color: #1a1a1a !important;
+		font-weight: 600;
+		opacity: 0.95;
 	}
 	
 	[data-theme="light"] .hero-badge-1 {
@@ -276,7 +312,8 @@ import Gallery from '../components/Gallery.astro';
 	}
 	
 	[data-theme="light"] .stat-label {
-		color: #666666;
+		color: #2d2d2d !important;
+		font-weight: 500;
 	}
 	
 	/* === ESTILOS ADICIONALES MODO CLARO === */
@@ -287,24 +324,37 @@ import Gallery from '../components/Gallery.astro';
 		background-clip: text;
 	}
 	
-	[data-theme="light"] .hero-text-1 { color: #FF1493 !important; }
-	[data-theme="light"] .hero-text-2 { color: #FF6B6B !important; }
-	[data-theme="light"] .hero-text-3 { color: #FF0040 !important; }
-	[data-theme="light"] .hero-gluten-free { color: #32CD32 !important; }
+	[data-theme="light"] .hero-text-1 { color: #D91878 !important; font-weight: 600; }
+	[data-theme="light"] .hero-text-2 { color: #E55A5A !important; font-weight: 600; }
+	[data-theme="light"] .hero-text-3 { color: #D6003A !important; font-weight: 600; }
+	[data-theme="light"] .hero-gluten-free { color: #2BA82B !important; font-weight: 600; }
 	[data-theme="light"] .hero-highlight { 
-		color: #FF1493 !important;
-		text-shadow: 0 0 10px rgba(255, 20, 147, 0.6) !important;
+		color: #D91878 !important;
+		text-shadow: 0 0 8px rgba(217, 24, 120, 0.4) !important;
+		font-weight: 600;
+		background: linear-gradient(45deg, #D91878, #B8146B);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
 	}
 	
 	[data-theme="light"] .cta-primary {
 		background: linear-gradient(45deg, #FF1493, #FF6B6B) !important;
 		color: #FFFFFF !important;
+		text-decoration: none !important;
 	}
 	
 	[data-theme="light"] .cta-secondary {
 		background: transparent !important;
 		color: #32CD32 !important;
 		border: 2px solid #32CD32 !important;
+		text-decoration: none !important;
+	}
+	
+	[data-theme="light"] .cta-secondary:hover {
+		background: #32CD32 !important;
+		color: #000000 !important;
+		text-decoration: none !important;
 	}
 	
 	[data-theme="light"] .stat-number {
@@ -328,7 +378,8 @@ import Gallery from '../components/Gallery.astro';
 	}
 	
 	[data-theme="light"] .preview-text {
-		color: #495057 !important;
+		color: #1a1a1a !important;
+		font-weight: 500;
 	}
 	
 	/* Scroll indicator */

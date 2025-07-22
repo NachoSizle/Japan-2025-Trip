@@ -145,7 +145,121 @@ const { title, description = "Viaje a Japón 2025 - Itinerario completo con opci
 				}
 			}
 			
-			/* ===== ESTILOS PARA MODO OSCURO (por defecto) ===== */
+			/* ===== ESTILOS PARA MODO CLARO ===== */
+			/* ===== ELIMINACIÓN SÚPER AGRESIVA DE SUBRAYADOS ===== */
+			:global(*) {
+				text-decoration: none !important;
+				text-decoration-line: none !important;
+				text-decoration-style: none !important;
+				text-decoration-color: transparent !important;
+				text-decoration-thickness: 0 !important;
+				text-underline-offset: 0 !important;
+				border-bottom: none !important;
+				border-bottom-width: 0 !important;
+				border-bottom-style: none !important;
+				border-bottom-color: transparent !important;
+				box-shadow: none !important;
+			}
+			
+			:global(*:hover) {
+				text-decoration: none !important;
+				text-decoration-line: none !important;
+				text-decoration-style: none !important;
+				text-decoration-color: transparent !important;
+				text-decoration-thickness: 0 !important;
+				text-underline-offset: 0 !important;
+				border-bottom: none !important;
+				border-bottom-width: 0 !important;
+				border-bottom-style: none !important;
+				border-bottom-color: transparent !important;
+				box-shadow: none !important;
+			}
+			
+			:global(*:focus) {
+				text-decoration: none !important;
+				text-decoration-line: none !important;
+				text-decoration-style: none !important;
+				text-decoration-color: transparent !important;
+				text-decoration-thickness: 0 !important;
+				text-underline-offset: 0 !important;
+				border-bottom: none !important;
+				border-bottom-width: 0 !important;
+				border-bottom-style: none !important;
+				border-bottom-color: transparent !important;
+				box-shadow: none !important;
+			}
+			
+			:global(*:active) {
+				text-decoration: none !important;
+				text-decoration-line: none !important;
+				text-decoration-style: none !important;
+				text-decoration-color: transparent !important;
+				text-decoration-thickness: 0 !important;
+				text-underline-offset: 0 !important;
+				border-bottom: none !important;
+				border-bottom-width: 0 !important;
+				border-bottom-style: none !important;
+				border-bottom-color: transparent !important;
+				box-shadow: none !important;
+			}
+			
+			/* Eliminar subrayados de todos los enlaces */
+			:global(a) {
+				text-decoration: none !important;
+			}
+			
+			:global(a:hover) {
+				text-decoration: none !important;
+			}
+			
+			/* Mejorar legibilidad de textos en modo claro */
+			:global([data-theme="light"]) {
+				/* Textos principales más oscuros para mejor contraste */
+				color: #1a1a1a;
+			}
+			
+			:global([data-theme="light"]) h1,
+			:global([data-theme="light"]) h2,
+			:global([data-theme="light"]) h3,
+			:global([data-theme="light"]) h4,
+			:global([data-theme="light"]) h5,
+			:global([data-theme="light"]) h6 {
+				color: #1a1a1a !important;
+			}
+			
+			:global([data-theme="light"]) p {
+				color: #2d2d2d !important;
+			}
+			
+			:global([data-theme="light"]) .text-gray-600 {
+				color: #374151 !important;
+			}
+			
+			:global([data-theme="light"]) .text-gray-500 {
+				color: #4b5563 !important;
+			}
+			
+			:global([data-theme="light"]) .text-gray-400 {
+				color: #6b7280 !important;
+			}
+			
+			:global([data-theme="light"]) .text-gray-300 {
+				color: #9ca3af !important;
+			}
+			
+			/* Textos secundarios con mejor contraste */
+			:global([data-theme="light"]) .text-white {
+				color: #1a1a1a !important;
+			}
+			
+			/* Mejorar contraste de elementos específicos */
+			:global([data-theme="light"]) .opacity-80 {
+				opacity: 0.9 !important;
+			}
+			
+			:global([data-theme="light"]) .opacity-70 {
+				opacity: 0.85 !important;
+			}
 			html.dark,
 			html[data-theme="dark"] {
 				color-scheme: dark;

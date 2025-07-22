@@ -62,7 +62,7 @@ function getActivityColor(tipo: string) {
   <!-- Lista de actividades optimizada para móvil -->
   <div class="space-y-2 sm:space-y-3 md:space-y-4">
     {actividades.map((act) => (
-      <div class={`flex items-start gap-2 sm:gap-3 md:gap-4 p-2 sm:p-3 md:p-4 rounded-lg border-l-4 ${getActivityColor(act.tipo)} daycard-activity shadow-md`}>
+      <div class={`flex items-start gap-2 sm:gap-3 md:gap-4 p-2 sm:p-3 md:p-4 rounded-lg border-l-4 ${getActivityColor(act.tipo)} daycard-activity`}>
         <div class="text-lg sm:text-xl md:text-2xl flex-shrink-0 mt-0.5">{getActivityIcon(act.tipo)}</div>
         <div class="flex-1 min-w-0 overflow-hidden">
           <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
@@ -82,6 +82,98 @@ function getActivityColor(tipo: string) {
 </div>
 
 <style>
+  /* ===== ELIMINAR SUBRAYADOS DE TODOS LOS ELEMENTOS ===== */
+  a {
+    text-decoration: none !important;
+  }
+  
+  a:hover {
+    text-decoration: none !important;
+  }
+  
+  a:focus {
+    text-decoration: none !important;
+  }
+  
+  a:active {
+    text-decoration: none !important;
+  }
+  
+  a:visited {
+    text-decoration: none !important;
+  }
+  
+  /* Asegurar que ningún texto tenga subrayado */
+  * {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Eliminar cualquier estilo de Tailwind que pueda causar subrayado */
+  .daycard-container * {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: transparent !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  /* ===== ELIMINACIÓN SÚPER AGRESIVA DE SUBRAYADOS ===== */
+  /* Eliminar cualquier posible subrayado causado por Tailwind, navegador o herencia */
+  .daycard-container,
+  .daycard-container *,
+  .daycard-container *:before,
+  .daycard-container *:after {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: transparent !important;
+    text-decoration-thickness: 0 !important;
+    text-underline-offset: 0 !important;
+    text-underline-position: unset !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: none !important;
+    border-bottom-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Estados de interacción */
+  .daycard-container *:hover,
+  .daycard-container *:focus,
+  .daycard-container *:active,
+  .daycard-container *:visited {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: transparent !important;
+    text-decoration-thickness: 0 !important;
+    text-underline-offset: 0 !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: none !important;
+    border-bottom-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Eliminar pseudo-elementos que puedan crear líneas */
+  .daycard-container *::before,
+  .daycard-container *::after {
+    content: none !important;
+    display: none !important;
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+  
   /* DayCard Container */
   .daycard-container {
     background: rgba(255, 20, 147, 0.08);
@@ -107,22 +199,26 @@ function getActivityColor(tipo: string) {
   /* Day Number */
   .daycard-day-number {
     color: #FF1493;
-    text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+    text-decoration: none !important;
+    text-shadow: none !important;
   }
 
   /* Date */
   .daycard-date {
     color: rgba(255, 255, 255, 0.7);
+    text-decoration: none !important;
   }
   
   [data-theme="light"] .daycard-date {
-    color: rgba(80, 50, 80, 0.8);
+    color: #4b5563 !important;
+    font-weight: 500;
   }
 
   /* City */
   .daycard-city {
     color: #FF6B6B;
-    text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+    text-decoration: none !important;
+    text-shadow: none !important;
   }
 
   /* Title */
@@ -131,6 +227,7 @@ function getActivityColor(tipo: string) {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-decoration: none !important;
   }
 
   /* Activity Container */
@@ -174,45 +271,74 @@ function getActivityColor(tipo: string) {
   /* Activity Name */
   .daycard-activity-name {
     color: white;
+    text-decoration: none !important;
   }
   
   [data-theme="light"] .daycard-activity-name {
-    color: #333;
+    color: #1a1a1a !important;
+    font-weight: 600;
   }
 
   /* Activity Details */
   .daycard-activity-details {
     color: rgba(255, 255, 255, 0.7);
+    text-decoration: none !important;
   }
   
   [data-theme="light"] .daycard-activity-details {
-    color: rgba(80, 50, 80, 0.8);
+    color: #2d2d2d !important;
+    font-weight: 500;
   }
 
   /* Badges */
   .daycard-badge-gf {
     background: #FF8A80;
     color: white;
-    box-shadow: 0 2px 8px rgba(255, 138, 128, 0.4);
+    text-decoration: none !important;
+    text-shadow: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
   }
 
   .daycard-badge-featured {
     background: #FF1493;
     color: white;
-    box-shadow: 0 2px 8px rgba(255, 20, 147, 0.4);
+    text-decoration: none !important;
+    text-shadow: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
   }
 
   /* GF Alternative */
   .daycard-gf-alternative {
     color: #FF8A80;
+    text-decoration: none !important;
   }
 
   /* Notes */
   .daycard-notes {
     color: rgba(255, 255, 255, 0.6);
+    text-decoration: none !important;
   }
   
   [data-theme="light"] .daycard-notes {
-    color: rgba(80, 50, 80, 0.7);
+    color: #4b5563 !important;
+    font-weight: 500;
+    opacity: 0.9;
+    text-decoration: none !important;
+  }
+  
+  /* ===== CLASES DE UTILIDAD PARA NO SUBRAYADO ===== */
+  .no-underline {
+    text-decoration: none !important;
+  }
+  
+  .no-underline:hover {
+    text-decoration: none !important;
+  }
+  
+  /* Asegurar que span, div, p no tengan subrayado */
+  span, div, p, h1, h2, h3, h4, h5, h6 {
+    text-decoration: none !important;
   }
 </style>
