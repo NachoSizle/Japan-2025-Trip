@@ -1,8 +1,103 @@
 ---
 import DayCard from './DayCard.astro';
+import FlightCard from './FlightCard.astro';
 import itinerarioData from '../data/itinerario.json';
 
 const { dias } = itinerarioData;
+
+// Función para calcular qué tarjetas mostrar según la fecha actual
+function getDaysToShow() {
+  // Para testing, puedes cambiar esta línea para simular diferentes fechas:
+  // const now = new Date('2025-08-10'); // Para probar antes del viaje
+  // const now = new Date('2025-08-13'); // Para probar día de vuelo
+  // const now = new Date('2025-08-16'); // Para probar durante el viaje
+  const now = new Date();
+  
+  const currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD format
+  
+  console.log('Fecha actual simulada:', currentDate); // Para debug
+  
+  // Fechas del viaje
+  const tripStart = '2025-08-14'; // Llegada a Japón
+  const flightDate = '2025-08-13'; // Día del vuelo desde España
+  const tripEnd = '2025-08-28';
+  
+  // Si estamos antes del 14 de agosto (antes de llegar a Japón)
+  if (currentDate < tripStart) {
+    console.log('Estamos antes del viaje - mostrando preview con tarjeta de vuelo');
+    
+    // Si estamos el 13 de agosto o antes, mostrar tarjeta de vuelo
+    if (currentDate <= flightDate) {
+      // Mostrar tarjeta de vuelo para el primer día + todas las demás como preview
+      return dias.map((dia, index) => ({
+        ...dia,
+        showFlightCard: index === 0, // Solo para el primer día
+        showFirstOnly: true, // Todos muestran solo preview
+        showAllCards: false,
+        isCurrentDay: false
+      }));
+    } else {
+      // Entre el 13 y 14, no mostrar tarjeta de vuelo pero sí preview
+      return dias.map(dia => ({
+        ...dia,
+        showFlightCard: false,
+        showFirstOnly: true,
+        showAllCards: false,
+        isCurrentDay: false
+      }));
+    }
+  }
+  
+  // Si estamos durante el viaje (14-28 agosto)
+  if (currentDate >= tripStart && currentDate <= tripEnd) {
+    console.log('Estamos durante el viaje - lógica de día actual');
+    return dias.map(dia => {
+      // Si es el día actual, mostrar todas las tarjetas
+      if (dia.fecha === currentDate) {
+        console.log('Día actual encontrado:', dia.fecha);
+        return {
+          ...dia,
+          showAllCards: true,
+          isCurrentDay: true,
+          showFlightCard: false,
+          showFirstOnly: false
+        };
+      }
+      // Si es un día futuro, mostrar solo la primera tarjeta
+      else if (dia.fecha > currentDate) {
+        return {
+          ...dia,
+          showFirstOnly: true,
+          showAllCards: false,
+          showFlightCard: false,
+          isCurrentDay: false
+        };
+      }
+      // Si es un día pasado, mostrar todas las tarjetas
+      else {
+        return {
+          ...dia,
+          showAllCards: true,
+          showFirstOnly: false,
+          showFlightCard: false,
+          isCurrentDay: false
+        };
+      }
+    });
+  }
+  
+  // Si estamos después del viaje, mostrar todas las tarjetas
+  console.log('Estamos después del viaje - mostrar todo');
+  return dias.map(dia => ({
+    ...dia,
+    showAllCards: true,
+    showFirstOnly: false,
+    showFlightCard: false,
+    isCurrentDay: false
+  }));
+}
+
+const daysToShow = getDaysToShow();
 ---
 
 <section id="itinerario" class="py-12 sm:py-16 md:py-20 timeline-section">
@@ -52,7 +147,7 @@ const { dias } = itinerarioData;
       
       <!-- Tarjetas de días optimizadas para móvil -->
       <div class="space-y-6 sm:space-y-8 md:space-y-12">
-        {dias.map((dia, index) => {
+        {daysToShow.map((dia, index) => {
           // Crear atributos data para que Alpine.js pueda usarlos
           const hasGlutenFree = dia.actividades.some((act: any) => act.gluten_free === true);
           const hasDestacado = dia.actividades.some((act: any) => act.destacado === true);
@@ -60,6 +155,9 @@ const { dias } = itinerarioData;
           
           // Determinar si es par o impar para el zig-zag (empezando izquierda = índice par)
           const isLeft = index % 2 === 0;
+          
+          // Usar type casting para acceder a las propiedades añadidas
+          const diaExtended = dia as any;
           
           return (
             <div 
@@ -78,7 +176,19 @@ const { dias } = itinerarioData;
               x-transition:leave-end="opacity-0 transform scale-95">
               
               <!-- Punto de conexión en la timeline - optimizado para móvil -->
-              <div class="timeline-dot absolute left-4 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full transform md:-translate-x-1/2 border-2 sm:border-4 z-10 animate-pulse"></div>
+              <div class={`timeline-dot absolute left-4 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full transform md:-translate-x-1/2 border-2 sm:border-4 z-10 ${diaExtended.isCurrentDay ? 'animate-ping' : 'animate-pulse'}`}></div>
+              
+              {/* Mostrar tarjeta de vuelo si corresponde */}
+              {diaExtended.showFlightCard && (
+                <div class={`ml-8 sm:ml-12 md:ml-0 md:w-5/12 md:max-w-lg ${isLeft ? 'md:mr-auto md:pr-6 lg:pr-8' : 'md:ml-auto md:pl-6 lg:pl-8'} mb-6`}>
+                  <FlightCard />
+                  <div class={`mt-2 transition-colors duration-300 ${isLeft ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
+                    <span class="text-xs clickable-hint">
+                      ✈️ Información del vuelo (próximamente)
+                    </span>
+                  </div>
+                </div>
+              )}
               
               <!-- Enlace a página individual del día -->
               <a href={`${import.meta.env.BASE_URL}/itinerario/${dia.dia}`} class="block group">
@@ -95,9 +205,15 @@ const { dias } = itinerarioData;
                   <div class={`mt-2 transition-colors duration-300 ${isLeft ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
                     <span class="text-xs clickable-hint">
                       👆 Toca para ver detalles completos
+                      {diaExtended.isCurrentDay && <span class="ml-2 text-yellow-400 font-bold">¡HOY!</span>}
                     </span>
                   </div>
                 </div>
+              </a>
+            </div>
+          );
+        })}
+      </div>
               </a>
             </div>
           );
@@ -136,6 +252,38 @@ const { dias } = itinerarioData;
         <span class="whitespace-nowrap">Ver Guía Sin Gluten</span>
         <span class="text-lg">🚫</span>
       </a>
+    </div>
+
+    <!-- Debug Panel (solo visible en desarrollo) -->
+    <div class="mt-8 p-4 bg-gray-800 rounded-lg text-white text-sm debug-panel" x-data="{ showDebug: false }">
+      <button @click="showDebug = !showDebug" class="mb-4 px-4 py-2 bg-blue-600 rounded text-xs">
+        🔧 Debug Mode (Probar fechas)
+      </button>
+      <div x-show="showDebug" x-transition>
+        <p class="mb-4 text-xs text-gray-300">
+          Para probar diferentes escenarios, modifica la fecha en el código del componente Timeline.astro:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-3 bg-gray-700 rounded">
+            <strong>Antes del viaje:</strong><br>
+            <code>new Date('2025-08-10')</code><br>
+            <span class="text-green-400">✓ Solo previews</span>
+          </div>
+          <div class="p-3 bg-gray-700 rounded">
+            <strong>Día de vuelo:</strong><br>
+            <code>new Date('2025-08-13')</code><br>
+            <span class="text-blue-400">✈️ Con tarjeta de vuelo</span>
+          </div>
+          <div class="p-3 bg-gray-700 rounded">
+            <strong>Durante el viaje:</strong><br>
+            <code>new Date('2025-08-16')</code><br>
+            <span class="text-yellow-400">🌟 Día actual destacado</span>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-gray-400">
+          Fecha actual del sistema: <strong>{new Date().toISOString().split('T')[0]}</strong>
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -356,5 +504,29 @@ const { dias } = itinerarioData;
   /* Animaciones personalizadas para los filtros */
   [x-cloak] {
     display: none !important;
+  }
+
+  /* Debug Panel */
+  .debug-panel {
+    font-family: monospace;
+    border: 1px solid #374151;
+  }
+  
+  :global([data-theme="light"]) .debug-panel {
+    background: #F9FAFB !important;
+    color: #1F2937 !important;
+    border-color: #D1D5DB !important;
+  }
+  
+  .debug-panel code {
+    background: #1F2937;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #F59E0B;
+  }
+  
+  :global([data-theme="light"]) .debug-panel code {
+    background: #E5E7EB !important;
+    color: #B45309 !important;
   }
 </style>
