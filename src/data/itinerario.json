@@ -6,143 +6,1066 @@
       "fin": "2025-08-28"
     },
     "duracion_dias": 14,
-    "ciudades_principales": ["Tokio", "Kyoto", "Osaka"],
-    "descripcion": "Una aventura de dos semanas explorando la tierra del sol naciente"
+    "ciudades_principales": ["Tokio", "Kyoto", "Osaka", "Nara", "Hiroshima"],
+    "descripcion": "Una aventura de dos semanas explorando la tierra del sol naciente, desde los neones de Tokio hasta los templos milenarios de Kyoto",
+    "presupuesto_estimado": "¥350,000 - ¥500,000",
+    "moneda": "JPY",
+    "zona_horaria": "JST (UTC+9)"
   },
   "dias": [
     {
       "dia": 1,
       "fecha": "2025-08-14",
-      "titulo": "Llegada a Tokio",
+      "titulo": "¡Llegada a Tokio! 🛬",
       "ciudad": "Tokio",
+      "distrito": "Shibuya",
+      "clima": "Verano caluroso, 32°C",
       "actividades": [
         {
           "hora": "06:00",
           "actividad": "Vuelo de llegada al Aeropuerto de Narita",
-          "ubicacion": "Aeropuerto Internacional de Narita",
-          "tipo": "transporte"
+          "ubicacion": "Aeropuerto Internacional de Narita (NRT)",
+          "tipo": "transporte",
+          "duracion": "2 horas",
+          "costo": "¥3,020",
+          "notas": "Narita Express hasta Shibuya"
         },
         {
           "hora": "10:00",
           "actividad": "Check-in en el hotel",
-          "ubicacion": "Hotel en Shibuya",
-          "tipo": "alojamiento"
+          "ubicacion": "Hotel Shibuya Excel Tokyu",
+          "tipo": "alojamiento",
+          "direccion": "1-12-2 Dogenzaka, Shibuya",
+          "telefono": "+81-3-5457-0109"
         },
         {
           "hora": "12:00",
-          "actividad": "Almuerzo de bienvenida",
-          "ubicacion": "Restaurante local",
+          "actividad": "Almuerzo de bienvenida - Comida japonesa sin gluten",
+          "ubicacion": "Little Bird Café",
           "tipo": "comida",
           "gluten_free": true,
-          "notas": "Primer contacto con la cocina japonesa sin gluten"
+          "costo": "¥2,500",
+          "notas": "Primer contacto con la cocina japonesa sin gluten",
+          "especialidad": "Ramen sin gluten y postres"
         },
         {
           "hora": "15:00",
-          "actividad": "Paseo por Shibuya Crossing",
-          "ubicacion": "Shibuya",
-          "tipo": "turismo"
+          "actividad": "Primer impacto: Shibuya Crossing",
+          "ubicacion": "Shibuya Crossing",
+          "tipo": "turismo",
+          "destacado": true,
+          "notas": "El cruce más famoso del mundo, perfecto para fotos"
         },
         {
-          "hora": "18:00",
-          "actividad": "Cena en Harajuku",
-          "ubicacion": "Harajuku",
+          "hora": "17:00",
+          "actividad": "Exploración de Harajuku",
+          "ubicacion": "Takeshita Street, Harajuku",
+          "tipo": "turismo",
+          "notas": "Cultura kawaii y street fashion"
+        },
+        {
+          "hora": "19:30",
+          "actividad": "Cena kaiseki sin gluten",
+          "ubicacion": "Kikunoi Honten (sucursal Tokio)",
           "tipo": "comida",
-          "gluten_free": true
+          "gluten_free": true,
+          "costo": "¥15,000",
+          "destacado": true,
+          "notas": "Experiencia de alta cocina japonesa tradicional"
         }
-      ]
+      ],
+      "transporte_dia": "JR Pass (activado), Metro 24h Pass",
+      "gasto_total": "¥20,520"
     },
     {
       "dia": 2,
       "fecha": "2025-08-15",
-      "titulo": "Exploración de Tokio Moderno",
+      "titulo": "Tokio Electrónico: Akihabara & Tokyo Skytree ⚡",
       "ciudad": "Tokio",
+      "distrito": "Akihabara / Sumida",
+      "clima": "Caluroso y húmedo, 33°C",
       "actividades": [
         {
-          "hora": "09:00",
-          "actividad": "Desayuno en el hotel",
-          "ubicacion": "Hotel",
+          "hora": "08:00",
+          "actividad": "Desayuno japonés sin gluten",
+          "ubicacion": "Hotel (buffet especial)",
           "tipo": "comida",
-          "gluten_free": true
+          "gluten_free": true,
+          "costo": "¥2,000"
         },
         {
-          "hora": "10:30",
-          "actividad": "Visita a Akihabara - Distrito electrónico",
-          "ubicacion": "Akihabara",
+          "hora": "10:00",
+          "actividad": "Akihabara - Capital mundial del anime",
+          "ubicacion": "Akihabara Electric Town",
           "tipo": "turismo",
-          "destacado": true
+          "destacado": true,
+          "notas": "Tiendas de electrónicos, manga, anime y videojuegos"
         },
         {
-          "hora": "13:00",
-          "actividad": "Almuerzo en un café temático",
-          "ubicacion": "Akihabara",
+          "hora": "12:30",
+          "actividad": "Almuerzo en Maid Café (sin gluten)",
+          "ubicacion": "Maidreamin Akihabara",
           "tipo": "comida",
-          "gluten_free": false,
-          "alternativa_gf": "Café con opciones sin gluten cercano"
+          "gluten_free": true,
+          "costo": "¥3,500",
+          "notas": "Experiencia cultural única japonesa"
         },
         {
           "hora": "15:00",
-          "actividad": "Tokyo Skytree",
+          "actividad": "Tokyo Skytree - Vista panorámica",
           "ubicacion": "Tokyo Skytree",
           "tipo": "turismo",
-          "destacado": true
+          "destacado": true,
+          "costo": "¥3,100",
+          "notas": "Torre más alta de Japón, 634 metros"
         },
         {
-          "hora": "19:00",
-          "actividad": "Cena en Asakusa",
-          "ubicacion": "Asakusa",
+          "hora": "17:30",
+          "actividad": "Solamachi shopping complex",
+          "ubicacion": "Tokyo Skytree Town",
+          "tipo": "compras",
+          "notas": "Souvenirs y productos locales"
+        },
+        {
+          "hora": "19:30",
+          "actividad": "Cena de tempura sin gluten",
+          "ubicacion": "Tsunahachi Honten",
           "tipo": "comida",
-          "gluten_free": true
+          "gluten_free": true,
+          "costo": "¥4,800",
+          "notas": "Tempura con harina de arroz especial"
         }
-      ]
+      ],
+      "transporte_dia": "JR Pass, Metro Pass",
+      "gasto_total": "¥13,400"
     },
     {
       "dia": 3,
       "fecha": "2025-08-16",
-      "titulo": "Tokio Tradicional",
+      "titulo": "Tokio Tradicional: Asakusa & Jardines Imperiales 🏯",
       "ciudad": "Tokio",
+      "distrito": "Asakusa / Chiyoda",
+      "clima": "Parcialmente nublado, 29°C",
       "actividades": [
         {
-          "hora": "08:00",
+          "hora": "07:30",
           "actividad": "Desayuno tradicional japonés",
-          "ubicacion": "Hotel",
-          "tipo": "comida",
-          "gluten_free": true
-        },
-        {
-          "hora": "09:30",
-          "actividad": "Templo Senso-ji",
-          "ubicacion": "Asakusa",
-          "tipo": "cultura",
-          "destacado": true
-        },
-        {
-          "hora": "11:30",
-          "actividad": "Mercado Tsukiji Outer Market",
-          "ubicacion": "Tsukiji",
-          "tipo": "turismo"
-        },
-        {
-          "hora": "13:00",
-          "actividad": "Almuerzo de sushi sin gluten",
-          "ubicacion": "Tsukiji",
+          "ubicacion": "Café Aaliya (sin gluten)",
           "tipo": "comida",
           "gluten_free": true,
-          "destacado": true
+          "costo": "¥1,800"
+        },
+        {
+          "hora": "09:00",
+          "actividad": "Templo Senso-ji - El más antiguo de Tokio",
+          "ubicacion": "Asakusa",
+          "tipo": "cultura",
+          "destacado": true,
+          "notas": "Fundado en 628 d.C., perfecto para la mañana temprano"
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Nakamise-dori Shopping Street",
+          "ubicacion": "Asakusa",
+          "tipo": "compras",
+          "notas": "Calle comercial tradicional hacia el templo"
+        },
+        {
+          "hora": "12:00",
+          "actividad": "Tsukiji Outer Market - Mercado de pescado",
+          "ubicacion": "Tsukiji",
+          "tipo": "turismo",
+          "destacado": true,
+          "notas": "Mercado de pescado más famoso del mundo"
+        },
+        {
+          "hora": "13:30",
+          "actividad": "Almuerzo: sushi de calidad sin gluten",
+          "ubicacion": "Sushi Zanmai (carta especial)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥6,000",
+          "destacado": true,
+          "notas": "Sushi fresco con salsa de soja sin gluten"
         },
         {
           "hora": "15:30",
           "actividad": "Jardines del Palacio Imperial",
           "ubicacion": "Chiyoda",
-          "tipo": "naturaleza"
+          "tipo": "naturaleza",
+          "notas": "Oasis verde en el corazón de Tokio"
+        },
+        {
+          "hora": "17:00",
+          "actividad": "Distrito de Ginza - shopping de lujo",
+          "ubicacion": "Ginza",
+          "tipo": "compras",
+          "notas": "Distrito más elegante de Tokio"
+        },
+        {
+          "hora": "19:00",
+          "actividad": "Cena kaiseki moderna",
+          "ubicacion": "Narisawa (menú sin gluten)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥25,000",
+          "destacado": true,
+          "notas": "Restaurante con 2 estrellas Michelin"
+        }
+      ],
+      "transporte_dia": "JR Pass, caminatas",
+      "gasto_total": "¥32,800"
+    },
+    {
+      "dia": 4,
+      "fecha": "2025-08-17",
+      "titulo": "Roppongi & Ueno: Arte y Cultura 🎨",
+      "ciudad": "Tokio",
+      "distrito": "Roppongi / Ueno",
+      "clima": "Soleado, 31°C",
+      "actividades": [
+        {
+          "hora": "08:30",
+          "actividad": "Desayuno continental sin gluten",
+          "ubicacion": "Bills Omotesando",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,200",
+          "notas": "Famosos hotcakes ricotta sin gluten"
+        },
+        {
+          "hora": "10:00",
+          "actividad": "Museo Nacional de Tokio",
+          "ubicacion": "Ueno Park",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥1,000",
+          "notas": "Colección más grande de arte japonés"
+        },
+        {
+          "hora": "12:30",
+          "actividad": "Parque Ueno - hanami y zoo",
+          "ubicacion": "Ueno Park",
+          "tipo": "naturaleza",
+          "notas": "Uno de los parques más grandes de Tokio"
+        },
+        {
+          "hora": "14:00",
+          "actividad": "Almuerzo: tonkatsu sin gluten",
+          "ubicacion": "Katsukura (menú especial)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥3,200"
+        },
+        {
+          "hora": "16:00",
+          "actividad": "Roppongi Hills - arte contemporáneo",
+          "ubicacion": "Roppongi",
+          "tipo": "cultura",
+          "notas": "Mori Art Museum y Maman spider"
+        },
+        {
+          "hora": "18:00",
+          "actividad": "Tokyo Tower al atardecer",
+          "ubicacion": "Tokyo Tower",
+          "tipo": "turismo",
+          "destacado": true,
+          "costo": "¥3,000",
+          "notas": "Icónica torre roja, vistas espectaculares"
+        },
+        {
+          "hora": "20:00",
+          "actividad": "Cena en Roppongi Hills",
+          "ubicacion": "Robuchon au Dôme",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥18,000",
+          "destacado": true,
+          "notas": "Cocina francesa-japonesa de lujo"
+        }
+      ],
+      "transporte_dia": "JR Pass, Metro",
+      "gasto_total": "¥27,400"
+    },
+    {
+      "dia": 5,
+      "fecha": "2025-08-18",
+      "titulo": "Kamakura: Día de Excursión - El Gran Buda 🗿",
+      "ciudad": "Kamakura",
+      "distrito": "Histórico",
+      "clima": "Fresco, 27°C",
+      "actividades": [
+        {
+          "hora": "07:00",
+          "actividad": "Desayuno bento sin gluten",
+          "ubicacion": "Estación de Shinjuku",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥1,500"
+        },
+        {
+          "hora": "08:00",
+          "actividad": "Viaje en tren a Kamakura",
+          "ubicacion": "JR Tokaido Line",
+          "tipo": "transporte",
+          "duracion": "1 hora",
+          "costo": "Incluido en JR Pass"
+        },
+        {
+          "hora": "09:30",
+          "actividad": "Gran Buda de Kamakura (Kotoku-in)",
+          "ubicacion": "Kotoku-in Temple",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥300",
+          "notas": "Estatua de bronce de 13.35m, año 1252"
+        },
+        {
+          "hora": "11:00",
+          "actividad": "Templo Hase-dera",
+          "ubicacion": "Hase",
+          "tipo": "cultura",
+          "costo": "¥400",
+          "notas": "Templo con vistas al mar y estatua Kannon"
+        },
+        {
+          "hora": "13:00",
+          "actividad": "Almuerzo tradicional sin gluten",
+          "ubicacion": "Kamakura Pasta (menú especial)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,800"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Santuario Tsurugaoka Hachimangu",
+          "ubicacion": "Centro de Kamakura",
+          "tipo": "cultura",
+          "destacado": true,
+          "notas": "Santuario más importante de Kamakura"
+        },
+        {
+          "hora": "16:30",
+          "actividad": "Komachi-dori Street - shopping",
+          "ubicacion": "Kamakura",
+          "tipo": "compras",
+          "notas": "Calle comercial con productos locales"
+        },
+        {
+          "hora": "18:00",
+          "actividad": "Regreso a Tokio",
+          "ubicacion": "JR Tokaido Line",
+          "tipo": "transporte",
+          "duracion": "1 hora"
+        },
+        {
+          "hora": "19:30",
+          "actividad": "Cena en Shibuya",
+          "ubicacion": "Shin Yokohama Ramen Museum",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,500",
+          "notas": "Ramen sin gluten de diferentes regiones"
+        }
+      ],
+      "transporte_dia": "JR Pass (ida y vuelta Kamakura)",
+      "gasto_total": "¥7,500"
+    },
+    {
+      "dia": 6,
+      "fecha": "2025-08-19",
+      "titulo": "Viaje a Kyoto: La Ciudad Imperial 🚅",
+      "ciudad": "Kyoto",
+      "distrito": "Estación / Gion",
+      "clima": "Caluroso y húmedo, 34°C",
+      "actividades": [
+        {
+          "hora": "07:00",
+          "actividad": "Check-out del hotel en Tokio",
+          "ubicacion": "Hotel Shibuya Excel Tokyu",
+          "tipo": "alojamiento"
+        },
+        {
+          "hora": "08:00",
+          "actividad": "Shinkansen a Kyoto",
+          "ubicacion": "Tokio → Kyoto",
+          "tipo": "transporte",
+          "destacado": true,
+          "duracion": "2h 15min",
+          "costo": "Incluido en JR Pass",
+          "notas": "Tren bala - experiencia icónica japonesa"
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Llegada y check-in en Kyoto",
+          "ubicacion": "The Ritz-Carlton Kyoto",
+          "tipo": "alojamiento",
+          "direccion": "Kamogawa Nijo-Ohashi Hotori, Nakagyo Ward"
+        },
+        {
+          "hora": "12:00",
+          "actividad": "Almuerzo kaiseki sin gluten",
+          "ubicacion": "Kikunoi (3 estrellas Michelin)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥30,000",
+          "destacado": true,
+          "notas": "Auténtica experiencia kaiseki en Kyoto"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Templo Kiyomizu-dera",
+          "ubicacion": "Higashiyama",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥400",
+          "notas": "Templo de madera patrimonio UNESCO"
+        },
+        {
+          "hora": "17:00",
+          "actividad": "Paseo por Gion - distrito geisha",
+          "ubicacion": "Gion",
+          "tipo": "cultura",
+          "destacado": true,
+          "notas": "Distrito histórico tradicional de geishas"
+        },
+        {
+          "hora": "19:30",
+          "actividad": "Cena tradicional con maiko",
+          "ubicacion": "Mizukami (experiencia geisha)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥35,000",
+          "destacado": true,
+          "notas": "Cena con espectáculo de maiko privado"
+        }
+      ],
+      "transporte_dia": "JR Pass (Shinkansen), Kyoto City Bus",
+      "gasto_total": "¥65,400"
+    },
+    {
+      "dia": 7,
+      "fecha": "2025-08-20",
+      "titulo": "Kyoto Imperial: Fushimi Inari & Arashiyama ⛩️",
+      "ciudad": "Kyoto",
+      "distrito": "Fushimi / Arashiyama",
+      "clima": "Muy caluroso, 35°C",
+      "actividades": [
+        {
+          "hora": "06:00",
+          "actividad": "Amanecer en Fushimi Inari Taisha",
+          "ubicacion": "Fushimi Inari",
+          "tipo": "cultura",
+          "destacado": true,
+          "notas": "10,000 toriis rojos - mejor temprano para evitar multitudes"
+        },
+        {
+          "hora": "08:30",
+          "actividad": "Desayuno tradicional sin gluten",
+          "ubicacion": "Vermillion Café (cerca de Fushimi)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,000"
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Viaje a Arashiyama",
+          "ubicacion": "Tren Keihan + JR",
+          "tipo": "transporte",
+          "duracion": "45 minutos"
+        },
+        {
+          "hora": "11:30",
+          "actividad": "Bosque de Bambú de Arashiyama",
+          "ubicacion": "Arashiyama",
+          "tipo": "naturaleza",
+          "destacado": true,
+          "notas": "Sendero de bambú más famoso de Japón"
+        },
+        {
+          "hora": "13:00",
+          "actividad": "Almuerzo: tofu kaiseki sin gluten",
+          "ubicacion": "Komameya (restaurante tofu tradicional)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥4,500",
+          "notas": "Especialidad en tofu fresco de Arashiyama"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Templo Tenryu-ji",
+          "ubicacion": "Arashiyama",
+          "tipo": "cultura",
+          "costo": "¥500",
+          "notas": "Jardín zen patrimonio UNESCO"
+        },
+        {
+          "hora": "16:30",
+          "actividad": "Distrito de Saga-Toriimoto",
+          "ubicacion": "Arashiyama",
+          "tipo": "turismo",
+          "notas": "Casas tradicionales preservadas"
+        },
+        {
+          "hora": "18:00",
+          "actividad": "Regreso al centro de Kyoto",
+          "ubicacion": "JR San-in Line",
+          "tipo": "transporte"
+        },
+        {
+          "hora": "19:30",
+          "actividad": "Cena en Pontocho Alley",
+          "ubicacion": "Pontocho",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥8,000",
+          "notas": "Callejón gastronómico histórico junto al río"
+        }
+      ],
+      "transporte_dia": "JR Pass, Keihan Line, Kyoto City Bus",
+      "gasto_total": "¥15,000"
+    },
+    {
+      "dia": 8,
+      "fecha": "2025-08-21",
+      "titulo": "Kyoto Dorado: Kinkaku-ji & Jardines Zen 💛",
+      "ciudad": "Kyoto",
+      "distrito": "Kita / Sakyo",
+      "clima": "Caluroso, 33°C",
+      "actividades": [
+        {
+          "hora": "07:30",
+          "actividad": "Templo Dorado (Kinkaku-ji) al amanecer",
+          "ubicacion": "Kita ward",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥400",
+          "notas": "Pabellón Dorado - icono de Kyoto, mejor temprano"
+        },
+        {
+          "hora": "09:00",
+          "actividad": "Desayuno zen sin gluten",
+          "ubicacion": "Ippodo Tea (casa de té)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥1,800",
+          "notas": "Ceremonia del té matcha con wagashi sin gluten"
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Jardín Ryoan-ji",
+          "ubicacion": "Ukyo ward",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥500",
+          "notas": "Jardín de rocas zen más famoso del mundo"
+        },
+        {
+          "hora": "12:30",
+          "actividad": "Almuerzo: shojin ryori (cocina budista)",
+          "ubicacion": "Shigetsu (Tenryu-ji)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥6,000",
+          "destacado": true,
+          "notas": "Cocina vegetariana budista tradicional"
+        },
+        {
+          "hora": "14:30",
+          "actividad": "Templo Ginkaku-ji (Pabellón de Plata)",
+          "ubicacion": "Sakyo ward",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥500",
+          "notas": "Contraparte del Templo Dorado"
+        },
+        {
+          "hora": "16:00",
+          "actividad": "Sendero del Filósofo (Tetsugaku-no-michi)",
+          "ubicacion": "Desde Ginkaku-ji",
+          "tipo": "naturaleza",
+          "notas": "Paseo contemplativo junto a un canal"
+        },
+        {
+          "hora": "17:30",
+          "actividad": "Distrito Higashiyama",
+          "ubicacion": "Higashiyama",
+          "tipo": "turismo",
+          "notas": "Calles históricas preservadas"
+        },
+        {
+          "hora": "19:00",
+          "actividad": "Cena kaiseki de despedida",
+          "ubicacion": "Yoshikawa Inn (3 estrellas Michelin)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥40,000",
+          "destacado": true,
+          "notas": "Última cena kaiseki de lujo en Kyoto"
+        }
+      ],
+      "transporte_dia": "Kyoto City Bus Day Pass, caminatas",
+      "gasto_total": "¥48,700"
+    },
+    {
+      "dia": 9,
+      "fecha": "2025-08-22",
+      "titulo": "Nara: Los Ciervos Sagrados & Todai-ji 🦌",
+      "ciudad": "Nara",
+      "distrito": "Nara Park",
+      "clima": "Soleado, 31°C",
+      "actividades": [
+        {
+          "hora": "08:00",
+          "actividad": "Viaje matutino a Nara",
+          "ubicacion": "Kyoto → Nara",
+          "tipo": "transporte",
+          "duracion": "45 minutos",
+          "costo": "Incluido en JR Pass"
+        },
+        {
+          "hora": "09:00",
+          "actividad": "Nara Park - encuentro con ciervos",
+          "ubicacion": "Nara Park",
+          "tipo": "naturaleza",
+          "destacado": true,
+          "notas": "Más de 1,200 ciervos sagrados en libertad"
+        },
+        {
+          "hora": "10:00",
+          "actividad": "Templo Todai-ji - Buda gigante",
+          "ubicacion": "Nara Park",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥600",
+          "notas": "Buda de bronce más grande de Japón (15m)"
+        },
+        {
+          "hora": "12:00",
+          "actividad": "Almuerzo: especialidades locales sin gluten",
+          "ubicacion": "Mahoroba Daibutsu Pudding Honpo",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,500",
+          "notas": "Famous pudding sin gluten y kakinoha-zushi"
+        },
+        {
+          "hora": "13:30",
+          "actividad": "Santuario Kasuga Taisha",
+          "ubicacion": "Nara Park",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥500",
+          "notas": "3,000 linternas de piedra y bronce"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Kofuku-ji Temple",
+          "ubicacion": "Nara",
+          "tipo": "cultura",
+          "costo": "¥300",
+          "notas": "Pagoda de cinco pisos icónica"
+        },
+        {
+          "hora": "16:30",
+          "actividad": "Regreso a Kyoto",
+          "ubicacion": "Nara → Kyoto",
+          "tipo": "transporte",
+          "duracion": "45 minutos"
+        },
+        {
+          "hora": "18:00",
+          "actividad": "Cena de despedida en Kyoto",
+          "ubicacion": "Ganko Sushi (menú sin gluten)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥5,000",
+          "notas": "Sushi tradicional de Kansai"
+        }
+      ],
+      "transporte_dia": "JR Pass (Kyoto-Nara ida y vuelta)",
+      "gasto_total": "¥8,900"
+    },
+    {
+      "dia": 10,
+      "fecha": "2025-08-23",
+      "titulo": "Osaka: Comida Callejera & Castillo 🏰",
+      "ciudad": "Osaka",
+      "distrito": "Umeda / Dotonbori",
+      "clima": "Caluroso y húmedo, 34°C",
+      "actividades": [
+        {
+          "hora": "09:00",
+          "actividad": "Check-out Kyoto y viaje a Osaka",
+          "ubicacion": "Kyoto → Osaka",
+          "tipo": "transporte",
+          "duracion": "45 minutos",
+          "costo": "Incluido en JR Pass"
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Check-in Hotel en Osaka",
+          "ubicacion": "Conrad Osaka",
+          "tipo": "alojamiento",
+          "direccion": "3-2-4 Nakanoshima, Kita Ward"
+        },
+        {
+          "hora": "11:30",
+          "actividad": "Castillo de Osaka",
+          "ubicacion": "Osaka Castle Park",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥600",
+          "notas": "Castillo reconstruido con museo moderno"
+        },
+        {
+          "hora": "13:30",
+          "actividad": "Almuerzo: takoyaki sin gluten",
+          "ubicacion": "Dotonbori (puesto especializado)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥1,500",
+          "notas": "Takoyaki con harina sin gluten - especialidad de Osaka"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Dotonbori - neones y comida callejera",
+          "ubicacion": "Dotonbori",
+          "tipo": "turismo",
+          "destacado": true,
+          "notas": "Distrito más famoso de Osaka, ideal para fotos"
+        },
+        {
+          "hora": "16:30",
+          "actividad": "Shinsaibashi - shopping district",
+          "ubicacion": "Shinsaibashi",
+          "tipo": "compras",
+          "notas": "Calle comercial cubierta más larga"
+        },
+        {
+          "hora": "18:00",
+          "actividad": "Kuromon Ichiba Market",
+          "ubicacion": "Nippombashi",
+          "tipo": "turismo",
+          "notas": "Mercado de comida fresca"
+        },
+        {
+          "hora": "19:30",
+          "actividad": "Cena: okonomiyaki sin gluten",
+          "ubicacion": "Mizuno (versión especial)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥3,000",
+          "destacado": true,
+          "notas": "Okonomiyaki auténtico con harina sin gluten"
+        }
+      ],
+      "transporte_dia": "JR Pass, Osaka Metro Day Pass",
+      "gasto_total": "¥5,100"
+    },
+    {
+      "dia": 11,
+      "fecha": "2025-08-24",
+      "titulo": "Hiroshima: Memoria y Miyajima 🕊️",
+      "ciudad": "Hiroshima",
+      "distrito": "Centro / Miyajima",
+      "clima": "Caluroso, 32°C",
+      "actividades": [
+        {
+          "hora": "07:00",
+          "actividad": "Shinkansen temprano a Hiroshima",
+          "ubicacion": "Osaka → Hiroshima",
+          "tipo": "transporte",
+          "duracion": "1h 20min",
+          "costo": "Incluido en JR Pass"
+        },
+        {
+          "hora": "08:30",
+          "actividad": "Parque Memorial de la Paz",
+          "ubicacion": "Hiroshima Peace Memorial Park",
+          "tipo": "cultura",
+          "destacado": true,
+          "notas": "Memorial de la bomba atómica y museo"
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Museo Memorial de la Paz",
+          "ubicacion": "Hiroshima",
+          "tipo": "cultura",
+          "costo": "¥200",
+          "notas": "Historia sobre la Segunda Guerra Mundial"
+        },
+        {
+          "hora": "12:00",
+          "actividad": "Almuerzo: Hiroshima-style okonomiyaki",
+          "ubicacion": "Okonomimura (sin gluten especial)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,000",
+          "notas": "Okonomiyaki estilo Hiroshima sin gluten"
+        },
+        {
+          "hora": "13:30",
+          "actividad": "Ferry a Miyajima",
+          "ubicacion": "Hiroshima → Miyajima",
+          "tipo": "transporte",
+          "duracion": "45 minutos",
+          "costo": "Incluido en JR Pass"
+        },
+        {
+          "hora": "14:30",
+          "actividad": "Torii flotante de Itsukushima",
+          "ubicacion": "Miyajima Island",
+          "tipo": "cultura",
+          "destacado": true,
+          "costo": "¥300",
+          "notas": "Uno de los 3 paisajes más bellos de Japón"
+        },
+        {
+          "hora": "16:00",
+          "actividad": "Santuario Itsukushima",
+          "ubicacion": "Miyajima",
+          "tipo": "cultura",
+          "notas": "Santuario shintoísta sobre el agua"
+        },
+        {
+          "hora": "17:30",
+          "actividad": "Regreso a Hiroshima",
+          "ubicacion": "Miyajima → Hiroshima",
+          "tipo": "transporte"
+        },
+        {
+          "hora": "19:00",
+          "actividad": "Shinkansen de regreso a Osaka",
+          "ubicacion": "Hiroshima → Osaka",
+          "tipo": "transporte",
+          "duracion": "1h 20min"
+        },
+        {
+          "hora": "20:30",
+          "actividad": "Cena tardía en Osaka",
+          "ubicacion": "Yakiniku M Nanba Honten",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥6,000",
+          "notas": "Wagyu sin marinados con gluten"
+        }
+      ],
+      "transporte_dia": "JR Pass (Shinkansen ida y vuelta)",
+      "gasto_total": "¥8,500"
+    },
+    {
+      "dia": 12,
+      "fecha": "2025-08-25",
+      "titulo": "Osaka Universal & Último Shopping 🎢",
+      "ciudad": "Osaka",
+      "distrito": "Universal City / Umeda",
+      "clima": "Parcialmente nublado, 29°C",
+      "actividades": [
+        {
+          "hora": "08:00",
+          "actividad": "Universal Studios Japan",
+          "ubicacion": "Universal City",
+          "tipo": "entretenimiento",
+          "destacado": true,
+          "costo": "¥8,600",
+          "notas": "Parque temático con Harry Potter y Nintendo World"
+        },
+        {
+          "hora": "09:00",
+          "actividad": "Nintendo World - Super Mario",
+          "ubicacion": "USJ",
+          "tipo": "entretenimiento",
+          "destacado": true,
+          "notas": "Área temática de Nintendo más nueva"
+        },
+        {
+          "hora": "12:00",
+          "actividad": "Almuerzo temático sin gluten",
+          "ubicacion": "Three Broomsticks (Harry Potter)",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥3,500",
+          "notas": "Comida temática de Harry Potter sin gluten"
+        },
+        {
+          "hora": "14:00",
+          "actividad": "Harry Potter World",
+          "ubicacion": "USJ",
+          "tipo": "entretenimiento",
+          "destacado": true,
+          "notas": "Mundo mágico de Harry Potter"
+        },
+        {
+          "hora": "17:00",
+          "actividad": "Salida de Universal Studios",
+          "ubicacion": "Universal City",
+          "tipo": "transporte"
+        },
+        {
+          "hora": "18:00",
+          "actividad": "Umeda Sky Building",
+          "ubicacion": "Umeda",
+          "tipo": "turismo",
+          "costo": "¥1,500",
+          "notas": "Observatorio con vistas panorámicas"
+        },
+        {
+          "hora": "19:30",
+          "actividad": "Último shopping en Umeda",
+          "ubicacion": "Grand Front Osaka",
+          "tipo": "compras",
+          "notas": "Centro comercial moderno para souvenirs"
+        },
+        {
+          "hora": "21:00",
+          "actividad": "Cena de despedida",
+          "ubicacion": "Kani Doraku Honten",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥12,000",
+          "destacado": true,
+          "notas": "Famoso restaurante de cangrejo con platos sin gluten"
+        }
+      ],
+      "transporte_dia": "JR Pass, Osaka Metro",
+      "gasto_total": "¥25,600"
+    },
+    {
+      "dia": 13,
+      "fecha": "2025-08-26",
+      "titulo": "Regreso a Tokio: Última Exploración 🔄",
+      "ciudad": "Tokio",
+      "distrito": "Shibuya / Shinjuku",
+      "clima": "Soleado, 30°C",
+      "actividades": [
+        {
+          "hora": "09:00",
+          "actividad": "Check-out Osaka y Shinkansen a Tokio",
+          "ubicacion": "Osaka → Tokio",
+          "tipo": "transporte",
+          "duracion": "2h 30min",
+          "costo": "Incluido en JR Pass"
+        },
+        {
+          "hora": "12:00",
+          "actividad": "Check-in hotel final en Tokio",
+          "ubicacion": "Hotel Shibuya Excel Tokyu",
+          "tipo": "alojamiento"
+        },
+        {
+          "hora": "13:00",
+          "actividad": "Almuerzo en Shibuya Sky",
+          "ubicacion": "Shibuya Sky",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥3,000",
+          "notas": "Vista panorámica desde el observatorio"
+        },
+        {
+          "hora": "15:00",
+          "actividad": "Últimas compras en Shibuya",
+          "ubicacion": "Shibuya Center Gai",
+          "tipo": "compras",
+          "notas": "Souvenirs de última hora"
+        },
+        {
+          "hora": "17:00",
+          "actividad": "Shinjuku - rascacielos y neones",
+          "ubicacion": "Shinjuku",
+          "tipo": "turismo",
+          "notas": "Distrito más dinámico de Tokio"
         },
         {
           "hora": "18:30",
-          "actividad": "Cena en Ginza",
-          "ubicacion": "Ginza",
+          "actividad": "Golden Gai - bares tradicionales",
+          "ubicacion": "Shinjuku Golden Gai",
+          "tipo": "turismo",
+          "destacado": true,
+          "notas": "Área histórica de bares diminutos"
+        },
+        {
+          "hora": "20:00",
+          "actividad": "Cena final: teppanyaki sin gluten",
+          "ubicacion": "Kawamura (teppanyaki premium)",
           "tipo": "comida",
-          "gluten_free": true
+          "gluten_free": true,
+          "costo": "¥15,000",
+          "destacado": true,
+          "notas": "Wagyu teppanyaki de despedida"
         }
-      ]
+      ],
+      "transporte_dia": "JR Pass (Shinkansen), Metro Tokio",
+      "gasto_total": "¥18,000"
+    },
+    {
+      "dia": 14,
+      "fecha": "2025-08-27",
+      "titulo": "Último Día: Recuerdos y Partida 🛫",
+      "ciudad": "Tokio",
+      "distrito": "Shibuya / Narita",
+      "clima": "Despejado, 28°C",
+      "actividades": [
+        {
+          "hora": "09:00",
+          "actividad": "Desayuno de despedida",
+          "ubicacion": "Hotel buffet",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,000"
+        },
+        {
+          "hora": "10:30",
+          "actividad": "Check-out y equipaje en consigna",
+          "ubicacion": "Hotel Shibuya Excel Tokyu",
+          "tipo": "alojamiento"
+        },
+        {
+          "hora": "11:00",
+          "actividad": "Última visita a Meiji Shrine",
+          "ubicacion": "Shibuya",
+          "tipo": "cultura",
+          "notas": "Reflexión final y agradecimiento"
+        },
+        {
+          "hora": "12:30",
+          "actividad": "Almuerzo ligero sin gluten",
+          "ubicacion": "Omotesando Café",
+          "tipo": "comida",
+          "gluten_free": true,
+          "costo": "¥2,500"
+        },
+        {
+          "hora": "14:00",
+          "actividad": "Recogida de equipaje y traslado",
+          "ubicacion": "Hotel → Narita Express",
+          "tipo": "transporte"
+        },
+        {
+          "hora": "15:30",
+          "actividad": "Narita Express al aeropuerto",
+          "ubicacion": "Shibuya → Narita",
+          "tipo": "transporte",
+          "duracion": "1 hora",
+          "costo": "¥3,020"
+        },
+        {
+          "hora": "17:00",
+          "actividad": "Check-in aeropuerto y duty free",
+          "ubicacion": "Aeropuerto de Narita",
+          "tipo": "transporte",
+          "notas": "Últimas compras duty free"
+        },
+        {
+          "hora": "19:00",
+          "actividad": "Vuelo de regreso",
+          "ubicacion": "Narita International Airport",
+          "tipo": "transporte",
+          "notas": "Sayonara Japón! 🇯🇵"
+        }
+      ],
+      "transporte_dia": "Narita Express",
+      "gasto_total": "¥7,520"
     }
   ],
   "restaurantes_gluten_free": [
@@ -152,7 +1075,11 @@
       "ubicacion": "Shibuya",
       "especialidad": "Café y postres sin gluten",
       "puntuacion": 4.8,
-      "url": "https://maps.google.com"
+      "direccion": "1-15-3 Shibuya, Shibuya City",
+      "telefono": "+81-3-3464-6777",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥2,500",
+      "destacado": true
     },
     {
       "nombre": "Gluten Free T's Kitchen",
@@ -160,24 +1087,411 @@
       "ubicacion": "Roppongi",
       "especialidad": "Cocina japonesa sin gluten",
       "puntuacion": 4.9,
-      "url": "https://maps.google.com"
+      "direccion": "7-4-4 Roppongi, Minato City",
+      "telefono": "+81-3-3408-5157",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥4,000",
+      "destacado": true
+    },
+    {
+      "nombre": "Kaikaya by the Sea",
+      "ciudad": "Tokio",
+      "ubicacion": "Shibuya",
+      "especialidad": "Mariscos frescos sin gluten",
+      "puntuacion": 4.7,
+      "direccion": "23-7 Maruyamacho, Shibuya City",
+      "telefono": "+81-3-3770-0878",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥6,000"
+    },
+    {
+      "nombre": "AIN SOPH Journey",
+      "ciudad": "Tokio",
+      "ubicacion": "Shinjuku",
+      "especialidad": "Vegano y sin gluten",
+      "puntuacion": 4.6,
+      "direccion": "3-8-9 Shinjuku, Shinjuku City",
+      "telefono": "+81-3-5379-1760",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥3,200"
+    },
+    {
+      "nombre": "Sushi Zanmai",
+      "ciudad": "Tokio",
+      "ubicacion": "Tsukiji",
+      "especialidad": "Sushi con salsa sin gluten",
+      "puntuacion": 4.5,
+      "direccion": "4-11-9 Tsukiji, Chuo City",
+      "telefono": "+81-3-3541-1117",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥6,000",
+      "destacado": true
+    },
+    {
+      "nombre": "Bills Omotesando",
+      "ciudad": "Tokio",
+      "ubicacion": "Omotesando",
+      "especialidad": "Brunch y hotcakes sin gluten",
+      "puntuacion": 4.4,
+      "direccion": "4-30-3 Jingumae, Shibuya City",
+      "telefono": "+81-3-5772-1133",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥2,500"
+    },
+    {
+      "nombre": "Kikunoi Honten",
+      "ciudad": "Kyoto",
+      "ubicacion": "Higashiyama",
+      "especialidad": "Kaiseki sin gluten (3★ Michelin)",
+      "puntuacion": 4.9,
+      "direccion": "459 Shimokawara-cho, Higashiyama Ward",
+      "telefono": "+81-75-561-0015",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥30,000",
+      "destacado": true
+    },
+    {
+      "nombre": "Shigetsu",
+      "ciudad": "Kyoto",
+      "ubicacion": "Arashiyama",
+      "especialidad": "Shojin ryori (cocina budista)",
+      "puntuacion": 4.8,
+      "direccion": "68 Susukinobaba-cho, Tenryu-ji, Ukyo Ward",
+      "telefono": "+81-75-882-9725",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥6,000",
+      "destacado": true
+    },
+    {
+      "nombre": "Ippodo Tea Co.",
+      "ciudad": "Kyoto",
+      "ubicacion": "Teramachi",
+      "especialidad": "Matcha y wagashi sin gluten",
+      "puntuacion": 4.7,
+      "direccion": "Teramachi-Nijo, Nakagyo Ward",
+      "telefono": "+81-75-211-3421",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥2,000"
+    },
+    {
+      "nombre": "Yoshikawa Inn",
+      "ciudad": "Kyoto",
+      "ubicacion": "Gion",
+      "especialidad": "Kaiseki de lujo (3★ Michelin)",
+      "puntuacion": 4.9,
+      "direccion": "Tomikoji-dori, Shijo-sagaru, Shimogyo Ward",
+      "telefono": "+81-75-561-1544",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥40,000",
+      "destacado": true
+    },
+    {
+      "nombre": "Komameya",
+      "ciudad": "Kyoto",
+      "ubicacion": "Arashiyama",
+      "especialidad": "Tofu kaiseki tradicional",
+      "puntuacion": 4.6,
+      "direccion": "45 Saga-tenryuji Susukinobaba-cho, Ukyo Ward",
+      "telefono": "+81-75-861-0005",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥4,500"
+    },
+    {
+      "nombre": "Ganko Sushi",
+      "ciudad": "Kyoto",
+      "ubicacion": "Pontocho",
+      "especialidad": "Sushi estilo Kansai",
+      "puntuacion": 4.5,
+      "direccion": "Pontocho-dori, Nakagyo Ward",
+      "telefono": "+81-75-255-1128",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥5,000"
+    },
+    {
+      "nombre": "Mahoroba Daibutsu Pudding",
+      "ciudad": "Nara",
+      "ubicacion": "Nara Park",
+      "especialidad": "Pudding sin gluten y especialidades locales",
+      "puntuacion": 4.6,
+      "direccion": "15 Noborioji-cho, Nara",
+      "telefono": "+81-742-23-7515",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥2,500"
+    },
+    {
+      "nombre": "Mizuno",
+      "ciudad": "Osaka",
+      "ubicacion": "Dotonbori",
+      "especialidad": "Okonomiyaki sin gluten",
+      "puntuacion": 4.7,
+      "direccion": "1-4-15 Dotonbori, Chuo Ward",
+      "telefono": "+81-6-6212-6360",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥3,000",
+      "destacado": true
+    },
+    {
+      "nombre": "Kani Doraku Honten",
+      "ciudad": "Osaka",
+      "ubicacion": "Dotonbori",
+      "especialidad": "Cangrejo fresco sin gluten",
+      "puntuacion": 4.8,
+      "direccion": "1-6-18 Dotonbori, Chuo Ward",
+      "telefono": "+81-6-6211-8975",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥12,000",
+      "destacado": true
+    },
+    {
+      "nombre": "Yakiniku M Nanba",
+      "ciudad": "Osaka",
+      "ubicacion": "Nanba",
+      "especialidad": "Wagyu sin marinados con gluten",
+      "puntuacion": 4.7,
+      "direccion": "1-8-16 Nippombashi, Chuo Ward",
+      "telefono": "+81-6-6213-3929",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥6,000"
+    },
+    {
+      "nombre": "Okonomimura",
+      "ciudad": "Hiroshima",
+      "ubicacion": "Centro",
+      "especialidad": "Okonomiyaki estilo Hiroshima sin gluten",
+      "puntuacion": 4.5,
+      "direccion": "5-13 Shintenchi, Naka Ward",
+      "telefono": "+81-82-241-2210",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥2,000"
+    },
+    {
+      "nombre": "Kawamura",
+      "ciudad": "Tokio",
+      "ubicacion": "Ginza",
+      "especialidad": "Teppanyaki premium wagyu",
+      "puntuacion": 4.9,
+      "direccion": "8-7-2 Ginza, Chuo City",
+      "telefono": "+81-3-3289-0606",
+      "url": "https://maps.google.com",
+      "precio_promedio": "¥15,000",
+      "destacado": true
     }
   ],
   "frases_utiles": [
     {
       "español": "¿Contiene gluten?",
       "japones": "グルテンが入っていますか？",
-      "romaji": "Guruten ga haitte imasu ka?"
+      "romaji": "Guruten ga haitte imasu ka?",
+      "categoria": "preguntas_basicas"
     },
     {
       "español": "No puedo comer gluten",
       "japones": "グルテンを食べられません",
-      "romaji": "Guruten wo taberaremasen"
+      "romaji": "Guruten wo taberaremasen",
+      "categoria": "declaraciones"
     },
     {
       "español": "¿Tiene opciones sin gluten?",
       "japones": "グルテンフリーのオプションはありますか？",
-      "romaji": "Guruten furii no opushon wa arimasu ka?"
+      "romaji": "Guruten furii no opushon wa arimasu ka?",
+      "categoria": "preguntas_basicas"
+    },
+    {
+      "español": "Soy celíaco/a",
+      "japones": "私はセリアック病です",
+      "romaji": "Watashi wa seriaku-byou desu",
+      "categoria": "declaraciones"
+    },
+    {
+      "español": "¿Este plato es sin gluten?",
+      "japones": "この料理はグルテンフリーですか？",
+      "romaji": "Kono ryouri wa guruten furii desu ka?",
+      "categoria": "preguntas_basicas"
+    },
+    {
+      "español": "¿Pueden prepararlo sin salsa de soja?",
+      "japones": "醤油なしで作ってもらえますか？",
+      "romaji": "Shouyu nashi de tsukutte moraemasu ka?",
+      "categoria": "peticiones_especiales"
+    },
+    {
+      "español": "¿Tienen salsa de soja sin gluten?",
+      "japones": "グルテンフリーの醤油はありますか？",
+      "romaji": "Guruten furii no shouyu wa arimasu ka?",
+      "categoria": "preguntas_basicas"
+    },
+    {
+      "español": "¿Contiene trigo, cebada o centeno?",
+      "japones": "小麦、大麦、ライ麦は入っていますか？",
+      "romaji": "Komugi, oomugi, raimugi wa haitte imasu ka?",
+      "categoria": "ingredientes_especificos"
+    },
+    {
+      "español": "¿Pueden mostrarme los ingredientes?",
+      "japones": "材料を見せてもらえますか？",
+      "romaji": "Zairyou wo misete moraemasu ka?",
+      "categoria": "peticiones_especiales"
+    },
+    {
+      "español": "¿Hay contaminación cruzada?",
+      "japones": "クロスコンタミネーションはありますか？",
+      "romaji": "Kurosu kontamineeshon wa arimasu ka?",
+      "categoria": "seguridad_alimentaria"
+    },
+    {
+      "español": "Muchas gracias por su ayuda",
+      "japones": "ご協力ありがとうございます",
+      "romaji": "Go-kyouryoku arigatou gozaimasu",
+      "categoria": "cortesia"
+    },
+    {
+      "español": "¿Dónde puedo comprar productos sin gluten?",
+      "japones": "グルテンフリー製品はどこで買えますか？",
+      "romaji": "Guruten furii seihin wa doko de kaemasu ka?",
+      "categoria": "compras"
+    }
+  ],
+  "apps_recomendadas": [
+    {
+      "nombre": "Find Me Gluten Free",
+      "descripcion": "Encuentra restaurantes sin gluten cerca de ti",
+      "plataforma": "iOS/Android",
+      "gratuita": true,
+      "url_descarga": "https://apps.apple.com/app/find-me-gluten-free",
+      "puntuacion": 4.6
+    },
+    {
+      "nombre": "Google Translate",
+      "descripcion": "Traduce ingredientes y menús al japonés",
+      "plataforma": "iOS/Android",
+      "gratuita": true,
+      "url_descarga": "https://apps.apple.com/app/google-translate",
+      "puntuacion": 4.8,
+      "destacado": true
+    },
+    {
+      "nombre": "Hyperdia",
+      "descripcion": "Horarios de trenes y rutas en Japón",
+      "plataforma": "iOS/Android",
+      "gratuita": false,
+      "precio": "¥600",
+      "url_descarga": "https://apps.apple.com/app/hyperdia",
+      "puntuacion": 4.7
+    },
+    {
+      "nombre": "Tabelog",
+      "descripcion": "Reseñas de restaurantes japoneses",
+      "plataforma": "iOS/Android",
+      "gratuita": true,
+      "url_descarga": "https://apps.apple.com/app/tabelog",
+      "puntuacion": 4.5
+    },
+    {
+      "nombre": "imiwa?",
+      "descripcion": "Diccionario japonés-inglés offline",
+      "plataforma": "iOS",
+      "gratuita": true,
+      "url_descarga": "https://apps.apple.com/app/imiwa",
+      "puntuacion": 4.6
+    },
+    {
+      "nombre": "Gurunavi",
+      "descripcion": "Guía de restaurantes con filtros especiales",
+      "plataforma": "iOS/Android",
+      "gratuita": true,
+      "url_descarga": "https://apps.apple.com/app/gurunavi",
+      "puntuacion": 4.4
+    }
+  ],
+  "productos_emergencia": [
+    {
+      "producto": "Pan sin gluten Pasco",
+      "ubicacion": "7-Eleven, FamilyMart, Lawson",
+      "precio": "¥150-300",
+      "descripcion": "Pan de molde sin gluten disponible en konbini"
+    },
+    {
+      "producto": "Fideos de arroz instant",
+      "ubicacion": "Donki, supermercados",
+      "precio": "¥200-400",
+      "descripcion": "Ramen instantáneo hecho con harina de arroz"
+    },
+    {
+      "producto": "Galletas de arroz",
+      "ubicacion": "Todos los konbini",
+      "precio": "¥100-250",
+      "descripcion": "Senbei y crackers de arroz tradicionales"
+    },
+    {
+      "producto": "Onigiri especiales",
+      "ubicacion": "7-Eleven (marca especial)",
+      "precio": "¥150-200",
+      "descripcion": "Bolas de arroz marcadas como sin gluten"
+    },
+    {
+      "producto": "Tamari (salsa de soja sin gluten)",
+      "ubicacion": "Supermercados, Donki",
+      "precio": "¥300-500",
+      "descripcion": "Salsa de soja tradicional sin trigo"
+    },
+    {
+      "producto": "Miso sin gluten",
+      "ubicacion": "Supermercados grandes",
+      "precio": "¥400-600",
+      "descripcion": "Pasta de soja fermentada sin cebada"
+    }
+  ],
+  "cadenas_seguras": [
+    {
+      "nombre": "Freshness Burger",
+      "descripcion": "Hamburguesas con pan sin gluten disponible",
+      "ubicaciones": "Todo Japón",
+      "puntuacion": 4.3
+    },
+    {
+      "nombre": "Starbucks Japan",
+      "descripcion": "Algunos productos sin gluten claramente marcados",
+      "ubicaciones": "Todo Japón",
+      "puntuacion": 4.2
+    },
+    {
+      "nombre": "Subway Japan",
+      "descripcion": "Ensaladas y algunas opciones sin pan",
+      "ubicaciones": "Ciudades principales",
+      "puntuacion": 4.0
+    },
+    {
+      "nombre": "Mos Burger",
+      "descripcion": "Hamburguesas con lechuga como pan (Natsumi Burger)",
+      "ubicaciones": "Todo Japón",
+      "puntuacion": 4.4,
+      "destacado": true
+    }
+  ],
+  "consejos_generales": [
+    {
+      "categoria": "comunicacion",
+      "consejo": "Descarga las frases en tu teléfono con audio para mostrar al personal"
+    },
+    {
+      "categoria": "planificacion",
+      "consejo": "Reserva restaurantes con anticipación especificando necesidades gluten-free"
+    },
+    {
+      "categoria": "seguridad",
+      "consejo": "Siempre lleva snacks sin gluten de emergencia en el bolso"
+    },
+    {
+      "categoria": "cultural",
+      "consejo": "El concepto 'sin gluten' es relativamente nuevo en Japón, ten paciencia"
+    },
+    {
+      "categoria": "compras",
+      "consejo": "Busca el símbolo ⚠️ en productos que pueden contener trigo"
+    },
+    {
+      "categoria": "emergencia",
+      "consejo": "Guarda el número de emergencias médicas: 119"
     }
   ]
 }
