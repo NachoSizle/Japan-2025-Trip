@@ -5,13 +5,12 @@
       "inicio": "2025-08-14",
       "fin": "2025-08-28"
     },
-    "duracion_dias": 14,
+    "duracion_dias": 15,
     "ciudades_principales": [
       "Tokio",
       "Kyoto",
       "Osaka",
-      "Nara",
-      "Hiroshima"
+      "Nara"
     ],
     "descripcion": "Una aventura de dos semanas explorando la tierra del sol naciente, desde los neones de Tokio hasta los templos milenarios de Kyoto",
     "presupuesto_estimado": "¥350,000 - ¥500,000",
@@ -45,10 +44,11 @@
         {
           "hora": "21:30",
           "actividad": "Check-in y instalación",
-          "ubicacion": "3 Chome-4-24 Ebisuhigashi, Naniwa Ward",
+          "ubicacion": "パークシャトー 浪速区惠美須東3-2-9-102, 3 Chome-2-9 Ebisuhigashi, Naniwa Ward, Osaka, 556-0002, Japón",
           "tipo": "alojamiento",
-          "direccion": "3-4-24 Ebisuhigashi, Naniwa Ward, Osaka 556-0002",
-          "notas": "Instalación en el alojamiento, descanso breve"
+          "direccion": "パークシャトー 浪速区惠美須東3-2-9-102, 3 Chome-2-9 Ebisuhigashi, Naniwa Ward, Osaka, 556-0002, Japón",
+          "notas": "Instalación en el alojamiento, descanso breve",
+          "maps_url": "https://www.google.es/maps/place/KAE+HOUSE/@34.649668,135.5040322,17z/data=!3m1!4b1!4m6!3m5!1s0x6000dd3eec63dcdf:0x35556710ec2cb5da!8m2!3d34.649668!4d135.5065396!16s%2Fg%2F11g1zx7_2h?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
         },
         {
           "hora": "22:00",
@@ -58,7 +58,7 @@
           "destacado": true,
           "notas": "Barrio 'nuevo mundo' con encanto retro años 60, letreros coloridos y ambiente nostálgico",
           "direccion": "Shinsekai, 1 Chome-18-6 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://goo.gl/maps/nYmmBf2WVyvZMiSa7"
+          "maps_url": "https://www.google.com/maps/place/Shinsekai%2C+1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
         },
         {
           "hora": "22:30",
@@ -69,7 +69,7 @@
           "costo": "¥900",
           "notas": "Símbolo nostálgico de Osaka, mirador a 91m con vistas panorámicas nocturnas",
           "direccion": "1 Chome-18-6 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://goo.gl/maps/PViBjrnZ2KV42BH47"
+          "maps_url": "https://www.google.com/maps/place/1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
         },
         {
           "hora": "23:30",
@@ -89,7 +89,7 @@
           "destacado": true,
           "notas": "Callejón tradicional con tabernas bajo farolillos, ambiente auténtico de Osaka",
           "direccion": "Janjan Yokocho, 3 Chome-2 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://goo.gl/maps/5NHFq9FxPzyYdgU8A"
+          "maps_url": "https://www.google.com/maps/place/Janjan+Yokocho%2C+3+Chome-2+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
         },
         {
           "hora": "01:00",
@@ -99,7 +99,7 @@
           "costo": "¥500-1,000",
           "notas": "Máquinas arcade clásicas, experiencia nostálgica japonesa",
           "direccion": "Shinsekai, 1 Chome-18-6 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://goo.gl/maps/nYmmBf2WVyvZMiSa7"
+          "maps_url": "https://www.google.com/maps/place/Shinsekai%2C+1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
         },
         {
           "hora": "01:30",
@@ -152,7 +152,7 @@
           "duracion": "2-3 horas",
           "notas": "Uno de los castillos más famosos de Japón, crucial en la unificación del s. XVI. Recorrer parque y fosos",
           "direccion": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-          "maps_url": "https://goo.gl/maps/m2JadjoLYqVYgjTv8"
+          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan"
         },
         {
           "hora": "10:30",
@@ -162,7 +162,7 @@
           "destacado": true,
           "notas": "Recorrer los fosos, jardines y murallas que rodean la fortaleza histórica",
           "direccion": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-          "maps_url": "https://goo.gl/maps/m2JadjoLYqVYgjTv8"
+          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan"
         },
         {
           "hora": "11:30",
@@ -172,7 +172,7 @@
           "costo": "Incluido en entrada",
           "notas": "Museo histórico con vistas panorámicas desde lo alto del torreón",
           "direccion": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-          "maps_url": "https://goo.gl/maps/m2JadjoLYqVYgjTv8"
+          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan"
         },
         {
           "hora": "13:00",
@@ -199,7 +199,7 @@
           "tipo": "turismo",
           "notas": "Paseo por el moderno complejo comercial y arquitectónico",
           "direccion": "Osaka Station City, 3-1-3 Umeda, Kita Ward, Osaka 530-0001, Japan",
-          "maps_url": "https://goo.gl/maps/fFPPXb9Gh5dPN63E6"
+          "maps_url": "https://www.google.com/maps/place/Osaka+Station+City%2C+3-1-3+Umeda%2C+Kita+Ward%2C+Osaka+530-0001%2C+Japan"
         },
         {
           "hora": "15:30",
@@ -210,7 +210,7 @@
           "costo": "¥500-3,000 (compras)",
           "notas": "Megatienda oficial de Pokémon con productos exclusivos",
           "direccion": "13F Daimaru Umeda, 3-1-1 Umeda, Kita Ward, Osaka 530-8202, Japan",
-          "maps_url": "https://goo.gl/maps/hgeUnmsM3xHqhwgB8"
+          "maps_url": "https://www.google.com/maps/place/13F+Daimaru+Umeda%2C+3-1-1+Umeda%2C+Kita+Ward%2C+Osaka+530-8202%2C+Japan"
         },
         {
           "hora": "16:00",
@@ -219,7 +219,7 @@
           "tipo": "turismo",
           "notas": "Megatienda de electrónica, ideal para amantes de la tecnología",
           "direccion": "1-1 Ofukacho, Kita Ward, Osaka 530-0011, Japan",
-          "maps_url": "https://goo.gl/maps/cTxaj571MgSKA5G57"
+          "maps_url": "https://www.google.com/maps/place/1-1+Ofukacho%2C+Kita+Ward%2C+Osaka+530-0011%2C+Japan"
         },
         {
           "hora": "17:00",
@@ -230,7 +230,7 @@
           "costo": "¥1,500",
           "notas": "Edificio futurista con 'Observatorio del Jardín Flotante', vistas del atardecer",
           "direccion": "1-1 Oyodonaka, Kita Ward, Osaka 531-6023, Japan",
-          "maps_url": "https://goo.gl/maps/SYUiVP7EydB2"
+          "maps_url": "https://www.google.com/maps/place/1-1+Oyodonaka%2C+Kita+Ward%2C+Osaka+531-6023%2C+Japan"
         },
         {
           "hora": "19:00",
@@ -257,7 +257,7 @@
           "destacado": true,
           "notas": "Caminar bajo rótulos de neón extravagantes, incluido el famoso cartel de Glico",
           "direccion": "Dōtonbori Canal, 1 Chome, Chuo Ward, Osaka 542-0071, Japan",
-          "maps_url": "https://goo.gl/maps/PcrUSd8hfF54rAUM6"
+          "maps_url": "https://www.google.com/maps/place/D%C5%8Dtonbori+Canal%2C+1+Chome%2C+Chuo+Ward%2C+Osaka+542-0071%2C+Japan"
         },
         {
           "hora": "22:00",
@@ -277,7 +277,7 @@
           "costo": "¥2,000-3,500",
           "notas": "Bar tradicional japonés o área juvenil de Shinsaibashi",
           "direccion": "1 Chome-2-16 Nanba, Chuo Ward, Osaka 542-0076, Japan",
-          "maps_url": "https://goo.gl/maps/6vwaJyK1QkxR3TQt6"
+          "maps_url": "https://www.google.com/maps/place/1+Chome-2-16+Nanba%2C+Chuo+Ward%2C+Osaka+542-0076%2C+Japan"
         },
         {
           "hora": "00:00",
@@ -345,7 +345,7 @@
           "duracion": "2-3 horas",
           "notas": "Uno de los acuarios más grandes del mundo, famoso por su tiburón ballena. Llegada temprana",
           "direccion": "1-1-10 Kaigandori, Minato Ward, Osaka 552-0022, Japan",
-          "maps_url": "https://goo.gl/maps/eicBcAFBqXaVAJwg7"
+          "maps_url": "https://www.google.com/maps/place/1-1-10+Kaigandori%2C+Minato+Ward%2C+Osaka+552-0022%2C+Japan"
         },
         {
           "hora": "13:00",
@@ -375,7 +375,7 @@
           "duracion": "15 minutos",
           "notas": "Vistas panorámicas de la Bahía de Osaka",
           "direccion": "1-1-10 Kaigandori, Minato Ward, Osaka 552-0022, Japan",
-          "maps_url": "https://goo.gl/maps/RfroFpnLp1iKpSUZ9"
+          "maps_url": "https://www.google.com/maps/place/1-1-10+Kaigandori%2C+Minato+Ward%2C+Osaka+552-0022%2C+Japan"
         },
         {
           "hora": "15:00",
@@ -394,7 +394,7 @@
           "duracion": "2 horas",
           "notas": "El 'Akihabara' de Osaka: tiendas de anime, retro-games y electrónica. Paraíso otaku",
           "direccion": "Nipponbashi, Naniwa Ward, Osaka 556-0005, Japan",
-          "maps_url": "https://goo.gl/maps/Vp4PBepjqez87sjA8"
+          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan"
         },
         {
           "hora": "16:00",
@@ -404,7 +404,7 @@
           "costo": "¥1,000-5,000 (compras)",
           "notas": "Explorar tiendas especializadas en manga, anime y merchandising",
           "direccion": "Nipponbashi, Naniwa Ward, Osaka 556-0005, Japan",
-          "maps_url": "https://goo.gl/maps/Vp4PBepjqez87sjA8"
+          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan"
         },
         {
           "hora": "17:00",
@@ -414,7 +414,7 @@
           "costo": "¥500-3,000 (compras)",
           "notas": "Videojuegos retro, consolas vintage y electrónica especializada",
           "direccion": "Nipponbashi, Naniwa Ward, Osaka 556-0005, Japan",
-          "maps_url": "https://goo.gl/maps/Vp4PBepjqez87sjA8"
+          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan"
         },
         {
           "hora": "18:00",
@@ -452,7 +452,7 @@
           "duracion": "2 horas",
           "notas": "Espectáculo inmersivo de arte digital: luces, esculturas interactivas entre vegetación",
           "direccion": "1-23 Nagaikoen, Higashisumiyoshi Ward, Osaka 546-0034, Japan",
-          "maps_url": "https://goo.gl/maps/wj38YMANq6P3kuHr7"
+          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan"
         },
         {
           "hora": "21:30",
@@ -462,7 +462,7 @@
           "destacado": true,
           "notas": "Explorar las instalaciones de luz y arte digital que reaccionan al movimiento",
           "direccion": "1-23 Nagaikoen, Higashisumiyoshi Ward, Osaka 546-0034, Japan",
-          "maps_url": "https://goo.gl/maps/wj38YMANq6P3kuHr7"
+          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan"
         },
         {
           "hora": "22:30",
@@ -471,7 +471,7 @@
           "tipo": "turismo",
           "notas": "Recorrido final por las instalaciones iluminadas. Llevar repelente de mosquitos",
           "direccion": "1-23 Nagaikoen, Higashisumiyoshi Ward, Osaka 546-0034, Japan",
-          "maps_url": "https://goo.gl/maps/wj38YMANq6P3kuHr7"
+          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan"
         },
         {
           "hora": "23:00",
@@ -543,7 +543,7 @@
           "costo": "¥1,000-2,000 (degustaciones)",
           "notas": "Recorrer puestos de mariscos frescos, frutas de temporada y especialidades locales",
           "direccion": "2-4-1 Nipponbashi, Chuo Ward, Osaka 542-0073, Japan",
-          "maps_url": "https://goo.gl/maps/2yciVr4XHhXzpKcD9"
+          "maps_url": "https://www.google.com/maps/place/2-4-1+Nipponbashi%2C+Chuo+Ward%2C+Osaka+542-0073%2C+Japan"
         },
         {
           "hora": "11:30",
@@ -856,7 +856,7 @@
           "duracion": "1 hora",
           "notas": "Patrimonio de la Humanidad, terraza de madera con vistas de Kioto. Evitar multitudes llegando temprano",
           "direccion": "1-294 Kiyomizu, Higashiyama Ward, Kyoto 605-0862, Japan",
-          "maps_url": "https://goo.gl/maps/yp1V6RnZdgxdm2C68"
+          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan"
         },
         {
           "hora": "08:00",
@@ -866,7 +866,7 @@
           "destacado": true,
           "notas": "Beber agua de las cascadas sagradas que trae suerte según la tradición",
           "direccion": "1-294 Kiyomizu, Higashiyama Ward, Kyoto 605-0862, Japan",
-          "maps_url": "https://goo.gl/maps/yp1V6RnZdgxdm2C68"
+          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan"
         },
         {
           "hora": "08:30",
@@ -877,7 +877,7 @@
           "duracion": "1.5 horas",
           "notas": "Calles históricas con casas de té, tiendas de cerámica y arquitectura tradicional",
           "direccion": "1-294 Kiyomizu, Higashiyama Ward, Kyoto 605-0862, Japan",
-          "maps_url": "https://goo.gl/maps/yp1V6RnZdgxdm2C68"
+          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan"
         },
         {
           "hora": "09:00",
@@ -907,7 +907,7 @@
           "duracion": "45 minutos",
           "notas": "Caminata entre altísimos bambúes, experiencia mística y fotogénica imperdible",
           "direccion": "Sagaogurayama Tabuchiyamacho, Ukyo Ward, Kyoto 616-8394, Japan",
-          "maps_url": "https://goo.gl/maps/L3ghtSH67tMELFiNA"
+          "maps_url": "https://www.google.com/maps/place/Sagaogurayama+Tabuchiyamacho%2C+Ukyo+Ward%2C+Kyoto+616-8394%2C+Japan"
         },
         {
           "hora": "11:45",
@@ -919,7 +919,7 @@
           "duracion": "45 minutos",
           "notas": "Templo zen con hermoso jardín paisajístico cerca del bosque de bambú",
           "direccion": "68 Susukinobaba-cho, Saga Tenryu-ji, Ukyo Ward, Kyoto 616-8385, Japan",
-          "maps_url": "https://goo.gl/maps/XHJ9kBSmVYzBr5dU7"
+          "maps_url": "https://www.google.com/maps/place/68+Susukinobaba-cho%2C+Saga+Tenryu-ji%2C+Ukyo+Ward%2C+Kyoto+616-8385%2C+Japan"
         },
         {
           "hora": "13:00",
@@ -948,7 +948,7 @@
           "costo": "Gratis",
           "notas": "Icónico puente de madera con vistas panorámicas del valle",
           "direccion": "Saga Tenryuji Susukinobaba-cho, Ukyo Ward, Kyoto 616-8383, Japan",
-          "maps_url": "https://goo.gl/maps/TbNQpkU4X7VU6H917"
+          "maps_url": "https://www.google.com/maps/place/Saga+Tenryuji+Susukinobaba-cho%2C+Ukyo+Ward%2C+Kyoto+616-8383%2C+Japan"
         },
         {
           "hora": "15:00",
@@ -977,7 +977,7 @@
           "duracion": "45 minutos",
           "notas": "Pabellón cubierto de oro reflejándose en el estanque, estampa clásica de Kioto",
           "direccion": "1 Kinkakuji-cho, Kita Ward, Kyoto 603-8361, Japan",
-          "maps_url": "https://goo.gl/maps/QkXmaJ9ijm8jFzFf8"
+          "maps_url": "https://www.google.com/maps/place/1+Kinkakuji-cho%2C+Kita+Ward%2C+Kyoto+603-8361%2C+Japan"
         },
         {
           "hora": "18:00",

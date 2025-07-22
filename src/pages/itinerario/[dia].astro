@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import DayCard from '../../components/DayCard.astro';
 import itinerarioData from '../../data/itinerario.json';
 
 export function getStaticPaths() {
@@ -109,7 +108,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           <div class="p-4 rounded-xl text-center transition-all duration-300" 
                style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700;">
             <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);">
-              {diaActual.actividades.filter(a => a.tipo === 'comida').length}
+              {diaActual.actividades.filter(a => (a as any).tipo === 'comida').length}
             </div>
             <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Comidas</div>
           </div>
@@ -117,7 +116,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           <div class="p-4 rounded-xl text-center transition-all duration-300" 
                style="background: rgba(255, 20, 147, 0.1); border: 2px solid #FF1493;">
             <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FF1493; text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);">
-              {diaActual.actividades.filter(a => a.tipo === 'turismo').length}
+              {diaActual.actividades.filter(a => (a as any).tipo === 'turismo').length}
             </div>
             <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Turismo</div>
           </div>
@@ -137,17 +136,6 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
             </div>
             <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Destacados</div>
           </div>
-        </div>
-
-        <!-- Tarjeta detallada del día -->
-        <div class="max-w-4xl mx-auto">
-          <DayCard 
-            day={diaActual.dia}
-            fecha={diaActual.fecha}
-            titulo={diaActual.titulo}
-            ciudad={diaActual.ciudad}
-            actividades={diaActual.actividades}
-          />
         </div>
 
         <!-- Timeline de actividades con título rosa -->
@@ -179,11 +167,11 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
                       <!-- Icono y hora -->
                       <div class="flex items-center gap-3 sm:flex-col sm:items-center sm:gap-2 flex-shrink-0">
                         <div class="text-2xl sm:text-3xl">
-                          {actividad.tipo === 'transporte' ? '✈️' :
-                           actividad.tipo === 'alojamiento' ? '🏨' :
-                           actividad.tipo === 'comida' ? '🍽️' :
-                           actividad.tipo === 'turismo' ? '🗼' :
-                           actividad.tipo === 'cultura' ? '🏯' : '📍'}
+                          {(actividad as any).tipo === 'transporte' ? '✈️' :
+                           (actividad as any).tipo === 'alojamiento' ? '🏨' :
+                           (actividad as any).tipo === 'comida' ? '🍽️' :
+                           (actividad as any).tipo === 'turismo' ? '🗼' :
+                           (actividad as any).tipo === 'cultura' ? '🏯' : '📍'}
                         </div>
                         <div class="font-mono text-neon-cyan font-bold text-lg">
                           {actividad.hora}
