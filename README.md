@@ -8,7 +8,9 @@
 
 **Una experiencia web interactiva para documentar y planificar nuestro viaje soñado a Japón**
 
-[🌐 Ver Demo](#) • [📋 Características](#-características) • [🚀 Instalación](#-instalación) • [🛠️ Tecnologías](#️-tecnologías-utilizadas)
+🌐 **[Ver Sitio en Vivo](https://nachosizle.github.io/Japan-2025-Trip/)** 
+
+[📋 Características](#-características) • [🚀 Instalación](#-instalación) • [🛠️ Tecnologías](#️-tecnologías-utilizadas)
 
 </div>
 
@@ -180,7 +182,7 @@ Japan-2025-Trip/
 
 ## 🌟 Próximas Mejoras
 
-- [ ] 🌐 Deploy automático con GitHub Pages
+- [x] 🌐 Deploy automático con GitHub Pages
 - [ ] 📱 Progressive Web App (PWA)
 - [ ] 🗺️ Integración con mapas interactivos
 - [ ] 📊 Analytics de visitas y engagement

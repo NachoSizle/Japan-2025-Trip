@@ -1,0 +1,141 @@
+---
+// Página 404 personalizada para manejar rutas dinámicas en GitHub Pages
+---
+
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting... - Japan 2025 Trip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <script is:inline>
+    // Redirect para GitHub Pages + Astro
+    // Detecta rutas como /Japan-2025-Trip/itinerario/1 y redirige a /?route=/itinerario/1
+    
+    var l = window.location;
+    var path = l.pathname;
+    
+    console.log('404 Page - Original path:', path);
+    
+    // Extraer la parte de la ruta después del base path
+    var basePath = '/Japan-2025-Trip';
+    var routePath = '';
+    
+    if (path.startsWith(basePath + '/')) {
+      routePath = path.substring(basePath.length);
+    } else if (path !== basePath && path !== basePath + '/') {
+      routePath = path;
+    }
+    
+    console.log('404 Page - Extracted route:', routePath);
+    
+    if (routePath && routePath !== '/404' && routePath !== '/404.html') {
+      // Redirigir a la página principal con la ruta como parámetro
+      var newUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+                   basePath + '/?route=' + encodeURIComponent(routePath) + l.hash;
+      
+      console.log('404 Page - Redirecting to:', newUrl);
+      l.replace(newUrl);
+    } else {
+      // Si no hay ruta específica o es la página 404, mostrar la página 404
+      console.log('404 Page - Showing 404 page');
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 50px;
+      max-width: 600px;
+    }
+    
+    .torii {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6));
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin: 20px 0;
+      color: #FF6B6B;
+      text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    }
+    
+    p {
+      font-size: 1.2rem;
+      margin: 15px 0;
+      color: #FFB3B3;
+    }
+    
+    .loading {
+      display: inline-block;
+      animation: pulse 1.5s ease-in-out infinite alternate;
+    }
+    
+    @keyframes pulse {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+    
+    .home-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: rgba(255, 107, 107, 0.2);
+      border: 2px solid #FF6B6B;
+      color: #FF6B6B;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .home-link:hover {
+      background: rgba(255, 107, 107, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="torii">⛩️</div>
+    <h1 id="title">Redirecting...</h1>
+    <p id="message" class="loading">Taking you to your Japan 2025 adventure...</p>
+    
+    <!-- Fallback si la redirección no funciona -->
+    <div id="fallback" style="display: none;">
+      <p>If you're not redirected automatically:</p>
+      <a href="/Japan-2025-Trip/" class="home-link">🏠 Go to Home</a>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Mostrar fallback después de 3 segundos si no hay redirección
+    setTimeout(function() {
+      var currentPath = window.location.pathname;
+      
+      // Si seguimos en la página 404, mostrar el fallback
+      if (currentPath.includes('404')) {
+        document.getElementById('title').textContent = 'Page Not Found';
+        document.getElementById('message').textContent = 'The page you\'re looking for doesn\'t exist.';
+        document.getElementById('message').classList.remove('loading');
+        document.getElementById('fallback').style.display = 'block';
+      }
+    }, 3000);
+  </script>
+</body>
+</html>
