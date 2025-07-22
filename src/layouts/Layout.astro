@@ -50,18 +50,32 @@ const { title, description = "Viaje a Japón 2025 - Itinerario completo con opci
 		
 		<!-- Script para manejar redirecciones de SPA en GitHub Pages -->
 		<script is:inline>
-			// Single Page Apps for GitHub Pages
-			// https://github.com/rafgraph/spa-github-pages
+			// Manejo de redirecciones para rutas dinámicas
 			(function(l) {
-				if (l.search[1] === '/' ) {
-					var decoded = l.search.slice(1).split('&').map(function(s) { 
-						return s.replace(/~and~/g, '&')
-					}).join('?');
-					window.history.replaceState(null, null,
-						l.pathname.slice(0, -1) + decoded + l.hash
-					);
+				console.log('Layout: Checking for route parameter in URL:', l.search);
+				
+				// Buscar el parámetro 'route' en la URL
+				var urlParams = new URLSearchParams(l.search);
+				var routeParam = urlParams.get('route');
+				
+				if (routeParam) {
+					console.log('Layout: Found route parameter:', routeParam);
+					
+					// Limpiar la URL y navegar a la ruta correcta
+					var newPath = l.pathname + routeParam + l.hash;
+					console.log('Layout: Navigating to:', newPath);
+					
+					window.history.replaceState(null, null, newPath);
+					
+					// Si la ruta es del itinerario, necesitamos recargar para que Astro la procese
+					if (routeParam.startsWith('/itinerario/')) {
+						console.log('Layout: Reloading for itinerary route');
+						setTimeout(function() {
+							location.reload();
+						}, 100);
+					}
 				}
-			}(window.location))
+			})(window.location);
 		</script>
 	</head>
 	<body class="font-inter antialiased transition-all duration-300">
