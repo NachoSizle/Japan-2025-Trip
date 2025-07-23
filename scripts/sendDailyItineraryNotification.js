@@ -1,26 +1,3 @@
-require('dotenv').config();
-const fetch = require('node-fetch');
-const path = require('path');
-const fs = require('fs');
-
-// Cargar el itinerario
-const itinerarioPath = path.join(__dirname, '../src/data/itinerario.json');
-const itinerario = JSON.parse(fs.readFileSync(itinerarioPath, 'utf-8'));
-
-// Obtener la fecha actual en Japón
-const now = new Date();
-const jpDate = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
-
-// Buscar el día del itinerario que corresponde a hoy
-// Suponiendo que el campo 'fecha' es YYYY-MM-DD o que el campo 'dia' es correlativo
-const hoy = itinerario.find(dia => {
-  if (dia.fecha) {
-    // Si hay campo fecha, comparar con la fecha de Japón
-    return dia.fecha === jpDate.toISOString().slice(0, 10);
-  }
-  // Si no, usar correlativo (ajustar según tu JSON)
-  return Number(dia.dia) === jpDate.getDate();
-
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
