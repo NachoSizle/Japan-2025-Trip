@@ -20,39 +20,90 @@ const hoy = itinerario.find(dia => {
   }
   // Si no, usar correlativo (ajustar según tu JSON)
   return Number(dia.dia) === jpDate.getDate();
-});
 
-if (!hoy) {
-  console.log('No hay itinerario para hoy (' + jpDate.toISOString().slice(0, 10) + ')');
-  process.exit(0);
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
+import { fileURLToPath } from 'url';
+
+// Cargar variables de entorno si existe .env (solo local, Actions ya las tiene)
+if (fs.existsSync('.env')) {
+  const dotenv = await import('dotenv');
+  dotenv.config();
 }
 
-const titulo = hoy.titulo || `Día ${hoy.dia}`;
-const url = `https://nachosizle.github.io/Japan-2025-Trip/itinerario/${hoy.dia}`;
+// __dirname equivalente en ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-fetch('https://onesignal.com/api/v1/notifications', {
+// Permitir pasar la fecha por argumento (formato YYYY-MM-DD)
+const args = process.argv.slice(2);
+let targetDate = new Date();
+const dateArgIndex = args.findIndex((a) => a === '--date');
+if (dateArgIndex !== -1 && args[dateArgIndex + 1]) {
+  targetDate = new Date(args[dateArgIndex + 1]);
+}
+
+const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID;
+const ONESIGNAL_API_KEY = process.env.ONESIGNAL_API_KEY;
+
+if (!ONESIGNAL_APP_ID || !ONESIGNAL_API_KEY) {
+  console.error('Faltan las variables de entorno ONESIGNAL_APP_ID o ONESIGNAL_API_KEY.');
+  process.exit(1);
+}
+
+const itineraryPath = path.join(__dirname, '../src/data/itinerario.json');
+const itinerary = JSON.parse(fs.readFileSync(itineraryPath, 'utf-8'));
+
+// Buscar el día correspondiente
+const todayStr = targetDate.toISOString().split('T')[0];
+const todayItem = itinerary.find((item) => item.fecha === todayStr);
+
+if (!todayItem) {
+  console.error(`No se encontró itinerario para la fecha ${todayStr}`);
+  process.exit(1);
+}
+
+const notification = {
+  app_id: ONESIGNAL_APP_ID,
+  included_segments: ['All'],
+  headings: { es: todayItem.titulo, en: todayItem.titulo },
+  contents: { es: todayItem.descripcion || todayItem.titulo, en: todayItem.descripcion || todayItem.titulo },
+  url: `https://nachosizle.github.io/Japan-2025-Trip/itinerario/${todayItem.dia}`,
+};
+
+const data = JSON.stringify(notification);
+
+const options = {
+  hostname: 'onesignal.com',
+  port: 443,
+  path: '/api/v1/notifications',
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Basic ${process.env.ONESIGNAL_API_KEY}`
+    'Content-Type': 'application/json; charset=utf-8',
+    Authorization: `Basic ${ONESIGNAL_API_KEY}`,
   },
-  body: JSON.stringify({
-    app_id: process.env.ONESIGNAL_APP_ID,
-    included_segments: ['Subscribed Users'],
-    headings: { es: titulo },
-    contents: { es: 'Consulta el itinerario de hoy en la web.' },
-    url
-  })
-})
-  .then(res => res.json())
-  .then(data => {
-    if (data.errors) {
-      console.error('Error al enviar notificación:', data.errors);
+};
+
+const req = https.request(options, (res) => {
+  let response = '';
+  res.on('data', (chunk) => {
+    response += chunk;
+  });
+  res.on('end', () => {
+    if (res.statusCode === 200 || res.statusCode === 201) {
+      console.log('Notificación enviada correctamente:', response);
+    } else {
+      console.error('Error al enviar la notificación:', res.statusCode, response);
       process.exit(1);
     }
-    console.log('Notificación enviada:', data);
-  })
-  .catch(err => {
-    console.error('Error de red:', err);
-    process.exit(1);
   });
+});
+
+req.on('error', (error) => {
+  console.error('Error en la petición:', error);
+  process.exit(1);
+});
+
+req.write(data);
+req.end();
