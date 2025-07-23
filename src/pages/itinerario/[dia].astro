@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import WeatherWidget from '../../components/WeatherWidget.astro';
 import itinerarioData from '../../data/itinerario.json';
 
 export function getStaticPaths() {
@@ -32,7 +33,12 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
       <Header />
     </div>
   </div>
-  
+
+  <!-- Widget de clima al inicio -->
+  <div class="flex justify-center mt-6 mb-2">
+    <WeatherWidget city={diaActual.ciudad} />
+  </div>
+
   <!-- Hero del día específico -->
   <main class="pt-20">
     <section class="py-12 sm:py-16 bg-gradient-to-br from-bg-deep-black via-bg-charcoal to-bg-deep-black 

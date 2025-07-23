@@ -1,0 +1,139 @@
+---
+// Props: city (string)
+const { city } = Astro.props;
+const apiKey = import.meta.env.OPENWEATHER_API_KEY;
+---
+<div id={`weather-widget-${city}`} class="weather-widget w-full max-w-xs rounded-2xl p-2 shadow-xl flex flex-row items-center gap-2 border-2 border-pink-500 bg-gradient-to-br from-pink-100/80 via-white/80 to-pink-200/80 dark:from-[#1a1a2e]/80 dark:via-[#2d1b3d]/80 dark:to-[#1a1a2e]/80 dark:border-pink-400" style="backdrop-filter: blur(8px); min-height: 0;">
+  <div class="flex flex-col items-center justify-center min-w-[40px] sm:min-w-[50px]">
+    <span id={`weather-icon-${city}`}></span>
+  </div>
+  <div class="flex-1 flex flex-col justify-center">
+    <p class="font-bold text-base sm:text-lg text-pink-700 dark:text-pink-300 tracking-wide m-0" style="text-shadow: 0 0 8px #ffb6d5, 0 0 2px #fff;">
+      <span class="text-gray-800 dark:text-pink-300">Clima en</span> <span class="capitalize text-pink-700 dark:text-pink-200">{city}</span>
+    </p>
+    <div id={`weather-content-${city}`}> <span class="text-gray-400">Cargando...</span> </div>
+  </div>
+</div>
+<script type="module" define:vars={{ city, apiKey }}>
+  const cacheKey = `weather_${city}`;
+  const cacheTime = 60 * 60 * 1000; // 1 hora
+  const widget = document.getElementById(`weather-content-${city}`);
+
+  function renderWeather(data) {
+    // Cambia el fondo según el clima principal
+    const main = data.weather[0].main.toLowerCase();
+    const widgetBox = document.getElementById(`weather-widget-${city}`);
+    widgetBox.classList.remove(
+      'weather-sunny', 'weather-clouds', 'weather-rain', 'weather-thunderstorm', 'weather-snow', 'weather-fog', 'weather-drizzle', 'weather-clear', 'weather-mist'
+    );
+    let weatherClass = '';
+    switch (main) {
+      case 'clear':
+        weatherClass = 'weather-sunny'; break;
+      case 'clouds':
+        weatherClass = 'weather-clouds'; break;
+      case 'rain':
+        weatherClass = 'weather-rain'; break;
+      case 'thunderstorm':
+        weatherClass = 'weather-thunderstorm'; break;
+      case 'snow':
+        weatherClass = 'weather-snow'; break;
+      case 'mist':
+      case 'fog':
+        weatherClass = 'weather-fog'; break;
+      case 'drizzle':
+        weatherClass = 'weather-drizzle'; break;
+      default:
+        weatherClass = '';
+    }
+    if (weatherClass) widgetBox.classList.add(weatherClass);
+
+    // Emoji
+    // Icono OpenWeatherMap
+    document.getElementById(`weather-icon-${city}`).innerHTML = `<img src=\"https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png\" alt=\"${data.weather[0].description}\" class=\"w-20 h-20 sm:w-32 sm:h-32 drop-shadow-lg animate-fade-in\" style=\"filter: drop-shadow(0 0 16px #ff1493aa);\" />`;
+    // Info a la derecha
+    widget.innerHTML = `
+      <div class=\"flex flex-col items-start justify-center h-full gap-1\">
+        <span class=\"text-xl font-extrabold text-pink-700 dark:text-pink-300\">${Math.round(data.main.temp)}°C</span>
+        <span class=\"capitalize text-xs font-medium text-gray-800 dark:text-gray-200\">${data.weather[0].description}</span>
+        <span class=\"text-xs text-pink-600 dark:text-pink-200\">Humedad: ${data.main.humidity}%</span>
+      </div>
+    `;
+  }
+
+  function renderError(msg) {
+    widget.innerHTML = `<span class=\"text-red-500\">${msg}</span>`;
+  }
+
+  async function getWeather() {
+    // Depuración: mostrar apiKey y URL
+    console.log('[WeatherWidget] apiKey:', apiKey);
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric&lang=es`;
+    console.log('[WeatherWidget] URL:', url);
+    if (!apiKey || apiKey === 'undefined') {
+      widget.innerHTML = '<span class="text-red-500">API key no definida. Revisa tu .env y reinicia el servidor Astro.</span>';
+      return;
+    }
+    // Intenta leer de localStorage
+    try {
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const { data, timestamp } = JSON.parse(cached);
+        if (Date.now() - timestamp < cacheTime) {
+          renderWeather(data);
+          return;
+        }
+      }
+    } catch {}
+
+    // Si no hay caché válida, fetch
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        renderWeather(data);
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify({ data, timestamp: Date.now() }));
+        } catch {}
+      } else {
+        renderError('No se pudo obtener el clima.');
+      }
+    } catch (e) {
+      renderError('Error de conexión.');
+      console.error('[WeatherWidget] Error de conexión:', e);
+    }
+  }
+
+  getWeather();
+</script>
+
+<style>
+.weather-sunny {
+  background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%) !important;
+  border-color: #ffd700 !important;
+}
+.weather-clouds {
+  background: linear-gradient(135deg, #d7d2cc 0%, #304352 100%) !important;
+  border-color: #b0b0b0 !important;
+}
+.weather-rain {
+  background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%) !important;
+  border-color: #4e54c8 !important;
+}
+.weather-thunderstorm {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%) !important;
+  border-color: #ffb300 !important;
+}
+.weather-snow {
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%) !important;
+  border-color: #b3e0ff !important;
+}
+.weather-fog {
+  background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%) !important;
+  border-color: #b0bec5 !important;
+}
+.weather-drizzle {
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%) !important;
+  border-color: #66a6ff !important;
+}
+</style>

@@ -2,6 +2,7 @@
 import DayCard from './DayCard.astro';
 import FlightCard from './FlightCard.astro';
 import ReturnFlightCard from './ReturnFlightCard.astro';
+import WeatherWidget from './WeatherWidget.astro';
 import itinerarioData from '../data/itinerario.json';
 
 const { dias } = itinerarioData;
@@ -118,6 +119,12 @@ const daysToShow = getDaysToShow();
 
 <section id="itinerario" class="py-12 sm:py-16 md:py-20 timeline-section">
   <div class="container mx-auto px-2 sm:px-4">
+    <!-- Widget de clima al inicio de la sección -->
+    {daysToShow.length > 0 && daysToShow[0].ciudad && daysToShow[0].ciudad !== 'En tránsito' && daysToShow[0].ciudad.trim() !== '' && (
+      <div class="flex justify-center mb-6">
+        <WeatherWidget city={daysToShow[0].ciudad} />
+      </div>
+    )}
     <!-- Header de la sección -->
     <div class="text-center mb-8 sm:mb-12 md:mb-16">
       <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins mb-3 sm:mb-4 md:mb-6 timeline-title">
