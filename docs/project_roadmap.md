@@ -56,18 +56,17 @@ Este roadmap resume las tareas completadas y el progreso funcional del sitio web
 
 ---
 
-## 🔄 Pendientes / Mejoras Futuras
 - [ ] Galería de imágenes (filtro dinámico)
 - [ ] Sistema de filtros por ciudad / tipo de actividad en el itinerario
 - [ ] Integración de mapas interactivos (Google Maps Embed API)
 - [ ] Meta tags avanzados para SEO
 - [x] PWA para uso offline ✅
+- [x] Notificaciones push para recordatorios de actividades importantes ✅
 - [ ] Sistema de feedback de usuarios (comentarios/valoraciones sobre restaurantes y actividades)
 - [ ] Exportar itinerario a PDF o Google Calendar
 - [ ] Modo oscuro/claro automático y manual
 - [ ] Widget de clima en tiempo real por ciudad
 - [ ] Integración con redes sociales para compartir itinerario, frases o guía gluten-free
-- [ ] Notificaciones push para recordatorios de actividades importantes (requiere PWA)
 - [ ] Sección de preguntas frecuentes (FAQ)
 - [ ] Historial de viajes y consulta de itinerarios pasados
 - [ ] Integración con APIs de transporte japonés (horarios, rutas, alertas)
@@ -76,19 +75,20 @@ Este roadmap resume las tareas completadas y el progreso funcional del sitio web
 
 ---
 
-Progreso general: **✅ 95% Completado**
+Progreso general: **✅ 97% Completado**
 
 ---
 
 
-## ✅ PWA implementada
+## ✅ PWA y Notificaciones Push implementadas
 
-La app ahora es una PWA completa: permite uso offline, instalación en dispositivos y carga rápida. Se han seguido todos los pasos técnicos recomendados, incluyendo:
+La app ahora es una PWA completa: permite uso offline, instalación en dispositivos, carga rápida y notificaciones push para recordatorios de actividades importantes. Se han seguido todos los pasos técnicos recomendados, incluyendo:
 - Instalación y configuración de @vite-pwa/astro
 - Manifest y assets correctamente enlazados con BASE_URL
 - Iconos en `/public/icons/` (192x192 y 512x512)
 - Página offline personalizada
 - Service Worker funcional y rutas cacheadas
-- Pruebas en Chrome DevTools y Lighthouse
+- Integración de notificaciones push mediante OneSignal y script personalizado
+- Pruebas en Chrome DevTools, Lighthouse y dispositivos reales
 
-¡La funcionalidad PWA está lista y probada!
+¡La funcionalidad PWA y las notificaciones push están listas y probadas!
