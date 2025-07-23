@@ -30,7 +30,8 @@ if (!ONESIGNAL_APP_ID || !ONESIGNAL_API_KEY) {
 }
 
 const itineraryPath = path.join(__dirname, '../src/data/itinerario.json');
-const itinerary = JSON.parse(fs.readFileSync(itineraryPath, 'utf-8'));
+const itineraryData = JSON.parse(fs.readFileSync(itineraryPath, 'utf-8'));
+const itinerary = itineraryData.dias; // Acceder al array de días
 
 // Buscar el día correspondiente
 const todayStr = targetDate.toISOString().split('T')[0];
