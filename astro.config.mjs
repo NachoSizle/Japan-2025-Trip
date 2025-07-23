@@ -1,14 +1,11 @@
-// @ts-check
-
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import alpinejs from '@astrojs/alpinejs';
 import VitePWA from '@vite-pwa/astro';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://nachosizle.github.io',
-  base: '/Japan-2025-Trip',
+  base: '/Japan-2025-Trip/',
   output: 'static',
   vite: {
     plugins: [tailwindcss()]
@@ -16,8 +13,7 @@ export default defineConfig({
   integrations: [
     alpinejs(),
     VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'robots.txt', 'offline.html'],
+      includeAssets: ['favicon.svg', 'robots.txt', 'offline.html', 'icons/icon-192x192.png', 'icons/icon-512x512.png'],
       manifest: {
         name: 'Japan 2025 Trip',
         short_name: 'JapanTrip',
@@ -38,27 +34,26 @@ export default defineConfig({
           }
         ]
       },
+      registerType: 'autoUpdate',
       workbox: {
-        navigateFallback: '/offline.html',
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,webmanifest}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,json,txt,woff2}'],
+        navigateFallback: '/Japan-2025-Trip/offline.html',
         runtimeCaching: [
           {
-            urlPattern: /^\/icons\//,
+            urlPattern: /\/assets\//,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'icons',
-              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 30 }
-            }
+              cacheName: 'assets-cache',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 días
+              },
+            },
           },
-          {
-            urlPattern: /^\/(itinerario|gluten-free|frases)/,
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'pages',
-              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 7 }
-            }
-          }
-        ]
+        ],
+        // Habilitar eventos de push
+        skipWaiting: true,
+        clientsClaim: true,
       }
     })
   ]

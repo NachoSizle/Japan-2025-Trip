@@ -1,320 +1,375 @@
 ---
 export interface Props {
-	title: string;
-	description?: string;
+  title: string;
+  description?: string;
 }
 
-const { title, description = "Viaje a Japón 2025 - Itinerario completo con opciones gluten-free" } = Astro.props;
+const {
+  title,
+  description = "Viaje a Japón 2025 - Itinerario completo con opciones gluten-free",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es" class="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+  <head>
+    <!-- OneSignal Push Notifications -->
+    <script
+      src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+      defer></script>
 
-		<!-- Manifest para PWA, usando BASE_URL para rutas correctas -->
-		<link rel="manifest" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/manifest.webmanifest`} />
-		
-		<!-- Meta tags para redes sociales -->
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		
-		<!-- Script para detectar tema antes del render -->
-		<script is:inline>
-			// Detectar y aplicar tema antes del render
-			(function() {
-				const savedTheme = localStorage.getItem('theme');
-				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-				
-				// Aplicar el tema inmediatamente
-				document.documentElement.setAttribute('data-theme', theme);
-				document.documentElement.className = theme;
+    <script>
+      const w = window as any;
+      w.OneSignalDeferred = w.OneSignalDeferred || [];
+      w.OneSignalDeferred.push(async function (OneSignal: any) {
+        await OneSignal.init({
+          appId: "4ccf0f07-2b8b-42c6-b359-c6fd2135c61d",
+        });
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={`${import.meta.env.BASE_URL}/favicon.svg`}
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-				// Si no había tema guardado, guardarlo ahora
-				if (!savedTheme) {
-					localStorage.setItem('theme', theme);
-				}
-			})();
-		</script>
-		
-		<!-- Script para manejar redirecciones de SPA en GitHub Pages -->
-		<script is:inline>
-			// GitHub Pages SPA redirect handler (estándar)
-			(function(l) {
-				if (l.search) {
-					var q = {};
-					l.search.slice(1).split('&').forEach(function(v) {
-						var a = v.split('=');
-						q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
-					});
-					if (q.p !== undefined) {
-						var newPath = l.pathname.slice(0, -1) + (q.p || '') +
-							(q.q ? ('?' + q.q) : '') +
-							l.hash;
-						
-						console.log('SPA redirect - Original:', l.pathname + l.search);
-						console.log('SPA redirect - New path:', newPath);
-						
-						window.history.replaceState(null, null, newPath);
-					}
-				}
-			})(window.location);
-		</script>
-	</head>
-	<body class="font-inter antialiased transition-all duration-300 overflow-x-hidden">
-		<div class="min-h-screen theme-container overflow-x-hidden">
-			<slot />
-		</div>
-		
-		<style is:global>
-			/* ===== PREVENCIÓN DE SCROLL HORIZONTAL ===== */
-			html, body {
-				overflow-x: hidden;
-				max-width: 100vw;
-			}
-			
-			* {
-				box-sizing: border-box;
-			}
-			
-			/* Asegurar que ningún elemento salga del viewport */
-			.container {
-				max-width: 100%;
-				padding-left: 0.5rem;
-				padding-right: 0.5rem;
-			}
-			
-			@media (min-width: 640px) {
-				.container {
-					padding-left: 1rem;
-					padding-right: 1rem;
-				}
-			}
-			
-			/* ===== RESTRICCIONES ESPECÍFICAS PARA HEADER EN MÓVIL ===== */
-			header {
-				max-width: 100vw;
-				box-sizing: border-box;
-			}
-			
-			header .container {
-				max-width: 100%;
-				margin: 0 auto;
-			}
-			
-			header nav {
-				max-width: 100%;
-				box-sizing: border-box;
-			}
-			
-			/* Asegurar que elementos flex del header no excedan el ancho */
-			header .flex {
-				min-width: 0;
-				flex-wrap: nowrap;
-			}
-			
-			/* Elementos que pueden ser problemáticos en móvil */
-			header .space-x-3 > * + *,
-			header .space-x-4 > * + *,
-			header .space-x-6 > * + * {
-				margin-left: 0.25rem !important;
-			}
-			
-			@media (max-width: 640px) {
-				header .space-x-3 > * + *,
-				header .space-x-4 > * + *,
-				header .space-x-6 > * + * {
-					margin-left: 0.125rem !important;
-				}
-				
-				/* Reducir padding del header en móvil */
-				header nav {
-					padding-left: 0.5rem;
-					padding-right: 0.5rem;
-				}
-			}
-			
-			/* ===== ESTILOS PARA MODO CLARO ===== */
-			/* ===== ELIMINACIÓN SÚPER AGRESIVA DE SUBRAYADOS ===== */
-			:global(*) {
-				text-decoration: none !important;
-				text-decoration-line: none !important;
-				text-decoration-style: none !important;
-				text-decoration-color: transparent !important;
-				text-decoration-thickness: 0 !important;
-				text-underline-offset: 0 !important;
-				border-bottom: none !important;
-				border-bottom-width: 0 !important;
-				border-bottom-style: none !important;
-				border-bottom-color: transparent !important;
-				box-shadow: none !important;
-			}
-			
-			:global(*:hover) {
-				text-decoration: none !important;
-				text-decoration-line: none !important;
-				text-decoration-style: none !important;
-				text-decoration-color: transparent !important;
-				text-decoration-thickness: 0 !important;
-				text-underline-offset: 0 !important;
-				border-bottom: none !important;
-				border-bottom-width: 0 !important;
-				border-bottom-style: none !important;
-				border-bottom-color: transparent !important;
-				box-shadow: none !important;
-			}
-			
-			:global(*:focus) {
-				text-decoration: none !important;
-				text-decoration-line: none !important;
-				text-decoration-style: none !important;
-				text-decoration-color: transparent !important;
-				text-decoration-thickness: 0 !important;
-				text-underline-offset: 0 !important;
-				border-bottom: none !important;
-				border-bottom-width: 0 !important;
-				border-bottom-style: none !important;
-				border-bottom-color: transparent !important;
-				box-shadow: none !important;
-			}
-			
-			:global(*:active) {
-				text-decoration: none !important;
-				text-decoration-line: none !important;
-				text-decoration-style: none !important;
-				text-decoration-color: transparent !important;
-				text-decoration-thickness: 0 !important;
-				text-underline-offset: 0 !important;
-				border-bottom: none !important;
-				border-bottom-width: 0 !important;
-				border-bottom-style: none !important;
-				border-bottom-color: transparent !important;
-				box-shadow: none !important;
-			}
-			
-			/* Eliminar subrayados de todos los enlaces */
-			:global(a) {
-				text-decoration: none !important;
-			}
-			
-			:global(a:hover) {
-				text-decoration: none !important;
-			}
-			
-			/* Mejorar legibilidad de textos en modo claro */
-			:global([data-theme="light"]) {
-				/* Textos principales más oscuros para mejor contraste */
-				color: #1a1a1a;
-			}
-			
-			:global([data-theme="light"]) h1,
-			:global([data-theme="light"]) h2,
-			:global([data-theme="light"]) h3,
-			:global([data-theme="light"]) h4,
-			:global([data-theme="light"]) h5,
-			:global([data-theme="light"]) h6 {
-				color: #1a1a1a !important;
-			}
-			
-			:global([data-theme="light"]) p {
-				color: #2d2d2d !important;
-			}
-			
-			:global([data-theme="light"]) .text-gray-600 {
-				color: #374151 !important;
-			}
-			
-			:global([data-theme="light"]) .text-gray-500 {
-				color: #4b5563 !important;
-			}
-			
-			:global([data-theme="light"]) .text-gray-400 {
-				color: #6b7280 !important;
-			}
-			
-			:global([data-theme="light"]) .text-gray-300 {
-				color: #9ca3af !important;
-			}
-			
-			/* Textos secundarios con mejor contraste */
-			:global([data-theme="light"]) .text-white {
-				color: #1a1a1a !important;
-			}
-			
-			/* Mejorar contraste de elementos específicos */
-			:global([data-theme="light"]) .opacity-80 {
-				opacity: 0.9 !important;
-			}
-			
-			:global([data-theme="light"]) .opacity-70 {
-				opacity: 0.85 !important;
-			}
-			html.dark,
-			html[data-theme="dark"] {
-				color-scheme: dark;
-			}
-			
-			.dark body,
-			[data-theme="dark"] body {
-				background: 
-					radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
-					radial-gradient(circle at 80% 20%, rgba(255, 182, 182, 0.05) 0%, transparent 50%),
-					radial-gradient(circle at 40% 80%, rgba(255, 0, 64, 0.05) 0%, transparent 50%),
-					linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
-				color: #FFFFFF;
-			}
-			
-			/* ===== ESTILOS PARA MODO CLARO ===== */
-			html.light,
-			html[data-theme="light"] {
-				color-scheme: light;
-			}
-			
-			.light body,
-			[data-theme="light"] body {
-				background: 
-					radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.02) 0%, transparent 50%),
-					radial-gradient(circle at 80% 20%, rgba(255, 182, 182, 0.02) 0%, transparent 50%),
-					radial-gradient(circle at 40% 80%, rgba(255, 0, 64, 0.02) 0%, transparent 50%),
-					linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-				color: #333333;
-			}
-			
-			/* Transiciones suaves */
-			.theme-container {
-				transition: all 0.3s ease;
-			}
+    <!-- Manifest para PWA, usando BASE_URL para rutas correctas -->
+    <link
+      rel="manifest"
+      href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/manifest.webmanifest`}
+    />
 
-			/* Asegurar que todos los elementos hereden correctamente */
-			.light *,
-			[data-theme="light"] * {
-				color: inherit;
-			}
+    <!-- Meta tags para redes sociales -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
 
-			.dark *,
-			[data-theme="dark"] * {
-				color: inherit;
-			}
-		</style>
-		
-		<!-- Alpine.js -->
-		<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-	</body>
-		</div>
-	</body>
+    <!-- Script para detectar tema antes del render -->
+    <script is:inline>
+      // Detectar y aplicar tema antes del render
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = savedTheme || (prefersDark ? "dark" : "light");
+
+        // Aplicar el tema inmediatamente
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.className = theme;
+
+        // Si no había tema guardado, guardarlo ahora
+        if (!savedTheme) {
+          localStorage.setItem("theme", theme);
+        }
+      })();
+    </script>
+
+    <!-- Script para manejar redirecciones de SPA en GitHub Pages -->
+    <script is:inline>
+      // GitHub Pages SPA redirect handler (estándar)
+      (function (l) {
+        if (l.search) {
+          var q = {};
+          l.search
+            .slice(1)
+            .split("&")
+            .forEach(function (v) {
+              var a = v.split("=");
+              q[a[0]] = a.slice(1).join("=").replace(/~and~/g, "&");
+            });
+          if (q.p !== undefined) {
+            var newPath =
+              l.pathname.slice(0, -1) +
+              (q.p || "") +
+              (q.q ? "?" + q.q : "") +
+              l.hash;
+
+            console.log("SPA redirect - Original:", l.pathname + l.search);
+            console.log("SPA redirect - New path:", newPath);
+
+            window.history.replaceState(null, null, newPath);
+          }
+        }
+      })(window.location);
+    </script>
+  </head>
+  <body
+    class="font-inter antialiased transition-all duration-300 overflow-x-hidden"
+  >
+    <div class="min-h-screen theme-container overflow-x-hidden">
+      <slot />
+    </div>
+
+    <style is:global>
+      /* ===== PREVENCIÓN DE SCROLL HORIZONTAL ===== */
+      html,
+      body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Asegurar que ningún elemento salga del viewport */
+      .container {
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      @media (min-width: 640px) {
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+
+      /* ===== RESTRICCIONES ESPECÍFICAS PARA HEADER EN MÓVIL ===== */
+      header {
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
+
+      header .container {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      header nav {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Asegurar que elementos flex del header no excedan el ancho */
+      header .flex {
+        min-width: 0;
+        flex-wrap: nowrap;
+      }
+
+      /* Elementos que pueden ser problemáticos en móvil */
+      header .space-x-3 > * + *,
+      header .space-x-4 > * + *,
+      header .space-x-6 > * + * {
+        margin-left: 0.25rem !important;
+      }
+
+      @media (max-width: 640px) {
+        header .space-x-3 > * + *,
+        header .space-x-4 > * + *,
+        header .space-x-6 > * + * {
+          margin-left: 0.125rem !important;
+        }
+
+        /* Reducir padding del header en móvil */
+        header nav {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+      }
+
+      /* ===== ESTILOS PARA MODO CLARO ===== */
+      /* ===== ELIMINACIÓN SÚPER AGRESIVA DE SUBRAYADOS ===== */
+      :global(*) {
+        text-decoration: none !important;
+        text-decoration-line: none !important;
+        text-decoration-style: none !important;
+        text-decoration-color: transparent !important;
+        text-decoration-thickness: 0 !important;
+        text-underline-offset: 0 !important;
+        border-bottom: none !important;
+        border-bottom-width: 0 !important;
+        border-bottom-style: none !important;
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+
+      :global(*:hover) {
+        text-decoration: none !important;
+        text-decoration-line: none !important;
+        text-decoration-style: none !important;
+        text-decoration-color: transparent !important;
+        text-decoration-thickness: 0 !important;
+        text-underline-offset: 0 !important;
+        border-bottom: none !important;
+        border-bottom-width: 0 !important;
+        border-bottom-style: none !important;
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+
+      :global(*:focus) {
+        text-decoration: none !important;
+        text-decoration-line: none !important;
+        text-decoration-style: none !important;
+        text-decoration-color: transparent !important;
+        text-decoration-thickness: 0 !important;
+        text-underline-offset: 0 !important;
+        border-bottom: none !important;
+        border-bottom-width: 0 !important;
+        border-bottom-style: none !important;
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+
+      :global(*:active) {
+        text-decoration: none !important;
+        text-decoration-line: none !important;
+        text-decoration-style: none !important;
+        text-decoration-color: transparent !important;
+        text-decoration-thickness: 0 !important;
+        text-underline-offset: 0 !important;
+        border-bottom: none !important;
+        border-bottom-width: 0 !important;
+        border-bottom-style: none !important;
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+
+      /* Eliminar subrayados de todos los enlaces */
+      :global(a) {
+        text-decoration: none !important;
+      }
+
+      :global(a:hover) {
+        text-decoration: none !important;
+      }
+
+      /* Mejorar legibilidad de textos en modo claro */
+      :global([data-theme="light"]) {
+        /* Textos principales más oscuros para mejor contraste */
+        color: #1a1a1a;
+      }
+
+      :global([data-theme="light"]) h1,
+      :global([data-theme="light"]) h2,
+      :global([data-theme="light"]) h3,
+      :global([data-theme="light"]) h4,
+      :global([data-theme="light"]) h5,
+      :global([data-theme="light"]) h6 {
+        color: #1a1a1a !important;
+      }
+
+      :global([data-theme="light"]) p {
+        color: #2d2d2d !important;
+      }
+
+      :global([data-theme="light"]) .text-gray-600 {
+        color: #374151 !important;
+      }
+
+      :global([data-theme="light"]) .text-gray-500 {
+        color: #4b5563 !important;
+      }
+
+      :global([data-theme="light"]) .text-gray-400 {
+        color: #6b7280 !important;
+      }
+
+      :global([data-theme="light"]) .text-gray-300 {
+        color: #9ca3af !important;
+      }
+
+      /* Textos secundarios con mejor contraste */
+      :global([data-theme="light"]) .text-white {
+        color: #1a1a1a !important;
+      }
+
+      /* Mejorar contraste de elementos específicos */
+      :global([data-theme="light"]) .opacity-80 {
+        opacity: 0.9 !important;
+      }
+
+      :global([data-theme="light"]) .opacity-70 {
+        opacity: 0.85 !important;
+      }
+      html.dark,
+      html[data-theme="dark"] {
+        color-scheme: dark;
+      }
+
+      .dark body,
+      [data-theme="dark"] body {
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 107, 107, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 182, 182, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(255, 0, 64, 0.05) 0%,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        color: #ffffff;
+      }
+
+      /* ===== ESTILOS PARA MODO CLARO ===== */
+      html.light,
+      html[data-theme="light"] {
+        color-scheme: light;
+      }
+
+      .light body,
+      [data-theme="light"] body {
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 107, 107, 0.02) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 182, 182, 0.02) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(255, 0, 64, 0.02) 0%,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: #333333;
+      }
+
+      /* Transiciones suaves */
+      .theme-container {
+        transition: all 0.3s ease;
+      }
+
+      /* Asegurar que todos los elementos hereden correctamente */
+      .light *,
+      [data-theme="light"] * {
+        color: inherit;
+      }
+
+      .dark *,
+      [data-theme="dark"] * {
+        color: inherit;
+      }
+    </style>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </body>
 </html>
 
 <style>
-	/* Import our global styles */
-	@import '../styles/global.css';
+  /* Import our global styles */
+  @import "../styles/global.css";
 </style>
