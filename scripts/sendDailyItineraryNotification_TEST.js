@@ -45,17 +45,24 @@ if (!todayItem) {
 
 console.log(`✅ Encontrado: Día ${todayItem.dia} - ${todayItem.titulo}`);
 
+
 const notification = {
   app_id: ONESIGNAL_APP_ID,
   included_segments: ['All'],
-  headings: { es: todayItem.titulo, en: todayItem.titulo },
-  contents: { es: todayItem.descripcion || todayItem.titulo, en: todayItem.descripcion || todayItem.titulo },
+  headings: {
+    es: `Día ${todayItem.dia}: ${todayItem.titulo}`,
+    en: `Day ${todayItem.dia}: ${todayItem.titulo}`,
+  },
+  contents: {
+    es: 'Este es el itinerario para el día de hoy. ¡A disfrutar!',
+    en: "This is today's itinerary. Enjoy!",
+  },
   url: `https://nachosizle.github.io/Japan-2025-Trip/itinerario/${todayItem.dia}`,
 };
 
 console.log(`🔔 Preparando notificación:`);
-console.log(`   Título: ${todayItem.titulo}`);
-console.log(`   Contenido: ${todayItem.descripcion || todayItem.titulo}`);
+console.log(`   Título: Día ${todayItem.dia}: ${todayItem.titulo}`);
+console.log(`   Contenido: Este es el itinerario para el día de hoy. ¡A disfrutar!`);
 console.log(`   URL: https://nachosizle.github.io/Japan-2025-Trip/itinerario/${todayItem.dia}`);
 
 const data = JSON.stringify(notification);
