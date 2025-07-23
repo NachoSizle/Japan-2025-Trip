@@ -24,7 +24,15 @@ const {
       w.OneSignalDeferred.push(async function (OneSignal: any) {
         await OneSignal.init({
           appId: "4ccf0f07-2b8b-42c6-b359-c6fd2135c61d",
+          promptOptions: {
+            slidedown: {
+              enabled: true,
+              autoPrompt: true,
+            },
+          },
         });
+        // Forzar el prompt al cargar la página
+        OneSignal.showSlidedownPrompt();
       });
     </script>
     <meta charset="UTF-8" />
