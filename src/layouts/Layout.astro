@@ -16,6 +16,9 @@ const { title, description = "Viaje a Japón 2025 - Itinerario completo con opci
 		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- Manifest para PWA, usando BASE_URL para rutas correctas -->
+		<link rel="manifest" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/manifest.webmanifest`} />
 		
 		<!-- Meta tags para redes sociales -->
 		<meta property="og:title" content={title} />
@@ -33,18 +36,14 @@ const { title, description = "Viaje a Japón 2025 - Itinerario completo con opci
 				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 				const theme = savedTheme || (prefersDark ? 'dark' : 'light');
 				
-				console.log('Layout: Inicializando tema:', theme, 'savedTheme:', savedTheme, 'prefersDark:', prefersDark);
-				
 				// Aplicar el tema inmediatamente
 				document.documentElement.setAttribute('data-theme', theme);
 				document.documentElement.className = theme;
-				
+
 				// Si no había tema guardado, guardarlo ahora
 				if (!savedTheme) {
 					localStorage.setItem('theme', theme);
 				}
-				
-				console.log('Layout: Tema aplicado. HTML data-theme:', document.documentElement.getAttribute('data-theme'), 'class:', document.documentElement.className);
 			})();
 		</script>
 		
