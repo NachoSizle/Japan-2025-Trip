@@ -45,8 +45,14 @@ if (!todayItem) {
 const notification = {
   app_id: ONESIGNAL_APP_ID,
   included_segments: ['All'],
-  headings: { es: todayItem.titulo, en: todayItem.titulo },
-  contents: { es: todayItem.descripcion || todayItem.titulo, en: todayItem.descripcion || todayItem.titulo },
+  headings: {
+    es: `Día ${todayItem.dia}: ${todayItem.titulo}`,
+    en: `Day ${todayItem.dia}: ${todayItem.titulo}`,
+  },
+  contents: {
+    es: 'Este es el itinerario para el día de hoy. ¡A disfrutar!',
+    en: 'This is today\'s itinerary. Enjoy!',
+  },
   url: `https://nachosizle.github.io/Japan-2025-Trip/itinerario/${todayItem.dia}`,
 };
 
