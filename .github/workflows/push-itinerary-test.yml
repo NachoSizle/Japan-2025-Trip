@@ -1,0 +1,29 @@
+name: Push Notificación de Prueba Manual (Hoy 17:00 España)
+
+on:
+  schedule:
+    # 17:00 hora de España (CEST, UTC+2) => 15:00 UTC
+    - cron: '0 15 23 7 *'
+  workflow_dispatch:
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Enviar notificación de prueba para hoy
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+        run: |
+          node scripts/sendDailyItineraryNotification.js --date "2025-07-23"
