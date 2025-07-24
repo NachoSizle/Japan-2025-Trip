@@ -14,6 +14,12 @@ El objetivo principal era crear una **herramienta de viaje viva y funcional** qu
 
 ---
 
+## ✅ Tareas Pendientes
+
+- [ ] Añadir la dirección correcta del alojamiento de Akihabara en `src/data/itinerario.json`.
+
+---
+
 ## 🛠️ Stack Tecnológico: El Porqué de la Elección
 
 | Tecnología | Decisión y Justificación |

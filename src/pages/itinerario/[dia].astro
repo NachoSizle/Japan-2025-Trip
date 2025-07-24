@@ -227,10 +227,10 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
                           </div>
                         )}
                         
-                        {(actividad as any).notas && (
+                        {(actividad as any).notas_extended && (
                           <div class="text-sm italic mb-3 break-words flex items-start gap-2">
                             <span style="color: #FFD700;">💡</span>
-                            <span style="color: #AAAAAA;">{(actividad as any).notas}</span>
+                            <span style="color: #AAAAAA;">{(actividad as any).notas_extended}</span>
                           </div>
                         )}
                         

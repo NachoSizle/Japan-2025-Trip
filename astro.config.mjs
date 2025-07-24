@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import alpinejs from '@astrojs/alpinejs';
+import solid from '@astrojs/solid-js';
 import VitePWA from '@vite-pwa/astro';
 
 export default defineConfig({
@@ -11,7 +11,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [
-    alpinejs(),
+    solid(),
     VitePWA({
       includeAssets: ['favicon.svg', 'robots.txt', 'offline.html', 'icons/icon-192x192.png', 'icons/icon-512x512.png'],
       manifest: {

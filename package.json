@@ -9,12 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.8",
+    "@astrojs/solid-js": "^5.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "@types/alpinejs": "^3.13.11",
     "@vite-pwa/astro": "^1.1.0",
     "alpinejs": "^3.14.9",
     "astro": "^5.12.1",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
   }
 }

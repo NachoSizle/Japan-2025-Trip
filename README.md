@@ -24,6 +24,28 @@ El proyecto está **virtualmente completo (98%)** y listo para ser la herramient
 
 ---
 
+
+## 🎛️ Sistema de Filtros de Actividades
+
+El sistema de filtros permite seleccionar actividades por tipo y por ciudad. Los tipos de actividad disponibles incluyen:
+
+- **Todo**
+- 🌾🚫 **Sin Gluten**
+- ⭐ **Destacados**
+- 🗼 **Turismo**
+- 🍱 **Comida**
+- 🚄 **Transporte**
+- 🏨 **Alojamiento**
+- 🛍️ **Compras**
+- 🏯 **Cultura**
+- 🌸 **Naturaleza**
+
+Cada filtro tiene un color distintivo para facilitar la identificación visual. Al seleccionar un filtro, solo se muestran las actividades relevantes dentro de cada día, en lugar de mostrar la tarjeta del día completa. También puedes combinar el filtro de tipo con el filtro de ciudad para ver solo las actividades de una ciudad específica.
+
+El filtro "Sin Gluten" muestra únicamente actividades que ofrecen opciones sin gluten. El filtro "Destacados" resalta actividades marcadas como importantes. El filtro "Alojamiento" muestra un enlace especial "Ver en mapa" si la actividad tiene una ubicación de Google Maps.
+
+---
+
 ## ⭐ Características Destacadas
 
 ### 🧠 **Funcionalidad Inteligente**

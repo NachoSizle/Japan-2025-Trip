@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import SistemaFiltros from '../components/SistemaFiltros.astro';
+import SistemaFiltrosSolid from '../components/SistemaFiltrosSolid.tsx';
 import itinerarioData from '../data/itinerario.json';
 
 const { dias } = itinerarioData;
@@ -55,8 +55,8 @@ const { dias } = itinerarioData;
         </div>
       </div>
 
-      <!-- Sistema completo de filtros -->
-      <SistemaFiltros dias={dias} />
+      <!-- Sistema completo de filtros (SolidJS Island) -->
+      <SistemaFiltrosSolid client:load dias={dias} />
 
       <!-- CTA de regreso al home -->
       <div class="text-center mt-12 sm:mt-16 md:mt-20 px-2 sm:px-4">

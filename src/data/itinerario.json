@@ -31,7 +31,8 @@
           "actividad": "Llegada al Aeropuerto Internacional de Kansai",
           "ubicacion": "Aeropuerto de Kansai (KIX)",
           "tipo": "transporte",
-          "notas": "Llegada internacional - proceso de inmigración y recogida de equipaje"
+          "notas": "Llegada internacional - proceso de inmigración y recogida de equipaje",
+          "notas_extended": "Llegada internacional - proceso de inmigración y recogida de equipaje Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "20:30",
@@ -39,7 +40,8 @@
           "ubicacion": "Desde KIX → Naniwa Ward",
           "tipo": "transporte",
           "duracion": "45-60 minutos",
-          "notas": "Tren rápido Kansai Airport Express + metro local"
+          "notas": "Tren rápido Kansai Airport Express + metro local",
+          "notas_extended": "Tren rápido Kansai Airport Express + metro local Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "21:30",
@@ -48,7 +50,8 @@
           "tipo": "alojamiento",
           "direccion": "パークシャトー 浪速区惠美須東3-2-9-102, 3 Chome-2-9 Ebisuhigashi, Naniwa Ward, Osaka, 556-0002, Japón",
           "notas": "Instalación en el alojamiento, descanso breve",
-          "maps_url": "https://www.google.es/maps/place/KAE+HOUSE/@34.649668,135.5040322,17z/data=!3m1!4b1!4m6!3m5!1s0x6000dd3eec63dcdf:0x35556710ec2cb5da!8m2!3d34.649668!4d135.5065396!16s%2Fg%2F11g1zx7_2h?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
+          "maps_url": "https://www.google.es/maps/place/KAE+HOUSE/@34.649668,135.5040322,17z/data=!3m1!4b1!4m6!3m5!1s0x6000dd3eec63dcdf:0x35556710ec2cb5da!8m2!3d34.649668!4d135.5065396!16s%2Fg%2F11g1zx7_2h?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D",
+          "notas_extended": "Instalación en el alojamiento, descanso breve Nos instalaremos cómodamente, organizaremos el equipaje y recargaremos fuerzas para las aventuras venideras."
         },
         {
           "hora": "22:00",
@@ -58,7 +61,8 @@
           "destacado": true,
           "notas": "Barrio 'nuevo mundo' con encanto retro años 60, letreros coloridos y ambiente nostálgico",
           "direccion": "Shinsekai, 1 Chome-18-6 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://www.google.com/maps/place/Shinsekai%2C+1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Shinsekai%2C+1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan",
+          "notas_extended": "Barrio 'nuevo mundo' con encanto retro años 60, letreros coloridos y ambiente nostálgico Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "22:30",
@@ -69,7 +73,8 @@
           "costo": "¥900",
           "notas": "Símbolo nostálgico de Osaka, mirador a 91m con vistas panorámicas nocturnas",
           "direccion": "1 Chome-18-6 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://www.google.com/maps/place/1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan",
+          "notas_extended": "Símbolo nostálgico de Osaka, mirador a 91m con vistas panorámicas nocturnas Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "23:30",
@@ -79,7 +84,8 @@
           "gluten_free": false,
           "alternativa_gf": "Genji Soba (Namba) - soba 100% alforfón sin gluten",
           "costo": "¥2,000-3,000",
-          "notas": "Brochetas empanadas típicas de Osaka. Opción GF: fideos soba sin gluten en Namba"
+          "notas": "Brochetas empanadas típicas de Osaka. Opción GF: fideos soba sin gluten en Namba",
+          "notas_extended": "Brochetas empanadas típicas de Osaka. Opción GF: fideos soba sin gluten en Namba Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "00:30",
@@ -89,7 +95,8 @@
           "destacado": true,
           "notas": "Callejón tradicional con tabernas bajo farolillos, ambiente auténtico de Osaka",
           "direccion": "Janjan Yokocho, 3 Chome-2 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://www.google.com/maps/place/Janjan+Yokocho%2C+3+Chome-2+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Janjan+Yokocho%2C+3+Chome-2+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan",
+          "notas_extended": "Callejón tradicional con tabernas bajo farolillos, ambiente auténtico de Osaka Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "01:00",
@@ -99,14 +106,16 @@
           "costo": "¥500-1,000",
           "notas": "Máquinas arcade clásicas, experiencia nostálgica japonesa",
           "direccion": "Shinsekai, 1 Chome-18-6 Ebisuhigashi, Naniwa Ward, Osaka 556-0002, Japan",
-          "maps_url": "https://www.google.com/maps/place/Shinsekai%2C+1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Shinsekai%2C+1+Chome-18-6+Ebisuhigashi%2C+Naniwa+Ward%2C+Osaka+556-0002%2C+Japan",
+          "notas_extended": "Máquinas arcade clásicas, experiencia nostálgica japonesa La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "01:30",
           "actividad": "Regreso al alojamiento",
           "ubicacion": "3 Chome-4-24 Ebisuhigashi",
           "tipo": "transporte",
-          "notas": "Descanso temprano tras el largo viaje"
+          "notas": "Descanso temprano tras el largo viaje",
+          "notas_extended": "Descanso temprano tras el largo viaje Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -140,7 +149,8 @@
           "actividad": "Desayuno y preparación",
           "ubicacion": "3 Chome-4-24 Ebisuhigashi",
           "tipo": "comida",
-          "notas": "Desayuno ligero antes de comenzar el día turístico"
+          "notas": "Desayuno ligero antes de comenzar el día turístico",
+          "notas_extended": "Desayuno ligero antes de comenzar el día turístico Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "10:00",
@@ -152,7 +162,8 @@
           "duracion": "2-3 horas",
           "notas": "Uno de los castillos más famosos de Japón, crucial en la unificación del s. XVI. Recorrer parque y fosos",
           "direccion": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan",
+          "notas_extended": "Uno de los castillos más famosos de Japón, crucial en la unificación del s. XVI. Recorrer parque y fosos Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "10:30",
@@ -162,7 +173,8 @@
           "destacado": true,
           "notas": "Recorrer los fosos, jardines y murallas que rodean la fortaleza histórica",
           "direccion": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan",
+          "notas_extended": "Recorrer los fosos, jardines y murallas que rodean la fortaleza histórica Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "11:30",
@@ -172,7 +184,8 @@
           "costo": "Incluido en entrada",
           "notas": "Museo histórico con vistas panorámicas desde lo alto del torreón",
           "direccion": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-1+Osakajo%2C+Chuo+Ward%2C+Osaka+540-0002%2C+Japan",
+          "notas_extended": "Museo histórico con vistas panorámicas desde lo alto del torreón Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "13:00",
@@ -182,7 +195,8 @@
           "gluten_free": false,
           "alternativa_gf": "OKO - Shinsaibashi (okonomiyaki con harina de soja sin trigo)",
           "costo": "¥1,500-2,500",
-          "notas": "Probar la 'pizza japonesa'. Opción GF: OKO en Shinsaibashi con harina de soja"
+          "notas": "Probar la 'pizza japonesa'. Opción GF: OKO en Shinsaibashi con harina de soja",
+          "notas_extended": "Probar la 'pizza japonesa'. Opción GF: OKO en Shinsaibashi con harina de soja Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "14:30",
@@ -190,7 +204,8 @@
           "ubicacion": "Metro desde Kyōbashi → Umeda",
           "tipo": "transporte",
           "duracion": "20 minutos",
-          "notas": "Hacia el centro moderno al norte de Osaka"
+          "notas": "Hacia el centro moderno al norte de Osaka",
+          "notas_extended": "Hacia el centro moderno al norte de Osaka Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "15:00",
@@ -199,7 +214,8 @@
           "tipo": "turismo",
           "notas": "Paseo por el moderno complejo comercial y arquitectónico",
           "direccion": "Osaka Station City, 3-1-3 Umeda, Kita Ward, Osaka 530-0001, Japan",
-          "maps_url": "https://www.google.com/maps/place/Osaka+Station+City%2C+3-1-3+Umeda%2C+Kita+Ward%2C+Osaka+530-0001%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Osaka+Station+City%2C+3-1-3+Umeda%2C+Kita+Ward%2C+Osaka+530-0001%2C+Japan",
+          "notas_extended": "Paseo por el moderno complejo comercial y arquitectónico Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "15:30",
@@ -210,7 +226,8 @@
           "costo": "¥500-3,000 (compras)",
           "notas": "Megatienda oficial de Pokémon con productos exclusivos",
           "direccion": "13F Daimaru Umeda, 3-1-1 Umeda, Kita Ward, Osaka 530-8202, Japan",
-          "maps_url": "https://www.google.com/maps/place/13F+Daimaru+Umeda%2C+3-1-1+Umeda%2C+Kita+Ward%2C+Osaka+530-8202%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/13F+Daimaru+Umeda%2C+3-1-1+Umeda%2C+Kita+Ward%2C+Osaka+530-8202%2C+Japan",
+          "notas_extended": "Megatienda oficial de Pokémon con productos exclusivos La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "16:00",
@@ -219,7 +236,8 @@
           "tipo": "turismo",
           "notas": "Megatienda de electrónica, ideal para amantes de la tecnología",
           "direccion": "1-1 Ofukacho, Kita Ward, Osaka 530-0011, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-1+Ofukacho%2C+Kita+Ward%2C+Osaka+530-0011%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-1+Ofukacho%2C+Kita+Ward%2C+Osaka+530-0011%2C+Japan",
+          "notas_extended": "Megatienda de electrónica, ideal para amantes de la tecnología Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "17:00",
@@ -230,7 +248,8 @@
           "costo": "¥1,500",
           "notas": "Edificio futurista con 'Observatorio del Jardín Flotante', vistas del atardecer",
           "direccion": "1-1 Oyodonaka, Kita Ward, Osaka 531-6023, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-1+Oyodonaka%2C+Kita+Ward%2C+Osaka+531-6023%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-1+Oyodonaka%2C+Kita+Ward%2C+Osaka+531-6023%2C+Japan",
+          "notas_extended": "Edificio futurista con 'Observatorio del Jardín Flotante', vistas del atardecer Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "19:00",
@@ -239,7 +258,8 @@
           "tipo": "comida",
           "gluten_free": true,
           "costo": "¥3,000-5,000",
-          "notas": "Barbacoa japonesa sin adobar, usar salsa tamari (sin trigo). Preguntar por opciones GF"
+          "notas": "Barbacoa japonesa sin adobar, usar salsa tamari (sin trigo). Preguntar por opciones GF",
+          "notas_extended": "Barbacoa japonesa sin adobar, usar salsa tamari (sin trigo). Preguntar por opciones GF Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "21:00",
@@ -247,7 +267,8 @@
           "ubicacion": "Metro Umeda → Namba",
           "tipo": "transporte",
           "duracion": "15 minutos",
-          "notas": "Hacia el corazón vibrante nocturno de Osaka"
+          "notas": "Hacia el corazón vibrante nocturno de Osaka",
+          "notas_extended": "Hacia el corazón vibrante nocturno de Osaka Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "21:30",
@@ -257,7 +278,8 @@
           "destacado": true,
           "notas": "Caminar bajo rótulos de neón extravagantes, incluido el famoso cartel de Glico",
           "direccion": "Dōtonbori Canal, 1 Chome, Chuo Ward, Osaka 542-0071, Japan",
-          "maps_url": "https://www.google.com/maps/place/D%C5%8Dtonbori+Canal%2C+1+Chome%2C+Chuo+Ward%2C+Osaka+542-0071%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/D%C5%8Dtonbori+Canal%2C+1+Chome%2C+Chuo+Ward%2C+Osaka+542-0071%2C+Japan",
+          "notas_extended": "Caminar bajo rótulos de neón extravagantes, incluido el famoso cartel de Glico Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "22:00",
@@ -267,7 +289,8 @@
           "gluten_free": false,
           "alternativa_gf": "Ramen de arroz en locales especializados",
           "costo": "¥500-1,000",
-          "notas": "Bolitas de pulpo tradicionales. Alternativa: ramen de arroz sin gluten"
+          "notas": "Bolitas de pulpo tradicionales. Alternativa: ramen de arroz sin gluten",
+          "notas_extended": "Bolitas de pulpo tradicionales. Alternativa: ramen de arroz sin gluten Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "23:00",
@@ -277,14 +300,16 @@
           "costo": "¥2,000-3,500",
           "notas": "Bar tradicional japonés o área juvenil de Shinsaibashi",
           "direccion": "1 Chome-2-16 Nanba, Chuo Ward, Osaka 542-0076, Japan",
-          "maps_url": "https://www.google.com/maps/place/1+Chome-2-16+Nanba%2C+Chuo+Ward%2C+Osaka+542-0076%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1+Chome-2-16+Nanba%2C+Chuo+Ward%2C+Osaka+542-0076%2C+Japan",
+          "notas_extended": "Bar tradicional japonés o área juvenil de Shinsaibashi La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "00:00",
           "actividad": "Regreso al alojamiento",
           "ubicacion": "Metro desde Namba",
           "tipo": "transporte",
-          "notas": "Últimos metros alrededor de medianoche"
+          "notas": "Últimos metros alrededor de medianoche",
+          "notas_extended": "Últimos metros alrededor de medianoche Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -325,7 +350,8 @@
           "actividad": "Desayuno y preparación",
           "ubicacion": "3 Chome-4-24 Ebisuhigashi",
           "tipo": "comida",
-          "notas": "Desayuno temprano para evitar aglomeraciones en el acuario"
+          "notas": "Desayuno temprano para evitar aglomeraciones en el acuario",
+          "notas_extended": "Desayuno temprano para evitar aglomeraciones en el acuario Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "09:30",
@@ -333,7 +359,8 @@
           "ubicacion": "Metro desde Naniwa → Osakako",
           "tipo": "transporte",
           "duracion": "30 minutos",
-          "notas": "Línea Chuo hacia la zona portuaria"
+          "notas": "Línea Chuo hacia la zona portuaria",
+          "notas_extended": "Línea Chuo hacia la zona portuaria Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "10:00",
@@ -345,7 +372,8 @@
           "duracion": "2-3 horas",
           "notas": "Uno de los acuarios más grandes del mundo, famoso por su tiburón ballena. Llegada temprana",
           "direccion": "1-1-10 Kaigandori, Minato Ward, Osaka 552-0022, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-1-10+Kaigandori%2C+Minato+Ward%2C+Osaka+552-0022%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-1-10+Kaigandori%2C+Minato+Ward%2C+Osaka+552-0022%2C+Japan",
+          "notas_extended": "Uno de los acuarios más grandes del mundo, famoso por su tiburón ballena. Llegada temprana Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "13:00",
@@ -355,7 +383,8 @@
           "gluten_free": false,
           "alternativa_gf": "OKOTAKO - Shinsaibashi (takoyaki vegano sin gluten)",
           "costo": "¥1,500-2,500",
-          "notas": "Street food marinera: sashimi, yakitori con sal. Opción GF: OKOTAKO vegano"
+          "notas": "Street food marinera: sashimi, yakitori con sal. Opción GF: OKOTAKO vegano",
+          "notas_extended": "Street food marinera: sashimi, yakitori con sal. Opción GF: OKOTAKO vegano Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "13:30",
@@ -364,7 +393,8 @@
           "tipo": "comida",
           "gluten_free": true,
           "costo": "¥800-1,200",
-          "notas": "Brochetas de pollo a la parrilla sazonadas con sal (naturalmente sin gluten)"
+          "notas": "Brochetas de pollo a la parrilla sazonadas con sal (naturalmente sin gluten)",
+          "notas_extended": "Brochetas de pollo a la parrilla sazonadas con sal (naturalmente sin gluten) Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "14:00",
@@ -375,7 +405,8 @@
           "duracion": "15 minutos",
           "notas": "Vistas panorámicas de la Bahía de Osaka",
           "direccion": "1-1-10 Kaigandori, Minato Ward, Osaka 552-0022, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-1-10+Kaigandori%2C+Minato+Ward%2C+Osaka+552-0022%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-1-10+Kaigandori%2C+Minato+Ward%2C+Osaka+552-0022%2C+Japan",
+          "notas_extended": "Vistas panorámicas de la Bahía de Osaka Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "15:00",
@@ -383,7 +414,8 @@
           "ubicacion": "Metro Osakako → Nipponbashi",
           "tipo": "transporte",
           "duracion": "25 minutos",
-          "notas": "Hacia el distrito otaku Den-Den Town"
+          "notas": "Hacia el distrito otaku Den-Den Town",
+          "notas_extended": "Hacia el distrito otaku Den-Den Town Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "15:30",
@@ -394,7 +426,8 @@
           "duracion": "2 horas",
           "notas": "El 'Akihabara' de Osaka: tiendas de anime, retro-games y electrónica. Paraíso otaku",
           "direccion": "Nipponbashi, Naniwa Ward, Osaka 556-0005, Japan",
-          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan",
+          "notas_extended": "El 'Akihabara' de Osaka: tiendas de anime, retro-games y electrónica. Paraíso otaku Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "16:00",
@@ -404,7 +437,8 @@
           "costo": "¥1,000-5,000 (compras)",
           "notas": "Explorar tiendas especializadas en manga, anime y merchandising",
           "direccion": "Nipponbashi, Naniwa Ward, Osaka 556-0005, Japan",
-          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan",
+          "notas_extended": "Explorar tiendas especializadas en manga, anime y merchandising La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "17:00",
@@ -414,7 +448,8 @@
           "costo": "¥500-3,000 (compras)",
           "notas": "Videojuegos retro, consolas vintage y electrónica especializada",
           "direccion": "Nipponbashi, Naniwa Ward, Osaka 556-0005, Japan",
-          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Nipponbashi%2C+Naniwa+Ward%2C+Osaka+556-0005%2C+Japan",
+          "notas_extended": "Videojuegos retro, consolas vintage y electrónica especializada La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "18:00",
@@ -424,7 +459,8 @@
           "gluten_free": true,
           "destacado": true,
           "costo": "¥2,500-3,500",
-          "notas": "Curry e izakaya con menú 100% sin gluten, incluyendo cerveza GF"
+          "notas": "Curry e izakaya con menú 100% sin gluten, incluyendo cerveza GF",
+          "notas_extended": "Curry e izakaya con menú 100% sin gluten, incluyendo cerveza GF Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "19:30",
@@ -432,7 +468,8 @@
           "ubicacion": "3 Chome-4-24 Ebisuhigashi",
           "tipo": "descanso",
           "duracion": "1 hora",
-          "notas": "Preparación para la experiencia nocturna TeamLab"
+          "notas": "Preparación para la experiencia nocturna TeamLab",
+          "notas_extended": "Preparación para la experiencia nocturna TeamLab Un breve respiro perfecto para recuperar energías, reflexionar sobre las experiencias vividas y prepararnos para la siguiente etapa de la jornada."
         },
         {
           "hora": "20:30",
@@ -440,7 +477,8 @@
           "ubicacion": "Metro Línea Midosuji → Nagai",
           "tipo": "transporte",
           "duracion": "30 minutos",
-          "notas": "Hacia el Nagai Botanical Garden para TeamLab"
+          "notas": "Hacia el Nagai Botanical Garden para TeamLab",
+          "notas_extended": "Hacia el Nagai Botanical Garden para TeamLab Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "21:00",
@@ -452,7 +490,8 @@
           "duracion": "2 horas",
           "notas": "Espectáculo inmersivo de arte digital: luces, esculturas interactivas entre vegetación",
           "direccion": "1-23 Nagaikoen, Higashisumiyoshi Ward, Osaka 546-0034, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan",
+          "notas_extended": "Espectáculo inmersivo de arte digital: luces, esculturas interactivas entre vegetación Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "21:30",
@@ -462,7 +501,8 @@
           "destacado": true,
           "notas": "Explorar las instalaciones de luz y arte digital que reaccionan al movimiento",
           "direccion": "1-23 Nagaikoen, Higashisumiyoshi Ward, Osaka 546-0034, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan",
+          "notas_extended": "Explorar las instalaciones de luz y arte digital que reaccionan al movimiento La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "22:30",
@@ -471,14 +511,16 @@
           "tipo": "turismo",
           "notas": "Recorrido final por las instalaciones iluminadas. Llevar repelente de mosquitos",
           "direccion": "1-23 Nagaikoen, Higashisumiyoshi Ward, Osaka 546-0034, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-23+Nagaikoen%2C+Higashisumiyoshi+Ward%2C+Osaka+546-0034%2C+Japan",
+          "notas_extended": "Recorrido final por las instalaciones iluminadas. Llevar repelente de mosquitos Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "23:00",
           "actividad": "Regreso al alojamiento",
           "ubicacion": "Metro Nagai → Shinsekai",
           "tipo": "transporte",
-          "notas": "Último tren ~23:30, regreso a tiempo al alojamiento"
+          "notas": "Último tren ~23:30, regreso a tiempo al alojamiento",
+          "notas_extended": "Último tren ~23:30, regreso a tiempo al alojamiento Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -523,7 +565,8 @@
           "destacado": true,
           "costo": "¥1,500-2,500",
           "duracion": "1.5 horas",
-          "notas": "Mercado local con fruta fresca, mariscos a la parrilla, sushi y dulces tradicionales"
+          "notas": "Mercado local con fruta fresca, mariscos a la parrilla, sushi y dulces tradicionales",
+          "notas_extended": "Mercado local con fruta fresca, mariscos a la parrilla, sushi y dulces tradicionales Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "09:30",
@@ -533,7 +576,8 @@
           "gluten_free": true,
           "destacado": true,
           "costo": "¥500-800",
-          "notas": "Pastelito de arroz sin gluten relleno de fresa o helado de té verde matcha"
+          "notas": "Pastelito de arroz sin gluten relleno de fresa o helado de té verde matcha",
+          "notas_extended": "Pastelito de arroz sin gluten relleno de fresa o helado de té verde matcha Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "10:30",
@@ -543,7 +587,8 @@
           "costo": "¥1,000-2,000 (degustaciones)",
           "notas": "Recorrer puestos de mariscos frescos, frutas de temporada y especialidades locales",
           "direccion": "2-4-1 Nipponbashi, Chuo Ward, Osaka 542-0073, Japan",
-          "maps_url": "https://www.google.com/maps/place/2-4-1+Nipponbashi%2C+Chuo+Ward%2C+Osaka+542-0073%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/2-4-1+Nipponbashi%2C+Chuo+Ward%2C+Osaka+542-0073%2C+Japan",
+          "notas_extended": "Recorrer puestos de mariscos frescos, frutas de temporada y especialidades locales Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "11:30",
@@ -552,14 +597,16 @@
           "tipo": "turismo",
           "costo": "¥2,000-10,000 (compras)",
           "duracion": "2 horas",
-          "notas": "Galería comercial cubierta para moda, souvenirs y productos japoneses"
+          "notas": "Galería comercial cubierta para moda, souvenirs y productos japoneses",
+          "notas_extended": "Galería comercial cubierta para moda, souvenirs y productos japoneses Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "12:00",
           "actividad": "Moda y souvenirs",
           "ubicacion": "Shinsaibashi-suji",
           "tipo": "entretenimiento",
-          "notas": "Explorar tiendas de moda japonesa, accesorios y recuerdos únicos"
+          "notas": "Explorar tiendas de moda japonesa, accesorios y recuerdos únicos",
+          "notas_extended": "Explorar tiendas de moda japonesa, accesorios y recuerdos únicos La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "13:30",
@@ -567,7 +614,8 @@
           "ubicacion": "Den-Den Town (opcional)",
           "tipo": "entretenimiento",
           "costo": "¥1,000-5,000 (compras)",
-          "notas": "Completar compras de figuras, videojuegos retro o electrónica pendientes"
+          "notas": "Completar compras de figuras, videojuegos retro o electrónica pendientes",
+          "notas_extended": "Completar compras de figuras, videojuegos retro o electrónica pendientes La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "14:00",
@@ -577,7 +625,8 @@
           "destacado": true,
           "costo": "¥1,500",
           "duracion": "2 horas",
-          "notas": "Onsen temático para descansar pies después de días de caminata"
+          "notas": "Onsen temático para descansar pies después de días de caminata",
+          "notas_extended": "Onsen temático para descansar pies después de días de caminata Disfrutaremos de un momento de calma para equilibrar la intensidad del viaje, cuidando mente y cuerpo."
         },
         {
           "hora": "16:30",
@@ -585,7 +634,8 @@
           "ubicacion": "Metro desde Shinsekai → Tennoji",
           "tipo": "transporte",
           "duracion": "15 minutos",
-          "notas": "Hacia el rascacielos más alto de Osaka"
+          "notas": "Hacia el rascacielos más alto de Osaka",
+          "notas_extended": "Hacia el rascacielos más alto de Osaka Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "17:00",
@@ -595,7 +645,8 @@
           "destacado": true,
           "costo": "¥1,500",
           "duracion": "1 hora",
-          "notas": "Vista panorámica 360° desde el rascacielos más alto de Osaka antes del anochecer"
+          "notas": "Vista panorámica 360° desde el rascacielos más alto de Osaka antes del anochecer",
+          "notas_extended": "Vista panorámica 360° desde el rascacielos más alto de Osaka antes del anochecer Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "18:30",
@@ -603,7 +654,8 @@
           "ubicacion": "Metro Tennoji → Namba",
           "tipo": "transporte",
           "duracion": "20 minutos",
-          "notas": "Preparación para la cena de despedida"
+          "notas": "Preparación para la cena de despedida",
+          "notas_extended": "Preparación para la cena de despedida Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "19:00",
@@ -614,7 +666,8 @@
           "alternativa_gf": "Sukiyaki/Shabu-shabu (hotpot sin fideos de trigo)",
           "destacado": true,
           "costo": "¥4,000-6,000",
-          "notas": "Fugu (pez globo) en Zuboraya. Opción GF: hotpot de carne y verduras"
+          "notas": "Fugu (pez globo) en Zuboraya. Opción GF: hotpot de carne y verduras",
+          "notas_extended": "Fugu (pez globo) en Zuboraya. Opción GF: hotpot de carne y verduras Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "19:30",
@@ -624,7 +677,8 @@
           "gluten_free": false,
           "alternativa_gf": "Sukiyaki sin fideos de trigo",
           "costo": "¥1,500-2,500",
-          "notas": "Gyozas crujientes y ramen. Alternativa GF: shabu-shabu de verduras"
+          "notas": "Gyozas crujientes y ramen. Alternativa GF: shabu-shabu de verduras",
+          "notas_extended": "Gyozas crujientes y ramen. Alternativa GF: shabu-shabu de verduras Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "21:00",
@@ -632,7 +686,8 @@
           "ubicacion": "Ura-Namba",
           "tipo": "turismo",
           "destacado": true,
-          "notas": "El 'Namba oculto': zona de callejones con izakayas locales auténticos"
+          "notas": "El 'Namba oculto': zona de callejones con izakayas locales auténticos",
+          "notas_extended": "El 'Namba oculto': zona de callejones con izakayas locales auténticos Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "22:00",
@@ -640,7 +695,8 @@
           "ubicacion": "Bar con vista a Tsūtenkaku",
           "tipo": "entretenimiento",
           "costo": "¥2,000-3,000",
-          "notas": "Cócteles con vista panorámica a la icónica Torre Tsūtenkaku"
+          "notas": "Cócteles con vista panorámica a la icónica Torre Tsūtenkaku",
+          "notas_extended": "Cócteles con vista panorámica a la icónica Torre Tsūtenkaku La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "23:00",
@@ -648,14 +704,16 @@
           "ubicacion": "Amerikamura",
           "tipo": "entretenimiento",
           "costo": "¥2,500-3,500",
-          "notas": "Bar de cócteles especializados en el distrito juvenil"
+          "notas": "Bar de cócteles especializados en el distrito juvenil",
+          "notas_extended": "Bar de cócteles especializados en el distrito juvenil La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "23:30",
           "actividad": "Regreso y preparación de maletas",
           "ubicacion": "3 Chome-4-24 Ebisuhigashi",
           "tipo": "preparacion",
-          "notas": "Organizar equipaje para el viaje a Kioto mañana"
+          "notas": "Organizar equipaje para el viaje a Kioto mañana",
+          "notas_extended": "Organizar equipaje para el viaje a Kioto mañana Este espacio temporal ayudará a ajustar logística y asegurar que todo esté a punto para un día sin contratiempos."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -698,14 +756,16 @@
           "tipo": "transporte",
           "duracion": "1.5 horas",
           "costo": "¥800",
-          "notas": "Tren express desde Osaka a Kioto, traslado con equipaje"
+          "notas": "Tren express desde Osaka a Kioto, traslado con equipaje",
+          "notas_extended": "Tren express desde Osaka a Kioto, traslado con equipaje Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "10:30",
           "actividad": "Llegada a Kioto",
           "ubicacion": "Estación de Kioto",
           "tipo": "transporte",
-          "notas": "Llegada y orientación en la nueva ciudad"
+          "notas": "Llegada y orientación en la nueva ciudad",
+          "notas_extended": "Llegada y orientación en la nueva ciudad Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "11:30",
@@ -713,14 +773,17 @@
           "ubicacion": "Bus desde Kioto → Higashiyama-ku",
           "tipo": "transporte",
           "duracion": "30 minutos",
-          "notas": "Hacia el alojamiento cerca de Gion"
+          "notas": "Hacia el alojamiento cerca de Gion",
+          "notas_extended": "Hacia el alojamiento cerca de Gion Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "12:00",
           "actividad": "Check-in en Airbnb",
           "ubicacion": "Higashiyama-ku (cerca de Gion)",
           "tipo": "alojamiento",
-          "notas": "Instalación en el alojamiento histórico cerca del distrito geisha"
+          "maps_url": "https://goo.gl/maps/XBoimUqykW3mN97j7",
+          "notas": "Instalación en el alojamiento histórico cerca del distrito geisha",
+          "notas_extended": "Instalación en el alojamiento histórico cerca del distrito geisha Nos instalaremos cómodamente, organizaremos el equipaje y recargaremos fuerzas para las aventuras venideras."
         },
         {
           "hora": "13:00",
@@ -731,7 +794,8 @@
           "gluten_free": false,
           "alternativa_gf": "Soba 100% alforfón (soba kijū) sin mezcla de trigo",
           "costo": "¥1,500-2,500",
-          "notas": "Fideos de trigo sarraceno tradicionales. Preguntar por soba kijū 100% alforfón"
+          "notas": "Fideos de trigo sarraceno tradicionales. Preguntar por soba kijū 100% alforfón",
+          "notas_extended": "Fideos de trigo sarraceno tradicionales. Preguntar por soba kijū 100% alforfón Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "14:30",
@@ -740,7 +804,8 @@
           "tipo": "turismo",
           "destacado": true,
           "duracion": "2 horas",
-          "notas": "Distrito histórico de geishas, arquitectura tradicional y casas de té"
+          "notas": "Distrito histórico de geishas, arquitectura tradicional y casas de té",
+          "notas_extended": "Distrito histórico de geishas, arquitectura tradicional y casas de té Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "15:00",
@@ -749,7 +814,8 @@
           "tipo": "turismo",
           "destacado": true,
           "costo": "Gratis",
-          "notas": "Portal naranja icónico, santuario histórico con entrada gratuita"
+          "notas": "Portal naranja icónico, santuario histórico con entrada gratuita",
+          "notas_extended": "Portal naranja icónico, santuario histórico con entrada gratuita Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "16:00",
@@ -757,7 +823,8 @@
           "ubicacion": "Calle Hanamikoji",
           "tipo": "turismo",
           "destacado": true,
-          "notas": "Calle de casas de té tradicionales, posibilidad de ver maiko o geiko al atardecer"
+          "notas": "Calle de casas de té tradicionales, posibilidad de ver maiko o geiko al atardecer",
+          "notas_extended": "Calle de casas de té tradicionales, posibilidad de ver maiko o geiko al atardecer Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "18:00",
@@ -766,7 +833,8 @@
           "tipo": "turismo",
           "costo": "Propina libre",
           "duracion": "1.5 horas",
-          "notas": "Tour gratuito sobre cultura geisha y leyendas locales. Pago voluntario"
+          "notas": "Tour gratuito sobre cultura geisha y leyendas locales. Pago voluntario",
+          "notas_extended": "Tour gratuito sobre cultura geisha y leyendas locales. Pago voluntario Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "19:30",
@@ -777,7 +845,8 @@
           "gluten_free": false,
           "alternativa_gf": "Gion Soy Milk Ramen (100% sin gluten)",
           "costo": "¥3,000-5,000",
-          "notas": "Estrecho callejón junto al río Kamo con restaurantes tradicionales"
+          "notas": "Estrecho callejón junto al río Kamo con restaurantes tradicionales",
+          "notas_extended": "Estrecho callejón junto al río Kamo con restaurantes tradicionales Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "20:00",
@@ -785,7 +854,8 @@
           "ubicacion": "Restaurante en Pontochō",
           "tipo": "comida",
           "costo": "¥2,500-4,000",
-          "notas": "Pinchos a la parrilla tradicionales con vistas al río Kamo"
+          "notas": "Pinchos a la parrilla tradicionales con vistas al río Kamo",
+          "notas_extended": "Pinchos a la parrilla tradicionales con vistas al río Kamo Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "21:30",
@@ -793,7 +863,8 @@
           "ubicacion": "Canal Shirakawa, Gion",
           "tipo": "turismo",
           "destacado": true,
-          "notas": "Paseo romántico con farolillos iluminados y arquitectura tradicional"
+          "notas": "Paseo romántico con farolillos iluminados y arquitectura tradicional",
+          "notas_extended": "Paseo romántico con farolillos iluminados y arquitectura tradicional Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "22:00",
@@ -802,14 +873,16 @@
           "tipo": "entretenimiento",
           "gluten_free": true,
           "costo": "¥2,000-3,500",
-          "notas": "Bar de jazz o sake bar. El sake es naturalmente sin gluten"
+          "notas": "Bar de jazz o sake bar. El sake es naturalmente sin gluten",
+          "notas_extended": "Bar de jazz o sake bar. El sake es naturalmente sin gluten La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "23:00",
           "actividad": "Regreso al alojamiento",
           "ubicacion": "Higashiyama-ku",
           "tipo": "transporte",
-          "notas": "Descanso temprano para adaptarse a Kioto"
+          "notas": "Descanso temprano para adaptarse a Kioto",
+          "notas_extended": "Descanso temprano para adaptarse a Kioto Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -856,7 +929,8 @@
           "duracion": "1 hora",
           "notas": "Patrimonio de la Humanidad, terraza de madera con vistas de Kioto. Evitar multitudes llegando temprano",
           "direccion": "1-294 Kiyomizu, Higashiyama Ward, Kyoto 605-0862, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan",
+          "notas_extended": "Patrimonio de la Humanidad, terraza de madera con vistas de Kioto. Evitar multitudes llegando temprano Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "08:00",
@@ -866,7 +940,8 @@
           "destacado": true,
           "notas": "Beber agua de las cascadas sagradas que trae suerte según la tradición",
           "direccion": "1-294 Kiyomizu, Higashiyama Ward, Kyoto 605-0862, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan",
+          "notas_extended": "Beber agua de las cascadas sagradas que trae suerte según la tradición Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "08:30",
@@ -877,7 +952,8 @@
           "duracion": "1.5 horas",
           "notas": "Calles históricas con casas de té, tiendas de cerámica y arquitectura tradicional",
           "direccion": "1-294 Kiyomizu, Higashiyama Ward, Kyoto 605-0862, Japan",
-          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1-294+Kiyomizu%2C+Higashiyama+Ward%2C+Kyoto+605-0862%2C+Japan",
+          "notas_extended": "Calles históricas con casas de té, tiendas de cerámica y arquitectura tradicional Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "09:00",
@@ -886,7 +962,8 @@
           "tipo": "comida",
           "gluten_free": true,
           "costo": "¥800-1,200",
-          "notas": "Té verde matcha y dango (bolitas de arroz sin gluten)"
+          "notas": "Té verde matcha y dango (bolitas de arroz sin gluten)",
+          "notas_extended": "Té verde matcha y dango (bolitas de arroz sin gluten) Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "10:30",
@@ -895,7 +972,8 @@
           "tipo": "transporte",
           "duracion": "30 minutos",
           "costo": "¥300",
-          "notas": "Hacia el distrito de bambú al oeste de Kioto"
+          "notas": "Hacia el distrito de bambú al oeste de Kioto",
+          "notas_extended": "Hacia el distrito de bambú al oeste de Kioto Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "11:00",
@@ -907,7 +985,8 @@
           "duracion": "45 minutos",
           "notas": "Caminata entre altísimos bambúes, experiencia mística y fotogénica imperdible",
           "direccion": "Sagaogurayama Tabuchiyamacho, Ukyo Ward, Kyoto 616-8394, Japan",
-          "maps_url": "https://www.google.com/maps/place/Sagaogurayama+Tabuchiyamacho%2C+Ukyo+Ward%2C+Kyoto+616-8394%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Sagaogurayama+Tabuchiyamacho%2C+Ukyo+Ward%2C+Kyoto+616-8394%2C+Japan",
+          "notas_extended": "Caminata entre altísimos bambúes, experiencia mística y fotogénica imperdible Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "11:45",
@@ -919,7 +998,8 @@
           "duracion": "45 minutos",
           "notas": "Templo zen con hermoso jardín paisajístico cerca del bosque de bambú",
           "direccion": "68 Susukinobaba-cho, Saga Tenryu-ji, Ukyo Ward, Kyoto 616-8385, Japan",
-          "maps_url": "https://www.google.com/maps/place/68+Susukinobaba-cho%2C+Saga+Tenryu-ji%2C+Ukyo+Ward%2C+Kyoto+616-8385%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/68+Susukinobaba-cho%2C+Saga+Tenryu-ji%2C+Ukyo+Ward%2C+Kyoto+616-8385%2C+Japan",
+          "notas_extended": "Templo zen con hermoso jardín paisajístico cerca del bosque de bambú Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "13:00",
@@ -929,7 +1009,8 @@
           "gluten_free": true,
           "destacado": true,
           "costo": "¥2,500-4,000",
-          "notas": "Tofu hervido, especialidad local de Arashiyama en ambiente tradicional con jardín"
+          "notas": "Tofu hervido, especialidad local de Arashiyama en ambiente tradicional con jardín",
+          "notas_extended": "Tofu hervido, especialidad local de Arashiyama en ambiente tradicional con jardín Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "13:30",
@@ -937,7 +1018,8 @@
           "ubicacion": "Arashiyama Yoshimura (vistas al río)",
           "tipo": "comida",
           "costo": "¥2,000-3,000",
-          "notas": "Sushi con vistas panorámicas al río Katsura"
+          "notas": "Sushi con vistas panorámicas al río Katsura",
+          "notas_extended": "Sushi con vistas panorámicas al río Katsura Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "14:30",
@@ -948,7 +1030,8 @@
           "costo": "Gratis",
           "notas": "Icónico puente de madera con vistas panorámicas del valle",
           "direccion": "Saga Tenryuji Susukinobaba-cho, Ukyo Ward, Kyoto 616-8383, Japan",
-          "maps_url": "https://www.google.com/maps/place/Saga+Tenryuji+Susukinobaba-cho%2C+Ukyo+Ward%2C+Kyoto+616-8383%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/Saga+Tenryuji+Susukinobaba-cho%2C+Ukyo+Ward%2C+Kyoto+616-8383%2C+Japan",
+          "notas_extended": "Icónico puente de madera con vistas panorámicas del valle Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "15:00",
@@ -957,7 +1040,8 @@
           "tipo": "turismo",
           "costo": "¥880",
           "duracion": "25 minutos",
-          "notas": "Tren escénico por las montañas con vistas espectaculares del valle"
+          "notas": "Tren escénico por las montañas con vistas espectaculares del valle",
+          "notas_extended": "Tren escénico por las montañas con vistas espectaculares del valle Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "16:00",
@@ -965,7 +1049,8 @@
           "ubicacion": "Bus desde Arashiyama → Kinkaku-ji",
           "tipo": "transporte",
           "duracion": "30 minutos",
-          "notas": "Hacia el famoso Pabellón de Oro en el noroeste"
+          "notas": "Hacia el famoso Pabellón de Oro en el noroeste",
+          "notas_extended": "Hacia el famoso Pabellón de Oro en el noroeste Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "16:30",
@@ -977,7 +1062,8 @@
           "duracion": "45 minutos",
           "notas": "Pabellón cubierto de oro reflejándose en el estanque, estampa clásica de Kioto",
           "direccion": "1 Kinkakuji-cho, Kita Ward, Kyoto 603-8361, Japan",
-          "maps_url": "https://www.google.com/maps/place/1+Kinkakuji-cho%2C+Kita+Ward%2C+Kyoto+603-8361%2C+Japan"
+          "maps_url": "https://www.google.com/maps/place/1+Kinkakuji-cho%2C+Kita+Ward%2C+Kyoto+603-8361%2C+Japan",
+          "notas_extended": "Pabellón cubierto de oro reflejándose en el estanque, estampa clásica de Kioto Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "18:00",
@@ -987,7 +1073,8 @@
           "gluten_free": true,
           "destacado": true,
           "costo": "¥3,500-5,000",
-          "notas": "Restaurante 100% sin gluten con tonkatsu y platos japoneses adaptados. Requiere reserva"
+          "notas": "Restaurante 100% sin gluten con tonkatsu y platos japoneses adaptados. Requiere reserva",
+          "notas_extended": "Restaurante 100% sin gluten con tonkatsu y platos japoneses adaptados. Requiere reserva Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "19:00",
@@ -995,7 +1082,8 @@
           "ubicacion": "Karasuma/Kawaramachi",
           "tipo": "comida",
           "costo": "¥3,000-4,500",
-          "notas": "Variedad de tapas japonesas tradicionales en ambiente casual"
+          "notas": "Variedad de tapas japonesas tradicionales en ambiente casual",
+          "notas_extended": "Variedad de tapas japonesas tradicionales en ambiente casual Será el momento idóneo para saborear la gastronomía local, reponer energías y disfrutar de la tradicional hospitalidad japonesa."
         },
         {
           "hora": "20:30",
@@ -1003,7 +1091,8 @@
           "ubicacion": "Bus/Metro hacia Higashiyama",
           "tipo": "transporte",
           "duracion": "20 minutos",
-          "notas": "Vuelta al barrio histórico del alojamiento"
+          "notas": "Vuelta al barrio histórico del alojamiento",
+          "notas_extended": "Vuelta al barrio histórico del alojamiento Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         },
         {
           "hora": "21:00",
@@ -1013,7 +1102,8 @@
           "destacado": true,
           "costo": "¥3,150",
           "duracion": "1 hora",
-          "notas": "Artes tradicionales: danza de maiko, teatro bunraku, ceremonia del té"
+          "notas": "Artes tradicionales: danza de maiko, teatro bunraku, ceremonia del té",
+          "notas_extended": "Artes tradicionales: danza de maiko, teatro bunraku, ceremonia del té La actividad nos sumergirá en la vibrante escena de ocio local, ofreciendo instantes de diversión, interacción y descubrimiento inigualables."
         },
         {
           "hora": "22:00",
@@ -1021,14 +1111,16 @@
           "ubicacion": "Kamogawa River",
           "tipo": "turismo",
           "destacado": true,
-          "notas": "Costanera del río con grupos de amigos, ambiente relajado nocturno"
+          "notas": "Costanera del río con grupos de amigos, ambiente relajado nocturno",
+          "notas_extended": "Costanera del río con grupos de amigos, ambiente relajado nocturno Aprovecharemos para profundizar en la historia y la relevancia cultural de este lugar, capturando recuerdos fotográficos y apreciando detalles arquitectónicos y paisajísticos únicos."
         },
         {
           "hora": "23:30",
           "actividad": "Regreso al alojamiento",
           "ubicacion": "Higashiyama-ku",
           "tipo": "transporte",
-          "notas": "Último transporte público, regreso antes del cierre de servicios"
+          "notas": "Último transporte público, regreso antes del cierre de servicios",
+          "notas_extended": "Último transporte público, regreso antes del cierre de servicios Este desplazamiento permite experimentar de primera mano la eficiencia puntual del transporte japonés y contemplar el entorno mientras avanzamos hacia nuestro próximo destino."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -1071,7 +1163,8 @@
           "descripcion": "Línea Nara desde Kyoto Station (~50 min) para evitar el calor del mediodía",
           "duracion": "50 min",
           "costo": "¥690",
-          "ubicacion": "Kyoto Station → Nara Station"
+          "ubicacion": "Kyoto Station → Nara Station",
+          "notas_extended": "Línea Nara desde Kyoto Station (~50 min) para evitar el calor del mediodía Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "09:00",
@@ -1079,7 +1172,8 @@
           "descripcion": "Visita a los famosos ciervos sagrados que deambulan libremente. Comprar shika senbei (galletas especiales) para alimentarlos - los ciervos hacen reverencias pidiendo comida",
           "duracion": "1 hora",
           "costo": "¥200 (galletas)",
-          "ubicacion": "Parque de Nara"
+          "ubicacion": "Parque de Nara",
+          "notas_extended": "Visita a los famosos ciervos sagrados que deambulan libremente. Comprar shika senbei (galletas especiales) para alimentarlos - los ciervos hacen reverencias pidiendo comida Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:00",
@@ -1087,7 +1181,8 @@
           "descripcion": "Ver la enorme estatua del Gran Buda (Daibutsu) de 15m de altura en el Daibutsuden, la mayor construcción de madera del mundo. Patrimonio de la Humanidad UNESCO",
           "duracion": "1.5 horas",
           "costo": "¥600",
-          "ubicacion": "Templo Tōdai-ji, Nara"
+          "ubicacion": "Templo Tōdai-ji, Nara",
+          "notas_extended": "Ver la enorme estatua del Gran Buda (Daibutsu) de 15m de altura en el Daibutsuden, la mayor construcción de madera del mundo. Patrimonio de la Humanidad UNESCO Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "11:30",
@@ -1095,7 +1190,8 @@
           "descripcion": "Miles de linternas de piedra y bronce en el bosque sagrado. Ambiente místico donde también pasean ciervos entre los senderos",
           "duracion": "1 hora",
           "costo": "¥500",
-          "ubicacion": "Santuario Kasuga Taisha"
+          "ubicacion": "Santuario Kasuga Taisha",
+          "notas_extended": "Miles de linternas de piedra y bronce en el bosque sagrado. Ambiente místico donde también pasean ciervos entre los senderos Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "12:30",
@@ -1103,7 +1199,8 @@
           "descripcion": "Kamameshi (arroz con verduras servido en olla de hierro) o curry japonés en el casco antiguo",
           "duracion": "1 hora",
           "costo": "¥1,500-2,000",
-          "ubicacion": "Distrito Nara-machi"
+          "ubicacion": "Distrito Nara-machi",
+          "notas_extended": "Kamameshi (arroz con verduras servido en olla de hierro) o curry japonés en el casco antiguo Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:30",
@@ -1111,7 +1208,8 @@
           "descripcion": "Tren JR desde Nara Station a Inari Station",
           "duracion": "1 hora",
           "costo": "¥650",
-          "ubicacion": "Nara → Inari Station"
+          "ubicacion": "Nara → Inari Station",
+          "notas_extended": "Tren JR desde Nara Station a Inari Station Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:30",
@@ -1119,7 +1217,8 @@
           "descripcion": "Recorrer el sendero Senbon Torii entre 10,000 pórticos rojos donados. Camino mágico monte arriba hasta miradores intermedios (no es necesario llegar a la cumbre)",
           "duracion": "2.5 horas",
           "costo": "Gratis",
-          "ubicacion": "Fushimi Inari Taisha"
+          "ubicacion": "Fushimi Inari Taisha",
+          "notas_extended": "Recorrer el sendero Senbon Torii entre 10,000 pórticos rojos donados. Camino mágico monte arriba hasta miradores intermedios (no es necesario llegar a la cumbre) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:00",
@@ -1127,7 +1226,8 @@
           "descripcion": "Descender antes del anochecer y regresar al centro de Kioto",
           "duracion": "30 min",
           "costo": "¥150",
-          "ubicacion": "Inari → Kyoto Station"
+          "ubicacion": "Inari → Kyoto Station",
+          "notas_extended": "Descender antes del anochecer y regresar al centro de Kioto Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:00",
@@ -1135,7 +1235,8 @@
           "descripcion": "Relajarse tras el día intenso. Opcional: onsen urbano en Fuji no Yu (Daitokuji) o descansar en el hotel",
           "duracion": "2 horas",
           "costo": "¥500-800 (si onsen)",
-          "ubicacion": "Hotel / Onsen urbano"
+          "ubicacion": "Hotel / Onsen urbano",
+          "notas_extended": "Relajarse tras el día intenso. Opcional: onsen urbano en Fuji no Yu (Daitokuji) o descansar en el hotel Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:00",
@@ -1143,7 +1244,8 @@
           "descripcion": "Ramen floor en Kyoto Station o cena mágica en Pontochō a orillas del río Kamo",
           "duracion": "1.5 horas",
           "costo": "¥2,000-3,500",
-          "ubicacion": "Kyoto Station / Pontochō"
+          "ubicacion": "Kyoto Station / Pontochō",
+          "notas_extended": "Ramen floor en Kyoto Station o cena mágica en Pontochō a orillas del río Kamo Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:00",
@@ -1151,7 +1253,8 @@
           "descripcion": "Cócteles en Rocking Chair bar u otro establecimiento de la zona de bares",
           "duracion": "1.5 horas",
           "costo": "¥1,500-2,500",
-          "ubicacion": "Distrito Kiyamachi"
+          "ubicacion": "Distrito Kiyamachi",
+          "notas_extended": "Cócteles en Rocking Chair bar u otro establecimiento de la zona de bares Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -1189,7 +1292,8 @@
           "duracion": "2 horas",
           "costo": "¥6,500",
           "ubicacion": "Kyoto → Mishima",
-          "nota": "Cancelar si hay mal tiempo y Fuji no es visible"
+          "nota": "Cancelar si hay mal tiempo y Fuji no es visible",
+          "notas_extended": "Shinkansen Hikari desde Kyoto a Mishima (~2 horas). Excursión condicional sujeta al clima Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "08:30",
@@ -1197,7 +1301,8 @@
           "descripcion": "Desde Mishima Station hasta la región de los Cinco Lagos del Fuji",
           "duracion": "1 hora",
           "costo": "¥1,200",
-          "ubicacion": "Mishima → Kawaguchiko"
+          "ubicacion": "Mishima → Kawaguchiko",
+          "notas_extended": "Desde Mishima Station hasta la región de los Cinco Lagos del Fuji Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "09:30",
@@ -1205,7 +1310,8 @@
           "descripcion": "Contemplar el Monte Fuji (3,776m) desde la orilla del lago. Cono casi perfecto, símbolo sagrado de Japón venerado desde hace siglos",
           "duracion": "1.5 horas",
           "costo": "Gratis",
-          "ubicacion": "Orilla del Lago Kawaguchi"
+          "ubicacion": "Orilla del Lago Kawaguchi",
+          "notas_extended": "Contemplar el Monte Fuji (3,776m) desde la orilla del lago. Cono casi perfecto, símbolo sagrado de Japón venerado desde hace siglos Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "11:00",
@@ -1213,7 +1319,8 @@
           "descripcion": "Mirador panorámico del lago + Fuji desde las alturas",
           "duracion": "1 hora",
           "costo": "¥900",
-          "ubicacion": "Mirador Kachi-Kachi-yama"
+          "ubicacion": "Mirador Kachi-Kachi-yama",
+          "notas_extended": "Mirador panorámico del lago + Fuji desde las alturas Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "12:00",
@@ -1221,7 +1328,8 @@
           "descripcion": "Icónica pagoda con vista frontal del Fuji en Fujiyoshida",
           "duracion": "1 hora",
           "costo": "¥300",
-          "ubicacion": "Fujiyoshida"
+          "ubicacion": "Fujiyoshida",
+          "notas_extended": "Icónica pagoda con vista frontal del Fuji en Fujiyoshida Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:00",
@@ -1229,7 +1337,8 @@
           "descripcion": "Udon local (preguntar por fideos de arroz sin gluten)",
           "duracion": "30 min",
           "costo": "¥800-1,200",
-          "ubicacion": "Kawaguchiko"
+          "ubicacion": "Kawaguchiko",
+          "notas_extended": "Udon local (preguntar por fideos de arroz sin gluten) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:00",
@@ -1237,7 +1346,8 @@
           "descripcion": "Autobús + Shinkansen de vuelta. Llegada a Kioto ~16:30",
           "duracion": "2.5 horas",
           "costo": "¥7,700",
-          "ubicacion": "Kawaguchiko → Kyoto"
+          "ubicacion": "Kawaguchiko → Kyoto",
+          "notas_extended": "Autobús + Shinkansen de vuelta. Llegada a Kioto ~16:30 Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:00",
@@ -1245,7 +1355,8 @@
           "descripcion": "Compras de recuerdos artesanales, snacks, té, encurtidos. Cuidado con salsas que contengan gluten",
           "duracion": "1.5 horas",
           "costo": "¥2,000-4,000",
-          "ubicacion": "Nishiki Market"
+          "ubicacion": "Nishiki Market",
+          "notas_extended": "Compras de recuerdos artesanales, snacks, té, encurtidos. Cuidado con salsas que contengan gluten Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:00",
@@ -1253,7 +1364,8 @@
           "descripcion": "Historia del cómic japonés (entrada hasta 17:30)",
           "duracion": "1.5 horas",
           "costo": "¥500",
-          "ubicacion": "Nakagyo Ward"
+          "ubicacion": "Nakagyo Ward",
+          "notas_extended": "Historia del cómic japonés (entrada hasta 17:30) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:00",
@@ -1261,7 +1373,8 @@
           "descripcion": "Experiencia cultural breve (45 min) con explicación en inglés",
           "duracion": "45 min",
           "costo": "¥2,500-4,000",
-          "ubicacion": "Gion"
+          "ubicacion": "Gion",
+          "notas_extended": "Experiencia cultural breve (45 min) con explicación en inglés Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:00",
@@ -1269,7 +1382,8 @@
           "descripcion": "Olla caliente con finas lonchas de carne y verduras en Mishimatei. Experiencia grupal, libre de gluten evitando salsa de soja",
           "duracion": "1.5 horas",
           "costo": "¥4,000-6,000",
-          "ubicacion": "Mishimatei o similar"
+          "ubicacion": "Mishimatei o similar",
+          "notas_extended": "Olla caliente con finas lonchas de carne y verduras en Mishimatei. Experiencia grupal, libre de gluten evitando salsa de soja Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:00",
@@ -1277,7 +1391,8 @@
           "descripcion": "Última noche en Kioto: paseo por Kamogawa o Gion. Opcional: Zaza Pub (karaoke) o L'Escamoteur Bar (cócteles mágicos)",
           "duracion": "2 horas",
           "costo": "¥2,000-3,500",
-          "ubicacion": "Kamogawa / Gion"
+          "ubicacion": "Kamogawa / Gion",
+          "notas_extended": "Última noche en Kioto: paseo por Kamogawa o Gion. Opcional: Zaza Pub (karaoke) o L'Escamoteur Bar (cócteles mágicos) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -1314,7 +1429,8 @@
           "descripcion": "Shinkansen desde Kyoto Station a Tokyo Station (~2.5 horas)",
           "duracion": "2.5 horas",
           "costo": "¥13,320",
-          "ubicacion": "Kyoto → Tokyo Station"
+          "ubicacion": "Kyoto → Tokyo Station",
+          "notas_extended": "Shinkansen desde Kyoto Station a Tokyo Station (~2.5 horas) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:00",
@@ -1322,14 +1438,17 @@
           "descripcion": "Llegada a la capital y traslado al distrito de Akihabara",
           "duracion": "30 min",
           "costo": "¥150",
-          "ubicacion": "Tokyo Station → Akihabara"
+          "ubicacion": "Tokyo Station → Akihabara",
+          "notas_extended": "Llegada a la capital y traslado al distrito de Akihabara Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:00",
           "actividad": "Check-in en Airbnb Akihabara",
           "descripcion": "Instalación en Sotokanda, Chiyoda - epicentro de la cultura otaku",
           "duracion": "30 min",
-          "ubicacion": "Sotokanda, Chiyoda"
+          "ubicacion": "Sotokanda, Chiyoda",
+          "maps_url": "https://maps.app.goo.gl/QxUNwiwT2T2C9wrH7",
+          "notas_extended": "Instalación en Sotokanda, Chiyoda - epicentro de la cultura otaku Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "15:00",
@@ -1338,7 +1457,8 @@
           "duracion": "1.5 horas",
           "costo": "¥0-10,000 (compras)",
           "ubicacion": "Yodobashi Akiba",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Explorar 9 pisos de electrónica, gadgets y tecnología. Una de las tiendas más impresionantes de Akihabara Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "16:30",
@@ -1347,7 +1467,8 @@
           "duracion": "1 hora",
           "costo": "¥1,000-5,000 (compras)",
           "ubicacion": "Radio Kaikan Building",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Edificio icónico repleto de tiendas de figuras de anime, robots model kit y merchandising otaku Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:30",
@@ -1356,7 +1477,8 @@
           "duracion": "1 hora",
           "costo": "¥1,000-2,000",
           "ubicacion": "Club SEGA / Taito Station",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Experiencia en Club SEGA o Taito Station: juegos de lucha, ritmo y máquinas de ganchos para peluches Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:30",
@@ -1365,7 +1487,8 @@
           "duracion": "45 min",
           "costo": "¥2,000-3,000",
           "ubicacion": "@Home Café / Maidreamin",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Experiencia curiosa de la cultura pop: camareras disfrazadas de sirvientas anime, típico de Akihabara Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:00",
@@ -1373,7 +1496,8 @@
           "descripcion": "Izakaya temático de videojuegos/anime (Luida's Bar de Dragon Quest) o ramen local",
           "duracion": "1.5 horas",
           "costo": "¥2,500-4,000",
-          "ubicacion": "Luida's Bar / Ramen local"
+          "ubicacion": "Luida's Bar / Ramen local",
+          "notas_extended": "Izakaya temático de videojuegos/anime (Luida's Bar de Dragon Quest) o ramen local Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "21:30",
@@ -1382,7 +1506,8 @@
           "duracion": "1 hora",
           "costo": "¥2,000-5,000 (compras)",
           "ubicacion": "Don Quijote Akihabara",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Tienda 24h de varios pisos para souvenirs extravagantes y snacks únicos japoneses Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:30",
@@ -1391,7 +1516,8 @@
           "duracion": "45 min",
           "costo": "¥500-2,000",
           "ubicacion": "Super Potato",
-          "nota": "Verificar horarios de cierre"
+          "nota": "Verificar horarios de cierre",
+          "notas_extended": "Tienda-museo con consolas retro y mini arcade en la última planta (hasta ~20:00, verificar horario) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "23:15",
@@ -1399,14 +1525,16 @@
           "descripcion": "Disfrutar de la vibrante iluminación nocturna del distrito electrónico. Opcional: Teatro AKB48 (si hay show)",
           "duracion": "1 hora",
           "costo": "¥0-3,000 (si hay show)",
-          "ubicacion": "Calles de Akihabara"
+          "ubicacion": "Calles de Akihabara",
+          "notas_extended": "Disfrutar de la vibrante iluminación nocturna del distrito electrónico. Opcional: Teatro AKB48 (si hay show) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "00:15",
           "actividad": "Regreso al alojamiento",
           "descripcion": "Ventaja de estar alojado en Akihabara: todo está a distancia caminable",
           "duracion": "10 min",
-          "ubicacion": "Sotokanda, Chiyoda"
+          "ubicacion": "Sotokanda, Chiyoda",
+          "notas_extended": "Ventaja de estar alojado en Akihabara: todo está a distancia caminable Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -1451,7 +1579,8 @@
           "duracion": "1.5 horas",
           "costo": "Gratis",
           "ubicacion": "Templo Sensō-ji, Asakusa",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "El templo más antiguo de Tokio. Entrada por la Puerta Kaminarimon con su enorme farol rojo. Recorrer calle Nakamise con tienditas tradicionales Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "09:30",
@@ -1459,7 +1588,8 @@
           "descripcion": "Sembei (galletas de arroz sin gluten) y mochi tradicionales. Contemplar pagoda de cinco pisos y probar omikuji (papel de la suerte)",
           "duracion": "30 min",
           "costo": "¥500-1,000",
-          "ubicacion": "Calle Nakamise"
+          "ubicacion": "Calle Nakamise",
+          "notas_extended": "Sembei (galletas de arroz sin gluten) y mochi tradicionales. Contemplar pagoda de cinco pisos y probar omikuji (papel de la suerte) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "11:00",
@@ -1468,7 +1598,8 @@
           "duracion": "2 horas",
           "costo": "¥2,100 (Tembo Deck)",
           "ubicacion": "Tokyo Skytree",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Torre más alta del mundo (634m). Opcional: mirador Tembo Deck (350m) con panorámica de Tokio y Monte Fuji en días claros Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:00",
@@ -1476,7 +1607,8 @@
           "descripcion": "Centro comercial bajo Skytree. Sashimi-don (bol de arroz con pescado crudo) o curry sin gluten en CoCo Ichibanya",
           "duracion": "1 hora",
           "costo": "¥1,500-2,500",
-          "ubicacion": "Solamachi Food Court"
+          "ubicacion": "Solamachi Food Court",
+          "notas_extended": "Centro comercial bajo Skytree. Sashimi-don (bol de arroz con pescado crudo) o curry sin gluten en CoCo Ichibanya Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:30",
@@ -1485,7 +1617,8 @@
           "duracion": "1 hora",
           "costo": "¥1,560",
           "ubicacion": "Río Sumida → Odaiba",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Ferry Himiko desde Asakusa a Odaiba (~1h) por el Río Sumida con vistas del Rainbow Bridge Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "16:00",
@@ -1494,7 +1627,8 @@
           "duracion": "45 min",
           "costo": "Gratis",
           "ubicacion": "DiverCity Tokyo Plaza",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Estatua gigante de mecha de 19m que se ilumina y mueve. Imperdible para fans del anime Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "16:45",
@@ -1503,7 +1637,8 @@
           "duracion": "1.5 horas",
           "costo": "¥3,200",
           "ubicacion": "TeamLab Planets",
-          "nota": "Solo si no se hizo TeamLab en Osaka"
+          "nota": "Solo si no se hizo TeamLab en Osaka",
+          "notas_extended": "Museo de arte digital interactivo con instalaciones alucinantes. Requiere reserva previa Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:00",
@@ -1511,7 +1646,8 @@
           "descripcion": "Parque de atracciones indoor de SEGA con simuladores y VR",
           "duracion": "1.5 horas",
           "costo": "¥3,300",
-          "ubicacion": "Tokyo Joypolis"
+          "ubicacion": "Tokyo Joypolis",
+          "notas_extended": "Parque de atracciones indoor de SEGA con simuladores y VR Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:30",
@@ -1520,7 +1656,8 @@
           "duracion": "1 hora",
           "costo": "Gratis",
           "ubicacion": "Playa de Odaiba",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Playa artificial o mirador de la Estatua de la Libertad (réplica) con vistas del skyline y Rainbow Bridge iluminado Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:30",
@@ -1528,7 +1665,8 @@
           "descripcion": "Kura Sushi (sushi en cinta transportadora) o Gundam Café temático. Vista al mar desde Aqua City o Decks",
           "duracion": "1.5 horas",
           "costo": "¥2,500-4,000",
-          "ubicacion": "Aqua City / Decks Odaiba"
+          "ubicacion": "Aqua City / Decks Odaiba",
+          "notas_extended": "Kura Sushi (sushi en cinta transportadora) o Gundam Café temático. Vista al mar desde Aqua City o Decks Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:00",
@@ -1536,7 +1674,8 @@
           "descripcion": "Desde Odaiba hacia el distrito nocturno cosmopolita de Roppongi",
           "duracion": "45 min",
           "costo": "¥400",
-          "ubicacion": "Odaiba → Roppongi"
+          "ubicacion": "Odaiba → Roppongi",
+          "notas_extended": "Desde Odaiba hacia el distrito nocturno cosmopolita de Roppongi Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:45",
@@ -1545,7 +1684,8 @@
           "duracion": "30 min",
           "costo": "¥1,800",
           "ubicacion": "Roppongi Hills",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Mirador Tokyo City View con vista nocturna impresionante y Tokyo Tower cercana (hasta 23:00 fines de semana) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "23:30",
@@ -1554,7 +1694,8 @@
           "duracion": "3-4 horas",
           "costo": "¥3,000-8,000",
           "ubicacion": "Clubs de Roppongi/Shibuya",
-          "nota": "Últimos trenes ~medianoche, considerar taxi o primeros trenes 5:00"
+          "nota": "Últimos trenes ~medianoche, considerar taxi o primeros trenes 5:00",
+          "notas_extended": "V2 Tokyo, 1OAK Tokyo o alternativas en Shibuya: WOMB (EDM) o TK Shibuya Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -1606,7 +1747,8 @@
           "duracion": "1 hora",
           "costo": "Gratis",
           "ubicacion": "Santuario Meiji Jingu",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Remanso de paz en pleno Tokio, rodeado de denso bosque. Ver barriles de sake y vino ofrendados, enorme torii de madera. Posible boda sintoísta tradicional Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:30",
@@ -1615,7 +1757,8 @@
           "duracion": "1.5 horas",
           "costo": "¥500-2,000 (compras)",
           "ubicacion": "Takeshita-dōri, Harajuku",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Calle peatonal epicentro de la cultura adolescente 'kawaii'. Boutiques excéntricas, cosplay, cafés temáticos. Crêpes de frutas sin gluten en Marion Crêpes Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:45",
@@ -1623,7 +1766,8 @@
           "descripcion": "Domingos por la mañana: cosplayers y bandas callejeras con estilos únicos de la juventud japonesa",
           "duracion": "30 min",
           "costo": "Gratis",
-          "ubicacion": "Parque Yoyogi"
+          "ubicacion": "Parque Yoyogi",
+          "notas_extended": "Domingos por la mañana: cosplayers y bandas callejeras con estilos únicos de la juventud japonesa Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "12:00",
@@ -1632,7 +1776,8 @@
           "duracion": "1 hora",
           "costo": "¥0-5,000 (compras)",
           "ubicacion": "Omotesando",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Famoso por su entrada de espejos caleidoscópicos. Recorrer Omotesando, avenida arbolada con boutiques de diseño Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:00",
@@ -1640,7 +1785,8 @@
           "descripcion": "Afuri Ramen (fideos de arroz sin gluten), Riz Labo Kitchen (pancakes sin gluten) o Gyūan (Kobe beef)",
           "duracion": "1 hora",
           "costo": "¥2,000-4,000",
-          "ubicacion": "Omotesando/Harajuku"
+          "ubicacion": "Omotesando/Harajuku",
+          "notas_extended": "Afuri Ramen (fideos de arroz sin gluten), Riz Labo Kitchen (pancakes sin gluten) o Gyūan (Kobe beef) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:15",
@@ -1648,7 +1794,8 @@
           "descripcion": "Caminata de 15 min desde Harajuku o 2 min en JR Yamanote",
           "duracion": "15 min",
           "costo": "¥150 (si tren)",
-          "ubicacion": "Harajuku → Shibuya"
+          "ubicacion": "Harajuku → Shibuya",
+          "notas_extended": "Caminata de 15 min desde Harajuku o 2 min en JR Yamanote Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:30",
@@ -1657,7 +1804,8 @@
           "duracion": "30 min",
           "costo": "Gratis",
           "ubicacion": "Shibuya Crossing",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "El paso peatonal más famoso del mundo. Mar de gente cruzando en todas direcciones, emblemático del Tokio moderno Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "15:00",
@@ -1665,7 +1813,8 @@
           "descripcion": "2º piso con vista panorámica del cruce. Foto con la estatua de Hachikō, el fiel perro",
           "duracion": "30 min",
           "costo": "¥500-800 (bebida)",
-          "ubicacion": "Starbucks Shibuya Tsutaya"
+          "ubicacion": "Starbucks Shibuya Tsutaya",
+          "notas_extended": "2º piso con vista panorámica del cruce. Foto con la estatua de Hachikō, el fiel perro Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "16:00",
@@ -1674,7 +1823,8 @@
           "duracion": "2 horas",
           "costo": "¥2,000-8,000 (compras)",
           "ubicacion": "Center Gai / Shibuya PARCO",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Calles comerciales juveniles. Nintendo Store Tokyo, Pokémon Center Shibuya y Jump Shop (One Piece, Dragon Ball) en PARCO Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:30",
@@ -1684,7 +1834,8 @@
           "costo": "¥1,800",
           "ubicacion": "Shibuya Sky",
           "destacado": true,
-          "nota": "Comprar entradas anticipadas"
+          "nota": "Comprar entradas anticipadas",
+          "notas_extended": "Azotea del Shibuya Scramble Square (230m). Vista 360º al aire libre para ver la ciudad encenderse al anochecer Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:00",
@@ -1692,7 +1843,8 @@
           "descripcion": "Niku Yokocho (callejón gastronómico de carne), Uobei Sushi (sushi en cinta) o izakaya local",
           "duracion": "1.5 horas",
           "costo": "¥2,500-4,000",
-          "ubicacion": "Shibuya"
+          "ubicacion": "Shibuya",
+          "notas_extended": "Niku Yokocho (callejón gastronómico de carne), Uobei Sushi (sushi en cinta) o izakaya local Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "21:45",
@@ -1700,7 +1852,8 @@
           "descripcion": "JR Yamanote Line hacia el distrito de vida nocturna más famoso",
           "duracion": "10 min",
           "costo": "¥150",
-          "ubicacion": "Shibuya → Shinjuku"
+          "ubicacion": "Shibuya → Shinjuku",
+          "notas_extended": "JR Yamanote Line hacia el distrito de vida nocturna más famoso Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:00",
@@ -1708,7 +1861,8 @@
           "descripcion": "Distrito de neones y vida nocturna. Ver Godzilla asomando sobre el Toho Cinema",
           "duracion": "30 min",
           "costo": "Gratis",
-          "ubicacion": "Kabukichō, Shinjuku"
+          "ubicacion": "Kabukichō, Shinjuku",
+          "notas_extended": "Distrito de neones y vida nocturna. Ver Godzilla asomando sobre el Toho Cinema Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:30",
@@ -1717,7 +1871,8 @@
           "duracion": "45 min",
           "costo": "¥1,500-2,500",
           "ubicacion": "Omoide Yokocho",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Estrecha calle con diminutos puestos de yakitori y sake. Tokio de posguerra auténtico Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "23:15",
@@ -1726,7 +1881,8 @@
           "duracion": "2-3 horas",
           "costo": "¥2,000-4,000 + cover",
           "ubicacion": "Golden Gai, Shinjuku",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Laberinto con +200 mini-bares (4-8 asientos). DeathMatch in Hell (rock/metal) o Albatross. Cover charge modesto Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "23:30",
@@ -1734,7 +1890,8 @@
           "descripcion": "WOMB o Club Camelot (música electrónica, 23:00-04:30). Opción ageHa en Shin-Kiba si hay evento especial",
           "duracion": "4-5 horas",
           "costo": "¥3,000-6,000",
-          "ubicacion": "WOMB / Club Camelot"
+          "ubicacion": "WOMB / Club Camelot",
+          "notas_extended": "WOMB o Club Camelot (música electrónica, 23:00-04:30). Opción ageHa en Shin-Kiba si hay evento especial Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -1792,7 +1949,8 @@
           "duracion": "2 horas",
           "costo": "¥500-2,000",
           "ubicacion": "Akihabara",
-          "nota": "Inicio relajado tras la noche intensa"
+          "nota": "Inicio relajado tras la noche intensa",
+          "notas_extended": "Tiempo relajado después de la noche anterior. Revisar tiendas no visitadas con calma Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:30",
@@ -1801,7 +1959,8 @@
           "duracion": "1 hora",
           "costo": "¥1,000-5,000 (compras)",
           "ubicacion": "Mandarake Akihabara",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Tienda especializada en manga raros, figuritas de colección vintage y merchandising único Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "11:30",
@@ -1810,7 +1969,8 @@
           "duracion": "30 min",
           "costo": "¥500-800",
           "ubicacion": "Arcades de Akihabara",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Fotomatón japonés para stickers personalizados con efectos kawaii y filtros únicos Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "12:00",
@@ -1818,7 +1978,8 @@
           "descripcion": "Alquilar disfraz de personaje anime y pasear por Akihabara. Experiencia divertida y fotogénica",
           "duracion": "1 hora",
           "costo": "¥1,500-3,000",
-          "ubicacion": "Tiendas de cosplay"
+          "ubicacion": "Tiendas de cosplay",
+          "notas_extended": "Alquilar disfraz de personaje anime y pasear por Akihabara. Experiencia divertida y fotogénica Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:00",
@@ -1826,7 +1987,8 @@
           "descripcion": "JR desde Akihabara a Ueno (2 estaciones, 5 min)",
           "duracion": "15 min",
           "costo": "¥150",
-          "ubicacion": "Akihabara → Ueno"
+          "ubicacion": "Akihabara → Ueno",
+          "notas_extended": "JR desde Akihabara a Ueno (2 estaciones, 5 min) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:15",
@@ -1835,7 +1997,8 @@
           "duracion": "1 hora",
           "costo": "¥800-1,500",
           "ubicacion": "Ameyoko Market",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Mercado callejero retro bajo las vías del tren. Puestos de ramen, takoyaki, kebab turco (sin pan para celíacos) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:30",
@@ -1843,7 +2006,8 @@
           "descripcion": "Gran parque urbano con museos, estanque Shinobazu con lotos gigantes. Ambiente relajado para digerir",
           "duracion": "1 hora",
           "costo": "Gratis",
-          "ubicacion": "Parque Ueno"
+          "ubicacion": "Parque Ueno",
+          "notas_extended": "Gran parque urbano con museos, estanque Shinobazu con lotos gigantes. Ambiente relajado para digerir Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "15:00",
@@ -1851,7 +2015,8 @@
           "descripcion": "Extensa colección de arte japonés y armaduras samurái. Alternativa: botes de pedal en forma de cisne en el estanque",
           "duracion": "1 hora",
           "costo": "¥1,000 / ¥600 (botes)",
-          "ubicacion": "Museo Nacional / Estanque Shinobazu"
+          "ubicacion": "Museo Nacional / Estanque Shinobazu",
+          "notas_extended": "Extensa colección de arte japonés y armaduras samurái. Alternativa: botes de pedal en forma de cisne en el estanque Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "16:00",
@@ -1859,7 +2024,8 @@
           "descripcion": "JR Yamanote Line desde Ueno a Shinjuku",
           "duracion": "20 min",
           "costo": "¥160",
-          "ubicacion": "Ueno → Shinjuku"
+          "ubicacion": "Ueno → Shinjuku",
+          "notas_extended": "JR Yamanote Line desde Ueno a Shinjuku Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "16:30",
@@ -1868,7 +2034,8 @@
           "duracion": "45 min",
           "costo": "Gratis",
           "ubicacion": "Tokyo Metropolitan Government",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Gobierno Metropolitano piso 45. Vista panorámica gratuita de día complementando las nocturnas previas Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:00",
@@ -1876,7 +2043,8 @@
           "descripcion": "Bic Camera + Uniqlo juntos: tecnología y moda japonesa en mega-tienda. Experiencia de compras única",
           "duracion": "1 hora",
           "costo": "¥2,000-8,000 (compras)",
-          "ubicacion": "Bicqlo Shinjuku"
+          "ubicacion": "Bicqlo Shinjuku",
+          "notas_extended": "Bic Camera + Uniqlo juntos: tecnología y moda japonesa en mega-tienda. Experiencia de compras única Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:00",
@@ -1885,7 +2053,8 @@
           "duracion": "1 hora",
           "costo": "¥1,500-3,000",
           "ubicacion": "Kabukichō Tower",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Complejo de ocio inaugurado en 2023: Bandai Namco Arcade, bolera, cines. Entretenimiento moderno Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:30",
@@ -1893,7 +2062,8 @@
           "descripcion": "Museo pequeño con armaduras auténticas y show de samurái (hasta 19:00, verificar horario)",
           "duracion": "30 min",
           "costo": "¥1,900",
-          "ubicacion": "Kabukichō"
+          "ubicacion": "Kabukichō",
+          "notas_extended": "Museo pequeño con armaduras auténticas y show de samurái (hasta 19:00, verificar horario) Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:00",
@@ -1901,7 +2071,8 @@
           "descripcion": "Omoide Yokocho - brochetas a la parrilla en puesto local. Pedir 'shio' (solo sal) para evitar salsa tare con soja",
           "duracion": "1.5 horas",
           "costo": "¥2,000-3,500",
-          "ubicacion": "Omoide Yokocho"
+          "ubicacion": "Omoide Yokocho",
+          "notas_extended": "Omoide Yokocho - brochetas a la parrilla en puesto local. Pedir 'shio' (solo sal) para evitar salsa tare con soja Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:30",
@@ -1909,7 +2080,8 @@
           "descripcion": "Ramen famoso sin cerdo, puede adaptar sin gluten bajo pedido",
           "duracion": "1 hora",
           "costo": "¥1,200-1,800",
-          "ubicacion": "Cerca de Shinjuku Gyoen"
+          "ubicacion": "Cerca de Shinjuku Gyoen",
+          "notas_extended": "Ramen famoso sin cerdo, puede adaptar sin gluten bajo pedido Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:00",
@@ -1918,7 +2090,8 @@
           "duracion": "2-3 horas",
           "costo": "¥2,500-4,000",
           "ubicacion": "Karaoke-kan / Big Echo Shinjuku",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Box privado en Karaoke-kan o Big Echo. J-Pop, anime, rock internacional. Servicio de bebidas incluido Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -1963,7 +2136,8 @@
           "costo": "¥3,200",
           "ubicacion": "Azabudai Hills",
           "destacado": true,
-          "nota": "Reservar con anticipación. Calzado cómodo, evitar faldas (pisos con espejos)"
+          "nota": "Reservar con anticipación. Calzado cómodo, evitar faldas (pisos con espejos)",
+          "notas_extended": "Museo de arte digital interactivo reabierto en 2024. Obras de luz sin fronteras: Bosque de lámparas, cascadas digitales que reaccionan al tacto Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "12:30",
@@ -1972,7 +2146,8 @@
           "duracion": "1 hora",
           "costo": "¥2,500-3,500",
           "ubicacion": "Roppongi",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Café 100% sin gluten en Roppongi: ramen, gyozas y curry seguros para celíacos Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:30",
@@ -1980,7 +2155,8 @@
           "descripcion": "Cerdo empanado famoso (Harajuku) o ramen tsukemen en Fūunji (Shinjuku) para no celíacos",
           "duracion": "1 hora",
           "costo": "¥1,500-2,500",
-          "ubicacion": "Harajuku / Shinjuku"
+          "ubicacion": "Harajuku / Shinjuku",
+          "notas_extended": "Cerdo empanado famoso (Harajuku) o ramen tsukemen en Fūunji (Shinjuku) para no celíacos Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:30",
@@ -1988,7 +2164,8 @@
           "descripcion": "Museo Nacional de Ciencia e Innovación Emergente en Odaiba. Robot ASIMO y exposiciones de robótica y espacio",
           "duracion": "1.5 horas",
           "costo": "¥630",
-          "ubicacion": "Odaiba"
+          "ubicacion": "Odaiba",
+          "notas_extended": "Museo Nacional de Ciencia e Innovación Emergente en Odaiba. Robot ASIMO y exposiciones de robótica y espacio Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "15:00",
@@ -1997,7 +2174,8 @@
           "duracion": "2 horas",
           "costo": "¥1,650 + transporte",
           "ubicacion": "Yokohama",
-          "nota": "Verificar disponibilidad"
+          "nota": "Verificar disponibilidad",
+          "notas_extended": "Robot Gundam gigante que se mueve (30 min en tren). Verificar si sigue abierto tras 2024 Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:00",
@@ -2006,7 +2184,8 @@
           "duracion": "1.5 horas",
           "costo": "¥1,200 (Main) / ¥3,000 (Top)",
           "ubicacion": "Tokyo Tower, Shiba/Minato",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Ícono nostálgico anaranjado inspirado en Torre Eiffel. Main Deck (150m) o Top Deck (250m) para vistas del atardecer Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:30",
@@ -2014,7 +2193,8 @@
           "descripcion": "Ver la torre iluminarse al anochecer desde los alrededores o Shiba Park",
           "duracion": "30 min",
           "costo": "Gratis",
-          "ubicacion": "Shiba Park"
+          "ubicacion": "Shiba Park",
+          "notas_extended": "Ver la torre iluminarse al anochecer desde los alrededores o Shiba Park Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:30",
@@ -2022,7 +2202,8 @@
           "descripcion": "Restaurantes en pisos altos con panorámicas y shows de iluminación ocasionales",
           "duracion": "1.5 horas",
           "costo": "¥4,000-6,000",
-          "ubicacion": "Shiodome Caretta"
+          "ubicacion": "Shiodome Caretta",
+          "notas_extended": "Restaurantes en pisos altos con panorámicas y shows de iluminación ocasionales Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:00",
@@ -2031,7 +2212,8 @@
           "duracion": "1.5 horas",
           "costo": "¥8,000-15,000",
           "ubicacion": "Ginza",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Experiencia culinaria memorable para celíacos. Sushi de chef en el distrito más elegante Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "21:30",
@@ -2039,7 +2221,8 @@
           "descripcion": "Plan tranquilo: ver skyline brillante, Rainbow Bridge iluminado. Fotos finales de la bahía",
           "duracion": "1 hora",
           "costo": "Gratis",
-          "ubicacion": "Odaiba waterfront"
+          "ubicacion": "Odaiba waterfront",
+          "notas_extended": "Plan tranquilo: ver skyline brillante, Rainbow Bridge iluminado. Fotos finales de la bahía Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:00",
@@ -2047,7 +2230,8 @@
           "descripcion": "Distrito de bares y clubs inclusivos con ambiente muy animado para despedida especial",
           "duracion": "2-3 horas",
           "costo": "¥3,000-5,000",
-          "ubicacion": "Shinjuku Nichōme"
+          "ubicacion": "Shinjuku Nichōme",
+          "notas_extended": "Distrito de bares y clubs inclusivos con ambiente muy animado para despedida especial Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:30",
@@ -2055,7 +2239,8 @@
           "descripcion": "Última sesión fotográfica en los lugares más icónicos de Tokio",
           "duracion": "30 min",
           "costo": "Gratis",
-          "ubicacion": "Shibuya Crossing / Shinjuku"
+          "ubicacion": "Shibuya Crossing / Shinjuku",
+          "notas_extended": "Última sesión fotográfica en los lugares más icónicos de Tokio Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "01:00",
@@ -2064,7 +2249,8 @@
           "duracion": "2 horas",
           "costo": "Gratis",
           "ubicacion": "Alojamiento Akihabara",
-          "nota": "Asegurar espacio y peso permitido en equipaje"
+          "nota": "Asegurar espacio y peso permitido en equipaje",
+          "notas_extended": "Empacar recuerdos: productos otaku de Akihabara, kimonos de Kioto, snacks de todo Japón Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -2109,7 +2295,8 @@
           "duracion": "Flexible",
           "costo": "Variable",
           "ubicacion": "A elegir",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Día flexible para profundizar en lo que más gustó del viaje o hacer compras finales según preferencias del grupo Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:00",
@@ -2118,7 +2305,8 @@
           "duracion": "2-3 horas",
           "costo": "¥2,000-8,000 (compras)",
           "ubicacion": "Nakano Broadway",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Paraíso otaku alternativo a Akihabara. 4 pisos de manga vintage, figuras raras y videojuegos retro de colección. Menos turístico que Akihabara Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:00",
@@ -2127,7 +2315,8 @@
           "duracion": "3 horas",
           "costo": "¥3,000-15,000 (compras)",
           "ubicacion": "Ginza",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Distrito de lujo: Uniqlo flagship 12 pisos, Dover Street Market, Apple Store Ginza. Hakuhinkan Toy Park y Tsutaya Books con cafetería Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:00",
@@ -2136,7 +2325,8 @@
           "duracion": "2.5 horas",
           "costo": "¥1,000",
           "ubicacion": "Mitaka",
-          "nota": "Solo con reserva previa confirmada"
+          "nota": "Solo con reserva previa confirmada",
+          "notas_extended": "Mundo mágico de Studio Ghibli en Mitaka. REQUIERE reserva con semanas de antelación. Solo si se consiguieron entradas Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:30",
@@ -2144,7 +2334,8 @@
           "descripcion": "Última oportunidad para esa figura o videojuego que dudaron. Mandarake, Super Potato, Yodobashi Camera",
           "duracion": "2 horas",
           "costo": "¥1,000-5,000 (compras)",
-          "ubicacion": "Akihabara"
+          "ubicacion": "Akihabara",
+          "notas_extended": "Última oportunidad para esa figura o videojuego que dudaron. Mandarake, Super Potato, Yodobashi Camera Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:00",
@@ -2152,7 +2343,8 @@
           "descripcion": "Kaiten-zushi por última vez, ekiben (bento de estación) en Tokyo Station, o picnic en parque con productos de konbini",
           "duracion": "1 hora",
           "costo": "¥1,000-3,000",
-          "ubicacion": "Variable"
+          "ubicacion": "Variable",
+          "notas_extended": "Kaiten-zushi por última vez, ekiben (bento de estación) en Tokyo Station, o picnic en parque con productos de konbini Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:30",
@@ -2161,7 +2353,8 @@
           "duracion": "1.5 horas",
           "costo": "¥500-1,000 + ¥200 entrada",
           "ubicacion": "Shinjuku Gyoen",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Relajarse en jardín tradicional con onigiri, ensaladas y productos sin gluten de konbini. Ambiente tranquilo para reflexionar Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "15:00",
@@ -2169,7 +2362,8 @@
           "descripcion": "Organizar maletas finales, verificar peso del equipaje, descansar antes de la cena de despedida",
           "duracion": "2 horas",
           "costo": "Gratis",
-          "ubicacion": "Alojamiento Akihabara"
+          "ubicacion": "Alojamiento Akihabara",
+          "notas_extended": "Organizar maletas finales, verificar peso del equipaje, descansar antes de la cena de despedida Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:00",
@@ -2178,7 +2372,8 @@
           "duracion": "30 min",
           "costo": "Gratis",
           "ubicacion": "A elegir",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Fotos grupales finales en ubicaciones icónicas favoritas del viaje Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:00",
@@ -2187,7 +2382,8 @@
           "duracion": "2 horas",
           "costo": "¥8,000-15,000",
           "ubicacion": "Ginza / Shinjuku",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Gran final culinario: Shabu-shabu con Wagyu en Ginza, yakiniku de Kobe beef en Shinjuku, o kaiseki de lujo Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:30",
@@ -2195,7 +2391,8 @@
           "descripcion": "Experiencia chef en sushi bar auténtico para el gran final gastronómico del viaje",
           "duracion": "1.5 horas",
           "costo": "¥10,000-20,000",
-          "ubicacion": "Ginza / Tsukiji área"
+          "ubicacion": "Ginza / Tsukiji área",
+          "notas_extended": "Experiencia chef en sushi bar auténtico para el gran final gastronómico del viaje Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "21:00",
@@ -2203,7 +2400,8 @@
           "descripcion": "Sake premium, whisky japonés, o shōchū (sin gluten). Celebrar el éxito del viaje con productos locales auténticos",
           "duracion": "30 min",
           "costo": "¥2,000-4,000",
-          "ubicacion": "Restaurante/bar"
+          "ubicacion": "Restaurante/bar",
+          "notas_extended": "Sake premium, whisky japonés, o shōchū (sin gluten). Celebrar el éxito del viaje con productos locales auténticos Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "22:00",
@@ -2212,7 +2410,8 @@
           "duracion": "45 min",
           "costo": "Gratis",
           "ubicacion": "Tokyo Metropolitan Government",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Edificio del Gobierno Metropolitano, observatorio gratuito hasta 23:00. Última panorámica de Tokio iluminada Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "23:00",
@@ -2221,7 +2420,8 @@
           "duracion": "30 min",
           "costo": "Gratis",
           "ubicacion": "Akihabara",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Caminar por Electric Town iluminada, recordar la primera noche del viaje. Cierre perfecto del círculo Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "00:00",
@@ -2229,7 +2429,8 @@
           "descripcion": "Organizar recuerdos, verificar documentos de viaje, descansar para el vuelo de regreso",
           "duracion": "1 hora",
           "costo": "Gratis",
-          "ubicacion": "Alojamiento"
+          "ubicacion": "Alojamiento",
+          "notas_extended": "Organizar recuerdos, verificar documentos de viaje, descansar para el vuelo de regreso Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
@@ -2287,7 +2488,8 @@
           "descripcion": "Dejar equipaje organizado y verificar que no se olvide nada. Últimas fotos del alojamiento en Akihabara",
           "duracion": "30 min",
           "costo": "Gratis",
-          "ubicacion": "Alojamiento Akihabara"
+          "ubicacion": "Alojamiento Akihabara",
+          "notas_extended": "Dejar equipaje organizado y verificar que no se olvide nada. Últimas fotos del alojamiento en Akihabara Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "09:30",
@@ -2296,7 +2498,8 @@
           "duracion": "45 min",
           "costo": "¥500-1,000 (ema/amuletos)",
           "ubicacion": "Kanda Myōjin",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "A 10 min caminando de Akihabara. Santuario ligado a cultura anime/gamer con merch de Love Live! y placas ema con personajes. Pedir buenos augurios para el viaje de retorno Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "10:15",
@@ -2305,7 +2508,8 @@
           "duracion": "1 hora",
           "costo": "Gratis",
           "ubicacion": "Electric Town",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Fotos diurnas con menos gente, visitar tiendas que quedaron pendientes. Momento nostálgico de despedida del paraíso otaku Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "11:15",
@@ -2314,7 +2518,8 @@
           "duracion": "45 min",
           "costo": "¥2,000-5,000",
           "ubicacion": "Don Quijote Akihabara",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Snacks japoneses únicos: KitKat de matcha/sake, mochi especiales, souvenirs de último momento. Tienda 24h con todo tipo de productos japoneses Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "12:00",
@@ -2322,7 +2527,8 @@
           "descripcion": "Último ramen en Akihabara o bento para el camino. Disfrutar la última comida en tierra japonesa",
           "duracion": "45 min",
           "costo": "¥1,000-2,000",
-          "ubicacion": "Akihabara"
+          "ubicacion": "Akihabara",
+          "notas_extended": "Último ramen en Akihabara o bento para el camino. Disfrutar la última comida en tierra japonesa Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "12:45",
@@ -2330,7 +2536,8 @@
           "descripcion": "Recoger maletas del alojamiento y organizar equipaje de mano con snacks y recuerdos frágiles",
           "duracion": "15 min",
           "costo": "Gratis",
-          "ubicacion": "Alojamiento"
+          "ubicacion": "Alojamiento",
+          "notas_extended": "Recoger maletas del alojamiento y organizar equipaje de mano con snacks y recuerdos frágiles Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "13:30",
@@ -2338,7 +2545,8 @@
           "descripcion": "JR Yamanote Line desde Akihabara a Hamamatsuchō (7 min). Conexión directa para el Monorail a Haneda",
           "duracion": "15 min",
           "costo": "¥160",
-          "ubicacion": "Akihabara → Hamamatsuchō"
+          "ubicacion": "Akihabara → Hamamatsuchō",
+          "notas_extended": "JR Yamanote Line desde Akihabara a Hamamatsuchō (7 min). Conexión directa para el Monorail a Haneda Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:00",
@@ -2347,7 +2555,8 @@
           "duracion": "30 min",
           "costo": "¥500",
           "ubicacion": "Hamamatsuchō → Haneda T3",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Monorail directo desde Hamamatsuchō a Haneda Terminal 3 Internacional (20 min). Vistas de la bahía de Tokio Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "14:30",
@@ -2355,7 +2564,8 @@
           "descripcion": "Desde Shinagawa: Keikyu Airport Express a Haneda (15 min). Opción más rápida si están cerca de Shinagawa",
           "duracion": "25 min",
           "costo": "¥300",
-          "ubicacion": "Shinagawa → Haneda T3"
+          "ubicacion": "Shinagawa → Haneda T3",
+          "notas_extended": "Desde Shinagawa: Keikyu Airport Express a Haneda (15 min). Opción más rápida si están cerca de Shinagawa Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:00",
@@ -2364,7 +2574,8 @@
           "duracion": "1 hora",
           "costo": "Gratis",
           "ubicacion": "Haneda Terminal 3 Internacional",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Llegar 3 horas antes del vuelo (20:00). Check-in internacional, trámites de inmigración y control de seguridad Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "17:30",
@@ -2373,7 +2584,8 @@
           "duracion": "30 min",
           "costo": "Gratis (reembolso)",
           "ubicacion": "Tax refund counter T3",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Tramitar devolución de impuestos de compras Tax-free en el mostrador del aeropuerto. Llevar recibos y pasaporte Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:00",
@@ -2382,7 +2594,8 @@
           "duracion": "45 min",
           "costo": "¥1,500-3,000",
           "ubicacion": "Restaurants Terminal 3",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Haneda tiene excelentes opciones: Ramen Dojo (varios estilos), sushi bar, o bentō gourmet. Para celíacos: onigiri y sushi sin salsa de soja Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "18:45",
@@ -2390,7 +2603,8 @@
           "descripcion": "Whisky japonés, sake premium, cosméticos japoneses, Kit Kats exclusivos de Haneda. Última oportunidad de compras sin impuestos",
           "duracion": "45 min",
           "costo": "¥3,000-10,000",
-          "ubicacion": "Duty-free Terminal 3"
+          "ubicacion": "Duty-free Terminal 3",
+          "notas_extended": "Whisky japonés, sake premium, cosméticos japoneses, Kit Kats exclusivos de Haneda. Última oportunidad de compras sin impuestos Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "19:30",
@@ -2399,7 +2613,8 @@
           "duracion": "30 min",
           "costo": "Gratis",
           "ubicacion": "Sala de embarque T3",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Dirigirse a la puerta de embarque. Despedida final de Japón con vista de la bahía de Tokio desde las ventanas Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         },
         {
           "hora": "20:00",
@@ -2408,7 +2623,8 @@
           "duracion": "Variable",
           "costo": "Gratis",
           "ubicacion": "Avión",
-          "destacado": true
+          "destacado": true,
+          "notas_extended": "Vuelo internacional desde Haneda T3. Reflexionar sobre 15 días épicos: templos de Kyoto, otaku culture de Akihabara, gastronomía única, amistad fortalecida Esta experiencia enriquecerá el itinerario y aportará valor cultural y emocional a nuestra travesía."
         }
       ],
       "restaurantes_gluten_free_dia": [
