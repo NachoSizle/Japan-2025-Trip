@@ -1,246 +1,70 @@
-# 🗾 Proyecto: Landing Page Viaje a Japón 2025
+# ⛩️ Arquitectura y Decisiones de Diseño
 
-## 📋 Resumen del Proyecto
-Landing page desarrollada con Astro + TailwindCSS para mostrar de forma interactiva y visualmente atractiva el itinerario del viaje a Japón (14-28 de Agosto 2025), con énfasis especial en opciones gluten-free y estética japonesa moderna.
+Este documento detalla las decisiones de arquitectura, diseño y tecnología que dieron forma al proyecto **Japan 2025 Trip**.
 
-## 🎯 Objetivos
-- Crear una experiencia visual inmersiva del viaje
-- Organizar el itinerario de manera interactiva y navegable
-- Destacar opciones gluten-free para facilitar la planificación
-- Reflejar la estética japonesa moderna con toques neón/tech
+---
 
-## 🎨 Diseño y Estética
+## 🎯 Filosofía del Proyecto
 
-### Paleta de Colores
-- **Primarios**: Fucsia neón (#FF1493), Cian neón (#00FFFF), Morado tech (#8A2BE2)
-- **Fondo**: Negro profundo (#0A0A0A), gris carbón (#1A1A1A)
-- **Secundarios**: Gris medio (#404040), blanco puro (#FFFFFF)
-- **Acentos**: Dorado suave (#FFD700) para elementos tradicionales
-- **Gluten-Free**: Verde lima neón (#32CD32) + icono específico
-- **Efectos**: Glow/sombras neón para destacar elementos interactivos
+El objetivo principal era crear una **herramienta de viaje viva y funcional** que no solo organizara la información, sino que también capturara la emoción y la estética del viaje a Japón. Las decisiones se guiaron por tres pilares:
 
-### Tipografía
-- **Principal**: Inter/Poppins - moderna y limpia para legibilidad
-- **Caligráfica**: Mezcla de estilo occidental elegante + simulación de caracteres japoneses estilizados
-- **Decorativa**: Elementos que simulen kanji/hiragana para acentos visuales
-- **Código**: Font monospace para información técnica (horarios, precios)
+1.  **Rendimiento Extremo**: Para ser útil en movilidad, el sitio debía ser ultrarrápido y accesible incluso con conexiones lentas.
+2.  **Experiencia Inmersiva**: El diseño debía reflejar una estética japonesa moderna (neón, cyberpunk) y ser altamente interactivo.
+3.  **Utilidad Práctica**: Debía resolver problemas reales del viaje, con un fuerte enfoque en la guía para celíacos.
 
-### Recursos Visuales
-- **Logo/favicon**: Torii tradicional con outline neón híbrido (fucsia base + efectos tech sutiles)
-- **Variaciones**: Animado para header, minimal para favicon, con transiciones de color
-- Fotos hero: Templos, neones de Akihabara, skyline nocturno
-- Iconografía: Ukiyo-e moderno, símbolos japoneses estilizados
-- Mapas integrados de Google Maps
+---
 
-## 🏗️ Arquitectura Técnica
+## 🛠️ Stack Tecnológico: El Porqué de la Elección
 
-### Stack Tecnológico
-- **Framework**: Astro 4.x
-- **Estilos**: TailwindCSS
-- **Interactividad**: Alpine.js (integrado con Astro)
-- **Mapas**: Google Maps Embed API
-- **Hospedaje**: GitHub Pages
+| Tecnología | Decisión y Justificación |
+| :--- | :--- |
+| **Astro** | Elegido por su arquitectura de **"islas"** y su enfoque en **Static Site Generation (SSG)**. Esto garantiza un rendimiento de carga casi instantáneo, enviando HTML puro y cargando JavaScript solo para los componentes interactivos. |
+| **Tailwind CSS** | Se seleccionó para permitir un **desarrollo de UI rápido y consistente**. Su enfoque *utility-first* facilitó la creación de un sistema de diseño coherente y la implementación de un tema claro/oscuro de manera eficiente. |
+| **Alpine.js** | Para la **interactividad ligera del lado del cliente**. Se integró para manejar estados simples como el menú responsive, los filtros del itinerario y el toggle del tema, sin necesidad de un framework de JS más pesado. |
+| **TypeScript** | Imprescindible para la **robustez y mantenibilidad** del código. Ayudó a prevenir errores en el manejo de la estructura de datos del itinerario y a asegurar la correcta comunicación entre componentes. |
+| **VitePWA** | La necesidad de **acceso offline** durante el viaje hizo que convertir la aplicación en una PWA fuera una prioridad. Se eligió `@vite-pwa/astro` por su integración nativa y sencilla. |
+| **OneSignal** | Para las **notificaciones push**, se optó por OneSignal por su generoso plan gratuito, su facilidad de configuración y su robusta API para implementar recordatorios. |
 
-### Estructura del Proyecto
-```
-src/
-├── components/
-│   ├── Header.astro
-│   ├── Navigation.astro
-│   ├── Timeline.astro
-│   ├── DayCard.astro
-│   ├── RestaurantCard.astro
-│   ├── GlutenFreeGuide.astro
-│   └── Footer.astro
-├── layouts/
-│   └── Layout.astro
-├── pages/
-│   ├── index.astro
-│   ├── itinerario/
-│   │   └── [dia].astro
-│   ├── gluten-free.astro
-│   └── galeria.astro
-├── styles/
-│   └── global.css
-└── data/
-    └── itinerario.json
-```
+---
 
-## 📱 Funcionalidades
+## 🏗️ Arquitectura de la Aplicación
 
-### Navegación
-- **Header fijo** con menú responsive
-- **Secciones principales**:
-  - Inicio (Hero + resumen)
-  - Itinerario interactivo
-  - Guía Gluten-Free
-  - Galería
-  - Información práctica
+### Estructura de Datos Centralizada
 
-### Timeline Interactivo
-- **Vista día a día** con tarjetas desplegables
-- **Filtros**: Por ciudad, tipo de actividad, opciones gluten-free
-- **Información por día**:
-  - Actividades principales
-  - Restaurantes (con marcado GF)
-  - Transporte
-  - Alojamiento
-  - Enlaces a reservas/Google Maps
+Todo el itinerario reside en `src/data/itinerario.json`. Esta decisión fue clave para:
+- **Facilitar la gestión**: Actualizar el plan de viaje en un único lugar.
+- **Consistencia de datos**: Asegurar que todos los componentes consuman la misma información.
 
-### Características Gluten-Free
-- **Iconografía específica**: 🌾🚫 + color verde lima
-- **Sección dedicada** con:
-  - Frases útiles en japonés
-  - Apps recomendadas
-  - Cadenas de restaurantes seguros
-  - Productos de supermercado
+### Generación de Páginas Dinámicas
 
-## 📊 Estructura de Contenido
+La ruta `src/pages/itinerario/[dia].astro` genera automáticamente una página para cada día del viaje, utilizando el `id` del día como parámetro. Esto mantiene las URLs limpias y automatiza la creación de contenido.
 
-### Página Principal
-1. **Hero Section**: Imagen impactante + título animado
-2. **Resumen del viaje**: Fechas, ciudades, highlights
-3. **Preview del itinerario**: Timeline condensado
-4. **CTA**: Explorar itinerario completo
+### Estructura de Componentes Clave
 
-### Itinerario Detallado
-- **14 días organizados** según PDF proporcionado
-- **Información por día**:
-  - Desayuno, almuerzo, cena
-  - Actividades principales
-  - Transporte entre ubicaciones
-  - Costos estimados
-  - Enlaces útiles
+El proyecto se organiza en componentes atómicos y funcionales con responsabilidades claras:
 
-### Guía Gluten-Free
-- **Restaurantes verificados** por día/ciudad
-- **Frases de supervivencia** en japonés
-- **Apps móviles** recomendadas
-- **Productos de emergencia** en konbini
+- **`Layout.astro`**: El esqueleto principal de todas las páginas. Incluye el `Header`, el `Footer` y la configuración base del tema.
+- **`Timeline.astro`**: El componente más complejo. Contiene la lógica para mostrar el contenido correcto según la fecha actual y renderiza los `DayCard` y `FlightCard`.
+- **`SistemaFiltros.astro`**: Gestiona la lógica de filtrado del itinerario en el lado del cliente, interactuando con los `DayCard` para mostrar u ocultar información.
+- **`DayCard.astro` / `FlightCard.astro`**: Tarjetas que muestran la información de un día o un vuelo específico. Son componentes de presentación puros que reciben datos del `Timeline`.
+- **`WeatherWidget.astro`**: Un componente aislado que realiza una llamada a una API externa y muestra el clima, demostrando la capacidad de Astro para crear islas de interactividad.
 
-## 🚀 Fases de Desarrollo
+---
 
-### Fase 1: Setup y Diseño Base (Semana 1) ✅ COMPLETADA
-- [x] ✅ Configuración de Astro + TailwindCSS
-- [x] ✅ Sistema de diseño y componentes base
-- [x] ✅ Layout principal y navegación
-- [x] ✅ Hero section y página de inicio
+## ✨ Diseño Visual y UX
 
-### Fase 2: Contenido e Interactividad (Semana 2) ✅ COMPLETADA
-- [x] ✅ Procesamiento del PDF del itinerario
-- [x] ✅ Componentes del timeline interactivo
-- [ ] 🔄 Sistema de filtros por fechas inteligente
-- [x] ✅ Timeline con lógica de fecha actual
-- [ ] 🔄 Integración de mapas
+### Paleta de Colores Temática
 
-### Fase 3: Características Especiales (Semana 3) ✅ COMPLETADA
-- [x] ✅ Sección gluten-free completa
-- [ ] 🔄 Galería de imágenes
-- [x] ✅ Optimización mobile
-- [x] ✅ Animaciones y transiciones
-- [x] ✅ Contador regresivo dinámico
-- [x] ✅ Sistema de routing optimizado
-- [x] ✅ Componentes de vuelo integrados
+- **Modo Oscuro (Principal)**: Inspirado en los neones de Shinjuku y Akihabara (fucsia, cian, púrpuras).
+- **Modo Claro**: Más sereno y tradicional (rosa sakura, verde zen), optimizado para la lectura diurna.
 
-### Fase 4: Deployment y Optimización (Semana 4) ✅ COMPLETADA
-- [x] ✅ Configuración GitHub Pages
-- [x] ✅ Optimización de performance
-- [x] ✅ BASE_URL configurado correctamente
-- [x] ✅ Testing responsivo completo
-- [x] ✅ Limpieza de código y CSS
+### Funcionalidad Inteligente para una UX Superior
 
-## 📈 Métricas de Éxito
-- ✅ Tiempo de carga < 3 segundos
-- ✅ Responsive design perfecto en móvil
-- ✅ Navegación intuitiva del itinerario
-- ✅ Información gluten-free fácilmente accesible
+- **Timeline Consciente del Tiempo**: La lógica implementada en `Timeline.astro` hace que la página se sienta viva y relevante.
+- **Filtros No Destructivos**: El uso de Alpine.js permite una experiencia de filtrado instantánea sin recargar la página.
 
-## 🎯 Progreso Actual (Julio 2025)
-### ✅ **Logros Completados:**
-- **Setup completo**: Astro + TailwindCSS configurado
-- **Diseño base implementado**: Paleta rosa japonesa, tipografías, layout
-- **Componentes funcionales**: Header, Timeline, DayCard, GlutenFreeGuide, Gallery
-- **Responsive design**: Optimización completa para móvil 
-- **Hero section impactante**: Con animaciones y efectos visuales
-- **Itinerario completo**: 14 días detallados con actividades, horarios y costos
-- **Base de datos gluten-free**: 18 restaurantes verificados por ciudad
-- **Frases de supervivencia**: 12 frases esenciales en japonés con romaji
-- **Apps recomendadas**: 6 aplicaciones móviles útiles
-- **Productos de emergencia**: Guía de compra en konbinis
-- **GitHub Pages**: Desplegado y funcionando
-- **Navegación responsive**: Header con overflow control
-- **Legibilidad optimizada**: Colores ajustados para modo claro
-- **Subrayados eliminados**: Implementación súper agresiva exitosa
-- **Timeline inteligente**: Sistema de fechas que muestra contenido relevante según la fecha actual
-- **Contador regresivo**: Dinámico hasta el 13 de agosto con actualización en tiempo real
-- **Sistema de routing**: BASE_URL configurado correctamente para GitHub Pages
-- **Componentes de vuelo**: FlightCard y ReturnFlightCard integrados
-- **Página de itinerario**: Página completa con Header y navegación optimizada
-- **Botones CTA optimizados**: Tamaños igualados, emojis arreglados, animaciones consistentes
-- **Código limpio**: Eliminación de filtros obsoletos y CSS no utilizado
-- **Experiencia de usuario**: Navegación fluida entre timeline y itinerario completo
+---
 
-### 🏆 **Características Avanzadas Implementadas:**
-- **Timeline con lógica temporal**: Muestra diferentes contenidos según la fecha:
-  - Antes del viaje: Solo tarjeta de vuelo
-  - Día de vuelo: Vuelo + primer día
-  - Durante el viaje: Día actual correspondiente
-  - Último día: Día 15 + vuelo de vuelta
-  - Después del viaje: Mensaje de finalización
-- **Contador regresivo dinámico**: 
-  - Cuenta días, horas, minutos y segundos hasta el 13 de agosto
-  - Actualización automática cada segundo
-  - Efectos visuales con animaciones de pulso
-  - Mensaje especial cuando comience el viaje
-  - Compatible con modo claro/oscuro
-- **Sistema de navegación avanzado**:
-  - URLs correctas con BASE_URL para deployment
-  - Navegación entre página principal y itinerario completo
-  - Header integrado en todas las páginas
-  - Botones CTA con routing optimizado
+## 🎌 Conclusión Arquitectónica
 
-### 🔄 **Pendientes (Opcionales):**
-- Integración de mapas interactivos
-- Meta tags avanzados para SEO
-- PWA para uso offline
-
-### 📊 **Progreso General: 95% Completado**
-
-## ✨ **Características Destacadas del Proyecto**
-
-### 🎨 **Diseño Visual**
-- **Tema rosa japonés**: Gradientes fucsia con efectos neón
-- **Modo claro/oscuro**: Transiciones suaves entre temas
-- **Animaciones fluidas**: Partículas flotantes, efectos hover, transiciones
-- **Responsive design**: Optimización perfecta para móvil y desktop
-
-### 🧠 **Funcionalidad Inteligente**
-- **Timeline adaptativo**: Contenido dinámico según fecha actual
-- **Contador en tiempo real**: JavaScript vanilla sin dependencias
-- **Navegación intuitiva**: Flujo lógico entre secciones
-- **Información organizada**: Estructura clara y accesible
-
-### 🌾 **Enfoque Gluten-Free**
-- **Restaurantes verificados**: Base de datos completa por ciudad
-- **Frases útiles**: Comunicación en japonés para celíacos
-- **Apps recomendadas**: Herramientas digitales de apoyo
-- **Productos de emergencia**: Guía de compras en konbinis
-
-### 🚀 **Tecnología Moderna**
-- **Astro framework**: SSG optimizado para performance
-- **TailwindCSS**: Estilos utilitarios con diseño consistente
-- **GitHub Pages**: Deployment automático y confiable
-- **Código limpio**: Arquitectura mantenible y escalable
-
-## 📝 Notas Adicionales
-- ✅ PDF del itinerario procesado y estructurado en JSON
-- ✅ Logo/favicon con tema rosa japonés implementado
-- ✅ Experiencia optimizada para uso móvil durante el viaje
-- ✅ Versión digital completa con navegación intuitiva
-- ✅ Sistema de fechas inteligente que evoluciona con el tiempo
-- ✅ Contador regresivo para generar expectativa pre-viaje
-
-## 🎌 **Estado Final del Proyecto**
-**El proyecto está virtualmente completo y listo para el viaje.** Todas las funcionalidades principales están implementadas, el diseño es responsive y atractivo, y la experiencia de usuario es fluida. El sitio web ahora sirve como una herramienta completa para planificar, seguir y disfrutar el viaje a Japón con todas las consideraciones especiales para celíacos incluidas.
-
-**URL del proyecto desplegado**: [Japan-2025-Trip en GitHub Pages](https://nachosizle.github.io/Japan-2025-Trip/)
+El proyecto es un ejemplo práctico de cómo utilizar un stack moderno (Astro, Tailwind, Alpine.js) para construir una PWA de alto rendimiento y visualmente rica. La arquitectura prioriza la experiencia del usuario, la utilidad práctica y la facilidad de mantenimiento.

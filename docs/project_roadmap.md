@@ -1,114 +1,79 @@
 # 📍 Roadmap del Proyecto: Japan 2025 Trip
 
-Este roadmap resume las tareas completadas y el progreso funcional del sitio web basado en Astro, tal como fue implementado hasta julio 2025.
+Este documento desglosa el proceso de desarrollo del proyecto, las funcionalidades implementadas en detalle y una visión extendida de las futuras mejoras.
 
 ---
 
-## ✅ Semana 1: Setup y Diseño Base
-- Configuración del entorno con Astro + TailwindCSS
-- Definición del sistema de diseño y estructura de componentes
-- Creación del layout base con navegación responsive
-- Desarrollo de la Hero Section animada
-- Diseño inicial adaptado al tema japonés neón
+## 📊 Progreso General: 98% Completado
+
+<div align="center">
+
+![Progress](https://progress-bar.dev/98/?scale=100&title=Completado&width=600&color=FF1493&suffix=%25)
+
+</div>
+
+El proyecto ha superado sus objetivos iniciales, evolucionando de una simple landing page a una PWA completa y funcional, lista para ser una herramienta indispensable durante el viaje.
 
 ---
 
-## ✅ Semana 2: Contenido e Interactividad
-- Procesamiento y transformación del PDF del itinerario a JSON
-- Implementación del Timeline interactivo
-- Lógica temporal en el Timeline según la fecha actual
-- Componentes `DayCard` y `FlightCard` funcionales
-- Contador regresivo dinámico funcionando con actualización por segundo
+## ✅ Desglose de Funcionalidades Implementadas
+
+A continuación se detallan los hitos técnicos y funcionales logrados en cada fase del desarrollo.
+
+### Fase 1: Setup y Diseño Base
+- **Configuración del Entorno**: Inicialización del proyecto con Astro, TypeScript y Tailwind CSS.
+- **Estructura del Proyecto**: Definición de la organización de carpetas (`src`, `public`, `components`, `layouts`).
+- **Componentes de Layout**: Creación de `Layout.astro` y `Header.astro` para una estructura consistente.
+- **Sistema de Diseño**: Implementación de la paleta de colores, tipografías y espaciados en `tailwind.config.mjs`.
+- **Hero Section**: Desarrollo de la sección principal con gradientes y animaciones de entrada.
+- **Tema Claro/Oscuro**: Implementación del toggle de tema con persistencia en `localStorage`.
+
+### Fase 2: Contenido e Interactividad
+- **Procesamiento de Datos**: Conversión del itinerario desde PDF a una estructura JSON (`itinerario.json`).
+- **Componentes de Datos**: Creación de `DayCard.astro` y `FlightCard.astro` para mostrar la información del viaje.
+- **Timeline Interactivo**: Desarrollo del componente `Timeline.astro` con la lógica para mostrar los días del viaje.
+- **Contador Regresivo**: Implementación de un contador en tiempo real con JavaScript vanilla.
+- **Páginas Dinámicas**: Creación de la ruta `[dia].astro` para generar una página por cada día del itinerario.
+
+### Fase 3: Características Especiales
+- **Guía Sin Gluten**: Desarrollo de la sección `GlutenFreeGuide.astro` con frases, apps y consejos.
+- **Iconografía Personalizada**: Diseño e integración de iconos específicos (ej. 🌾🚫).
+- **Sistema de Filtros**: Implementación de `SistemaFiltros.astro` con Alpine.js para filtrar por ciudad y tipo de actividad.
+- **Widget del Clima**: Integración con la API de OpenWeatherMap para mostrar el clima en tiempo real (`WeatherWidget.astro`).
+- **Optimización Responsive**: Ajuste fino de todos los componentes para una experiencia móvil perfecta.
+
+### Fase 4: PWA, Notificaciones y Optimización Final
+- **Implementación de PWA**: Configuración de `@vite-pwa/astro` para habilitar la instalación y el acceso offline.
+- **Página Offline Personalizada**: Creación de `offline.html` para una mejor experiencia sin conexión.
+- **Service Workers**: Configuración de estrategias de caché para assets y rutas.
+- **Notificaciones Push**: Integración con OneSignal y creación de scripts para el envío de notificaciones (`sendDailyItineraryNotification.js`).
+- **Optimización de Rendimiento**: Minificación de assets, optimización de imágenes y auditoría de Lighthouse.
+- **Deploy**: Configuración de GitHub Actions para el despliegue automático en GitHub Pages.
 
 ---
 
-## ✅ Semana 3: Características Especiales
-- Sección “Guía Gluten-Free” completa
-- Iconografía personalizada (🌾🚫)
-- Listado de restaurantes gluten-free por ciudad
-- Frases útiles para celíacos en japonés
-- Apps móviles recomendadas y guía de konbinis
-- Animaciones, transiciones y mejoras responsive
-- Optimización mobile
+## 🚀 Próximas Mejoras: Visión a Futuro
+
+Estas son funcionalidades que podrían llevar el proyecto al siguiente nivel, convirtiéndolo en una plataforma de viajes más completa.
+
+### Mejoras de Utilidad
+- [ ] **Gestor de Presupuesto**: Una herramienta para registrar gastos diarios y compararlos con un presupuesto predefinido.
+- [ ] **Checklist de Viaje**: Checklists personalizables (equipaje, documentos, tareas pre-viaje) con estado de completado.
+- [ ] **Exportar Itinerario**: Función para exportar el itinerario de un día o el viaje completo a PDF o iCal/Google Calendar.
+- [ ] **Traductor Básico**: Un mini-traductor integrado para frases comunes o personalizadas.
+
+### Mejoras de Interactividad
+- [ ] **Mapas Interactivos**: Reemplazar los enlaces de Google Maps con mapas embebidos que muestren todas las actividades de un día.
+- [ ] **Sistema de Feedback**: Permitir a los usuarios (en este caso, tú) añadir notas, fotos o valoraciones a restaurantes y actividades directamente en la app.
+- [ ] **Galería de Fotos Avanzada**: Organizar la galería por días o ciudades y permitir la subida de imágenes durante el viaje.
+
+### Mejoras de Personalización
+- [ ] **Soporte Multi-idioma**: Añadir traducciones al inglés y japonés para que la herramienta sea más versátil.
+- [ ] **Temas Personalizables**: Permitir al usuario elegir entre diferentes paletas de colores o temas visuales.
+- [ ] **Dashboard de Usuario**: Una página de perfil donde se puedan guardar preferencias, notas personales y más.
 
 ---
 
-## ✅ Semana 4: Deployment y Optimización
-- Despliegue en GitHub Pages con `BASE_URL` configurado
-- Limpieza de código y eliminación de estilos obsoletos
-- Pruebas responsive en móviles y tablets
-- Navegación fluida entre páginas e itinerario completo
-- Botones CTA con rutas optimizadas
+## 🎌 Conclusión
 
----
-
-## 🏆 Características Avanzadas Implementadas
-- Sistema inteligente de Timeline según fecha:
-  - Previa al viaje: solo vuelo
-  - Día de salida: vuelo + día 1
-  - Durante el viaje: día correspondiente
-  - Último día y post-viaje: cierre adecuado
-- Contador regresivo en tiempo real
-- Routing optimizado y navegación coherente
-- Base de datos gluten-free integrada
-- Hero visual impactante
-- Animaciones de partículas y hover
-
----
-
-- [ ] Galería de imágenes (filtro dinámico)
-- [x] Sistema de filtros por ciudad / tipo de actividad en el itinerario ✅
-- [ ] Integración de mapas interactivos (Google Maps Embed API)
-- [ ] Meta tags avanzados para SEO
-- [x] PWA para uso offline ✅
-- [x] Notificaciones push para recordatorios de actividades importantes ✅
-- [ ] Sistema de feedback de usuarios (comentarios/valoraciones sobre restaurantes y actividades)
-- [ ] Exportar itinerario a PDF o Google Calendar
-- [ ] Modo oscuro/claro automático y manual
-- [x] Widget de clima en tiempo real por ciudad ✅
-- [ ] Integración con redes sociales para compartir itinerario, frases o guía gluten-free
-- [ ] Sección de preguntas frecuentes (FAQ)
-- [ ] Historial de viajes y consulta de itinerarios pasados
-- [ ] Integración con APIs de transporte japonés (horarios, rutas, alertas)
-- [ ] Gamificación: logros, puntos o insignias por completar actividades
-- [ ] Soporte multilenguaje (inglés y japonés)
-
----
-
-Progreso general: **✅ 98% Completado**
-
----
-
-### ✅ Widget de clima en tiempo real por ciudad
-Se ha implementado un widget visual y compacto que muestra el clima actual de la ciudad relevante en el Timeline y en los días del itinerario. Utiliza la API de OpenWeatherMap, incluye caché local para eficiencia, diseño temático (gradientes, icono dinámico, modo oscuro/claro) y solo se muestra si hay ciudad válida. El widget es responsive y se integra perfectamente con el look & feel del sitio.
-
-
-## ✅ PWA y Notificaciones Push implementadas
-
-La app ahora es una PWA completa: permite uso offline, instalación en dispositivos, carga rápida y notificaciones push para recordatorios de actividades importantes. Se han seguido todos los pasos técnicos recomendados, incluyendo:
-- Instalación y configuración de @vite-pwa/astro
-- Manifest y assets correctamente enlazados con BASE_URL
-- Iconos en `/public/icons/` (192x192 y 512x512)
-- Página offline personalizada
-- Service Worker funcional y rutas cacheadas
-- Integración de notificaciones push mediante OneSignal y script personalizado
-- Pruebas en Chrome DevTools, Lighthouse y dispositivos reales
-
-¡La funcionalidad PWA y las notificaciones push están listas y probadas!
-
-### ✅ Sistema de filtros avanzado para el itinerario
-
-Se ha implementado un completo sistema de filtros para el itinerario que ofrece las siguientes funcionalidades:
-- **Filtrado por tipo de actividad**: Turismo, Sin Gluten, Destacados
-- **Filtrado por ciudad**: Tokio, Kyoto, Osaka, etc.
-- **Visualización de actividades específicas**: Muestra solo las actividades que cumplen los criterios de filtrado, no días enteros
-- **Panel de filtros colapsable**: Diseño limpio que ahorra espacio en la interfaz
-- **Contador de resultados**: Muestra claramente cuántos días coinciden con los filtros aplicados
-- **Diseño adaptado a la paleta de colores del sitio**: Coherencia visual con el resto del sitio
-- **Indicadores visuales claros**: Botones de filtro con estados activo/inactivo bien diferenciados
-- **Tarjetas de actividades mejoradas**: Diseño compacto y atractivo con icono, título, hora y ubicación
-- **Etiquetas visuales para tipos especiales**: Identificadores para actividades sin gluten y destacadas
-- **Enlaces a Google Maps**: Para actividades de tipo "alojamiento" se muestra un botón "Ver en mapa"
-- **Animaciones suaves**: Transiciones al aplicar filtros para mejorar la experiencia de usuario
-- **Modo claro/oscuro**: Compatibilidad completa con ambos temas
-- **Diseño totalmente responsive**: Funciona perfectamente en todos los dispositivos
+El roadmap ha sido un éxito, resultando en una aplicación robusta y rica en funcionalidades. Las futuras mejoras ofrecen un camino claro para evolucionar el proyecto de una herramienta de un solo viaje a una plataforma de planificación de viajes más potente y reutilizable.
