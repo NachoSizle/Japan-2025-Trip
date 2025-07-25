@@ -52,7 +52,7 @@ export default function FlightCard(props: { flight: Flight }) {
   return (
     <>
       <div class="flight-card bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm border border-blue-400/30 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center justify-between mb-4 flex-col gap-4 sm:flex-row sm:gap-0">
           <div class="flex items-center space-x-3">
             <div class="flight-icon text-3xl">✈️</div>
             <div>
