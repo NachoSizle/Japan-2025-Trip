@@ -1,20 +1,22 @@
 ---
 import DayCardWrapper from './DayCardWrapper.astro';
-import FlightCard from './FlightCard.astro';
+import FlightCard from './FlightCard.tsx';
 import ReturnFlightCard from './ReturnFlightCard.astro';
 import WeatherWidget from './WeatherWidget.astro';
 import itinerarioData from '../data/itinerario.json';
+import flightsData from '../data/flights.json';
 
 const { dias } = itinerarioData;
+const flightIda = flightsData.flights.find(f => f.direction === 'ida');
 
 // Función para calcular qué tarjetas mostrar según la fecha actual
 function getDaysToShow() {
   // Para testing, puedes cambiar esta línea para simular diferentes fechas:
   // const now = new Date('2025-08-10'); // Para probar antes del viaje
   // const now = new Date('2025-08-13'); // Para probar día de vuelo
-  const now = new Date('2025-08-16'); // Para probar durante el viaje
+  //const now = new Date('2025-08-16'); // Para probar durante el viaje
   // const now = new Date('2025-08-29'); // Para probar al final del viaje
-  //const now = new Date(); // Fecha actual del sistema
+  const now = new Date(); // Fecha actual del sistema
   
   const currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD format
   
@@ -146,12 +148,12 @@ const daysToShow = getDaysToShow();
           return (
             <div class="relative">              
               {/* Mostrar tarjeta de vuelo (ida) si corresponde */}
-              {diaExtended.showFlightCard && (
+              {diaExtended.showFlightCard && flightIda && (
                 <div class="w-full max-w-lg mx-auto mb-6">
-                  <FlightCard />
+                  <FlightCard flight={flightIda} />
                   <div class="mt-2 transition-colors duration-300 text-center">
                     <span class="text-xs clickable-hint">
-                      ✈️ Información del vuelo (próximamente)
+                      ✈️ Información del vuelo
                     </span>
                   </div>
                 </div>
@@ -415,8 +417,6 @@ const daysToShow = getDaysToShow();
   * {
     text-decoration: none !important;
     text-decoration-line: none !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
   }
   
   /* Eliminar cualquier estilo de Tailwind que pueda causar subrayado */
