@@ -1,4 +1,4 @@
-import { For } from 'solid-js';
+import { For, Show } from 'solid-js';
 
 export interface Flight {
   direction: string;
@@ -36,8 +36,13 @@ export interface Flight {
   notes: string;
 }
 
-export default function FlightCard(props: { flight: Flight }) {
-  const { flight } = props;
+interface FlightCardProps {
+  title: string;
+  flight?: Flight;
+}
+
+export default function FlightCard(props: FlightCardProps) {
+  const { flight, title } = props;
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -57,42 +62,58 @@ export default function FlightCard(props: { flight: Flight }) {
             <div class="flight-icon text-3xl">✈️</div>
             <div>
               <h3 class="flight-title text-lg font-bold m-0 text-blue-400">
-                Vuelo {flight.from.city} → {flight.to.city}
+                {title}
               </h3>
-              <p class="flight-date text-sm m-0 text-gray-300">
-                {formatDate(flight.from.departure_time)}
-              </p>
+              <Show when={flight}>
+                <p class="flight-date text-sm m-0 text-gray-300">
+                  {formatDate(flight!.from.departure_time)}
+                </p>
+              </Show>
             </div>
           </div>
-          <div class="flight-status px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs text-blue-300">
-            {flight.airline}
-          </div>
+          <Show when={flight}>
+            <div class="flight-status px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs text-blue-300">
+              {flight!.airline}
+            </div>
+          </Show>
         </div>
         
-        <div class="space-y-4">
-          <For each={flight.flight_segments}>{(segment, i) => 
-            <div class="flight-segment border-t border-gray-400/20 pt-4">
-              <div class="flex justify-between items-center mb-2">
-                <div class="font-bold text-sm">{segment.from} → {segment.to}</div>
-                <a href={segment.tracking_url} target="_blank" rel="noopener noreferrer" class="flight-tracker-link group flex items-center space-x-2 bg-gray-700/50 px-3 py-1.5 rounded-full hover:bg-blue-500/50 transition-colors">
-                  <span class="text-xs font-mono text-white">
-                    {segment.flight_number}
-                  </span>
-                  <span class="text-xs text-blue-300 group-hover:text-white transition-colors">Rastrear 🛰️</span>
-                </a>
+        <Show when={flight} fallback={
+          <div class="flight-placeholder border-2 border-dashed border-gray-400/30 rounded-lg p-8 text-center">
+            <div class="text-6xl mb-4 opacity-50">🏠</div>
+            <p class="text-gray-400 font-medium mb-2">
+              Información del vuelo no disponible
+            </p>
+            <p class="text-gray-500 text-sm">
+              Los datos se completarán más adelante
+            </p>
+          </div>
+        }>
+          <div class="space-y-4">
+            <For each={flight!.flight_segments}>{(segment) => 
+              <div class="flight-segment border-t border-gray-400/20 pt-4">
+                <div class="flex justify-between items-center mb-2">
+                  <div class="font-bold text-sm">{segment.from} → {segment.to}</div>
+                  <a href={segment.tracking_url} target="_blank" rel="noopener noreferrer" class="flight-tracker-link group flex items-center space-x-2 bg-gray-700/50 px-3 py-1.5 rounded-full hover:bg-blue-500/50 transition-colors">
+                    <span class="text-xs font-mono text-white">
+                      {segment.flight_number}
+                    </span>
+                    <span class="text-xs text-blue-300 group-hover:text-white transition-colors">Rastrear 🛰️</span>
+                  </a>
+                </div>
+                <div class="text-xs text-gray-400">
+                  <p class="m-0 mb-1">Salida: {formatDate(segment.departure)} a las {formatTime(segment.departure)}</p>
+                  <p class="m-0 mt-1">Llegada: {formatDate(segment.arrival)} a las {formatTime(segment.arrival)}</p>
+                </div>
               </div>
-              <div class="text-xs text-gray-400">
-                <p class="m-0 mb-1">Salida: {formatDate(segment.departure)} a las {formatTime(segment.departure)}</p>
-                <p class="m-0 mt-1">Llegada: {formatDate(segment.arrival)} a las {formatTime(segment.arrival)}</p>
-              </div>
-            </div>
-          }</For>
-        </div>
+            }</For>
+          </div>
 
-        <div class="mt-4 border-t border-gray-400/20 pt-4 text-xs text-gray-400">
-          <p><strong>Equipaje:</strong> {flight.baggage.checked} facturado, {flight.baggage.hand} de mano.</p>
-          <p class="mt-2"><em>{flight.notes}</em></p>
-        </div>
+          <div class="mt-4 border-t border-gray-400/20 pt-4 text-xs text-gray-400">
+            <p><strong>Equipaje:</strong> {flight!.baggage.checked} facturado, {flight!.baggage.hand} de mano.</p>
+            <p class="mt-2"><em>{flight!.notes}</em></p>
+          </div>
+        </Show>
       </div>
       <style>
         {`

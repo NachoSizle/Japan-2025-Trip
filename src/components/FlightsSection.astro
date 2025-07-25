@@ -1,0 +1,68 @@
+---
+import FlightCard from './FlightCard.tsx';
+import flightsData from '../data/flights.json';
+
+const departureFlight = flightsData.flights.find(f => f.direction === 'ida');
+const returnFlight = flightsData.flights.find(f => f.direction === 'vuelta');
+---
+
+<section id="flights" class="py-12 flights-section">
+  <div class="container mx-auto px-4">
+    <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold m-0 mb-8 sm:mb-12 text-center flights-title">
+      ✈️ Detalles de Vuelo
+    </h3>
+    <p class="text-base sm:text-lg md:text-xl text-center text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto">
+      Aquí puedes consultar los detalles de nuestros vuelos. Desde las terminales de salida y llegada hasta los horarios y números de vuelo, toda la información esencial para un viaje sin contratiempos.
+    </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {departureFlight && (
+        <FlightCard 
+          client:visible
+          title="Vuelo de Ida: Madrid → Osaka"
+          flight={departureFlight}
+        />
+      )}
+      <div class="return-flight-wrapper">
+        {returnFlight && (
+          <FlightCard 
+            client:visible
+            title="Vuelo de Vuelta: Tokio → Madrid"
+            flight={returnFlight}
+          />
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .flights-section {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .flights-title {
+    background: linear-gradient(45deg, #60A5FA, #FB923C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(251, 146, 60, 0.3);
+  }
+
+  /* Light mode overrides */
+  :global([data-theme="light"]) .flights-section {
+    background: radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 182, 182, 0.05) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(255, 0, 64, 0.05) 0%, transparent 50%), linear-gradient(135deg, rgb(248, 249, 250) 0%, rgb(233, 236, 239) 100%) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  :global([data-theme="light"]) .flights-title {
+    background: linear-gradient(45deg, #1D4ED8, #C2410C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+  }
+</style>

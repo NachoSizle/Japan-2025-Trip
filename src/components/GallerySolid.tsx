@@ -18,13 +18,183 @@ interface Category {
   color: string;
 }
 
-// Props que el componente recibirá desde Astro
-interface Props {
-  images: Image[];
-  categories: Category[];
-}
+// Imágenes placeholder
+const images: Image[] = [
+  {
+    id: 1,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Sensoji_at_night.JPG/960px-Sensoji_at_night.JPG",
+    alt: "Templo Senso-ji en Asakusa",
+    category: "templos",
+    location: "Asakusa, Tokio",
+    day: 10
+  },
+  {
+    id: 2,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dotombori_neon_sign_on_9th_July_2024.jpg/960px-Dotombori_neon_sign_on_9th_July_2024.jpg",
+    alt: "Neones de Dōtonbori",
+    category: "neones",
+    location: "Dōtonbori, Osaka",
+    day: 2
+  },
+  {
+    id: 3,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Ramen_Bowl_2.jpg/960px-Ramen_Bowl_2.jpg",
+    alt: "Ramen sin gluten",
+    category: "gluten-free",
+    location: "Restaurante especializado",
+    day: 7
+  },
+  {
+    id: 4,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Osaka_Castle_02bs3200.jpg/960px-Osaka_Castle_02bs3200.jpg",
+    alt: "Castillo de Osaka",
+    category: "landmarks",
+    location: "Osaka",
+    day: 2
+  },
+  {
+    id: 5,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Arashiyama_Bamboo_Grove_-_Kyoto%2C_Japan.jpg/960px-Arashiyama_Bamboo_Grove_-_Kyoto%2C_Japan.jpg",
+    alt: "Bosque de Bambú de Arashiyama",
+    category: "naturaleza",
+    location: "Arashiyama, Kioto",
+    day: 6
+  },
+  {
+    id: 6,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/A_pair_of_deer_in_Nara_Park%2C_Japan.jpg/960px-A_pair_of_deer_in_Nara_Park%2C_Japan.jpg",
+    alt: "Ciervos en el Parque de Nara",
+    category: "naturaleza",
+    location: "Nara",
+    day: 7
+  },
+  {
+    id: 7,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Akihabara_Night.jpg/960px-Akihabara_Night.jpg",
+    alt: "Distrito de Akihabara por la noche",
+    category: "neones",
+    location: "Akihabara, Tokio",
+    day: 9
+  },
+  {
+    id: 8,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kiyomizu-dera_in_Kyoto-r.jpg/960px-Kiyomizu-dera_in_Kyoto-r.jpg",
+    alt: "Templo Kiyomizu-dera",
+    category: "templos",
+    location: "Kioto",
+    day: 6
+  },
+  {
+    id: 9,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Torii_of_Fushimi_Inari_Grand_Shrine_7.jpg/960px-Torii_of_Fushimi_Inari_Grand_Shrine_7.jpg",
+    alt: "Fushimi Inari Taisha",
+    category: "templos",
+    location: "Kioto",
+    day: 7
+  },
+  {
+    id: 10,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Golden_Pavilion.jpg/960px-Golden_Pavilion.jpg",
+    alt: "Pabellón de Oro (Kinkaku-ji)",
+    category: "templos",
+    location: "Kioto",
+    day: 6
+  },
+  {
+    id: 11,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Mount_Fuji_from_Lake_Kawaguchi.jpg/960px-Mount_Fuji_from_Lake_Kawaguchi.jpg",
+    alt: "Monte Fuji desde el Lago Kawaguchi",
+    category: "naturaleza",
+    location: "Kawaguchiko",
+    day: 8
+  },
+  {
+    id: 12,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tokyo_Skytree_at_night%3B_August_2017.jpg/960px-Tokyo_Skytree_at_night%3B_August_2017.jpg",
+    alt: "Tokyo Skytree",
+    category: "landmarks",
+    location: "Tokio",
+    day: 10
+  },
+  {
+    id: 13,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Gundam_statue.jpg/960px-Gundam_statue.jpg",
+    alt: "Estatua Gundam Unicorn en Odaiba",
+    category: "landmarks",
+    location: "Odaiba, Tokio",
+    day: 10
+  },
+  {
+    id: 14,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Shibuya_Crossing_at_night.jpg/800px-Shibuya_Crossing_at_night.jpg",
+    alt: "Shibuya Scramble Crossing",
+    category: "neones",
+    location: "Shibuya, Tokio",
+    day: 11
+  },
+  {
+    id: 15,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Entrance_of_Takeshita_Street_at_Harajuku.jpg/800px-Entrance_of_Takeshita_Street_at_Harajuku.jpg",
+    alt: "Takeshita-dōri, Harajuku",
+    category: "cultura",
+    location: "Harajuku, Tokio",
+    day: 11
+  },
+  /* — Para los últimos 5 he utilizado el buscador de Unsplash; cada vez que se carga
+       la página trae una foto distinta pero siempre del tema indicado — */
+  {
+    id: 16,
+    src: "https://source.unsplash.com/800x600/?Omoide%20Yokocho%20Shinjuku",
+    alt: "Omoide Yokocho (Piss Alley)",
+    category: "cultura",
+    location: "Shinjuku, Tokio",
+    day: 11
+  },
+  {
+    id: 17,
+    src: "https://source.unsplash.com/800x600/?Osaka%20Aquarium%20Kaiyukan",
+    alt: "Acuario Kaiyūkan",
+    category: "naturaleza",
+    location: "Osaka",
+    day: 3
+  },
+  {
+    id: 18,
+    src: "https://source.unsplash.com/800x600/?Kuromon%20Ichiba%20Market",
+    alt: "Mercado Kuromon Ichiba",
+    category: "comida",
+    location: "Osaka",
+    day: 4
+  },
+  {
+    id: 19,
+    src: "https://source.unsplash.com/800x600/?TeamLab%20Planets%20Tokyo",
+    alt: "TeamLab Planets",
+    category: "arte",
+    location: "Tokio",
+    day: 10
+  },
+  {
+    id: 20,
+    src: "https://source.unsplash.com/800x600/?Maid%20Cafe%20Akihabara",
+    alt: "Maid Café Akihabara",
+    category: "cultura",
+    location: "Akihabara, Tokio",
+    day: 9
+  }
+];
 
-const GallerySolid: Component<Props> = (props) => {
+const categories = [
+  { id: 'todos', name: 'Todas', color: 'primary' },
+  { id: 'templos', name: '🏯 Templos', color: 'temples' },
+  { id: 'neones', name: '🌃 Neones', color: 'neon' },
+  { id: 'gluten-free', name: '🌾🚫 Sin Gluten', color: 'glutenfree' },
+  { id: 'landmarks', name: '🗼 Landmarks', color: 'landmarks' },
+  { id: 'naturaleza', name: '🌸 Naturaleza', color: 'nature' }
+];
+
+
+const GallerySolid: Component = () => {
   // Estado para la categoría activa y la imagen seleccionada en el modal
   const [activeCategory, setActiveCategory] = createSignal('todos');
   const [selectedImage, setSelectedImage] = createSignal<Image | null>(null);
@@ -32,16 +202,16 @@ const GallerySolid: Component<Props> = (props) => {
   // Función para obtener las imágenes filtradas según la categoría activa
   const filteredImages = () => {
     if (activeCategory() === 'todos') {
-      return props.images;
+      return images;
     }
-    return props.images.filter(image => image.category === activeCategory());
+    return images.filter(image => image.category === activeCategory());
   };
 
   return (
-    <section id="galeria" class="py-12 sm:py-16 md:py-20 gallery-section">
+    <section id="galeria" class="py-12 gallery-section">
       <div class="container mx-auto px-4">
         <div class="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-poppins mb-4 sm:mb-6 gallery-title">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-poppins m-0 mb-4 sm:mb-6 gallery-title">
             📸 Galería
           </h2>
           <p class="text-lg sm:text-xl gallery-subtitle max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
@@ -52,7 +222,7 @@ const GallerySolid: Component<Props> = (props) => {
         <div class="gallery-container">
           {/* Filtros de categoría renderizados con SolidJS */}
           <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2">
-            <For each={props.categories}>{(category) =>
+            <For each={categories}>{(category) =>
               <button 
                 onClick={() => setActiveCategory(category.id)}
                 class={`px-3 sm:px-4 py-2 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap filter-inactive-${category.color}`}
@@ -144,7 +314,7 @@ const GallerySolid: Component<Props> = (props) => {
             position: relative;
           }
           
-          [data-theme="light"] .gallery-section {
+          :global([data-theme="light"]) .gallery-section {
             background: linear-gradient(135deg, #FFE8E8 0%, #FFDDDD 50%, #FFE8E8 100%);
           }
 
@@ -156,7 +326,7 @@ const GallerySolid: Component<Props> = (props) => {
             text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
           }
           
-          [data-theme="light"] .gallery-title {
+          :global([data-theme="light"]) .gallery-title {
             background: linear-gradient(135deg, #C41E3A, #8B0000, #DC143C);
             -webkit-background-clip: text;
             background-clip: text;
@@ -168,7 +338,7 @@ const GallerySolid: Component<Props> = (props) => {
             color: rgba(255, 255, 255, 0.8);
           }
           
-          [data-theme="light"] .gallery-subtitle {
+          :global([data-theme="light"]) .gallery-subtitle {
             color: #2D1B1B;
             font-weight: 600;
             opacity: 0.95;

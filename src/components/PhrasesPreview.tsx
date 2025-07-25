@@ -42,11 +42,11 @@ const frasesDestacadas = [
 export default function PhrasesPreview() {
   return (
     <>
-      <section id="frases-preview" class="py-16 sm:py-20 phrases-preview-section">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="frases-preview" class="py-12 phrases-preview-section">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 m-0">
           {/* Header */}
           <div class="text-center mb-12 sm:mb-16">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 phrases-preview-title">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold m-0 mb-4 phrases-preview-title">
               🗣️ Frases Esenciales
             </h2>
             <p class="text-lg sm:text-xl lg:text-2xl mb-6 phrases-preview-subtitle">

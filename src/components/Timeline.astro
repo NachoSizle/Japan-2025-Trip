@@ -1,13 +1,9 @@
 ---
 import DayCardWrapper from './DayCardWrapper.astro';
-import FlightCard from './FlightCard.tsx';
-import ReturnFlightCard from './ReturnFlightCard.astro';
 import WeatherWidget from './WeatherWidget.astro';
 import itinerarioData from '../data/itinerario.json';
-import flightsData from '../data/flights.json';
 
 const { dias } = itinerarioData;
-const flightIda = flightsData.flights.find(f => f.direction === 'ida');
 
 // Función para calcular qué tarjetas mostrar según la fecha actual
 function getDaysToShow() {
@@ -36,9 +32,7 @@ function getDaysToShow() {
       titulo: 'Vuelo España → Japón',
       ciudad: 'En tránsito',
       actividades: [],
-      showFlightCard: true,
       showDayCard: false,
-      showReturnFlightCard: false,
       isCurrentDay: false
     }];
   }
@@ -48,20 +42,8 @@ function getDaysToShow() {
     console.log('Día de vuelo - tarjeta de vuelo + día 1');
     const day1 = dias[0]; // Primer día del itinerario
     return [{
-      dia: 0, // Día especial para vuelo
-      fecha: flightDate,
-      titulo: 'Vuelo España → Japón',
-      ciudad: 'En tránsito',
-      actividades: [],
-      showFlightCard: true,
-      showDayCard: false,
-      showReturnFlightCard: false,
-      isCurrentDay: true
-    }, {
       ...day1,
-      showFlightCard: false,
       showDayCard: true,
-      showReturnFlightCard: false,
       isCurrentDay: false
     }];
   }
@@ -76,9 +58,7 @@ function getDaysToShow() {
       console.log('Día actual encontrado:', currentDay.dia);
       return [{
         ...currentDay,
-        showFlightCard: false,
         showDayCard: true,
-        showReturnFlightCard: false,
         isCurrentDay: true
       }];
     } else {
@@ -88,26 +68,14 @@ function getDaysToShow() {
     }
   }
   
-  // 4. 28 agosto: DayCard del día 15 + tarjeta de vuelo de vuelta
+  // 4. 28 agosto: DayCard del día 15
   if (currentDate === tripEnd) {
     console.log('Último día - día 15 + vuelo de vuelta');
     const lastDay = dias[dias.length - 1]; // Último día del itinerario
     return [{
       ...lastDay,
-      showFlightCard: false,
       showDayCard: true,
-      showReturnFlightCard: false,
       isCurrentDay: true
-    }, {
-      dia: 999, // Día especial para vuelo de vuelta
-      fecha: tripEnd,
-      titulo: 'Vuelo Japón → España',
-      ciudad: 'En tránsito',
-      actividades: [],
-      showFlightCard: false,
-      showDayCard: false,
-      showReturnFlightCard: true,
-      isCurrentDay: false
     }];
   }
   
@@ -119,7 +87,7 @@ function getDaysToShow() {
 const daysToShow = getDaysToShow();
 ---
 
-<section id="itinerario" class="py-12 sm:py-16 md:py-20 timeline-section">
+<section id="itinerario" class="py-12 timeline-section">
   <div class="container mx-auto px-2 sm:px-4">
     <!-- Widget de clima al inicio de la sección -->
     {daysToShow.length > 0 && daysToShow[0].ciudad && daysToShow[0].ciudad !== 'En tránsito' && daysToShow[0].ciudad.trim() !== '' && (
@@ -128,8 +96,8 @@ const daysToShow = getDaysToShow();
       </div>
     )}
     <!-- Header de la sección -->
-    <div class="text-center mb-8 sm:mb-12 md:mb-16">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins mb-3 sm:mb-4 md:mb-6 timeline-title">
+    <div class="text-center m-0 mb-8">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins m-0 mb-3 sm:mb-4 md:mb-6 timeline-title">
         Itinerario
       </h2>
       <p class="text-base sm:text-lg md:text-xl timeline-subtitle max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-4">
@@ -137,59 +105,8 @@ const daysToShow = getDaysToShow();
       </p>
     </div>
 
-    <!-- Timeline principal optimizada para móvil -->
-    <div class="relative">      
-      <!-- Tarjetas de días optimizadas para móvil -->
-      <div class="space-y-6 sm:space-y-8 md:space-y-12">
-        {daysToShow.map((dia, index) => {
-          // Usar type casting para acceder a las propiedades añadidas
-          const diaExtended = dia as any;
-          
-          return (
-            <div class="relative">              
-              {/* Mostrar tarjeta de vuelo (ida) si corresponde */}
-              {diaExtended.showFlightCard && flightIda && (
-                <div class="w-full max-w-lg mx-auto mb-6">
-                  <FlightCard flight={flightIda} />
-                  <div class="mt-2 transition-colors duration-300 text-center">
-                    <span class="text-xs clickable-hint">
-                      ✈️ Información del vuelo
-                    </span>
-                  </div>
-                </div>
-              )}
-              
-              {/* Mostrar DayCard si corresponde */}
-              {diaExtended.showDayCard && (
-                <DayCardWrapper
-                  day={dia.dia}
-                  fecha={dia.fecha}
-                  titulo={dia.titulo}
-                  ciudad={dia.ciudad}
-                  actividades={dia.actividades as any}
-                  isCurrentDay={diaExtended.isCurrentDay}
-                />
-              )}
-              
-              {/* Mostrar tarjeta de vuelo de vuelta si corresponde */}
-              {diaExtended.showReturnFlightCard && (
-                <div class="w-full max-w-lg mx-auto mt-6">
-                  <ReturnFlightCard />
-                  <div class="mt-2 transition-colors duration-300 text-center">
-                    <span class="text-xs clickable-hint">
-                      🛬 Información del vuelo de vuelta (próximamente)
-                    </span>
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-
     <!-- Stats del viaje optimizadas para móvil -->
-    <div class="mt-8 sm:mt-12 md:mt-16 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8 text-center px-1">
+    <div class="max-w-4xl mx-auto mb-8 sm:mb-12 mt-8 md:gap-6 lg:gap-8 text-center px-1 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
       <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300">
         <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF1493; text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);">{itinerarioData.viaje.duracion_dias}</div>
         <div class="stat-label text-xs sm:text-sm">Días totales</div>
@@ -204,11 +121,67 @@ const daysToShow = getDaysToShow();
         </div>
         <div class="stat-label text-xs sm:text-sm">Experiencias gastronómicas</div>
       </div>
-      <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300 col-span-2 lg:col-span-1">
+      <div class="timeline-stat-card p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300">
         <div class="stat-number text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2" style="color: #FF8A80; text-shadow: 0 0 10px rgba(255, 138, 128, 0.5);">
           {dias.reduce((total, dia) => total + dia.actividades.filter(a => (a as any).gluten_free).length, 0)}
         </div>
         <div class="stat-label text-xs sm:text-sm">Opciones GF</div>
+      </div>
+    </div>
+
+    <!-- Timeline principal optimizada para móvil -->
+    <div class="relative">      
+      <!-- Tarjetas de días optimizadas para móvil -->
+      <div class="space-y-6 sm:space-y-8 md:space-y-12">
+        {daysToShow.map((dia, index) => {
+          // Usar type casting para acceder a las propiedades añadidas
+          const diaExtended = dia as any;
+          
+          return (
+            <div class="relative">
+              {/* Mostrar contador regresivo hasta la fecha del viaje mientras que estemos en un día que sea antes del primer día del viaje */}
+              {dia.dia === 0 && (
+                <div class="max-w-4xl mx-auto mb-8 sm:mb-12">
+                  <h4 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 countdown-title text-center">
+                    🛫 ¡El viaje comienza en...!
+                  </h4>
+                  <div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="countdown-item">
+                      <div id="days" class="countdown-number">--</div>
+                      <div class="countdown-label">Días</div>
+                    </div>
+                    <div class="countdown-item">
+                      <div id="hours" class="countdown-number">--</div>
+                      <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-item">
+                      <div id="minutes" class="countdown-number">--</div>
+                      <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-item">
+                      <div id="seconds" class="countdown-number">--</div>
+                      <div class="countdown-label">Segundos</div>
+                    </div>
+                  </div>
+                  <div id="countdown-message" class="mt-4 text-sm sm:text-base countdown-message" style="display: none;">
+                    🎌 ¡El viaje a Japón ha comenzado! 🎌
+                  </div>
+                </div>
+              )}
+              {/* Mostrar DayCard si corresponde */}
+              {diaExtended.showDayCard && (
+                <DayCardWrapper
+                  day={dia.dia}
+                  fecha={dia.fecha}
+                  titulo={dia.titulo}
+                  ciudad={dia.ciudad}
+                  actividades={dia.actividades as any}
+                  isCurrentDay={diaExtended.isCurrentDay}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
 
@@ -238,6 +211,78 @@ const daysToShow = getDaysToShow();
     </div>
   </div>
 </section>
+
+<script>
+	// Contador regresivo
+	function startCountdown() {
+		// Fecha objetivo: 13 de agosto de 2025 a las 00:00:00
+		const targetDate = new Date('2025-08-13T00:00:00').getTime();
+		
+		function updateCountdown() {
+			const now = new Date().getTime();
+			const distance = targetDate - now;
+			
+			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			// Actualizar los elementos del DOM
+			const daysEl = document.getElementById('days');
+			const hoursEl = document.getElementById('hours');
+			const minutesEl = document.getElementById('minutes');
+			const secondsEl = document.getElementById('seconds');
+			const countdownEl = document.getElementById('countdown');
+			const messageEl = document.getElementById('countdown-message');
+			
+			if (distance > 0) {
+				// El viaje aún no ha comenzado
+				if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+				if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+				if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+				if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+				
+				if (countdownEl) countdownEl.style.display = 'grid';
+				if (messageEl) messageEl.style.display = 'none';
+			} else {
+				// El viaje ha comenzado
+				if (countdownEl) countdownEl.style.display = 'none';
+				if (messageEl) {
+					messageEl.style.display = 'block';
+					messageEl.innerHTML = '🎌 ¡El viaje a Japón ha comenzado! 🎌';
+				}
+			}
+		}
+		
+		// Actualizar inmediatamente
+		updateCountdown();
+		
+		// Actualizar cada segundo
+		const interval = setInterval(updateCountdown, 1000);
+
+		// Detener el intervalo si el componente se desmonta
+		return () => clearInterval(interval);
+	}
+
+// Ejecutar al cargar la página
+	document.addEventListener('DOMContentLoaded', () => {
+		startCountdown();
+	});
+	
+	// Observar cambios en el atributo data-theme
+	const observer = new MutationObserver(function(mutations) {
+		mutations.forEach(function(mutation) {
+			if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+				startCountdown();
+			}
+		});
+	});
+	
+	observer.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ['data-theme']
+	});
+</script>
 
 <style>
   /* Timeline Section */
@@ -389,6 +434,114 @@ const daysToShow = getDaysToShow();
   :global([data-theme="light"]) .group-hover-indicator:hover .clickable-hint {
     color: #FF1493;
   }
+
+  /* Contador regresivo */
+	.countdown-title {
+		background: linear-gradient(45deg, #FF1493, #FF6B6B, #FF0040);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+	}
+	
+	.countdown-item {
+		background: rgba(255, 20, 147, 0.1);
+		border: 2px solid rgba(255, 20, 147, 0.3);
+		border-radius: 16px;
+		padding: 1.5rem 1rem;
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+
+    text-align: center;
+	}
+	
+	.countdown-item::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 20, 147, 0.1), transparent);
+		transition: left 0.5s ease;
+	}
+	
+	.countdown-item:hover::before {
+		left: 100%;
+	}
+	
+	.countdown-item:hover {
+		border-color: rgba(255, 20, 147, 0.5);
+		box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2);
+		transform: translateY(-2px);
+	}
+	
+	.countdown-number {
+		font-size: 2rem;
+		font-weight: bold;
+		color: #FF1493;
+		text-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+		margin-bottom: 0.5rem;
+		animation: pulse 2s ease-in-out infinite;
+	}
+	
+	.countdown-label {
+		font-size: 0.875rem;
+		color: #CCCCCC;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 500;
+	}
+	
+	.countdown-message {
+		background: linear-gradient(45deg, #FF1493, #32CD32);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: bold;
+		font-size: 1.25rem;
+		animation: celebration 1s ease-in-out infinite alternate;
+	}
+
+  	/* Light mode - contador regresivo */
+  :global([data-theme="light"]) .countdown-title {
+		background: linear-gradient(45deg, #C41E3A, #DC143C, #8B0000) !important;
+		-webkit-background-clip: text !important;
+		-webkit-text-fill-color: transparent !important;
+		background-clip: text !important;
+		text-shadow: none !important;
+	}
+	
+  :global([data-theme="light"]) .countdown-item {
+		background: rgba(255, 20, 147, 0.08) !important;
+		border: 2px solid rgba(255, 20, 147, 0.25) !important;
+		backdrop-filter: blur(15px) !important;
+	}
+	
+  :global([data-theme="light"]) .countdown-item:hover {
+		background: rgba(255, 20, 147, 0.12) !important;
+		border-color: rgba(255, 20, 147, 0.4) !important;
+		box-shadow: 0 8px 32px rgba(255, 20, 147, 0.15) !important;
+	}
+	
+  :global([data-theme="light"]) .countdown-number {
+		color: #FF1493 !important;
+		text-shadow: none !important;
+	}
+	
+  :global([data-theme="light"]) .countdown-label {
+		color: #2D1B1B !important;
+		font-weight: 600 !important;
+	}
+	
+  :global([data-theme="light"]) .countdown-message {
+		background: linear-gradient(45deg, #FF1493, #32CD32) !important;
+		-webkit-background-clip: text !important;
+		-webkit-text-fill-color: transparent !important;
+		background-clip: text !important;
+	}
 </style>
 
 <style is:global>
@@ -446,7 +599,7 @@ const daysToShow = getDaysToShow();
     text-underline-offset: 0 !important;
     text-underline-position: unset !important;
     border-bottom: none !important;
-    border-bottom-width: 0 !important;
+    border-bottom-width: 0 !importan
     border-bottom-style: none !important;
     border-bottom-color: transparent !important;
     outline: none !important;
@@ -494,12 +647,12 @@ const daysToShow = getDaysToShow();
     box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2);
   }
   
-  [data-theme="light"] .daycard-container {
+  :global([data-theme="light"]) .daycard-container {
     background: rgba(255, 20, 147, 0.05);
     border: 1px solid rgba(255, 20, 147, 0.2);
   }
   
-  [data-theme="light"] .daycard-container:hover {
+  :global([data-theme="light"]) .daycard-container:hover {
     background: rgba(255, 20, 147, 0.1);
     border-color: rgba(255, 20, 147, 0.4);
   }
@@ -517,7 +670,7 @@ const daysToShow = getDaysToShow();
     text-decoration: none !important;
   }
   
-  [data-theme="light"] .daycard-date {
+  :global([data-theme="light"]) .daycard-date {
     color: #4b5563 !important;
     font-weight: 500;
   }
@@ -543,7 +696,7 @@ const daysToShow = getDaysToShow();
     background: rgba(0, 0, 0, 0.3);
   }
   
-  [data-theme="light"] .daycard-activity {
+  :global([data-theme="light"]) .daycard-activity {
     background: rgba(255, 255, 255, 0.5);
   }
 
@@ -582,7 +735,7 @@ const daysToShow = getDaysToShow();
     text-decoration: none !important;
   }
   
-  [data-theme="light"] .daycard-activity-name {
+  :global([data-theme="light"]) .daycard-activity-name {
     color: #1a1a1a !important;
     font-weight: 600;
   }
@@ -593,7 +746,7 @@ const daysToShow = getDaysToShow();
     text-decoration: none !important;
   }
   
-  [data-theme="light"] .daycard-activity-details {
+  :global([data-theme="light"]) .daycard-activity-details {
     color: #2d2d2d !important;
     font-weight: 500;
   }
@@ -629,7 +782,7 @@ const daysToShow = getDaysToShow();
     text-decoration: none !important;
   }
   
-  [data-theme="light"] .daycard-notes {
+  :global([data-theme="light"]) .daycard-notes {
     color: #4b5563 !important;
     font-weight: 500;
     opacity: 0.9;
@@ -656,7 +809,7 @@ const daysToShow = getDaysToShow();
     font-family: monospace;
   }
 
-  [data-theme="light"] .daycard-address {
+  :global([data-theme="light"]) .daycard-address {
     color: #666666;
   }
 
@@ -671,53 +824,53 @@ const daysToShow = getDaysToShow();
     color: #60A5FA !important;
   }
 
-  [data-theme="light"] .daycard-activity-details a:hover {
+  :global([data-theme="light"]) .daycard-activity-details a:hover {
     color: #3B82F6 !important;
   }
 
   /* ===== ESTILOS ADICIONALES PARA MODO CLARO ===== */
   
   /* Contenedor principal en modo claro */
-  [data-theme="light"] .daycard-container {
+  :global([data-theme="light"]) .daycard-container {
     background: rgba(255, 245, 245, 0.9) !important;
     border: 2px solid rgba(255, 107, 107, 0.3) !important;
   }
   
-  [data-theme="light"] .daycard-container:hover {
+  :global([data-theme="light"]) .daycard-container:hover {
     border-color: rgba(220, 20, 60, 0.5) !important;
     box-shadow: 0 8px 32px rgba(220, 20, 60, 0.2) !important;
   }
   
   /* Actividades en modo claro */
-  [data-theme="light"] .daycard-activity {
+  :global([data-theme="light"]) .daycard-activity {
     background: rgba(255, 240, 240, 0.8) !important;
     border-left-width: 4px;
   }
   
   /* Textos principales más oscuros */
-  [data-theme="light"] .daycard-day-number,
-  [data-theme="light"] .daycard-city,
-  [data-theme="light"] .daycard-title {
+  :global([data-theme="light"]) .daycard-day-number,
+  :global([data-theme="light"]) .daycard-city,
+  :global([data-theme="light"]) .daycard-title {
     color: #C41E3A !important;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5) !important;
   }
   
-  [data-theme="light"] .daycard-date {
+  :global([data-theme="light"]) .daycard-date {
     color: #5D4A4A !important;
     font-weight: 600;
   }
   
-  [data-theme="light"] .daycard-activity-name {
+  :global([data-theme="light"]) .daycard-activity-name {
     color: #2D1B1B !important;
     font-weight: 700;
   }
   
-  [data-theme="light"] .daycard-activity-details {
+  :global([data-theme="light"]) .daycard-activity-details {
     color: #5D4A4A !important;
     font-weight: 600;
   }
   
-  [data-theme="light"] .daycard-notes {
+  :global([data-theme="light"]) .daycard-notes {
     color: #5D4A4A !important;
     font-weight: 600;
     opacity: 0.9;
