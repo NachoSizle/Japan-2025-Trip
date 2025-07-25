@@ -49,7 +49,10 @@ Este enfoque aísla el componente interactivo, asegurando que el HTML renderizad
 
 ### ✅ **Gestión de Tareas y Control de Versiones**
 - **Confirmación de Cambios**: Al finalizar una tarea, siempre te preguntaré si deseas guardar los cambios en Git.
-- **Commits Descriptivos y con Emojis**: Redactaré mensajes de commit claros y descriptivos. ¡Y no me olvidaré de añadir emojis para darles más vida y expresividad! 🥳
+- **Commits Alegres y con Emojis**: Redactaré mensajes de commit con la siguiente estructura:
+    - **Título corto y descriptivo**: Lleno de emojis relevantes. 🎉
+    - **Cuerpo del mensaje**: Explicando el *qué* y el *porqué* de los cambios de una forma más detallada y visual.
+    - **Lista de cambios clave**: Para tener una referencia rápida de las modificaciones.
 - **Commits por Hito**: Después de cada refactorización o funcionalidad importante, haré una pausa para commitear los cambios. Esto mantiene el historial del proyecto limpio y ordenado. 💾
 - **Push a Remoto**: Después de realizar un commit, te consultaré si deseas que suba los cambios al repositorio remoto.
 
