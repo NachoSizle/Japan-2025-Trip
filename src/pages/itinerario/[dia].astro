@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import WeatherWidget from '../../components/WeatherWidget.astro';
+import DayNavigation from '../../components/DayNavigation.astro';
 import itinerarioData from '../../data/itinerario.json';
 
 export function getStaticPaths() {
@@ -34,75 +35,33 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
     </div>
   </div>
 
-  <!-- Widget de clima al inicio -->
-  <div class="flex justify-center mt-6 mb-2">
-    <WeatherWidget city={diaActual.ciudad} />
-  </div>
-
   <!-- Hero del día específico -->
-  <main class="pt-20">
-    <section class="py-12 sm:py-16 bg-gradient-to-br from-bg-deep-black via-bg-charcoal to-bg-deep-black 
+  <main class="pt-14">
+    <section class="py-2 bg-gradient-to-br from-bg-deep-black via-bg-charcoal to-bg-deep-black 
                    data-[theme=light]:bg-gradient-to-br data-[theme=light]:from-red-50 data-[theme=light]:via-red-100 data-[theme=light]:to-red-50">
+
       <div class="container mx-auto px-4">
-        
-        <!-- Navegación entre días con colores rosa vibrantes -->
-        <div class="flex justify-between items-center mb-8 sm:mb-12">
-          <div class="flex-1">
-            {diaAnterior && (
-              <a href={`${import.meta.env.BASE_URL}/itinerario/${diaAnterior.dia}`} 
-                 class="inline-flex items-center space-x-2 transition-colors duration-300 group"
-                 style="color: #FF1493;"
-                 onmouseover="this.style.color='#FF6B6B'"
-                 onmouseout="this.style.color='#FF1493'">
-                <span class="text-lg group-hover:-translate-x-1 transition-transform duration-300">←</span>
-                <div class="text-left">
-                  <div class="text-xs" style="color: #AAAAAA;">Día anterior</div>
-                  <div class="text-sm font-medium truncate max-w-32 sm:max-w-none">Día {diaAnterior.dia}</div>
-                </div>
-              </a>
-            )}
-          </div>
-          
-          <!-- Breadcrumb con color rosa -->
-          <div class="text-center px-4">
-            <a href={`${import.meta.env.BASE_URL}/#itinerario`} class="transition-colors duration-300 text-sm"
-               style="color: #AAAAAA;"
-               onmouseover="this.style.color='#FF1493'"
-               onmouseout="this.style.color='#AAAAAA'">
-              ← Volver al itinerario
-            </a>
-          </div>
-          
-          <div class="flex-1 text-right">
-            {diaSiguiente && (
-              <a href={`${import.meta.env.BASE_URL}/itinerario/${diaSiguiente.dia}`} 
-                 class="inline-flex items-center space-x-2 transition-colors duration-300 group"
-                 style="color: #FF6B6B;"
-                 onmouseover="this.style.color='#FF1493'"
-                 onmouseout="this.style.color='#FF6B6B'">
-                <div class="text-right">
-                  <div class="text-xs" style="color: #AAAAAA;">Día siguiente</div>
-                  <div class="text-sm font-medium truncate max-w-32 sm:max-w-none">Día {diaSiguiente.dia}</div>
-                </div>
-                <span class="text-lg group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </a>
-            )}
-          </div>
-        </div>
+
+        <!-- Navegación por días con colores rosa/rojo vibrantes -->
+        <DayNavigation 
+          diaAnterior={diaAnterior ? { dia: diaAnterior.dia } : null} 
+          diaSiguiente={diaSiguiente ? { dia: diaSiguiente.dia } : null} 
+          baseUrl={import.meta.env.BASE_URL} />
 
         <!-- Header del día con colores rosa/rojo vibrantes -->
-        <div class="text-center mb-8 sm:mb-12">
-          <div class="inline-flex items-center space-x-2 px-6 py-3 rounded-full mb-6" 
-               style="background: rgba(255, 20, 147, 0.2); border: 2px solid #FF1493; box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);">
-            <span class="font-mono text-sm font-bold" style="color: #FF1493;">{diaActual.fecha}</span>
-            <span class="w-2 h-2 rounded-full animate-pulse" style="background: #FF1493;"></span>
-            <span class="font-semibold text-sm" style="color: #FF6B6B;">{diaActual.ciudad}</span>
-          </div>
-          
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-poppins mb-6">
-            <span class="animate-pulse" style="background: linear-gradient(45deg, #FF1493, #FF0040, #FF6B6B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        <div class="text-center mb-4">
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-poppins m-0 mt-4 mb-6 flex flex-col items-center sm:mb-8 text-center">
+            <span class="animate-pulse mb-4" style="background: linear-gradient(45deg, #FF1493, #FF0040, #FF6B6B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
               Día {diaActual.dia}
             </span>
+
+            <div class="inline-flex items-center space-x-2 px-6 py-3 rounded-full m-0" 
+               style="background: rgba(255, 20, 147, 0.2); border: 2px solid #FF1493; box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);">
+              <span class="font-mono text-sm font-bold" style="color: #FF1493;">{diaActual.fecha}</span>
+              <span class="w-2 h-2 rounded-full animate-pulse" style="background: #FF1493;"></span>
+              <span class="font-semibold text-sm" style="color: #FF6B6B;">{diaActual.ciudad}</span>
+            </div>
           </h1>
           
           <h2 class="text-xl sm:text-2xl md:text-3xl font-light mb-6" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
@@ -111,8 +70,8 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
         </div>
 
         <!-- Estadísticas del día con colores rosa/rojo brillantes -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 sm:mb-12">
-          <div class="p-4 rounded-xl text-center transition-all duration-300" 
+        <div class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+          <div class="text-center p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300" 
                style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700;">
             <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);">
               {diaActual.actividades.filter(a => (a as any).tipo === 'comida').length}
@@ -120,7 +79,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
             <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Comidas</div>
           </div>
           
-          <div class="p-4 rounded-xl text-center transition-all duration-300" 
+          <div class="text-center p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300" 
                style="background: rgba(255, 20, 147, 0.1); border: 2px solid #FF1493;">
             <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FF1493; text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);">
               {diaActual.actividades.filter(a => (a as any).tipo === 'turismo').length}
@@ -128,7 +87,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
             <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Turismo</div>
           </div>
           
-          <div class="p-4 rounded-xl text-center transition-all duration-300" 
+          <div class="text-center p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300" 
                style="background: rgba(50, 205, 50, 0.1); border: 2px solid #32CD32;">
             <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #32CD32; text-shadow: 0 0 10px rgba(50, 205, 50, 0.8);">
               {diaActual.actividades.filter(a => (a as any).gluten_free).length}
@@ -136,7 +95,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
             <div style="color: #CCCCCC;" class="text-xs sm:text-sm font-medium">Sin Gluten</div>
           </div>
           
-          <div class="p-4 rounded-xl text-center col-span-2 lg:col-span-1 transition-all duration-300" 
+          <div class="text-center p-2 sm:p-4 md:p-6 rounded-lg sm:rounded-xl transition-all duration-300" 
                style="background: rgba(255, 107, 107, 0.1); border: 2px solid #FF6B6B;">
             <div class="text-2xl sm:text-3xl font-bold mb-1" style="color: #FF6B6B; text-shadow: 0 0 10px rgba(255, 107, 107, 0.8);">
               {diaActual.actividades.filter((a: any) => a.destacado).length}
@@ -145,8 +104,13 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           </div>
         </div>
 
+        <!-- Widget de clima al inicio -->
+        <div class="flex justify-center my-6 text-center p-6 rounded-lg sm:rounded-xl">
+          <WeatherWidget city={diaActual.ciudad} />
+        </div>
+
         <!-- Timeline de actividades con título rosa -->
-        <div class="mt-12 sm:mt-16">
+        <div class="mt-0 pb-8" style="border: 2px solid rgba(255, 20, 147, 0.5); border-left: none; border-right: none;">
           <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
             <span style="background: linear-gradient(45deg, #FF1493, #FF6B6B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);">
               Cronograma Detallado
@@ -155,14 +119,14 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           
           <div class="relative max-w-3xl mx-auto">
             <!-- Línea de tiempo vertical con glow rosa -->
-            <div class="absolute left-4 sm:left-8 top-0 bottom-0 w-1 rounded-full" 
+            <div class="absolute left-3.5 sm:left-7.5 top-0 bottom-0 w-1 rounded-full" 
                  style="background: linear-gradient(to bottom, #FF1493, #FF6B6B, #FF0040); box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);"></div>
             
             <div class="space-y-6 sm:space-y-8">
               {diaActual.actividades.map((actividad, index) => (
                 <div class="relative pl-10 sm:pl-16">
                   <!-- Punto en la timeline con glow rosa -->
-                  <div class="absolute left-4 sm:left-8 w-4 h-4 rounded-full transform -translate-x-1/2 z-10 animate-pulse" 
+                  <div class="absolute left-4 sm:left-8 w-5 h-5 rounded-full transform -translate-x-1/2 z-10 animate-pulse" 
                        style="background: #FF1493; border: 2px solid #0A0A0A; box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);"></div>
                   
                   <!-- Tarjeta de actividad con borde rosa -->
@@ -252,49 +216,11 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
           </div>
         </div>
 
-        <!-- Navegación inferior con colores rosa/rojo vibrantes -->
-        <div class="flex justify-between items-center mt-12 sm:mt-16 pt-8" 
-             style="border-top: 2px solid rgba(255, 20, 147, 0.5);">
-          {diaAnterior ? (
-            <a href={`${import.meta.env.BASE_URL}/itinerario/${diaAnterior.dia}`} 
-               class="inline-flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 group" 
-               style="background: linear-gradient(45deg, rgba(255, 20, 147, 0.2), rgba(255, 107, 107, 0.2)); border: 2px solid #FF1493; backdrop-filter: blur(10px);"
-               onmouseover="this.style.boxShadow='0 0 30px rgba(255, 20, 147, 0.6)'"
-               onmouseout="this.style.boxShadow='none'">
-              <span class="text-2xl group-hover:-translate-x-1 transition-transform duration-300" style="color: #FF1493;">←</span>
-              <div class="text-left">
-                <div class="text-xs font-medium" style="color: #AAAAAA;">Anterior</div>
-                <div class="text-sm font-bold" style="color: #FF1493;">Día {diaAnterior.dia}</div>
-              </div>
-            </a>
-          ) : (
-            <div></div>
-          )}
-          
-          <a href={`${import.meta.env.BASE_URL}/`} 
-             class="px-6 py-4 rounded-xl transition-all duration-300 text-sm sm:text-base font-medium" 
-             style="background: rgba(26, 26, 26, 0.8); border: 2px solid rgba(64, 64, 64, 0.5); color: #CCCCCC; backdrop-filter: blur(10px);"
-             onmouseover="this.style.borderColor='#FF6B6B'; this.style.color='#FF6B6B'"
-             onmouseout="this.style.borderColor='rgba(64, 64, 64, 0.5)'; this.style.color='#CCCCCC'">
-            Ver todos los días
-          </a>
-          
-          {diaSiguiente ? (
-            <a href={`${import.meta.env.BASE_URL}/itinerario/${diaSiguiente.dia}`} 
-               class="inline-flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 group" 
-               style="background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 0, 64, 0.2)); border: 2px solid #FF6B6B; backdrop-filter: blur(10px);"
-               onmouseover="this.style.boxShadow='0 0 30px rgba(255, 107, 107, 0.6)'"
-               onmouseout="this.style.boxShadow='none'">
-              <div class="text-right">
-                <div class="text-xs font-medium" style="color: #AAAAAA;">Siguiente</div>
-                <div class="text-sm font-bold" style="color: #FF6B6B;">Día {diaSiguiente.dia}</div>
-              </div>
-              <span class="text-2xl group-hover:translate-x-1 transition-transform duration-300" style="color: #FF6B6B;">→</span>
-            </a>
-          ) : (
-            <div></div>
-          )}
-        </div>
+        <!-- Navegación por días con colores rosa/rojo vibrantes -->
+        <DayNavigation 
+          diaAnterior={diaAnterior ? { dia: diaAnterior.dia } : null} 
+          diaSiguiente={diaSiguiente ? { dia: diaSiguiente.dia } : null} 
+          baseUrl={import.meta.env.BASE_URL} />
       </div>
     </section>
   </main>
@@ -388,4 +314,5 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
   background: #DC143C !important;
   border: 2px solid #FFE8E8 !important;
 }
+
 </style>

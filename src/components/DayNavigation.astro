@@ -1,0 +1,68 @@
+---
+// Componente de navegación entre días para el itinerario
+export interface Props {
+  diaAnterior?: { dia: number } | null;
+  diaSiguiente?: { dia: number } | null;
+  baseUrl: string;
+}
+const { diaAnterior, diaSiguiente, baseUrl } = Astro.props;
+---
+
+<div class="day-navigation grid grid-cols-3 gap-x-2 mb-8 items-center max-w-4xl sm:max-w-[calc(100%-2rem)] w-full mt-10 mx-auto">
+  <div class="flex justify-start">
+    {diaAnterior ? (
+      <a href={`${baseUrl}itinerario/${diaAnterior.dia}`}
+        class="flex items-center justify-center flex-col px-8 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur text-pink-500! hover:bg-pink-100/10 hover:border-pink-400/30 transition-all duration-200 text-base font-semibold">
+        <span class="text-center">Día {diaAnterior.dia}</span>
+      </a>
+    ) : (
+      <span />
+    )}
+  </div>
+  <div class="flex justify-center">
+    <a href={`${baseUrl}itinerario`}
+      class="flex items-center justify-center px-6 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur text-rose-400 hover:bg-rose-100/10 hover:border-rose-400/30 transition-all duration-200 text-base font-semibold text-center">
+      Volver al itinerario
+    </a>
+  </div>
+  <div class="flex justify-end">
+    {diaSiguiente ? (
+      <a href={`${baseUrl}itinerario/${diaSiguiente.dia}`}
+        class="flex items-center justify-center flex-col px-8 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur text-rose-400! hover:bg-rose-100/10 hover:border-rose-400/30 transition-all duration-200 text-base font-semibold">
+        <span class="text-center">Día {diaSiguiente.dia}</span>
+      </a>
+    ) : (
+      <span />
+    )}
+  </div>
+</div>
+
+<style>
+.day-navigation a {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: auto;
+  min-width: unset;
+  max-width: 100%;
+}
+
+.day-navigation a > span {
+  white-space: nowrap;
+}
+
+.day-navigation a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 20, 147, 0.2);
+}
+/***** Estilos específicos para modo claro *****/
+:global([data-theme="light"]) .day-navigation a {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+</style>

@@ -8,7 +8,7 @@ const apiKey = import.meta.env.OPENWEATHER_API_KEY;
     <span id={`weather-icon-${city}`}></span>
   </div>
   <div class="flex-1 flex flex-col justify-center">
-    <p class="font-bold text-base sm:text-lg text-pink-700 dark:text-pink-300 tracking-wide m-0" style="text-shadow: 0 0 8px #ffb6d5, 0 0 2px #fff;">
+    <p class="font-bold text-base sm:text-lg text-pink-700 dark:text-pink-300 tracking-wide m-0 text-start" style="text-shadow: 0 0 8px #ffb6d5, 0 0 2px #fff;">
       <span class="text-gray-800 dark:text-pink-300">Clima en</span> <span class="capitalize text-pink-700 dark:text-pink-200">{city}</span>
     </p>
     <div id={`weather-content-${city}`}> <span class="text-gray-400">Cargando...</span> </div>
