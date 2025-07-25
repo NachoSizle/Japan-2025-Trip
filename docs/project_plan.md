@@ -16,9 +16,33 @@ El objetivo principal era crear una **herramienta de viaje viva y funcional** qu
 
 ## ✅ Tareas Pendientes
 
-- [ ] Añadir la dirección correcta del alojamiento de Akihabara en `src/data/itinerario.json`.
 
----
+  **Descripción:**
+  Crear una isla React que actúe como un mini-GPT entrenado en el JSON del itinerario de viaje (`src/data/itinerario.json`). El objetivo es que los usuarios puedan hacer preguntas sobre cualquier aspecto del viaje y recibir respuestas contextuales, útiles y precisas, directamente desde la web.
+
+  **Requisitos iniciales:**
+  - El chat debe funcionar como una isla React (`client:visible`), embebida en la UI.
+  - Debe consumir y comprender la estructura de `itinerario.json` para responder preguntas sobre días, actividades, alojamientos, vuelos, etc.
+  - Respuestas en español, tono amigable y útil.
+  - UI minimalista, accesible y coherente con el diseño (modo claro/oscuro, neón/cyberpunk).
+  - No requiere conexión a una API externa: el modelo debe funcionar localmente o con un modelo embebido ligero (ej: llama.cpp, transformers.js, o similar).
+  - Debe priorizar la privacidad: los datos del viaje no deben salir del dispositivo.
+  - Documentar el enfoque, limitaciones y posibles mejoras futuras.
+
+  **Ideas y retos a discutir:**
+  - ¿Qué modelo usar para el mini-GPT local? (¿transformers.js, llama.cpp, otro?)
+  - ¿Cómo indexar y comprimir el JSON para respuestas rápidas?
+  - ¿Qué tipo de preguntas debe poder responder? (ej: “¿Dónde dormimos el día 15?”, “¿Qué actividades hay cerca de Akihabara?”)
+  - ¿Cómo mostrar el chat sin distraer de la navegación principal?
+  - ¿Cómo asegurar la accesibilidad y el rendimiento en móviles?
+
+  **Próximos pasos:**
+  1. Definir el stack/modelo a usar para el chat local.
+  2. Prototipar la UI y la integración como isla React.
+  3. Documentar el flujo de datos y la lógica de consulta sobre el JSON.
+  4. Validar la experiencia de usuario y ajustar según feedback.
+
+  > 🔎 Para el análisis técnico detallado, ver: [`features/chat/chat-tecnico.md`](features/chat/chat-tecnico.md)
 
 ## 🛠️ Stack Tecnológico: El Porqué de la Elección
 
@@ -26,7 +50,6 @@ El objetivo principal era crear una **herramienta de viaje viva y funcional** qu
 | :--- | :--- |
 | **Astro** | Elegido por su arquitectura de **"islas"** y su enfoque en **Static Site Generation (SSG)**. Esto garantiza un rendimiento de carga casi instantáneo, enviando HTML puro y cargando JavaScript solo para los componentes interactivos. |
 | **Tailwind CSS** | Se seleccionó para permitir un **desarrollo de UI rápido y consistente**. Su enfoque *utility-first* facilitó la creación de un sistema de diseño coherente y la implementación de un tema claro/oscuro de manera eficiente. |
-| **Alpine.js** | Para la **interactividad ligera del lado del cliente**. Se integró para manejar estados simples como el menú responsive, los filtros del itinerario y el toggle del tema, sin necesidad de un framework de JS más pesado. |
 | **TypeScript** | Imprescindible para la **robustez y mantenibilidad** del código. Ayudó a prevenir errores en el manejo de la estructura de datos del itinerario y a asegurar la correcta comunicación entre componentes. |
 | **VitePWA** | La necesidad de **acceso offline** durante el viaje hizo que convertir la aplicación en una PWA fuera una prioridad. Se eligió `@vite-pwa/astro` por su integración nativa y sencilla. |
 | **OneSignal** | Para las **notificaciones push**, se optó por OneSignal por su generoso plan gratuito, su facilidad de configuración y su robusta API para implementar recordatorios. |
@@ -67,10 +90,9 @@ El proyecto se organiza en componentes atómicos y funcionales con responsabilid
 ### Funcionalidad Inteligente para una UX Superior
 
 - **Timeline Consciente del Tiempo**: La lógica implementada en `Timeline.astro` hace que la página se sienta viva y relevante.
-- **Filtros No Destructivos**: El uso de Alpine.js permite una experiencia de filtrado instantánea sin recargar la página.
 
 ---
 
 ## 🎌 Conclusión Arquitectónica
 
-El proyecto es un ejemplo práctico de cómo utilizar un stack moderno (Astro, Tailwind, Alpine.js) para construir una PWA de alto rendimiento y visualmente rica. La arquitectura prioriza la experiencia del usuario, la utilidad práctica y la facilidad de mantenimiento.
+El proyecto es un ejemplo práctico de cómo utilizar un stack moderno (Astro, Tailwind) para construir una PWA de alto rendimiento y visualmente rica. La arquitectura prioriza la experiencia del usuario, la utilidad práctica y la facilidad de mantenimiento.

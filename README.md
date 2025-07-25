@@ -44,7 +44,18 @@ Cada filtro tiene un color distintivo para facilitar la identificación visual. 
 
 El filtro "Sin Gluten" muestra únicamente actividades que ofrecen opciones sin gluten. El filtro "Destacados" resalta actividades marcadas como importantes. El filtro "Alojamiento" muestra un enlace especial "Ver en mapa" si la actividad tiene una ubicación de Google Maps.
 
----
+
+## 🧭 Navegación entre Días del Itinerario
+
+El itinerario cuenta con una navegación intuitiva entre días, permitiendo avanzar o retroceder fácilmente entre las jornadas del viaje. Un botón central permite volver rápidamente a la vista general del itinerario.
+
+El componente `DayNavigation` ofrece:
+
+- Acceso directo al día anterior y siguiente, si existen.
+- Diseño visual coherente con el resto del sitio, adaptado a modo claro/oscuro y dispositivos móviles.
+- Transiciones y estilos modernos para una experiencia fluida.
+
+Esta navegación mejora la usabilidad y hace que explorar el viaje sea más cómodo y visualmente atractivo.
 
 ## ⭐ Características Destacadas
 

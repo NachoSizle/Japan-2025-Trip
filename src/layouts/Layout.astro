@@ -1,4 +1,6 @@
 ---
+import ChatItinerarioWrapper from "../components/ChatItinerarioWrapper.astro";
+
 export interface Props {
   title: string;
   description?: string;
@@ -371,9 +373,9 @@ const {
       }
     </style>
 
-    <!-- Alpine.js -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+
+    <!-- Chat contextual: botón flotante y panel -->
+    <ChatItinerarioWrapper />
   </body>
 </html>
 
