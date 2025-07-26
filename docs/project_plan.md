@@ -14,36 +14,6 @@ El objetivo principal era crear una **herramienta de viaje viva y funcional** qu
 
 ---
 
-## ✅ Tareas Pendientes
-
-
-  **Descripción:**
-  Crear una isla React que actúe como un mini-GPT entrenado en el JSON del itinerario de viaje (`src/data/itinerario.json`). El objetivo es que los usuarios puedan hacer preguntas sobre cualquier aspecto del viaje y recibir respuestas contextuales, útiles y precisas, directamente desde la web.
-
-  **Requisitos iniciales:**
-  - El chat debe funcionar como una isla React (`client:visible`), embebida en la UI.
-  - Debe consumir y comprender la estructura de `itinerario.json` para responder preguntas sobre días, actividades, alojamientos, vuelos, etc.
-  - Respuestas en español, tono amigable y útil.
-  - UI minimalista, accesible y coherente con el diseño (modo claro/oscuro, neón/cyberpunk).
-  - No requiere conexión a una API externa: el modelo debe funcionar localmente o con un modelo embebido ligero (ej: llama.cpp, transformers.js, o similar).
-  - Debe priorizar la privacidad: los datos del viaje no deben salir del dispositivo.
-  - Documentar el enfoque, limitaciones y posibles mejoras futuras.
-
-  **Ideas y retos a discutir:**
-  - ¿Qué modelo usar para el mini-GPT local? (¿transformers.js, llama.cpp, otro?)
-  - ¿Cómo indexar y comprimir el JSON para respuestas rápidas?
-  - ¿Qué tipo de preguntas debe poder responder? (ej: “¿Dónde dormimos el día 15?”, “¿Qué actividades hay cerca de Akihabara?”)
-  - ¿Cómo mostrar el chat sin distraer de la navegación principal?
-  - ¿Cómo asegurar la accesibilidad y el rendimiento en móviles?
-
-  **Próximos pasos:**
-  1. Definir el stack/modelo a usar para el chat local.
-  2. Prototipar la UI y la integración como isla React.
-  3. Documentar el flujo de datos y la lógica de consulta sobre el JSON.
-  4. Validar la experiencia de usuario y ajustar según feedback.
-
-  > 🔎 Para el análisis técnico detallado, ver: [`features/chat/chat-tecnico.md`](features/chat/chat-tecnico.md)
-
 ## 🛠️ Stack Tecnológico: El Porqué de la Elección
 
 | Tecnología | Decisión y Justificación |

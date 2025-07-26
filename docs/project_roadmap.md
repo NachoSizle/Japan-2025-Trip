@@ -72,6 +72,8 @@ Este roadmap resume las tareas completadas y el progreso funcional del sitio web
 - [ ] Integración con APIs de transporte japonés (horarios, rutas, alertas)
 - [ ] Gamificación: logros, puntos o insignias por completar actividades
 - [ ] Soporte multilenguaje (inglés y japonés)
+- [ ] [`features/chat/chat-tecnico.md`](features/chat/chat-tecnico.md)
+- [ ] [`features/checklist/checklist-tecnico.md`](features/checklist/checklist-tecnico.md)
 
 ---
 
@@ -83,7 +85,7 @@ Progreso general: **✅ 98% Completado**
 Se ha implementado un widget visual y compacto que muestra el clima actual de la ciudad relevante en el Timeline y en los días del itinerario. Utiliza la API de OpenWeatherMap, incluye caché local para eficiencia, diseño temático (gradientes, icono dinámico, modo oscuro/claro) y solo se muestra si hay ciudad válida. El widget es responsive y se integra perfectamente con el look & feel del sitio.
 
 
-## ✅ PWA y Notificaciones Push implementadas
+### ✅ PWA y Notificaciones Push implementadas
 
 La app ahora es una PWA completa: permite uso offline, instalación en dispositivos, carga rápida y notificaciones push para recordatorios de actividades importantes. Se han seguido todos los pasos técnicos recomendados, incluyendo:
 - Instalación y configuración de @vite-pwa/astro
