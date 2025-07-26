@@ -68,32 +68,34 @@ const ChecklistSolid: Component<Props> = (props) => {
           const border = borderGradients[categoria] || "linear-gradient(135deg, #e5e7eb, #d1d5db)";
           return (
             <div
-              class="rounded-3xl p-4 shadow-lg bg-gradient-to-br from-neutral-900 to-neutral-800 hover:scale-[1.01] transition-transform duration-200"
-              style={`border: 4px solid transparent; border-image: ${border} 1;`}
+              class="rounded-3xl shadow-lg hover:scale-[1.01] transition-transform duration-200"
+              style={`background: ${border}; padding: 2px; border-radius: 1.5rem;`}
             >
-              <div class="flex items-center justify-between mb-3">
-                <h2 class="text-xl font-bold text-white">
-                  <span class="mr-2">{icons[categoria] ?? "📦"}</span> {categoria}
-                </h2>
-                <span class="text-sm text-pink-300">{items.length} ítems</span>
+              <div class="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-3xl h-full w-full" style="border-radius: 1.35rem; padding: 1rem;">
+                <div class="flex items-center justify-between mb-3">
+                  <h2 class="text-xl font-bold text-white mb-0">
+                    <span class="mr-2">{icons[categoria] ?? "📦"}</span> {categoria}
+                  </h2>
+                  <span class="text-sm text-pink-300">{items.length} ítems</span>
+                </div>
+                <ul class="max-h-96 overflow-y-auto px-2 m-0">
+                  {items.map((item, idx) => {
+                    const key = `${categoria}-${idx}`;
+                    return (
+                      <li class="flex items-start gap-2 text-white/90 text-sm">
+                        <input
+                          type="checkbox"
+                          id={key}
+                          class="accent-pink-500 mt-1"
+                          checked={state()[key] ?? false}
+                          onChange={e => updateState(key, e.currentTarget.checked)}
+                        />
+                        <label for={key} class="cursor-pointer">{item}</label>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
-              <ul class="space-y-2 max-h-96 overflow-y-auto pr-2">
-                {items.map((item, idx) => {
-                  const key = `${categoria}-${idx}`;
-                  return (
-                    <li class="flex items-start gap-2 text-white/90 text-sm">
-                      <input
-                        type="checkbox"
-                        id={key}
-                        class="accent-pink-500 mt-1"
-                        checked={state()[key] ?? false}
-                        onChange={e => updateState(key, e.currentTarget.checked)}
-                      />
-                      <label for={key} class="cursor-pointer">{item}</label>
-                    </li>
-                  );
-                })}
-              </ul>
             </div>
           );
         })}
