@@ -44,6 +44,34 @@ Cada filtro tiene un color distintivo para facilitar la identificación visual. 
 
 El filtro "Sin Gluten" muestra únicamente actividades que ofrecen opciones sin gluten. El filtro "Destacados" resalta actividades marcadas como importantes. El filtro "Alojamiento" muestra un enlace especial "Ver en mapa" si la actividad tiene una ubicación de Google Maps.
 
+## ✅ Checklist Interactiva de Viaje
+
+El sistema de checklist es una herramienta completa para organizar todo el equipaje del viaje. Incluye funcionalidad CRUD completa con persistencia automática y adaptación de temas en tiempo real.
+
+### 🎯 **Funcionalidades Principales**
+- **📝 Gestión Completa**: Añadir, editar y eliminar ítems personalizados
+- **✅ Estado Persistente**: Marcar/desmarcar ítems con guardado automático en localStorage
+- **🔍 Filtros Inteligentes**: Ver todos los ítems, solo completados o solo pendientes
+- **🔎 Búsqueda en Tiempo Real**: Encontrar ítems específicos instantáneamente
+- **📱 100% Responsive**: Optimizado para uso móvil durante el viaje
+
+### 🎨 **Características Técnicas**
+- **🎭 Adaptación Automática de Temas**: Se adapta instantáneamente al cambio claro/oscuro
+- **💾 Persistencia Offline**: Funciona completamente sin conexión a internet
+- **⚡ SolidJS Signals**: Gestión de estado reactivo y eficiente
+- **🎪 Modal de Edición**: Interfaz intuitiva para modificar ítems
+- **🌈 Categorías con Colores**: Cada categoría (Neceser, Ropa, Electrónica, etc.) tiene su gradiente único
+
+### 📦 **Categorías Predefinidas**
+- **🧴 Neceser**: Productos de higiene y cuidado personal
+- **👕 Ropa**: Prendas de vestir para diferentes climas
+- **💊 Medicinas**: Medicamentos y botiquín de viaje  
+- **🔌 Electrónica**: Dispositivos, cargadores y adaptadores
+- **📄 Documentación**: Pasaportes, seguros y documentos importantes
+- **🎒 Varios**: Otros elementos esenciales para el viaje
+
+El checklist está accesible desde el header principal y tiene su propia página dedicada en `/checklist`.
+
 
 ## 🧭 Navegación entre Días del Itinerario
 
@@ -63,13 +91,14 @@ Esta navegación mejora la usabilidad y hace que explorar el viaje sea más cóm
 - **Timeline Adaptativo**: El contenido se ajusta automáticamente según la fecha actual (antes, durante y después del viaje).
 - **Contador Regresivo**: Un reloj en tiempo real que aumenta la emoción mostrando cuánto falta para el despegue.
 - **Sistema de Filtros Avanzado**: Filtra el itinerario por ciudad, tipo de actividad (Turismo, Sin Gluten, Destacados) y más.
+- **✅ Checklist Interactiva**: Sistema CRUD completo para organizar el equipaje con añadir/editar/eliminar ítems, filtros inteligentes y persistencia automática.
 - **PWA (Progressive Web App)**: La aplicación se puede instalar en el móvil para acceso offline, ideal para usar en Japón sin depender de la conexión.
 - **Notificaciones Push**: Alertas y recordatorios de actividades importantes del itinerario.
 - **Widget del Clima**: Muestra el tiempo en tiempo real para la ciudad correspondiente del itinerario.
 
 ### 🎨 **Diseño Visual y UX**
 - **Tema Japonés Neón**: Una estética cyberpunk con gradientes de fucsia, cian y púrpuras sobre fondos oscuros.
-- **Modo Claro/Oscuro**: Toggle para cambiar entre un tema vibrante y uno más relajado, manteniendo la coherencia visual.
+- **Modo Claro/Oscuro**: Toggle para cambiar entre un tema vibrante y uno más relajado, con adaptación automática en todos los componentes.
 - **Animaciones Fluidas**: Efectos de hover, partículas flotantes y transiciones suaves que enriquecen la experiencia.
 - **Diseño Responsive**: Totalmente optimizado para una navegación perfecta en móviles, tablets y escritorio.
 
@@ -104,6 +133,7 @@ El sitio estará disponible en `http://localhost:4321` 🎌.
 | Tecnología | Propósito |
 | :--- | :--- |
 | ![Astro](https://img.shields.io/badge/⚡-Astro-FF5A03?style=flat-square) | Framework SSG para máximo rendimiento. |
+| ![SolidJS](https://img.shields.io/badge/🧩-SolidJS-4F75FF?style=flat-square) | Componentes reactivos para el checklist interactivo. |
 | ![Tailwind CSS](https://img.shields.io/badge/🎨-Tailwind%20CSS-38BDF8?style=flat-square) | Diseño rápido y consistente con utilidades. |
 | ![TypeScript](https://img.shields.io/badge/📘-TypeScript-3178C6?style=flat-square) | Tipado estático para un código robusto. |
 | ![VitePWA](https://img.shields.io/badge/📱-VitePWA-646CFF?style=flat-square) | Funcionalidad de Progressive Web App. |

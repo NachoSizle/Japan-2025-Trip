@@ -64,8 +64,9 @@ Este roadmap resume las tareas completadas y el progreso funcional del sitio web
 - [x] Notificaciones push para recordatorios de actividades importantes ✅
 - [ ] Sistema de feedback de usuarios (comentarios/valoraciones sobre restaurantes y actividades)
 - [ ] Exportar itinerario a PDF o Google Calendar
-- [ ] Modo oscuro/claro automático y manual
+- [x] Modo oscuro/claro automático y manual ✅
 - [x] Widget de clima en tiempo real por ciudad ✅
+- [x] Checklist interactiva de viaje con CRUD completo ✅
 - [ ] Integración con redes sociales para compartir itinerario, frases o guía gluten-free
 - [ ] Sección de preguntas frecuentes (FAQ)
 - [ ] Historial de viajes y consulta de itinerarios pasados
@@ -73,11 +74,11 @@ Este roadmap resume las tareas completadas y el progreso funcional del sitio web
 - [ ] Gamificación: logros, puntos o insignias por completar actividades
 - [ ] Soporte multilenguaje (inglés y japonés)
 - [ ] [`features/chat/chat-tecnico.md`](features/chat/chat-tecnico.md)
-- [ ] [`features/checklist/checklist-tecnico.md`](features/checklist/checklist-tecnico.md)
+- [x] [`features/checklist/checklist-tecnico.md`](features/checklist/checklist-tecnico.md) ✅
 
 ---
 
-Progreso general: **✅ 98% Completado**
+Progreso general: **✅ 99% Completado**
 
 ---
 
@@ -114,3 +115,47 @@ Se ha implementado un completo sistema de filtros para el itinerario que ofrece 
 - **Animaciones suaves**: Transiciones al aplicar filtros para mejorar la experiencia de usuario
 - **Modo claro/oscuro**: Compatibilidad completa con ambos temas
 - **Diseño totalmente responsive**: Funciona perfectamente en todos los dispositivos
+
+### ✅ Checklist Interactiva de Viaje con CRUD Completo
+
+Se ha implementado un sistema completo de checklist para organizar el equipaje del viaje. Esta funcionalidad incluye:
+
+**🎯 Funcionalidades CRUD Implementadas:**
+- **Crear**: Añadir nuevos ítems a cualquier categoría con formulario inline
+- **Leer**: Visualizar todos los ítems organizados por categorías con contadores dinámicos
+- **Actualizar**: Editar texto de ítems existentes mediante modal con autofocus
+- **Eliminar**: Eliminar ítems personalizados con confirmación visual
+
+**🎨 Sistema de Temas Avanzado:**
+- **Detección Automática**: MutationObserver detecta cambios de tema en tiempo real
+- **Estilos Dinámicos**: Tarjetas, toolbar, inputs y textos se adaptan instantáneamente
+- **Transiciones Suaves**: Sin parpadeos al cambiar entre modo claro/oscuro
+- **Gradientes Compatibles**: Títulos con bg-clip-text funcionan perfectamente en ambos modos
+
+**🔍 Filtrado y Búsqueda Inteligente:**
+- **Filtros por Estado**: Todos, Completados, Pendientes con botones visuales
+- **Búsqueda en Tiempo Real**: Input sticky con limpieza automática
+- **Contadores Dinámicos**: Número de ítems visibles actualizado automáticamente
+- **Toolbar Sticky**: Controles siempre accesibles al hacer scroll
+
+**💾 Persistencia y Performance:**
+- **localStorage**: Estado de checkboxes e ítems editables guardado automáticamente
+- **SolidJS Signals**: Gestión de estado reactivo ultra-eficiente
+- **client:visible**: Hidratación solo cuando el componente entra en viewport
+- **Bundle Optimizado**: Componente ligero con tree-shaking automático
+
+**📱 Experiencia de Usuario:**
+- **Modal de Edición**: Interfaz intuitiva con componente Show de SolidJS
+- **Categorías con Colores**: Gradientes únicos por categoría (Neceser→Rosa, Ropa→Azul, etc.)
+- **100% Responsive**: Optimizado para uso móvil durante el viaje
+- **Accesibilidad**: Navegación por teclado, ARIA labels y contraste adecuado
+
+**📦 Categorías Predefinidas:**
+- 🧴 **Neceser**: Productos de higiene y cuidado personal  
+- 👕 **Ropa**: Prendas para diferentes climas y ocasiones
+- 💊 **Medicinas**: Medicamentos y botiquín de emergencia
+- 🔌 **Electrónica**: Dispositivos, cargadores y adaptadores
+- 📄 **Documentación**: Pasaportes, seguros y documentos críticos
+- 🎒 **Varios**: Otros elementos esenciales para el viaje
+
+El checklist está integrado en el header principal y disponible en `/checklist` con funcionalidad 100% offline.
