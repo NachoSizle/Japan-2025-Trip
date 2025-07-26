@@ -158,14 +158,47 @@ body {
 }
 
 /* Texto principal en modo claro */
-[data-theme="light"] h1,
-[data-theme="light"] h2,
-[data-theme="light"] h3,
-[data-theme="light"] h4,
-[data-theme="light"] h5,
-[data-theme="light"] h6 {
+[data-theme="light"] h1:not(.bg-clip-text),
+[data-theme="light"] h2:not(.bg-clip-text),
+[data-theme="light"] h3:not(.bg-clip-text),
+[data-theme="light"] h4:not(.bg-clip-text),
+[data-theme="light"] h5:not(.bg-clip-text),
+[data-theme="light"] h6:not(.bg-clip-text) {
   color: var(--text-light) !important;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Asegurar que los gradientes de texto funcionen en ambos temas */
+.bg-clip-text {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
+/* Específico para títulos con gradiente en modo claro */
+[data-theme="light"] .bg-clip-text {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
+/* Estilos para tarjetas del checklist en modo claro */
+[data-theme="light"] .checklist-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+}
+
+[data-theme="light"] .checklist-card h2 {
+  color: #2d3748 !important;
+}
+
+[data-theme="light"] .checklist-card .text-pink-300 {
+  color: #d53f8c !important;
+}
+
+[data-theme="light"] .checklist-card .text-white\/90 {
+  color: #4a5568 !important;
 }
 
 /* Texto normal en modo claro */

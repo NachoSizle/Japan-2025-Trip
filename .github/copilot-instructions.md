@@ -44,7 +44,15 @@ Estas directrices están diseñadas para que los agentes de IA sean productivos 
 - Genera documentación clara y útil en los cambios relevantes.
 - Mantén la accesibilidad y el SEO como prioridades.
 
+## 🔄 Proceso de Modificación de Archivos
 
+Antes de realizar cualquier cambio en un archivo existente, sigue este proceso:
+
+1.  **Lectura y Comprensión**: Lee el contenido completo del archivo para entender su propósito, lógica, dependencias y cómo se integra en el proyecto. Presta atención a los comentarios, la estructura y los patrones de código existentes.
+2.  **Análisis de Requisitos**: Revisa los cambios solicitados o la tarea a realizar. Identifica las secciones específicas del archivo que se verán afectadas y cómo la modificación impactará el comportamiento general.
+3.  **Propuesta de Solución**: Formula una solución clara y concisa. Considera las mejores prácticas, la coherencia con el código existente y la eficiencia. Si hay múltiples enfoques, evalúa sus pros y contras.
+4.  **Implementación**: Aplica los cambios propuestos. Asegúrate de mantener la indentación, el formato y la sintaxis correctos. Si es necesario, añade comentarios para explicar la nueva lógica o las decisiones de diseño.
+5.  **Verificación**: Una vez realizados los cambios, verifica que la aplicación funcione correctamente y que los cambios se hayan aplicado según lo esperado. Realiza pruebas si es necesario.
 ## 📦 Gestión y Edición de Datos
 
 - **Edición de archivos JSON**: Para agregar o modificar información del itinerario o vuelos, edita los archivos en `src/data/`. Tras cualquier cambio, valida visualmente en la UI que los datos se reflejan correctamente y no hay errores de formato.

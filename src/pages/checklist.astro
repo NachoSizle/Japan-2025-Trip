@@ -15,12 +15,12 @@ import ChecklistWrapper from '../components/ChecklistWrapper.astro';
   <!-- Main Content -->
   <main class="pt-20 min-h-screen bg-base-100 text-base-content">
     <!-- Hero Section -->
-    <section class="py-16 sm:py-20 text-center">
+    <section class="py-10 text-center">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-fuchsia-500 to-red-500 bg-clip-text text-transparent drop-shadow-lg">
-          ✅ Checklist de Viaje
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 checklist-title">
+          Checklist de Viaje
         </h1>
-        <p class="text-lg sm:text-xl lg:text-2xl mb-8">
+        <p class="text-lg sm:text-xl lg:text-2xl mb-8 checklist-subtitle">
           Organiza y personaliza todo lo que necesitas llevar a Japón. Marca, filtra, busca y añade tus propios ítems.
         </p>
       </div>
@@ -32,3 +32,34 @@ import ChecklistWrapper from '../components/ChecklistWrapper.astro';
     </section>
   </main>
 </Layout>
+
+<style>
+  /* Checklist Title */
+  .checklist-title {
+    background: linear-gradient(135deg, #FF1493, #FF6B6B, #FF0040);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+  }
+
+  /* Checklist Subtitle */
+  .checklist-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  :global([data-theme="light"]) .checklist-title {
+    background: linear-gradient(135deg, #C41E3A, #DC143C, #8B0000) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: none !important;
+  }
+  
+  :global([data-theme="light"]) .checklist-subtitle {
+    color: #2D1B1B !important;
+    font-weight: 600;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+  }
+</style>

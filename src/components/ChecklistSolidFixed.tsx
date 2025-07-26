@@ -1,4 +1,4 @@
-import { createSignal, onMount, createMemo, createEffect } from "solid-js";
+import { createSignal, onMount, createMemo } from "solid-js";
 import EditItemModal from "./EditItemModal";
 import type { Component } from "solid-js";
 
@@ -28,33 +28,16 @@ const ChecklistSolid: Component<Props> = (props) => {
   const [search, setSearch] = createSignal('');
   const [adding, setAdding] = createSignal<Record<string, boolean>>({});
   const [newItemText, setNewItemText] = createSignal<Record<string, string>>({});
-  const [isLightTheme, setIsLightTheme] = createSignal(false);
   
   // Estados para edición
   const [editing, setEditing] = createSignal<{ cat: string | null; idx: number | null }>({ cat: null, idx: null });
   const [editValue, setEditValue] = createSignal<string>("");
-  const [modalOpen, setModalOpen] = createSignal<boolean>(false);
 
   // Estado de ítems editables (inicializado desde props)
   const [editableItems, setEditableItems] = createSignal<Record<string, string[]>>({});
 
   // Inicializar desde localStorage o props
   onMount(() => {
-    // Detectar tema inicial
-    const theme = document.documentElement.getAttribute('data-theme');
-    setIsLightTheme(theme === 'light');
-    
-    // Observer para detectar cambios de tema
-    const observer = new MutationObserver(() => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      setIsLightTheme(currentTheme === 'light');
-    });
-    
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme']
-    });
-    
     // Cargar estado de checkboxes
     if (typeof localStorage !== "undefined") {
       const savedCheckboxes = localStorage.getItem("checklist-state");
@@ -76,9 +59,6 @@ const ChecklistSolid: Component<Props> = (props) => {
         localStorage.setItem("checklist-editable-items", JSON.stringify(initialItems));
       }
     }
-    
-    // Cleanup
-    return () => observer.disconnect();
   });
 
   // Funciones de persistencia
@@ -156,7 +136,6 @@ const ChecklistSolid: Component<Props> = (props) => {
     // Cerrar modal de edición si estaba editando este ítem
     if (editing().cat === categoria && editing().idx === idx) {
       setEditing({ cat: null, idx: null });
-      setModalOpen(false);
     }
   };
 
@@ -176,58 +155,15 @@ const ChecklistSolid: Component<Props> = (props) => {
     
     saveEditableItems(updatedItems);
     setEditing({ cat: null, idx: null });
-    setModalOpen(false);
-  };
-
-  const cancelEdit = () => {
-    setEditing({ cat: null, idx: null });
-    setModalOpen(false);
-  };
-
-  // Función para obtener estilos de tarjeta según el tema
-  const getCardStyles = () => {
-    if (isLightTheme()) {
-      return 'bg-gradient-to-br from-white to-gray-50 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-pink-400/30';
-    } else {
-      return 'bg-neutral-800/60 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-pink-400/30';
-    }
-  };
-
-  // Función para obtener estilos de toolbar según el tema
-  const getToolbarStyles = () => {
-    if (isLightTheme()) {
-      return 'sticky top-16 z-30 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl mb-8 px-4 py-4 border border-gray-200';
-    } else {
-      return 'sticky top-16 z-30 bg-neutral-900/90 backdrop-blur-md rounded-2xl shadow-xl mb-8 px-4 py-4 border border-white/10';
-    }
-  };
-
-  // Función para obtener estilos de input según el tema  
-  const getInputStyles = () => {
-    if (isLightTheme()) {
-      return 'w-full px-4 py-3 sm:px-3 sm:py-2 rounded-full bg-gray-100 text-gray-800 border border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-400 text-base sm:text-sm backdrop-blur-sm placeholder-gray-500';
-    } else {
-      return 'w-full px-4 py-3 sm:px-3 sm:py-2 rounded-full bg-neutral-800/60 text-white border border-pink-400/40 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-400 text-base sm:text-sm backdrop-blur-sm placeholder-pink-300/60';
-    }
-  };
-
-  // Función para obtener clases de texto según el tema
-  const getTextClasses = () => {
-    return {
-      title: isLightTheme() ? 'text-xl font-bold text-neutral-800 mb-0' : 'text-xl font-bold text-white mb-0',
-      count: isLightTheme() ? 'text-sm text-pink-600' : 'text-sm text-pink-300',
-      item: isLightTheme() ? 'flex items-start gap-2 text-neutral-700 text-sm group' : 'flex items-start gap-2 text-white/90 text-sm group'
-    };
   };
 
   return (
     <div class="p-4">
       {/* Toolbar sticky de filtros y búsqueda */}
-      <div class={getToolbarStyles()}>
-        {/* Filtros */}
-        <div class="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
+      <div class="sticky top-16 z-30 bg-neutral-900/80 backdrop-blur-md rounded-xl shadow-md mb-8 flex flex-col sm:flex-row items-center gap-2 px-4 py-3 border border-white/10">
+        <div class="flex gap-2 mb-2 sm:mb-0">
           <button
-            class={`px-5 py-2.5 sm:px-4 sm:py-1.5 rounded-full font-semibold text-sm sm:text-xs transition-all border-2 focus:outline-none focus:ring-2 focus:ring-pink-400/70 shadow-sm min-w-[90px] sm:min-w-auto
+            class={`px-4 py-1.5 rounded-full font-semibold text-sm transition-all border-2 focus:outline-none focus:ring-2 focus:ring-pink-400/70 shadow-sm
               ${filter() === 'todos'
                 ? 'bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white border-pink-500 shadow-lg shadow-pink-500/30'
                 : 'bg-transparent text-pink-400 border-pink-400 hover:bg-pink-500/10'}
@@ -235,7 +171,7 @@ const ChecklistSolid: Component<Props> = (props) => {
             onClick={() => setFilter('todos')}
           >Todos</button>
           <button
-            class={`px-5 py-2.5 sm:px-4 sm:py-1.5 rounded-full font-semibold text-sm sm:text-xs transition-all border-2 focus:outline-none focus:ring-2 focus:ring-green-400/70 shadow-sm min-w-[110px] sm:min-w-auto
+            class={`px-4 py-1.5 rounded-full font-semibold text-sm transition-all border-2 focus:outline-none focus:ring-2 focus:ring-green-400/70 shadow-sm
               ${filter() === 'completados'
                 ? 'bg-gradient-to-r from-green-400 to-emerald-500 text-white border-green-400 shadow-lg shadow-green-400/30'
                 : 'bg-transparent text-green-400 border-green-400 hover:bg-green-400/10'}
@@ -243,7 +179,7 @@ const ChecklistSolid: Component<Props> = (props) => {
             onClick={() => setFilter('completados')}
           >Completados</button>
           <button
-            class={`px-5 py-2.5 sm:px-4 sm:py-1.5 rounded-full font-semibold text-sm sm:text-xs transition-all border-2 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 shadow-sm min-w-[100px] sm:min-w-auto
+            class={`px-4 py-1.5 rounded-full font-semibold text-sm transition-all border-2 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 shadow-sm
               ${filter() === 'pendientes'
                 ? 'bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900 border-yellow-300 shadow-lg shadow-yellow-300/30'
                 : 'bg-transparent text-yellow-300 border-yellow-300 hover:bg-yellow-300/10'}
@@ -251,28 +187,13 @@ const ChecklistSolid: Component<Props> = (props) => {
             onClick={() => setFilter('pendientes')}
           >Pendientes</button>
         </div>
-        
-        {/* Búsqueda */}
-        <div class="relative">
-          <input
-            type="text"
-            class={getInputStyles()}
-            placeholder="🔍 Buscar ítem..."
-            value={search()}
-            onInput={e => setSearch(e.currentTarget.value)}
-          />
-          {search() && (
-            <button
-              class="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 rounded-full bg-pink-500/20 hover:bg-pink-500/40 transition-all"
-              onClick={() => setSearch('')}
-              title="Limpiar búsqueda"
-            >
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 6L14 14M6 14L14 6" stroke="#ec4899" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-          )}
-        </div>
+        <input
+          type="text"
+          class="flex-1 px-3 py-1 rounded-lg bg-neutral-800 text-white border border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm"
+          placeholder="🔍 Buscar ítem..."
+          value={search()}
+          onInput={e => setSearch(e.currentTarget.value)}
+        />
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -287,21 +208,21 @@ const ChecklistSolid: Component<Props> = (props) => {
               class="rounded-3xl shadow-lg hover:scale-[1.01] transition-transform duration-200"
               style={`background: ${border}; padding: 2px; border-radius: 1.5rem;`}
             >
-              <div class={getCardStyles()}>
+              <div class="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-3xl h-full w-full" style="border-radius: 1.35rem; padding: 1rem;">
                 <div class="flex items-center justify-between mb-3">
-                  <h2 class={getTextClasses().title}>
+                  <h2 class="text-xl font-bold text-white mb-0">
                     <span class="mr-2">{icons[categoria] ?? "📦"}</span> {categoria}
                   </h2>
-                  <span class={getTextClasses().count}>{filtered.length} ítems</span>
+                  <span class="text-sm text-pink-300">{filtered.length} ítems</span>
                 </div>
                 
                 {/* Añadir ítem */}
                 <div class="mb-2 flex gap-2 items-center">
                   <button
-                    class="px-3 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white text-xs font-semibold hover:from-pink-600 hover:to-fuchsia-600 transition-all duration-200 shadow-md hover:shadow-lg border border-pink-400/30"
+                    class="px-2 py-1 rounded-full bg-pink-600 text-white text-xs font-semibold hover:bg-pink-700 transition-all"
                     onClick={() => setAdding({ ...adding(), [categoria]: !adding()[categoria] })}
                   >
-                    {adding()[categoria] ? '✕ Cancelar' : '+ Añadir ítem'}
+                    {adding()[categoria] ? 'Cancelar' : '+ Añadir ítem'}
                   </button>
                   
                   {adding()[categoria] && (
@@ -314,13 +235,13 @@ const ChecklistSolid: Component<Props> = (props) => {
                     >
                       <input
                         type="text"
-                        class={getInputStyles()}
+                        class="px-2 py-1 rounded-lg bg-neutral-800 text-white border border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-500 text-xs"
                         placeholder="Nuevo ítem..."
                         value={newItemText()[categoria] || ''}
                         onInput={e => setNewItemText({ ...newItemText(), [categoria]: e.currentTarget.value })}
                       />
-                      <button type="submit" class="px-3 py-1.5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xs font-semibold hover:from-green-500 hover:to-emerald-600 transition-all duration-200 shadow-md hover:shadow-lg border border-green-400/30">
-                        ✓ Agregar
+                      <button type="submit" class="px-2 py-1 rounded-full bg-green-500 text-white text-xs font-semibold hover:bg-green-600 transition-all">
+                        Agregar
                       </button>
                     </form>
                   )}
@@ -330,7 +251,7 @@ const ChecklistSolid: Component<Props> = (props) => {
                   {filtered.map(({ item, idx }) => {
                     const key = `${categoria}-${idx}`;
                     return (
-                      <li class={getTextClasses().item}>
+                      <li class="flex items-start gap-2 text-white/90 text-sm group">
                         <input
                           type="checkbox"
                           id={key}
@@ -341,28 +262,29 @@ const ChecklistSolid: Component<Props> = (props) => {
                         <label for={key} class="cursor-pointer flex-1">{item}</label>
                         
                         <button
-                          class="ml-1 p-1.5 rounded-full transition-all duration-200 opacity-70 hover:opacity-100 focus:opacity-100 outline-none bg-gradient-to-r from-yellow-400/20 to-orange-400/20 hover:from-yellow-400/40 hover:to-orange-400/40 border border-yellow-400/30 hover:border-yellow-400/60"
+                          class="ml-1 p-1 rounded-full transition-opacity opacity-80 hover:opacity-100 focus:opacity-100 outline-none border-none shadow-none ring-0 focus:ring-0"
+                          style="background: none; border: none; box-shadow: none; outline: none;"
                           title="Editar"
                           aria-label="Editar ítem"
                           onClick={() => {
                             setEditing({ cat: categoria, idx });
                             setEditValue(item);
-                            setModalOpen(true);
                           }}
                         >
-                          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 13.5V16h2.5l7.06-7.06-2.5-2.5L4 13.5z" fill="#FFD600"/>
                             <path d="M17.71 6.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.13 1.13 3.75 3.75 1.13-1.13z" fill="#FFD600"/>
                           </svg>
                         </button>
                         
                         <button
-                          class="ml-1 p-1.5 rounded-full transition-all duration-200 opacity-70 hover:opacity-100 focus:opacity-100 outline-none bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/40 hover:to-pink-500/40 border border-red-400/30 hover:border-red-400/60"
+                          class="ml-1 p-1 rounded-full transition-opacity opacity-80 hover:opacity-100 focus:opacity-100 outline-none border-none shadow-none ring-0 focus:ring-0"
+                          style="background: none; border: none; box-shadow: none; outline: none;"
                           title="Eliminar"
                           aria-label="Eliminar ítem"
                           onClick={() => deleteItem(categoria, idx)}
                         >
-                          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="5" y="8" width="10" height="8" rx="2" fill="#FF1744"/>
                             <rect x="8" y="4" width="4" height="2" rx="1" fill="#FF1744"/>
                             <rect x="3" y="6" width="14" height="2" rx="1" fill="#FF5252"/>
@@ -380,11 +302,11 @@ const ChecklistSolid: Component<Props> = (props) => {
 
       {/* Modal global de edición de ítem */}
       <EditItemModal
-        open={modalOpen()}
+        open={editing().cat !== null && editing().idx !== null}
         value={editValue()}
         onChange={setEditValue}
         onSave={saveEdit}
-        onCancel={cancelEdit}
+        onCancel={() => setEditing({ cat: null, idx: null })}
       />
     </div>
   );
