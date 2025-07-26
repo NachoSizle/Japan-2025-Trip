@@ -10,7 +10,7 @@ type ChatItinerarioSolidProps = {
 };
 
 export default function ChatItinerarioSolid(props: ChatItinerarioSolidProps) {
-  const [open, setOpen] = createSignal(true);
+  const [open, setOpen] = createSignal(false);
   const [messages, setMessages] = createSignal([
     { from: 'bot', text: '¡Hola! Pregúntame cualquier cosa sobre tu viaje a Japón.' }
   ]);
