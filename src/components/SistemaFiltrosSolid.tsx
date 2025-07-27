@@ -1,19 +1,23 @@
 import { createSignal, For, Show } from 'solid-js';
 import type { Component } from 'solid-js';
 
-interface Actividad {
+export interface Actividad {
   hora: string;
   actividad: string;
   ubicacion: string;
   tipo: string;
   notas?: string;
+  notas_extended?: string;
   gluten_free?: boolean;
   destacado?: boolean;
   maps_url?: string;
   direccion?: string;
+  costo?: string;
+  duracion?: string;
+  alternativa_gf?: string;
 }
 
-interface Dia {
+export interface Dia {
   dia: number;
   fecha: string;
   titulo: string;
@@ -65,9 +69,10 @@ const SistemaFiltrosSolid: Component<Props> = (props) => {
     <>
       {/* Panel de control de filtros colapsable */}
       <div class="mb-8">
-        <button 
+        <button
           onClick={() => setFiltersOpen(!filtersOpen())}
-          class="filter-toggle-button mx-auto flex items-center justify-center gap-2 px-4 py-3 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg bg-gradient-to-r from-pink-600 to-pink-500 text-white font-semibold min-w-[200px] hover:from-pink-500 hover:to-pink-600 hover:-translate-y-0.5">
+          class="home-cta filter-toggle-button mx-auto flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-base sm:text-lg border-2 border-pink-500 shadow-lg hover:shadow-pink-400/30 focus:outline-none focus:ring-2 focus:ring-pink-400 min-w-[200px]"
+          style="background: linear-gradient(135deg, #FF6B6B, #FF1493); border-color: rgba(255, 255, 255, 0.1);">
           <span>Filtrar itinerario</span>
           <span class="text-xs transition-transform duration-300">{filtersOpen() ? '▲' : '▼'}</span>
         </button>

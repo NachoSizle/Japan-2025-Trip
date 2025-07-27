@@ -4,7 +4,18 @@ import Header from '../components/Header.astro';
 import SistemaFiltrosSolid from '../components/SistemaFiltrosSolid.tsx';
 import itinerarioData from '../data/itinerario.json';
 
-const { dias } = itinerarioData;
+
+const { dias: diasOriginal } = itinerarioData;
+// Mapeo para que solo pasen los campos esperados por el componente Solid
+// Forzamos el tipado a Dia[] tras limpiar los campos extra del JSON.
+// Esto es seguro porque solo pasamos los campos esperados por el componente SolidJS.
+const dias = diasOriginal.map(({ dia, fecha, titulo, ciudad, actividades }) => ({
+  dia,
+  fecha,
+  titulo,
+  ciudad,
+  actividades: Array.isArray(actividades) ? actividades : [],
+})) as import("../components/SistemaFiltrosSolid").Dia[];
 ---
 
 <Layout title="Itinerario Completo - Japón 2025">
@@ -55,8 +66,7 @@ const { dias } = itinerarioData;
               {(() => {
                 let count = 0;
                 dias.forEach(dia => {
-                  dia.actividades.forEach(act => {
-                    // @ts-ignore
+                  dia.actividades.forEach((act: import("../components/SistemaFiltrosSolid").Actividad) => {
                     if (act.gluten_free === true) count++;
                   });
                 });
