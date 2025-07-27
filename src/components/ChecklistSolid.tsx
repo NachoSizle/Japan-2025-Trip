@@ -431,7 +431,7 @@ const ChecklistSolid: Component<Props> = (props) => {
                           {item}
                         </label>
                         <button
-                          class="ml-1 p-1.5 rounded-full transition-all duration-200 opacity-70 hover:opacity-100 focus:opacity-100 outline-none bg-gradient-to-r from-yellow-400/20 to-orange-400/20 hover:from-yellow-400/40 hover:to-orange-400/40 border border-yellow-400/30 hover:border-yellow-400/60"
+                          class="ml-1 p-1.5 rounded-full transition-all duration-200 opacity-70 hover:opacity-100 focus:opacity-100 outline-none bg-gradient-to-r from-yellow-400/20 to-orange-400/20 hover:from-yellow-400/40 hover:to-orange-400/40 border border-yellow-400/30 hover:border-yellow-400/60 w-8 h-8 flex items-center justify-center mb-2"
                           title="Editar"
                           aria-label="Editar ítem"
                           onClick={() => {
@@ -443,7 +443,7 @@ const ChecklistSolid: Component<Props> = (props) => {
                           <EditIcon isLight={isLightTheme()} />
                         </button>
                         <button
-                          class="ml-1 p-1.5 rounded-full transition-all duration-200 opacity-70 hover:opacity-100 focus:opacity-100 outline-none bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/40 hover:to-pink-500/40 border border-red-400/30 hover:border-red-400/60"
+                          class="ml-1 p-1.5 rounded-full transition-all duration-200 opacity-70 hover:opacity-100 focus:opacity-100 outline-none bg-gradient-to-r from-red-500/20 to-pink-500/20 hover:from-red-500/40 hover:to-pink-500/40 border border-red-400/30 hover:border-red-400/60 w-8 h-8 flex items-center justify-center mb-2"
                           title="Eliminar"
                           aria-label="Eliminar ítem"
                           onClick={() => deleteItem(categoria, idx)}
