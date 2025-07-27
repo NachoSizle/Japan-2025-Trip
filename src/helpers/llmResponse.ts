@@ -97,7 +97,6 @@ export interface Vuelo {
   [key: string]: any;
 }
 
-
 export interface Hotel {
   ciudad: string;
   hotel?: string;
@@ -156,6 +155,121 @@ function todasGf(){
 // ---------- Función principal ----------
 export async function getLLMResponse(question:string):Promise<string>{
   const q = question.toLowerCase();
+  // Extraer alojamientos de las actividades de tipo 'alojamiento' en cada día
+  const alojamientos = dias.flatMap(dia =>
+    (dia.actividades ?? [])
+      .filter(act => act.tipo === 'alojamiento')
+      .map(act => ({
+        ciudad: dia.ciudad,
+        hotel: act.hotel || act.actividad || undefined,
+        direccion: act.direccion || act.ubicacion || undefined,
+        check_in: act.check_in,
+        check_out: act.check_out,
+        ...act
+      }))
+  );
+  // Nombre/dirección del hotel en ciudad
+  const mHotel = q.match(/d[oó]nde nos alojamos?(?: en| en la ciudad de)? ([a-záéíóúü\- ]+)/);
+  if (mHotel) {
+    if (alojamientos.length) {
+      const cBase = baseCity(mHotel[1]);
+      const h = alojamientos.find((h: any) => baseCity(h.ciudad) === cBase);
+      if (h) return `Alojamiento en ${cap(cBase)}: ${h.hotel ?? '(sin nombre)'}, dirección ${h.direccion ?? 'desconocida'}.`;
+      return `No hay alojamiento registrado en ${cap(cBase)}.`;
+    } else {
+      return 'No tengo información de alojamientos en el itinerario.';
+    }
+  }
+  // Check-in/check-out
+  const mCheck = q.match(/(?:check[- ]?(in|out)).*en ([a-záéíóúü\- ]+)/);
+  if (mCheck) {
+    if (alojamientos.length) {
+      const tipo = mCheck[1] === 'out' ? 'check_out' : 'check_in';
+      const cBase = baseCity(mCheck[2]);
+      const h = alojamientos.find((h: any) => baseCity(h.ciudad) === cBase);
+      if (!h || !h[tipo]) return `No tengo la hora de ${mCheck[1]} para ${cap(cBase)}.`;
+      return `El ${mCheck[1]} en ${cap(cBase)} es a las ${h[tipo]}.`;
+    } else {
+      return 'No tengo información de alojamientos en el itinerario.';
+    }
+  }
+  // Wifi/servicios
+  if (/wifi.*(hotel|alojamiento)/.test(q)) {
+    if (alojamientos.length) {
+      const hotelesConWifi = alojamientos.filter((h: any) => h.wifi);
+      if (hotelesConWifi.length) return `Hoteles con wifi: ` + hotelesConWifi.map((h: any) => `${h.hotel ?? h.ciudad}`).join(', ');
+      return 'No tengo información sobre wifi en los alojamientos.';
+    } else {
+      return 'No tengo información de alojamientos en el itinerario.';
+    }
+  }
+  // --- Transporte y trayectos ---
+  if (/c[oó]mo.*(mover|llegar|ir).*entre ([a-záéíóúü\- ]+) y ([a-záéíóúü\- ]+)/.test(q)) {
+    // No hay datos directos, pero se puede sugerir tren/autobús
+    return 'La forma habitual de moverse entre ciudades en Japón es en tren bala (Shinkansen) o autobús. Consulta el itinerario para detalles de cada trayecto.';
+  }
+  if (/cu[aá]nto dura.*trayecto.*(a|hasta) ([a-záéíóúü\- ]+)/.test(q)) {
+    return 'La duración de los trayectos varía según el medio de transporte y la ciudad. Consulta el itinerario del día correspondiente para detalles.';
+  }
+  if (/d[oó]nde.*(estaci[oó]n|parada)/.test(q)) {
+    return 'Las estaciones principales suelen estar indicadas en el itinerario de cada día. Busca el nombre de la ciudad y revisa las actividades o notas.';
+  }
+  if (/japan rail pass|jr pass/.test(q)) {
+    return 'El Japan Rail Pass permite viajar ilimitadamente en la red JR, incluyendo la mayoría de trenes bala. Recuerda activarlo al llegar y llevarlo siempre contigo.';
+  }
+
+  // --- Emergencias y recomendaciones ---
+  if (/embajada.*espa[ñn]a/.test(q)) {
+    return 'La Embajada de España en Tokio está en 1-3-29 Roppongi, Minato-ku, Tokio 106-0032. Teléfono: +81 3 3583 8531.';
+  }
+  if (/seguro m[eé]dico|asistencia m[eé]dica/.test(q)) {
+    return 'Recuerda llevar tu póliza de seguro médico de viaje. En caso de emergencia, contacta con la aseguradora y acude al hospital más cercano.';
+  }
+  if (/pierdo el grupo|me pierdo|perder el grupo/.test(q)) {
+    return 'Si te separas del grupo, dirígete al punto de encuentro acordado o contacta con el coordinador del viaje.';
+  }
+  if (/normas.*(templo|santuario|etiqueta)/.test(q)) {
+    return 'En templos y santuarios, respeta el silencio, descalzarse si es necesario y no tomar fotos donde esté prohibido. Viste de forma respetuosa.';
+  }
+  if (/efectivo|tarjeta|dinero/.test(q)) {
+    return 'En Japón se recomienda llevar efectivo, ya que no todos los comercios aceptan tarjeta. Hay cajeros en estaciones y konbinis.';
+  }
+
+  // --- Comidas y restaurantes ---
+  if (/desayuno.*(incluido|d[oó]nde)/.test(q)) {
+    return 'Consulta el itinerario de cada día para ver si el desayuno está incluido en el alojamiento o en algún restaurante cercano.';
+  }
+  if (/comidas? incluidas?/.test(q)) {
+    return 'Las comidas incluidas están indicadas en el itinerario de cada día, en la sección de comidas.';
+  }
+  if (/restaurantes? cerca.*hotel/.test(q)) {
+    return 'Puedes buscar restaurantes cercanos al hotel en Google Maps o preguntar en recepción. Consulta también la sección de comidas del itinerario.';
+  }
+
+  // --- Fotos, souvenirs, checklist, actividades especiales ---
+  if (/fotos|im[aá]genes|galer[ií]a/.test(q)) {
+    return 'Puedes ver fotos de los lugares en la sección de galería de la web o buscando el nombre de la ciudad en Google Imágenes.';
+  }
+  if (/souvenir|recuerdo/.test(q)) {
+    return 'Algunos souvenirs típicos de Japón son: omamori (amuletos), palillos, tazas, dulces tradicionales, papelería y figuras de anime.';
+  }
+  if (/checklist|cosas para llevar|lista de equipaje/.test(q)) {
+    return 'Consulta la sección de checklist en la web para ver la lista de cosas recomendadas para llevar al viaje.';
+  }
+  if (/punto de encuentro|d[oó]nde.*reunirnos?/.test(q)) {
+    return 'El punto de encuentro suele estar indicado en el itinerario de cada día o será comunicado por el coordinador.';
+  }
+  if (/tiempo libre|horario libre|despu[eé]s de.*actividad/.test(q)) {
+    return 'El tiempo libre está indicado en el itinerario de cada día. Si tienes dudas, pregunta al coordinador durante el viaje.';
+  }
+
+  // --- Actividades para niños/personas con movilidad reducida ---
+  if (/ni[nñ]os|menores|familia/.test(q)) {
+    return 'Algunas actividades son aptas para niños, pero revisa el itinerario y consulta con el coordinador para confirmar.';
+  }
+  if (/movilidad reducida|accesible|discapacidad/.test(q)) {
+    return 'Japón es un país bastante accesible, pero revisa el itinerario y consulta con el coordinador para confirmar accesibilidad en cada actividad.';
+  }
 
   // Duración / fechas
   if(dias.length && /duraci[oó]n.*viaje|cu[aá]nt[oa]s? d[ií]as.*viaje/.test(q)) return `El viaje dura ${dias.length} días, del ${dias[0].fecha} al ${dias[dias.length-1].fecha}.`;
@@ -236,22 +350,6 @@ export async function getLLMResponse(question:string):Promise<string>{
     if(/a qu[eé] hora/.test(q)) return `El vuelo de vuelta sale de ${v.from.city} a las ${v.from.departure_time?.slice(11,16)}.`;
     return `Vuelo de vuelta: ${v.airline} (${v.flight_segments?.map((fs: VueloSegment)=>fs.flight_number).join(" + ")}) el ${v.from.departure_time?.slice(0,10)} de ${v.from.city} a ${v.to.city}, salida ${v.from.departure_time?.slice(11,16)} llegada ${v.to.arrival_time?.slice(11,16)}.`;
   }
-
-  // Hoteles
-  // const mHotel=q.match(/d[oó]nde nos alojamos? (?:en |en la ciudad de )?([a-záéíóúü\- ]+)/);
-  // if(mHotel){
-  //   const cBase=baseCity(mHotel[1]);
-  //   const h=hotelCiudad(cBase);
-  //   return h?`Alojamiento en ${cap(cBase)}: ${h.hotel??"(sin nombre)"}, dirección ${h.direccion??"desconocida"}.`:`No hay alojamiento registrado en ${cap(cBase)}.`;
-  // }
-  // const mCheck=q.match(/(?:check[- ]?(in|out)).*en ([a-záéíóúü\- ]+)/);
-  // if(mCheck){
-  //   const tipo=mCheck[1]=="out"?"check_out":"check_in";
-  //   const cBase=baseCity(mCheck[2]);
-  //   const h=hotelCiudad(cBase);
-  //   if(!h||!h[tipo]) return `No tengo la hora de ${mCheck[1]} para ${cap(cBase)}.`;
-  //   return `El ${mCheck[1]} en ${cap(cBase)} es a las ${h[tipo]}.`;
-  // }
 
   // Fallback semántico Fuse.js
   const res=fuse.search(question);

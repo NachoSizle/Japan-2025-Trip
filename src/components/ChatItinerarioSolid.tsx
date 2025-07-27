@@ -1,7 +1,4 @@
 import { createSignal, onCleanup, createEffect } from 'solid-js';
-
-// Import dinámico opcional para el itinerario si se requiere pasar como contexto
-
 import { getLLMResponse } from '../helpers/llmResponse';
 
 type ChatItinerarioSolidProps = {
@@ -40,8 +37,8 @@ export default function ChatItinerarioSolid(props: ChatItinerarioSolidProps) {
     }
   });
 
-  const sendMessage = async () => {
-    const question = input().trim();
+  const sendMessage = async (customInput?: string) => {
+    const question = (typeof customInput === 'string' ? customInput : input()).trim();
     if (!question) return;
     setMessages([...messages(), { from: 'user', text: question }]);
     setInput('');
@@ -107,21 +104,22 @@ export default function ChatItinerarioSolid(props: ChatItinerarioSolidProps) {
             ))}
             {loading() && <div class="text-center text-fuchsia-300 animate-pulse">Pensando...</div>}
           </div>
-          <form class="flex items-center gap-3 px-4 py-4 border-t border-fuchsia-400 bg-white/80 dark:bg-neutral-900/80" onSubmit={async e => { e.preventDefault(); await sendMessage(); }}>
-            <input
-              class="flex-1 rounded border border-cyan-400 dark:border-cyan-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 shadow"
-              type="text"
-              placeholder="Escribe tu pregunta..."
-              value={input()}
-              onInput={e => setInput(e.target.value)}
-              aria-label="Pregunta al chat"
-              required
-            />
-            <button type="submit" class="rounded-full border border-fuchsia-300 bg-[rgba(255,20,147,0.08)] hover:bg-[rgba(255,20,147,0.18)] text-fuchsia-600 hover:text-fuchsia-700 px-5 py-2 font-semibold transition-all duration-200 focus:ring-2 focus:ring-fuchsia-300 shadow-none">
-              Enviar
-            </button>
+          <form class="flex flex-col gap-2 px-4 py-4 border-t border-fuchsia-400 bg-white/80 dark:bg-neutral-900/80" onSubmit={async e => { e.preventDefault(); await sendMessage(); }}>
+            <div class="flex items-center gap-3">
+              <input
+                class="flex-1 rounded border border-cyan-400 dark:border-cyan-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 shadow"
+                type="text"
+                placeholder="Escribe tu pregunta..."
+                value={input()}
+                onInput={e => setInput(e.target.value)}
+                aria-label="Pregunta al chat"
+                required
+              />
+              <button type="submit" class="rounded-full border border-fuchsia-300 bg-[rgba(255,20,147,0.08)] hover:bg-[rgba(255,20,147,0.18)] text-fuchsia-600 hover:text-fuchsia-700 px-5 py-2 font-semibold transition-all duration-200 focus:ring-2 focus:ring-fuchsia-300 shadow-none">
+                Enviar
+              </button>
+            </div>
           </form>
-          {/* Sin botones extra abajo, solo el input y el historial */}
         </div>
       ) : (
         <button
