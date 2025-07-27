@@ -8,35 +8,48 @@ const { dias } = itinerarioData;
 ---
 
 <Layout title="Itinerario Completo - Japón 2025">
+  <head>
+    <title>Itinerario Completo - Japón 2025</title>
+    <meta name="description" content="Explora el itinerario completo de 15 días por Japón, con actividades, ciudades y opciones gluten-free." />
+    <meta property="og:title" content="Itinerario Completo - Japón 2025" />
+    <meta property="og:description" content="Explora el itinerario completo de 15 días por Japón, con actividades, ciudades y opciones gluten-free." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/og-japan-trip.jpg" />
+    <meta property="og:url" content="https://japan2025trip.com/itinerario" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Itinerario Completo - Japón 2025" />
+    <meta name="twitter:description" content="Explora el itinerario completo de 15 días por Japón, con actividades, ciudades y opciones gluten-free." />
+    <meta name="twitter:image" content="/assets/images/og-japan-trip.jpg" />
+  </head>
   <Header />
-  <section class="pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20 itinerario-section">
+  <section class="pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20 itinerario-section" role="main" aria-label="Itinerario completo del viaje a Japón 2025">
     <div class="container mx-auto px-2 sm:px-4">
       <!-- Header de la sección -->
       <div class="text-center mb-8 sm:mb-12 md:mb-16">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 sm:mb-6 md:mb-8 itinerario-title">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 sm:mb-6 md:mb-8 itinerario-title" id="itinerario-title">
           Itinerario Completo
         </h1>
-        <p class="text-lg sm:text-xl md:text-2xl itinerario-subtitle max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-10 px-2 sm:px-4">
+        <p class="text-lg sm:text-xl md:text-2xl itinerario-subtitle max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-10 px-2 sm:px-4" aria-describedby="itinerario-title">
           Explora día a día nuestra aventura de 15 días por Japón, con todos los detalles de cada actividad y opciones especiales para celíacos.
         </p>
         
         <!-- Información del viaje -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12">
-          <div class="trip-info-card p-4 sm:p-6 rounded-xl">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12" role="region" aria-label="Resumen del viaje">
+          <div class="trip-info-card p-4 sm:p-6 rounded-xl" role="status" aria-label="Duración total del viaje">
             <div class="text-2xl sm:text-3xl mb-2">🗓️</div>
             <div class="font-bold text-lg sm:text-xl mb-1" style="color: #FF1493;">
               {itinerarioData.viaje.duracion_dias} días
             </div>
             <div class="text-sm text-gray-400">Duración total</div>
           </div>
-          <div class="trip-info-card p-4 sm:p-6 rounded-xl">
+          <div class="trip-info-card p-4 sm:p-6 rounded-xl" role="status" aria-label="Ciudades principales">
             <div class="text-2xl sm:text-3xl mb-2">🏙️</div>
             <div class="font-bold text-lg sm:text-xl mb-1" style="color: #FF6B6B;">
               {itinerarioData.viaje.ciudades_principales.length} ciudades
             </div>
             <div class="text-sm text-gray-400">Principales</div>
           </div>
-          <div class="trip-info-card p-4 sm:p-6 rounded-xl sm:col-span-1">
+          <div class="trip-info-card p-4 sm:p-6 rounded-xl sm:col-span-1" role="status" aria-label="Opciones sin gluten">
             <div class="text-2xl sm:text-3xl mb-2">🌾🚫</div>
             <div class="font-bold text-lg sm:text-xl mb-1" style="color: #FF0040;">
               {(() => {

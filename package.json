@@ -12,11 +12,12 @@
     "@astrojs/solid-js": "^5.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "@vite-pwa/astro": "^1.1.0",
-    "astro": "^5.12.1",
+    "astro": "^5.12.3",
     "fuse.js": "^7.1.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "source-map-explorer": "^2.5.3",
     "typescript": "^5.8.3"
   }
 }

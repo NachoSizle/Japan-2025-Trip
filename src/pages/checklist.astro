@@ -5,6 +5,19 @@ import ChecklistWrapper from '../components/ChecklistWrapper.astro';
 ---
 
 <Layout title="Checklist de Viaje - Japón 2025">
+  <head>
+    <title>Checklist de Viaje - Japón 2025</title>
+    <meta name="description" content="Organiza y personaliza todo lo que necesitas llevar a Japón. Marca, filtra, busca y añade tus propios ítems en tu checklist de viaje." />
+    <meta property="og:title" content="Checklist de Viaje - Japón 2025" />
+    <meta property="og:description" content="Organiza y personaliza todo lo que necesitas llevar a Japón. Marca, filtra, busca y añade tus propios ítems en tu checklist de viaje." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/og-japan-trip.jpg" />
+    <meta property="og:url" content="https://japan2025trip.com/checklist" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Checklist de Viaje - Japón 2025" />
+    <meta name="twitter:description" content="Organiza y personaliza todo lo que necesitas llevar a Japón. Marca, filtra, busca y añade tus propios ítems en tu checklist de viaje." />
+    <meta name="twitter:image" content="/assets/images/og-japan-trip.jpg" />
+  </head>
   <!-- Header -->
   <div class="w-full overflow-x-hidden">
     <div class="max-w-full">
@@ -13,21 +26,21 @@ import ChecklistWrapper from '../components/ChecklistWrapper.astro';
   </div>
 
   <!-- Main Content -->
-  <main class="pt-20 min-h-screen bg-base-100 text-base-content">
+  <main class="pt-20 min-h-screen bg-base-100 text-base-content" role="main" aria-label="Checklist de viaje a Japón 2025">
     <!-- Hero Section -->
-    <section class="py-10 text-center">
+    <section class="py-10 text-center" aria-labelledby="checklist-title">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 checklist-title">
+        <h1 id="checklist-title" class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 checklist-title">
           Checklist de Viaje
         </h1>
-        <p class="text-lg sm:text-xl lg:text-2xl mb-8 checklist-subtitle">
+        <p class="text-lg sm:text-xl lg:text-2xl mb-8 checklist-subtitle" aria-describedby="checklist-title">
           Organiza y personaliza todo lo que necesitas llevar a Japón. Marca, filtra, busca y añade tus propios ítems.
         </p>
       </div>
     </section>
 
     <!-- Checklist Widget -->
-    <section class="pb-16">
+    <section class="pb-16" aria-label="Checklist interactivo">
       <ChecklistWrapper />
     </section>
   </main>

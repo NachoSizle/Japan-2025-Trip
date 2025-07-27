@@ -28,6 +28,19 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
 ---
 
 <Layout title={`Día ${diaActual.dia} - ${diaActual.titulo} | Japón 2025`}>
+  <head>
+    <title>{`Día ${diaActual.dia} - ${diaActual.titulo} | Japón 2025`}</title>
+    <meta name="description" content={`Descubre el plan detallado del día ${diaActual.dia}: ${diaActual.titulo}. Actividades, ubicaciones y opciones gluten-free para tu viaje a Japón 2025.`} />
+    <meta property="og:title" content={`Día ${diaActual.dia} - ${diaActual.titulo} | Japón 2025`} />
+    <meta property="og:description" content={`Descubre el plan detallado del día ${diaActual.dia}: ${diaActual.titulo}. Actividades, ubicaciones y opciones gluten-free para tu viaje a Japón 2025.`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/og-japan-trip.jpg" />
+    <meta property="og:url" content={`https://japan2025trip.com/itinerario/${diaActual.dia}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Día ${diaActual.dia} - ${diaActual.titulo} | Japón 2025`} />
+    <meta name="twitter:description" content={`Descubre el plan detallado del día ${diaActual.dia}: ${diaActual.titulo}. Actividades, ubicaciones y opciones gluten-free para tu viaje a Japón 2025.`} />
+    <meta name="twitter:image" content="/assets/images/og-japan-trip.jpg" />
+  </head>
   <!-- Wrapper para limitar Header en móvil -->
   <div class="w-full overflow-x-hidden">
     <div class="max-w-full">
@@ -36,7 +49,7 @@ const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.
   </div>
 
   <!-- Hero del día específico -->
-  <main class="pt-14">
+  <main class="pt-14" role="main" aria-label={`Itinerario del día ${diaActual.dia}: ${diaActual.titulo}`}> 
     <section class="py-2 bg-gradient-to-br from-bg-deep-black via-bg-charcoal to-bg-deep-black 
                    data-[theme=light]:bg-gradient-to-br data-[theme=light]:from-red-50 data-[theme=light]:via-red-100 data-[theme=light]:to-red-50">
 

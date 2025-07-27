@@ -9,6 +9,19 @@ import FlightsSection from '../components/FlightsSection.astro';
 ---
 
 <Layout title="Japón 2025 - Viaje de Ensueño">
+  <head>
+	<title>Japón 2025 - Viaje de Ensueño</title>
+	<meta name="description" content="Aventura de dos semanas en Japón: templos, neones, experiencias gastronómicas y opciones gluten-free. 14-28 de agosto 2025." />
+	<meta property="og:title" content="Japón 2025 - Viaje de Ensueño" />
+	<meta property="og:description" content="Aventura de dos semanas en Japón: templos, neones, experiencias gastronómicas y opciones gluten-free. 14-28 de agosto 2025." />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="/assets/images/og-japan-trip.jpg" />
+	<meta property="og:url" content="https://japan2025trip.com/" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Japón 2025 - Viaje de Ensueño" />
+	<meta name="twitter:description" content="Aventura de dos semanas en Japón: templos, neones, experiencias gastronómicas y opciones gluten-free. 14-28 de agosto 2025." />
+	<meta name="twitter:image" content="/assets/images/og-japan-trip.jpg" />
+  </head>
 	<!-- Wrapper para limitar Header en móvil -->
 	<div class="w-full overflow-x-hidden">
 		<div class="max-w-full">
@@ -17,16 +30,16 @@ import FlightsSection from '../components/FlightsSection.astro';
 	</div>
 	
 	<!-- Hero Section optimizado para móvil con colores rosa -->
-	<main class="pt-16 sm:pt-20 scroll-offset">
-		<section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden hero-section">
+	<main class="pt-16 sm:pt-20 scroll-offset" role="main" aria-label="Contenido principal: Viaje a Japón 2025">
+		<section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden hero-section" aria-labelledby="main-title">
 			<!-- Background gradient con tema -->
 			<div class="absolute inset-0 hero-bg"></div>
 			
 			<div class="relative z-10 text-center max-w-6xl mx-auto px-4 hero-content-wrapper">
 				<!-- Título principal con efecto rosa - optimizado para móvil -->
 				<div class="mb-6 sm:mb-8">
-					<h1 class="text-[10rem] sm:text-[12rem] font-bold font-poppins m-0 sm:mb-2 leading-none">
-						<span class="inline-block animate-pulse hero-kanji">
+					<h1 id="main-title" class="text-[10rem] sm:text-[12rem] font-bold font-poppins m-0 sm:mb-2 leading-none">
+						<span class="inline-block animate-pulse hero-kanji" aria-label="Japón en kanji">
 							日本
 						</span>
 					</h1>
@@ -36,8 +49,8 @@ import FlightsSection from '../components/FlightsSection.astro';
 						<span class="hero-text-3">2025</span>
 					</h2>
 					<div class="text-base sm:text-xl md:text-2xl font-light tracking-wide hero-subtitle hero-subtitle-dark" 
-					     style="color: #000000 !important; font-weight: 700 !important;" 
-					     data-light-color="#000000">
+						 style="color: #000000 !important; font-weight: 700 !important;" 
+						 data-light-color="#000000">
 						14 - 28 de Agosto • 
 						<span class="hero-gluten-free font-medium">Gluten-Free Friendly</span>
 					</div>
@@ -52,10 +65,10 @@ import FlightsSection from '../components/FlightsSection.astro';
 						con opciones especiales para celíacos.
 					</p>
 					<div class="flex flex-wrap justify-center gap-4 text-sm md:text-base">
-						<div class="hero-badge hero-badge-1">
+						<div class="hero-badge hero-badge-1" role="status" aria-label="Destinos principales: Tokio, Kyoto, Osaka">
 							🏯 Tokio • Kyoto • Osaka
 						</div>
-						<div class="hero-badge hero-badge-2">
+						<div class="hero-badge hero-badge-2" role="status" aria-label="Experiencias gastronómicas">
 							🍜 Experiencias gastronómicas
 						</div>
 						<div class="hero-badge hero-badge-3">
