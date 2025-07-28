@@ -12,7 +12,7 @@ const { diaAnterior, diaSiguiente, baseUrl } = Astro.props;
   <div class="flex justify-start">
     {diaAnterior ? (
       <a href={`${baseUrl}itinerario/${diaAnterior.dia}`}
-        class="flex items-center justify-center flex-col px-8 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur text-pink-500! hover:bg-pink-100/10 hover:border-pink-400/30 transition-all duration-200 text-base font-semibold">
+        class="flex items-center justify-center flex-col px-8 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur !text-pink-500 hover:bg-pink-100/10 hover:border-pink-400/30 transition-all duration-200 text-base font-semibold">
         <span class="text-center">Día {diaAnterior.dia}</span>
       </a>
     ) : (
@@ -28,7 +28,7 @@ const { diaAnterior, diaSiguiente, baseUrl } = Astro.props;
   <div class="flex justify-end">
     {diaSiguiente ? (
       <a href={`${baseUrl}itinerario/${diaSiguiente.dia}`}
-        class="flex items-center justify-center flex-col px-8 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur text-rose-400! hover:bg-rose-100/10 hover:border-rose-400/30 transition-all duration-200 text-base font-semibold">
+        class="flex items-center justify-center flex-col px-8 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur !text-rose-400 hover:bg-rose-100/10 hover:border-rose-400/30 transition-all duration-200 text-base font-semibold">
         <span class="text-center">Día {diaSiguiente.dia}</span>
       </a>
     ) : (

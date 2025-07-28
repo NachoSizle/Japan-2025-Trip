@@ -16,7 +16,6 @@ function getDaysToShow() {
   
   const currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD format
   
-  console.log('Fecha actual simulada:', currentDate); // Para debug
   
   // Fechas del viaje
   const flightDate = '2025-08-13'; // Día del vuelo desde España
@@ -25,7 +24,6 @@ function getDaysToShow() {
   
   // 1. Antes del 13 agosto: Solo tarjeta de vuelo
   if (currentDate < flightDate) {
-    console.log('Antes del vuelo - solo tarjeta de vuelo');
     return [{
       dia: 0, // Día especial para vuelo
       fecha: flightDate,
@@ -39,7 +37,6 @@ function getDaysToShow() {
   
   // 2. 13 agosto: Tarjeta de vuelo + DayCard del día 1
   if (currentDate === flightDate) {
-    console.log('Día de vuelo - tarjeta de vuelo + día 1');
     const day1 = dias[0]; // Primer día del itinerario
     return [{
       ...day1,
@@ -50,12 +47,10 @@ function getDaysToShow() {
   
   // 3. 14-27 agosto: Solo la DayCard del día actual correspondiente
   if (currentDate >= tripStart && currentDate < tripEnd) {
-    console.log('Durante el viaje - día actual');
     // Encontrar qué día del itinerario corresponde a la fecha actual
     const currentDay = dias.find(dia => dia.fecha === currentDate);
     
     if (currentDay) {
-      console.log('Día actual encontrado:', currentDay.dia);
       return [{
         ...currentDay,
         showDayCard: true,
@@ -63,14 +58,12 @@ function getDaysToShow() {
       }];
     } else {
       // Si no hay día específico para esta fecha, no mostrar nada
-      console.log('No hay día específico para esta fecha');
       return [];
     }
   }
   
   // 4. 28 agosto: DayCard del día 15
   if (currentDate === tripEnd) {
-    console.log('Último día - día 15 + vuelo de vuelta');
     const lastDay = dias[dias.length - 1]; // Último día del itinerario
     return [{
       ...lastDay,
@@ -80,7 +73,6 @@ function getDaysToShow() {
   }
   
   // 5. Después del 28 agosto: No mostrar nada o mostrar resumen completo
-  console.log('Después del viaje');
   return [];
 }
 

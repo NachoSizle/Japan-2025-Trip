@@ -85,7 +85,6 @@
       themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        console.log('Cambiando tema de', currentTheme, 'a', newTheme);
         applyTheme(newTheme);
       });
     }
@@ -132,24 +131,16 @@
   });
   
   function applyTheme(theme: string) {
-    console.log('Aplicando tema:', theme);
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.className = theme;
     localStorage.setItem('theme', theme);
-    console.log('Tema aplicado. data-theme:', document.documentElement.getAttribute('data-theme'), 'class:', document.documentElement.className);
     
     // Aplicar estilos directamente con JavaScript para asegurar que funcionen
     applyThemeStyles(theme);
     
     updateThemeIcons(theme);
     
-    // Log del estado de algunas secciones para debug
-    setTimeout(() => {
-      const timelineSection = document.querySelector('.timeline-section');
-      const glutenFreeSection = document.querySelector('.gluten-free-section');
-      console.log('Timeline background:', timelineSection ? getComputedStyle(timelineSection).background : 'not found');
-      console.log('GlutenFree background:', glutenFreeSection ? getComputedStyle(glutenFreeSection).background : 'not found');
-    }, 100);
+    // Espacio reservado para depuración de secciones si es necesario
   }
   
   function applyThemeStyles(theme: string) {

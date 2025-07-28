@@ -103,8 +103,6 @@ const {
               (q.q ? "?" + q.q : "") +
               l.hash;
 
-            console.log("SPA redirect - Original:", l.pathname + l.search);
-            console.log("SPA redirect - New path:", newPath);
 
             window.history.replaceState(null, null, newPath);
           }

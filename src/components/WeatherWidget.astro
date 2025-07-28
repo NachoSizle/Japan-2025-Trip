@@ -66,10 +66,7 @@ const apiKey = import.meta.env.OPENWEATHER_API_KEY;
   }
 
   async function getWeather() {
-    // Depuración: mostrar apiKey y URL
-    console.log('[WeatherWidget] apiKey:', apiKey);
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric&lang=es`;
-    console.log('[WeatherWidget] URL:', url);
     if (!apiKey || apiKey === 'undefined') {
       widget.innerHTML = '<span class="text-red-500">API key no definida. Revisa tu .env y reinicia el servidor Astro.</span>';
       return;
