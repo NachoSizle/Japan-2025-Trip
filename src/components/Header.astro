@@ -30,7 +30,11 @@
       <!-- Controles superiores -->
       <div class="flex items-center space-x-3">
         <!-- Toggle Modo Claro/Oscuro -->
-        <button id="theme-toggle" class="flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 theme-toggle">
+        <button 
+          id="theme-toggle" 
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 theme-toggle"
+          aria-label="Cambiar tema entre claro y oscuro"
+        >
           <span id="dark-icon" class="text-lg">🌙</span>
           <span id="light-icon" class="text-lg hidden">☀️</span>
         </button>
@@ -45,7 +49,13 @@
         </div>
 
         <!-- Menú hamburguesa para móvil -->
-        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 hamburger-btn">
+        <button 
+          id="mobile-menu-btn" 
+          class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 hamburger-btn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
           <div class="w-6 h-6 flex flex-col justify-center items-center">
             <span class="hamburger-line"></span>
             <span class="hamburger-line mt-1"></span>
@@ -103,6 +113,7 @@
           // Cerrar menú
           mobileMenu.classList.add('hidden');
           mobileMenuBtn.classList.remove('active');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
           hamburgerLines[0]?.classList.remove('rotate-45', 'translate-y-1.5');
           hamburgerLines[1]?.classList.remove('opacity-0');
           hamburgerLines[2]?.classList.remove('-rotate-45', '-translate-y-1.5');
@@ -110,6 +121,7 @@
           // Abrir menú
           mobileMenu.classList.remove('hidden');
           mobileMenuBtn.classList.add('active');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
           hamburgerLines[0]?.classList.add('rotate-45', 'translate-y-1.5');
           hamburgerLines[1]?.classList.add('opacity-0');
           hamburgerLines[2]?.classList.add('-rotate-45', '-translate-y-1.5');
@@ -122,6 +134,7 @@
         link.addEventListener('click', function() {
           mobileMenu.classList.add('hidden');
           mobileMenuBtn.classList.remove('active');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
           hamburgerLines[0]?.classList.remove('rotate-45', 'translate-y-1.5');
           hamburgerLines[1]?.classList.remove('opacity-0');
           hamburgerLines[2]?.classList.remove('-rotate-45', '-translate-y-1.5');

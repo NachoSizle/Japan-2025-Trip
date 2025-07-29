@@ -72,7 +72,10 @@ const SistemaFiltrosSolid: Component<Props> = (props) => {
         <button
           onClick={() => setFiltersOpen(!filtersOpen())}
           class="home-cta filter-toggle-button mx-auto flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-base sm:text-lg border-2 border-pink-500 shadow-lg hover:shadow-pink-400/30 focus:outline-none focus:ring-2 focus:ring-pink-400 min-w-[200px]"
-          style="background: linear-gradient(135deg, #FF6B6B, #FF1493); border-color: rgba(255, 255, 255, 0.1);">
+          style="background: linear-gradient(135deg, #FF6B6B, #FF1493); border-color: rgba(255, 255, 255, 0.1);"
+          aria-label={filtersOpen() ? "Cerrar panel de filtros" : "Abrir panel de filtros"}
+          aria-expanded={filtersOpen()}
+        >
           <span>Filtrar itinerario</span>
           <span class="text-xs transition-transform duration-300">{filtersOpen() ? '▲' : '▼'}</span>
         </button>
@@ -83,14 +86,16 @@ const SistemaFiltrosSolid: Component<Props> = (props) => {
             <h3 class="text-lg font-bold mb-4 text-center text-white dark:text-white">Tipos de actividades</h3>
             {/* Botones de filtros rápidos */}
             <div class="flex flex-wrap justify-center gap-1 sm:gap-2 md:gap-4 mb-6 px-2">
-              <button 
+                            <button 
                 onClick={() => { setTipo('todos'); setCiudad('todas'); }}
                 class={`px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap flex-shrink-0 ${
                   tipo() === 'todos' && ciudad() === 'todas' 
                     ? 'bg-pink-500 text-white border-pink-500 shadow-lg shadow-pink-500/50' 
-                    : 'bg-transparent text-pink-500 border-pink-500 hover:shadow-lg hover:shadow-pink-500/30'
-                }`}>
-                Todos los días
+                    : 'bg-white/90 text-gray-700 border-white/60 hover:bg-pink-100 hover:border-pink-300 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700'
+                }`}
+                aria-label="Mostrar todas las actividades en todas las ciudades"
+              >
+                🌟 Todos
               </button>
               <button 
                 onClick={() => setTipo('gluten-free')}
@@ -98,7 +103,9 @@ const SistemaFiltrosSolid: Component<Props> = (props) => {
                   tipo() === 'gluten-free'
                     ? 'bg-pink-400 text-white border-pink-400 shadow-lg shadow-pink-400/50' 
                     : 'bg-transparent text-pink-400 border-pink-400 hover:shadow-lg hover:shadow-pink-400/30'
-                }`}>
+                }`}
+                aria-label="Filtrar actividades sin gluten"
+              >
                 🌾🚫 Sin Gluten
               </button>
               <button 
@@ -107,16 +114,20 @@ const SistemaFiltrosSolid: Component<Props> = (props) => {
                   tipo() === 'destacados'
                     ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/50' 
                     : 'bg-transparent text-red-500 border-red-500 hover:shadow-lg hover:shadow-red-500/30'
-                }`}>
+                }`}
+                aria-label="Filtrar actividades destacadas"
+              >
                 ⭐ Destacados
               </button>
-              <button 
+                            <button 
                 onClick={() => setTipo('turismo')}
                 class={`px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 border-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm whitespace-nowrap flex-shrink-0 ${
                   tipo() === 'turismo'
                     ? 'bg-pink-300 text-gray-800 border-pink-300 shadow-lg shadow-pink-300/50' 
                     : 'bg-transparent text-pink-300 border-pink-300 hover:shadow-lg hover:shadow-pink-300/30'
-                }`}>
+                }`}
+                aria-label="Filtrar actividades de turismo"
+              >
                 🗼 Turismo
               </button>
             </div>
@@ -130,8 +141,10 @@ const SistemaFiltrosSolid: Component<Props> = (props) => {
                   ciudad() === 'todas'
                     ? 'bg-pink-700 text-white border-pink-700 shadow-lg shadow-pink-700/50' 
                     : 'bg-transparent text-pink-700 border-pink-700 hover:shadow-lg hover:shadow-pink-700/30'
-                }`}>
-                Todas
+                }`}
+                aria-label="Mostrar actividades de todas las ciudades"
+              >
+                🌏 Todas
               </button>
               <For each={ciudades}>{(c) => (
                 <button 
@@ -140,7 +153,9 @@ const SistemaFiltrosSolid: Component<Props> = (props) => {
                     ciudad() === c
                       ? 'bg-pink-700 text-white border-pink-700 shadow-lg shadow-pink-700/50' 
                       : 'bg-transparent text-pink-700 border-pink-700 hover:shadow-lg hover:shadow-pink-700/30'
-                  }`}>
+                  }`}
+                  aria-label={`Filtrar actividades de ${c}`}
+                >
                   {c}
                 </button>
               )}</For>

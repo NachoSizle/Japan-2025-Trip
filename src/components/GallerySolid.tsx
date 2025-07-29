@@ -229,6 +229,7 @@ const GallerySolid: Component = () => {
                 classList={{
                   [`filter-active-${category.color}`]: activeCategory() === category.id
                 }}
+                aria-label={`Filtrar galería por ${category.name}`}
               >
                 {category.name}
               </button>

@@ -291,6 +291,7 @@ const ChecklistSolid: Component<Props> = (props) => {
                   : "bg-transparent text-pink-400 border-pink-400 hover:bg-pink-500/10"
               }`}
             onClick={() => setFilter("todos")}
+            aria-label="Mostrar todos los elementos del checklist"
           >
             Todos
           </button>
@@ -302,6 +303,7 @@ const ChecklistSolid: Component<Props> = (props) => {
                   : "bg-transparent text-green-400 border-green-400 hover:bg-green-400/10"
               }`}
             onClick={() => setFilter("completados")}
+            aria-label="Mostrar solo elementos completados del checklist"
           >
             Completados
           </button>
@@ -313,6 +315,7 @@ const ChecklistSolid: Component<Props> = (props) => {
                   : "bg-transparent text-yellow-300 border-yellow-300 hover:bg-yellow-300/10"
               }`}
             onClick={() => setFilter("pendientes")}
+            aria-label="Mostrar solo elementos pendientes del checklist"
           >
             Pendientes
           </button>
@@ -329,6 +332,7 @@ const ChecklistSolid: Component<Props> = (props) => {
             <button
               class="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 rounded-full bg-pink-500/20 hover:bg-pink-500/40 transition-all"
               onClick={() => setSearch("")}
+              aria-label="Limpiar búsqueda"
               title="Limpiar búsqueda"
             >
               <svg
@@ -381,6 +385,7 @@ const ChecklistSolid: Component<Props> = (props) => {
                         [categoria]: !adding()[categoria],
                       })
                     }
+                    aria-label={adding()[categoria] ? `Cancelar añadir ítem en ${categoria}` : `Añadir nuevo ítem en ${categoria}`}
                   >
                     {adding()[categoria] ? "✕ Cancelar" : "+ Añadir ítem"}
                   </button>

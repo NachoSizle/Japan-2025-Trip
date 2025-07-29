@@ -37,10 +37,12 @@ const EditItemModal: Component<EditItemModalProps> = (props) => {
             <button
               class="px-4 py-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white font-semibold hover:from-green-500 hover:to-emerald-600 transition-all duration-200 shadow-md hover:shadow-lg border border-green-400/30"
               onClick={props.onSave}
+              aria-label="Guardar cambios en el ítem"
             >✓ Guardar</button>
             <button
               class="px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-semibold hover:from-pink-600 hover:to-fuchsia-600 transition-all duration-200 shadow-md hover:shadow-lg border border-pink-400/30"
               onClick={props.onCancel}
+              aria-label="Cancelar edición del ítem"
             >✕ Cancelar</button>
           </div>
         </div>
