@@ -31,11 +31,9 @@
  */
 
 import Fuse from "fuse.js";
-import itinerary from "../data/itinerario.json";
+import { dias as diasData } from "../content/itinerario/itinerario.json";
 import flightIda from "../content/flights/ida.json";
 import flightVuelta from "../content/flights/vuelta.json";
-
-const flights = [flightIda, flightVuelta];
 
 // ---------- Tipos mínimos (ajusta a tu JSON real) ----------
 export interface Comida {
@@ -108,7 +106,9 @@ export interface Hotel {
   check_out?: string;
   [key: string]: any;
 }
-const dias: Dia[] = Array.isArray(itinerary.dias) ? itinerary.dias as Dia[] : [];
+
+const dias = Array.isArray(diasData) ? diasData as Dia[] : [];
+const flights = [flightIda, flightVuelta];
 let vuelos: Vuelo[] = [];
 
 // Helpers para vuelos
