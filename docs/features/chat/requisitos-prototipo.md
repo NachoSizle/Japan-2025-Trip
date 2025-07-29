@@ -7,7 +7,7 @@ Este documento recoge los requisitos funcionales, de UI/UX y el prototipo inicia
 ## 1. Requisitos Funcionales
 
 - El usuario puede escribir preguntas en español sobre cualquier aspecto del viaje (días, actividades, alojamientos, vuelos, etc.).
-- El chat responde en español, de forma clara y amigable, usando solo la información de `src/data/itinerario.json`.
+- El chat responde en español, de forma clara y amigable, usando solo la información de `src/content/itinerario/itinerario.json`.
 - El sistema debe funcionar 100% offline y no enviar datos fuera del dispositivo.
 - El historial de conversación se mantiene durante la sesión (opcional: persistencia local).
 - El usuario puede limpiar el historial.

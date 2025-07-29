@@ -6,7 +6,7 @@ Este documento detalla el análisis y definición técnica para la implementaci�
 
 ## 1. Objetivo Técnico
 
-Desarrollar una isla SolidJS que permita a los usuarios realizar preguntas en lenguaje natural sobre el viaje, obteniendo respuestas contextuales a partir del JSON `src/data/itinerario.json`, sin depender de servicios externos y garantizando la privacidad.
+Desarrollar una isla SolidJS que permita a los usuarios realizar preguntas en lenguaje natural sobre el viaje, obteniendo respuestas contextuales a partir del JSON `src/content/itinerario/itinerario.json`, sin depender de servicios externos y garantizando la privacidad.
 
 ## 2. Opciones de Stack/Modelo Local
 
