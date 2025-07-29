@@ -1,6 +1,9 @@
 ---
 import ChecklistSolid from "./ChecklistSolid";
-import checklist from "../data/checklist.json";
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const checklist = await getCollection("checklist");
+type ChecklistEntry = CollectionEntry<'checklist'>['data'];
 ---
 
-<ChecklistSolid checklist={checklist} client:visible />
+<ChecklistSolid checklist={checklist.map((entry: CollectionEntry<'checklist'>): ChecklistEntry => entry.data)} client:visible />

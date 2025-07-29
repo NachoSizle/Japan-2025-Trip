@@ -50,8 +50,16 @@ src/components/
 src/pages/
 └── checklist.astro            # Página dedicada del checklist
 
-src/data/
-└── checklist.json            # Datos predefinidos por categorías
+
+src/content/checklist/
+├── neceser.json              # Categoría: Neceser
+├── ropa.json                 # Categoría: Ropa
+├── medicinas.json            # Categoría: Medicinas
+├── electronica.json          # Categoría: Electrónica
+├── documentacion.json        # Categoría: Documentación
+└── varios.json               # Categoría: Varios
+
+> ⚡️ Ahora los datos predefinidos del checklist se gestionan con Astro Content Collections, permitiendo validación de esquema, autocompletado y mayor robustez. Cada archivo representa una categoría y se valida automáticamente según el esquema definido en `src/content/config.ts`.
 ```
 
 ### **Estado Reactivo con SolidJS**
