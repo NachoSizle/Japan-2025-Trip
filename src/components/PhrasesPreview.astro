@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+
+// Leer frases destacadas desde la colección 'itinerario'
+const itinerarioCollection = await getCollection('itinerario');
+// Suponemos que solo hay un archivo global, si hay varios, puedes ajustar el filtro
+const frasesUtiles = itinerarioCollection[0]?.data.frases_utiles || [];
+// Selecciona las 6 primeras como "destacadas"
+const frasesDestacadas = frasesUtiles.slice(0, 6);
+---
+
+<section id="frases-preview" class="py-12 phrases-preview-section">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 m-0">
+    <!-- Header -->
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold m-0 mb-4 phrases-preview-title">
+        🗣️ Frases Esenciales
+      </h2>
+      <p class="text-lg sm:text-xl lg:text-2xl mb-6 phrases-preview-subtitle">
+        Aprende las frases más importantes para desenvolverte en Japón
+      </p>
+      <div class="flex justify-center">
+        <a href={`${import.meta.env.BASE_URL}frases`} class="phrases-preview-cta group">
+          <span class="group-hover:animate-pulse">📚 Ver Todas las Frases</span>
+          <span class="phrases-preview-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grid de frases destacadas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {frasesDestacadas.map((frase, index) => (
+        <div class="phrases-preview-card" data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="phrases-preview-category">
+            {frase.categoria}
+          </div>
+          <div class="phrases-preview-japanese">
+            {frase.japones}
+          </div>
+          <div class="phrases-preview-phonetic">
+            {frase.romaji}
+          </div>
+          <div class="phrases-preview-translation">
+            {frase.español}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Stats rápidas -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <div class="phrases-preview-stat">
+        <div class="phrases-preview-stat-number">{frasesUtiles.length}</div>
+        <div class="phrases-preview-stat-label">Frases útiles</div>
+      </div>
+      <div class="phrases-preview-stat">
+        <div class="phrases-preview-stat-number">{[...new Set(frasesUtiles.map(f => f.categoria))].length}</div>
+        <div class="phrases-preview-stat-label">Categorías</div>
+      </div>
+      <div class="phrases-preview-stat">
+        <div class="phrases-preview-stat-number">100%</div>
+        <div class="phrases-preview-stat-label">Con fonética</div>
+      </div>
+      <div class="phrases-preview-stat">
+        <div class="phrases-preview-stat-number">📱</div>
+        <div class="phrases-preview-stat-label">Fácil acceso</div>
+      </div>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="mt-12 text-center">
+      <div class="phrases-preview-info">
+        <h3 class="phrases-preview-info-title">
+          ¿Por qué son importantes estas frases?
+        </h3>
+        <p class="phrases-preview-info-text">
+          Japón es un país increíblemente acogedor, pero el idioma puede ser una barrera. 
+          Con estas frases básicas podrás comunicarte para situaciones esenciales como pedir direcciones, 
+          ordenar comida, hacer compras y manejar emergencias. ¡La mayoría de japoneses apreciarán enormemente tu esfuerzo!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ... Copia aquí los estilos del componente original ... */
+</style>
