@@ -33,8 +33,10 @@ const {
             },
           },
         });
-        // Forzar el prompt al cargar la página
-        OneSignal.showSlidedownPrompt();
+        // Forzar el prompt solo si el método está disponible
+        if (w.OneSignal && typeof w.OneSignal.showSlidedownPrompt === "function") {
+          w.OneSignal.showSlidedownPrompt();
+        }
       });
     </script>
     <meta charset="UTF-8" />
