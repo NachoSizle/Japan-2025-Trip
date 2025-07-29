@@ -32,7 +32,10 @@
 
 import Fuse from "fuse.js";
 import itinerary from "../data/itinerario.json";
-import flightsData from "../data/flights.json";
+import flightIda from "../content/flights/ida.json";
+import flightVuelta from "../content/flights/vuelta.json";
+
+const flights = [flightIda, flightVuelta];
 
 // ---------- Tipos mínimos (ajusta a tu JSON real) ----------
 export interface Comida {
@@ -106,11 +109,13 @@ export interface Hotel {
   [key: string]: any;
 }
 const dias: Dia[] = Array.isArray(itinerary.dias) ? itinerary.dias as Dia[] : [];
-const vuelos: Vuelo[] = Array.isArray(flightsData.flights) ? flightsData.flights as Vuelo[] : [];
-// const hoteles: Hotel[] = Array.isArray(itinerary.alojamientos) ? itinerary.alojamientos as Hotel[] : [];
+let vuelos: Vuelo[] = [];
 
 // Helpers para vuelos
-const getVuelo = (direction: "ida" | "vuelta"): Vuelo | undefined => vuelos.find((v: Vuelo) => v.direction === direction);
+const getVuelo = async (direction: "ida" | "vuelta"): Promise<Vuelo | undefined> => {
+  if (!vuelos.length) vuelos = flights as Vuelo[];
+  return vuelos.find((v: Vuelo) => v.direction === direction);
+};
 
 // ---------- Normalización y alias ----------
 const aliasMap: Record<string,string> = {
@@ -337,14 +342,14 @@ export async function getLLMResponse(question:string):Promise<string>{
 
   // Vuelos
   if(/vuelo de ida|vuelo de salida|primer vuelo/.test(q)){
-    const v = getVuelo("ida");
+    const v = await getVuelo("ida");
     if(!v) return "No hay datos del vuelo de ida.";
     if(/n[uú]mero/.test(q)) return `El número de vuelo de ida es ${v.flight_segments?.map((fs: VueloSegment)=>fs.flight_number).join(" + ") ?? "desconocido"}.`;
     if(/a qu[eé] hora/.test(q)) return `El vuelo de ida sale de ${v.from.city} a las ${v.from.departure_time?.slice(11,16)}.`;
     return `Vuelo de ida: ${v.airline} (${v.flight_segments?.map((fs: VueloSegment)=>fs.flight_number).join(" + ")}) el ${v.from.departure_time?.slice(0,10)} de ${v.from.city} a ${v.to.city}, salida ${v.from.departure_time?.slice(11,16)} llegada ${v.to.arrival_time?.slice(11,16)}.`;
   }
   if(/vuelo de vuelta|regreso|retorno/.test(q)){
-    const v = getVuelo("vuelta");
+    const v = await getVuelo("vuelta");
     if(!v) return "No hay datos del vuelo de vuelta.";
     if(/n[uú]mero/.test(q)) return `El número de vuelo de vuelta es ${v.flight_segments?.map((fs: VueloSegment)=>fs.flight_number).join(" + ") ?? "desconocido"}.`;
     if(/a qu[eé] hora/.test(q)) return `El vuelo de vuelta sale de ${v.from.city} a las ${v.from.departure_time?.slice(11,16)}.`;
