@@ -73,7 +73,6 @@ Este roadmap resume las tareas completadas y el progreso funcional del sitio web
 - [ ] Integración con APIs de transporte japonés (horarios, rutas, alertas)
 - [ ] Gamificación: logros, puntos o insignias por completar actividades
 - [ ] Soporte multilenguaje (inglés y japonés)
-- [ ] [`features/chat/chat-tecnico.md`](features/chat/chat-tecnico.md)
 - [x] [`features/checklist/checklist-tecnico.md`](features/checklist/checklist-tecnico.md) ✅
 
 ---
