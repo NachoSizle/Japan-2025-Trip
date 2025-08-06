@@ -1,6 +1,4 @@
 ---
-import ChatItinerarioWrapper from "../components/ChatItinerarioWrapper.astro";
-
 export interface Props {
   title: string;
   description?: string;
@@ -40,6 +38,8 @@ const {
       });
     </script>
     <meta charset="UTF-8" />
+    <!-- Preconexión a recursos estáticos de GitHub Pages -->
+    <link rel="preconnect" href="https://nachosizle.github.io" crossorigin />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -111,6 +111,69 @@ const {
         }
       })(window.location);
     </script>
+    <!-- CSS crítico inline para mejorar LCP y evitar FOUC -->
+    <style>
+      :root {
+        --primary-color: #FF6B6B;
+        --secondary-color: #FFB3B3;
+        --accent-color: #FF9999;
+        --bg-deep-black: #0A0A0A;
+        --bg-charcoal: #1A1A1A;
+        --bg-light-pastel: #FFE8E8;
+        --bg-medium-pastel: #FFDDDD;
+        --bg-card-light: #FFF5F5;
+        --text-dark: #FFFFFF;
+        --text-light: #2D1B1B;
+        --text-muted-dark: #AAAAAA;
+        --text-muted-light: #5D4A4A;
+        --gold-soft: #FFD700;
+        --gluten-free-green: #32CD32;
+        --glow-primary: 0 0 20px var(--primary-color);
+        --glow-secondary: 0 0 20px var(--secondary-color);
+        --glow-green: 0 0 20px var(--gluten-free-green);
+      }
+      html, body {
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+        transition: all 0.3s ease;
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+      body {
+        background: linear-gradient(135deg, var(--bg-light-pastel), var(--bg-medium-pastel));
+      }
+      [data-theme="light"] {
+        background: linear-gradient(135deg, var(--bg-light-pastel), var(--bg-medium-pastel)) !important;
+        min-height: 100vh;
+      }
+      [data-theme="dark"] {
+        background: linear-gradient(135deg, var(--bg-deep-black), var(--bg-charcoal)) !important;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      @media (min-width: 640px) {
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+      header {
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
+      header .container {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    </style>
+    <!-- Importar estilos globales para el resto de la app -->
+    <style>
+      @import "../styles/global.css";
+    </style>
   </head>
   <body
     class="font-inter antialiased transition-all duration-300 overflow-x-hidden"
@@ -372,14 +435,5 @@ const {
         color: inherit;
       }
     </style>
-
-
-    <!-- Chat contextual: botón flotante y panel -->
-    <ChatItinerarioWrapper />
   </body>
 </html>
-
-<style>
-  /* Import our global styles */
-  @import "../styles/global.css";
-</style>

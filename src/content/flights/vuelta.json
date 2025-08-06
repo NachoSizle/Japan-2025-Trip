@@ -1,0 +1,45 @@
+{
+  "direction": "vuelta",
+  "flight_id": "MU540_MU709",
+  "from": {
+    "city": "Tokio",
+    "airport": "Aeropuerto Internacional de Tokio-Haneda (HND)",
+    "departure_time": "2025-08-28T20:00:00"
+  },
+  "stopover": {
+    "city": "Shanghái",
+    "airport": "Aeropuerto Internacional de Shanghái-Pudong (PVG)",
+    "arrival_time": "2025-08-28T22:10:00",
+    "departure_time": "2025-08-29T00:45:00"
+  },
+  "to": {
+    "city": "Madrid",
+    "airport": "Aeropuerto Adolfo Suárez Madrid-Barajas (MAD)",
+    "arrival_time": "2025-08-29T08:40:00"
+  },
+  "airline": "China Eastern Airlines",
+  "flight_segments": [
+    {
+      "flight_number": "MU540",
+      "from": "HND",
+      "to": "PVG",
+      "departure": "2025-08-28T20:00:00",
+      "arrival": "2025-08-28T22:10:00",
+      "tracking_url": "https://es.flightaware.com/live/flight/MU540"
+    },
+    {
+      "flight_number": "MU709",
+      "from": "PVG",
+      "to": "MAD",
+      "departure": "2025-08-29T00:45:00",
+      "arrival": "2025-08-29T08:40:00",
+      "tracking_url": "https://es.flightaware.com/live/flight/MU709"
+    }
+  ],
+  "baggage": {
+    "checked": "2 x 23kg",
+    "hand": "1 x 8kg (55x40x20cm)",
+    "personal_item": "1 por persona (bajo el asiento delantero)"
+  },
+  "notes": "Operado por China Eastern Airlines. El equipaje se factura hasta destino final. Escala de 2h35min en Shanghái."
+}

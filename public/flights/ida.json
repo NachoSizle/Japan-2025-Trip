@@ -1,0 +1,44 @@
+{
+  "direction": "ida",
+  "flight_id": "TK1860_TK86",
+  "from": {
+    "city": "Madrid",
+    "airport": "Madrid Barajas Airport (MAD)",
+    "departure_time": "2025-08-13T18:20:00"
+  },
+  "stopover": {
+    "city": "Istanbul",
+    "airport": "Istanbul Airport (IST)",
+    "arrival_time": "2025-08-13T23:35:00",
+    "departure_time": "2025-08-14T02:05:00"
+  },
+  "to": {
+    "city": "Osaka",
+    "airport": "Kansai International Airport (KIX)",
+    "arrival_time": "2025-08-14T19:00:00"
+  },
+  "airline": "Turkish Airlines",
+  "flight_segments": [
+    {
+      "flight_number": "TK1860",
+      "from": "MAD",
+      "to": "IST",
+      "departure": "2025-08-13T18:20:00",
+      "arrival": "2025-08-13T23:35:00",
+      "tracking_url": "https://www.turkishairlines.com/es-us/flights/flight-status/?t=1&flight=1860&date=130825"
+    },
+    {
+      "flight_number": "TK86",
+      "from": "IST",
+      "to": "KIX",
+      "departure": "2025-08-14T02:05:00",
+      "arrival": "2025-08-14T19:00:00",
+      "tracking_url": "https://www.turkishairlines.com/es-us/flights/flight-status/?t=1&flight=86&date=140825"
+    }
+  ],
+  "baggage": {
+    "checked": "2 x 23kg",
+    "hand": "1 x 8kg (55x40x23cm)"
+  },
+  "notes": "Operado por Turkish Airlines. Llegada a Osaka el 14 de agosto por la tarde, según itinerario general."
+}

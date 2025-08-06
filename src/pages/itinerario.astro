@@ -2,20 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import SistemaFiltrosSolid from '../components/SistemaFiltrosSolid.tsx';
-import itinerarioData from '../data/itinerario.json';
 
+import { getCollection } from 'astro:content';
 
-const { dias: diasOriginal } = itinerarioData;
-// Mapeo para que solo pasen los campos esperados por el componente Solid
-// Forzamos el tipado a Dia[] tras limpiar los campos extra del JSON.
-// Esto es seguro porque solo pasamos los campos esperados por el componente SolidJS.
-const dias = diasOriginal.map(({ dia, fecha, titulo, ciudad, actividades }) => ({
-  dia,
-  fecha,
-  titulo,
-  ciudad,
-  actividades: Array.isArray(actividades) ? actividades : [],
-})) as import("../components/SistemaFiltrosSolid").Dia[];
+// Cargar y aplanar todos los días del itinerario desde la Content Collection
+const diasCollection = await getCollection('itinerario');
+const dias = diasCollection
+  .flatMap(entry =>
+    Array.isArray(entry.data.dias)
+      ? entry.data.dias.map(dia => ({ ...dia }))
+      : []
+  )
+  .sort((a, b) => a.dia - b.dia) as import("../components/SistemaFiltrosSolid").Dia[];
+
+// Datos globales del viaje (pueden mantenerse en el primer día o en un archivo aparte si se requiere)
+const viaje = {
+  duracion_dias: dias.length,
+  ciudades_principales: Array.from(new Set(dias.map(d => d.ciudad))).filter(Boolean),
+};
 ---
 
 <Layout title="Itinerario Completo - Japón 2025">
@@ -49,14 +53,14 @@ const dias = diasOriginal.map(({ dia, fecha, titulo, ciudad, actividades }) => (
           <div class="trip-info-card p-4 sm:p-6 rounded-xl" role="status" aria-label="Duración total del viaje">
             <div class="text-2xl sm:text-3xl mb-2">🗓️</div>
             <div class="font-bold text-lg sm:text-xl mb-1" style="color: #FF1493;">
-              {itinerarioData.viaje.duracion_dias} días
+              {viaje.duracion_dias} días
             </div>
             <div class="text-sm text-gray-400">Duración total</div>
           </div>
           <div class="trip-info-card p-4 sm:p-6 rounded-xl" role="status" aria-label="Ciudades principales">
             <div class="text-2xl sm:text-3xl mb-2">🏙️</div>
             <div class="font-bold text-lg sm:text-xl mb-1" style="color: #FF6B6B;">
-              {itinerarioData.viaje.ciudades_principales.length} ciudades
+              {viaje.ciudades_principales.length} ciudades
             </div>
             <div class="text-sm text-gray-400">Principales</div>
           </div>
@@ -83,7 +87,7 @@ const dias = diasOriginal.map(({ dia, fecha, titulo, ciudad, actividades }) => (
 
       <!-- CTA de regreso al home -->
       <div class="text-center mt-12 sm:mt-16 md:mt-20 px-2 sm:px-4">
-        <a href="/" class="home-cta inline-flex items-center justify-center space-x-3 px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-base sm:text-lg">
+        <a href={import.meta.env.BASE_URL} class="home-cta inline-flex items-center justify-center space-x-3 px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-base sm:text-lg">
           <span class="text-xl">🏠</span>
           <span>Volver al Inicio</span>
           <span class="text-xl">✨</span>

@@ -1,9 +1,11 @@
 ---
 import FlightCard from './FlightCard.tsx';
-import flightsData from '../data/flights.json';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const departureFlight = flightsData.flights.find(f => f.direction === 'ida');
-const returnFlight = flightsData.flights.find(f => f.direction === 'vuelta');
+const flights = await getCollection("flights");
+type FlightEntry = CollectionEntry<'flights'>['data'];
+const departureFlight: FlightEntry | undefined = flights.find((f) => f.data.direction === 'ida')?.data;
+const returnFlight: FlightEntry | undefined = flights.find((f) => f.data.direction === 'vuelta')?.data;
 ---
 
 <section id="flights" class="py-12 flights-section">

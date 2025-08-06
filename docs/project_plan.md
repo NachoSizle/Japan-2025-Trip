@@ -30,7 +30,7 @@ El objetivo principal era crear una **herramienta de viaje viva y funcional** qu
 
 ### Estructura de Datos Centralizada
 
-Todo el itinerario reside en `src/data/itinerario.json`. Esta decisión fue clave para:
+Todo el itinerario reside en `src/content/itinerario/itinerario.json`. Esta decisión fue clave para:
 - **Facilitar la gestión**: Actualizar el plan de viaje en un único lugar.
 - **Consistencia de datos**: Asegurar que todos los componentes consuman la misma información.
 

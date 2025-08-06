@@ -3,28 +3,43 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import WeatherWidget from '../../components/WeatherWidget.astro';
 import DayNavigation from '../../components/DayNavigation.astro';
-import itinerarioData from '../../data/itinerario.json';
+import { getCollection } from 'astro:content';
 
-export function getStaticPaths() {
-  // Generar rutas para todos los días del itinerario
-  return itinerarioData.dias.map((dia) => ({
-    params: { 
-      dia: dia.dia.toString() 
-    }
+export async function getStaticPaths() {
+  // Generar rutas para todos los días del itinerario usando la colección aplanada
+  const diasCollection = await getCollection('itinerario');
+  const dias = diasCollection
+    .flatMap(entry =>
+      Array.isArray(entry.data.dias)
+        ? entry.data.dias.map(dia => ({ ...dia }))
+        : []
+    );
+  return dias.map((dia) => ({
+    params: { dia: dia.dia.toString() }
   }));
 }
 
+
+
 const { dia } = Astro.params;
-const diaActual = itinerarioData.dias.find(d => d.dia.toString() === dia);
+const diasCollection = await getCollection('itinerario');
+const dias = diasCollection
+  .flatMap(entry =>
+    Array.isArray(entry.data.dias)
+      ? entry.data.dias.map(dia => ({ ...dia }))
+      : []
+  );
+const diaActual = dias.find(d => d.dia.toString() === dia);
 
 if (!diaActual) {
   return Astro.redirect('/404');
 }
 
 // Obtener día anterior y siguiente para navegación
-const diaIndex = itinerarioData.dias.findIndex(d => d.dia.toString() === dia);
-const diaAnterior = diaIndex > 0 ? itinerarioData.dias[diaIndex - 1] : null;
-const diaSiguiente = diaIndex < itinerarioData.dias.length - 1 ? itinerarioData.dias[diaIndex + 1] : null;
+const sortedDias = dias.sort((a, b) => a.dia - b.dia);
+const diaIndex = sortedDias.findIndex(d => d.dia.toString() === dia);
+const diaAnterior = diaIndex > 0 ? sortedDias[diaIndex - 1] : null;
+const diaSiguiente = diaIndex < sortedDias.length - 1 ? sortedDias[diaIndex + 1] : null;
 ---
 
 <Layout title={`Día ${diaActual.dia} - ${diaActual.titulo} | Japón 2025`}>

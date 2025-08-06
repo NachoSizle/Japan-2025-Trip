@@ -1,6 +1,31 @@
-# 📋 Checklist Personalizada para el Viaje — Documentación Técnica ✅
 
-Este documento describe la implementación completa del sistema de checklist para el viaje a Japón 2025. El sistema incluye funcionalidad CRUD completa, adaptación automática de temas y persistencia local.
+# 📋 Checklist y Datos de Itinerario — Documentación Técnica ✅
+
+Este documento describe la implementación completa del sistema de checklist y la migración de los datos de itinerario a Astro Content Collections para el viaje a Japón 2025. El sistema incluye funcionalidad CRUD completa, adaptación automática de temas, persistencia local y ahora validación y consumo robusto de datos mediante Content Collections.
+
+---
+
+## Estado actual (julio 2025)
+
+- Todos los datos estructurados (checklist, vuelos, itinerario) se gestionan con Astro Content Collections y esquemas validados.
+- Los componentes principales (`Timeline.astro`, `itinerario.astro`, `[dia].astro`) consumen los días del itinerario usando un array aplanado, garantizando compatibilidad y robustez.
+- No hay errores de compilación ni ejecución tras la migración y refactor.
+- El sistema es robusto ante cambios futuros en la estructura de los datos y fácil de mantener.
+
+> Para consumir los días del itinerario, usa siempre:
+>
+> ```js
+> const diasCollection = await getCollection('itinerario');
+> const dias = diasCollection
+>   .flatMap(entry =>
+>     Array.isArray(entry.data.dias)
+>       ? entry.data.dias.map(dia => ({ ...dia }))
+>       : []
+>   )
+>   .sort((a, b) => a.dia - b.dia);
+> ```
+
+---
 
 ---
 
@@ -50,8 +75,16 @@ src/components/
 src/pages/
 └── checklist.astro            # Página dedicada del checklist
 
-src/data/
-└── checklist.json            # Datos predefinidos por categorías
+
+src/content/checklist/
+├── neceser.json              # Categoría: Neceser
+├── ropa.json                 # Categoría: Ropa
+├── medicinas.json            # Categoría: Medicinas
+├── electronica.json          # Categoría: Electrónica
+├── documentacion.json        # Categoría: Documentación
+└── varios.json               # Categoría: Varios
+
+> ⚡️ Ahora los datos predefinidos del checklist se gestionan con Astro Content Collections, permitiendo validación de esquema, autocompletado y mayor robustez. Cada archivo representa una categoría y se valida automáticamente según el esquema definido en `src/content/config.ts`.
 ```
 
 ### **Estado Reactivo con SolidJS**
