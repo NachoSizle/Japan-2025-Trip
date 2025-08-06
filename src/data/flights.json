@@ -27,7 +27,7 @@
           "to": "IST",
           "departure": "2025-08-13T18:20:00",
           "arrival": "2025-08-13T23:35:00",
-          "tracking_url": "https://es.flightaware.com/live/flight/TK1860"
+          "tracking_url": "https://www.turkishairlines.com/es-us/flights/flight-status/?t=1&flight=1860&date=130825"
         },
         {
           "flight_number": "TK86",
@@ -35,7 +35,7 @@
           "to": "KIX",
           "departure": "2025-08-14T02:05:00",
           "arrival": "2025-08-14T19:00:00",
-          "tracking_url": "https://es.flightaware.com/live/flight/TK86"
+          "tracking_url": "https://www.turkishairlines.com/es-us/flights/flight-status/?t=1&flight=86&date=140825"
         }
       ],
       "baggage": {
